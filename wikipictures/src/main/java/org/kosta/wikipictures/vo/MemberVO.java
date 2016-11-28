@@ -7,12 +7,14 @@ public class MemberVO {
 	private String birth;
 	private String favorateSpace;
 	private int enabled;
+	private AuthoritiesVO authoritiesVO;
 	
 	public MemberVO() {
 		super();
 	}
 
-	public MemberVO(String id, String nickname, String password, String birth, String favorateSpace, int enabled) {
+	public MemberVO(String id, String nickname, String password, String birth, String favorateSpace, int enabled,
+			AuthoritiesVO authoritiesVO) {
 		super();
 		this.id = id;
 		this.nickname = nickname;
@@ -20,6 +22,7 @@ public class MemberVO {
 		this.birth = birth;
 		this.favorateSpace = favorateSpace;
 		this.enabled = enabled;
+		this.authoritiesVO = authoritiesVO;
 	}
 
 	public String getId() {
@@ -70,10 +73,21 @@ public class MemberVO {
 		this.enabled = enabled;
 	}
 
+	public AuthoritiesVO getAuthoritiesVO() {
+		return authoritiesVO;
+	}
+
+	public void setAuthoritiesVO(AuthoritiesVO authoritiesVO) {
+		this.authoritiesVO = authoritiesVO;
+	}
+
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", nickname=" + nickname + ", password=" + password + ", birth=" + birth
-				+ ", favorateSpace=" + favorateSpace + ", enabled=" + enabled + "]";
+				+ ", favorateSpace=" + favorateSpace + ", enabled=" + enabled + ", authoritiesVO=" + authoritiesVO
+				+ "]";
 	}
+	
+	
 	
 }

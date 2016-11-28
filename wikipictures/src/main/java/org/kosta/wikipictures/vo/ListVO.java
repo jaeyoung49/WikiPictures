@@ -38,6 +38,4 @@ public class ListVO<E> {
 		return "ListVO [list=" + list + ", pagingBean=" + pagingBean + "]";
 	}
 	
-	
-	
 }

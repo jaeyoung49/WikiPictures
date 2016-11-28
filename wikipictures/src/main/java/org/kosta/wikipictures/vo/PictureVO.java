@@ -4,7 +4,7 @@ public class PictureVO {
 	private String pictureDate;
 	private String keyword;
 	private String path;
-	private String comment;
+	private String authorComment;
 	private int hits;
 	private String pictureSpace;
 	private MemberVO memberVO;
@@ -14,13 +14,13 @@ public class PictureVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PictureVO(String pictureDate, String keyword, String path, String comment, int hits, String pictureSpace,
-			MemberVO memberVO) {
+	public PictureVO(String pictureDate, String keyword, String path, String authorComment, int hits,
+			String pictureSpace, MemberVO memberVO) {
 		super();
 		this.pictureDate = pictureDate;
 		this.keyword = keyword;
 		this.path = path;
-		this.comment = comment;
+		this.authorComment = authorComment;
 		this.hits = hits;
 		this.pictureSpace = pictureSpace;
 		this.memberVO = memberVO;
@@ -50,12 +50,12 @@ public class PictureVO {
 		this.path = path;
 	}
 
-	public String getComment() {
-		return comment;
+	public String getAuthorComment() {
+		return authorComment;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setAuthorComment(String authorComment) {
+		this.authorComment = authorComment;
 	}
 
 	public int getHits() {
@@ -84,9 +84,10 @@ public class PictureVO {
 
 	@Override
 	public String toString() {
-		return "PictureVO [pictureDate=" + pictureDate + ", keyword=" + keyword + ", path=" + path + ", comment="
-				+ comment + ", hits=" + hits + ", pictureSpace=" + pictureSpace + ", memberVO=" + memberVO + "]";
+		return "PictureVO [pictureDate=" + pictureDate + ", keyword=" + keyword + ", path=" + path + ", authorComment="
+				+ authorComment + ", hits=" + hits + ", pictureSpace=" + pictureSpace + ", memberVO=" + memberVO + "]";
 	}
+
 	
 	
 	
