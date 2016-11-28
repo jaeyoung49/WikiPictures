@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+타일즈 설정파일
+-->
+  <!DOCTYPE tiles-definitions PUBLIC 
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+<tiles-definitions>
+	<definition name="home" template="/WEB-INF/views/templates/layout.jsp">
+		<put-attribute name="title" value="kosta" />
+		<put-attribute name="header" value="/WEB-INF/views/templates/header.jsp" />
+		<put-attribute name="left" value="/WEB-INF/views/templates/left.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/templates/footer.jsp" />
+		<put-attribute name="main" value="/WEB-INF/views/home.jsp" />
+	</definition>	
+	<!-- 상속받아 변경부분만 재정의한다  -->
+	<!-- <definition name="home2" extends="home">
+		<put-attribute name="main" value="/WEB-INF/views/home2.jsp" />
+	</definition> -->
+	<!-- {디렉토리명}/{view이름} -->
+	<definition name="*/*" extends="home">
+        <put-attribute name="main" value="/WEB-INF/views/{1}/{2}.jsp" />        
+        <put-attribute name="title" value="{2}" />
+    </definition>
+    <!-- {디렉토리명}/{디렉토리명}/{view이름} -->
+	<!-- <definition name="member/admin/*" extends="home">
+		<put-attribute name="header" value="/WEB-INF/views/templates/admin/header.jsp" />
+        <put-attribute name="main" value="/WEB-INF/views/member/admin/{1}.jsp" />        
+        <put-attribute name="title" value="{1}" />
+    </definition> -->
+</tiles-definitions>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
