@@ -5,75 +5,60 @@ public class MemberVO {
 	private String nickname;
 	private String password;
 	private String birth;
-	private String favorateSpace;
+	private String favoriteSpace;
 	private int enabled;
-	
 	public MemberVO() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-
-	public MemberVO(String id, String nickname, String password, String birth, String favorateSpace, int enabled) {
+	public MemberVO(String id, String nickname, String password, String birth, String favoriteSpace, int enabled) {
 		super();
 		this.id = id;
 		this.nickname = nickname;
 		this.password = password;
 		this.birth = birth;
-		this.favorateSpace = favorateSpace;
+		this.favoriteSpace = favoriteSpace;
 		this.enabled = enabled;
 	}
-
 	public String getId() {
 		return id;
 	}
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
 	public String getNickname() {
 		return nickname;
 	}
-
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public String getBirth() {
 		return birth;
 	}
-
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-
-	public String getFavorateSpace() {
-		return favorateSpace;
+	public String getFavoriteSpace() {
+		return favoriteSpace;
 	}
-
-	public void setFavorateSpace(String favorateSpace) {
-		this.favorateSpace = favorateSpace;
+	public void setFavoriteSpace(String favoriteSpace) {
+		this.favoriteSpace = favoriteSpace;
 	}
-
 	public int getEnabled() {
 		return enabled;
 	}
-
 	public void setEnabled(int enabled) {
 		this.enabled = enabled;
 	}
-
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", nickname=" + nickname + ", password=" + password + ", birth=" + birth
-				+ ", favorateSpace=" + favorateSpace + ", enabled=" + enabled + "]";
+				+ ", favoriteSpace=" + favoriteSpace + ", enabled=" + enabled + "]";
 	}
-	
 }

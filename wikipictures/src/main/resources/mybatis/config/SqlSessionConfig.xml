@@ -12,11 +12,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		  MemberVO 
 	 -->
 	<typeAliases>		
-		<!-- <package name="org.kosta.springmvc23.model"/> -->
+		<package name="org.kosta.wikipictures.vo"/>
 	</typeAliases>	
 	<!-- mapper.xml 을 명시한다  -->
 	<mappers>	
-		<!-- <mapper resource="mybatis/config/member.xml"/>	 -->
+		<mapper resource="mybatis/config/picture.xml"/>	
+		<mapper resource="mybatis/config/member.xml"/>	
 	</mappers>
 </configuration>
 
