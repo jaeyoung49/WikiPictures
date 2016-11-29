@@ -10,6 +10,7 @@
 		<config>src/main/webapp/WEB-INF/wikipictures-web.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/wikipictures-model.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

@@ -16,8 +16,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</typeAliases>	
 	<!-- mapper.xml 을 명시한다  -->
 	<mappers>	
-		<mapper resource="mybatis/config/picture.xml"/>	
-		<mapper resource="mybatis/config/member.xml"/>	
+		<mapper resource="mybatis/config/picture.xml"/>
+		<mapper resource="mybatis/config/member.xml"/>
 	</mappers>
 </configuration>
 
