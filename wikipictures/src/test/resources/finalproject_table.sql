@@ -14,7 +14,7 @@ drop table report;
 drop table hashtag;
 
 
- create table member(
+create table member(
 	id varchar2(20) primary key,
 	nickname varchar2(20) not null,
 	password varchar2(20) not null,

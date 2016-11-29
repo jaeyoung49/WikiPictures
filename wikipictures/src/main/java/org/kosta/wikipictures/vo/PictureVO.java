@@ -1,5 +1,7 @@
 package org.kosta.wikipictures.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class PictureVO {
 	private String pictureDate;
 	private String keyword;
@@ -8,6 +10,7 @@ public class PictureVO {
 	private int hits;
 	private String pictureSpace;
 	private MemberVO memberVO;
+	private MultipartFile uploadFile;
 
 	public PictureVO() {
 		super();
@@ -15,7 +18,7 @@ public class PictureVO {
 	}
 
 	public PictureVO(String pictureDate, String keyword, String path, String authorComment, int hits,
-			String pictureSpace, MemberVO memberVO) {
+			String pictureSpace, MemberVO memberVO, MultipartFile uploadFile) {
 		super();
 		this.pictureDate = pictureDate;
 		this.keyword = keyword;
@@ -24,6 +27,7 @@ public class PictureVO {
 		this.hits = hits;
 		this.pictureSpace = pictureSpace;
 		this.memberVO = memberVO;
+		this.uploadFile = uploadFile;
 	}
 
 	public String getPictureDate() {
@@ -82,12 +86,20 @@ public class PictureVO {
 		this.memberVO = memberVO;
 	}
 
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+
 	@Override
 	public String toString() {
 		return "PictureVO [pictureDate=" + pictureDate + ", keyword=" + keyword + ", path=" + path + ", authorComment="
-				+ authorComment + ", hits=" + hits + ", pictureSpace=" + pictureSpace + ", memberVO=" + memberVO + "]";
+				+ authorComment + ", hits=" + hits + ", pictureSpace=" + pictureSpace + ", memberVO=" + memberVO
+				+ ", uploadFile=" + uploadFile + "]";
 	}
-
 	
 	
 	

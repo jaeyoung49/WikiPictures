@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sql Mapper -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="picture">
+	
+	<insert id="registerHashtag" parameterType="hashtagVO">
+		insert into HASHTAG (pic_date, keyword, hashtag_name)
+		values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
+	</insert>
+	
+	<insert id="registerPicture" parameterType="pictureVO">
+		insert into PICTURE
+		(pic_date, keyword, path, author_comment, pic_space, id)
+		values
+		(#{pictureDate}, #{keyword}, #{path}, #{authorComment},
+		#{pictureSpace}, #{memberVO.id})
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
