@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class testController {
+public class MemberController {
 	@RequestMapping("{viewName}.do")
 	public String showView(@PathVariable String viewName) {
 		System.out.println("1.@PathVariable:" + viewName);
