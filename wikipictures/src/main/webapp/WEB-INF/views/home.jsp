@@ -12,7 +12,7 @@
   <title>Wiki Pictures</title>
 
   <!-- Bootstrap core CSS -->
-<<<<<<< HEAD
+
   <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
   <!-- Flipster Carousel CSS -->
   <link href="css/demo.css" rel="stylesheet">

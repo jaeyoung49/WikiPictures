@@ -51,7 +51,7 @@ create table picture(
 	constraint fk_picture_member foreign key(id) references member(id)	
 )
 -- ***********picture table category column 추가***********--
-alter table picture add(category varchar2(100) not null);
+alter table picture add(category varchar2(100) null);
 
 update picture set category = '장소';
 
