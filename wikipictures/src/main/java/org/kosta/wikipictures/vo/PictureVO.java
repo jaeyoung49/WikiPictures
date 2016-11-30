@@ -9,6 +9,7 @@ public class PictureVO {
 	private String authorComment;
 	private int hits;
 	private String pictureSpace;
+	private String category;
 	private MemberVO memberVO;
 	private MultipartFile uploadFile;
 
@@ -17,8 +18,10 @@ public class PictureVO {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public PictureVO(String pictureDate, String keyword, String path, String authorComment, int hits,
-			String pictureSpace, MemberVO memberVO, MultipartFile uploadFile) {
+			String pictureSpace, String category, MemberVO memberVO, MultipartFile uploadFile) {
 		super();
 		this.pictureDate = pictureDate;
 		this.keyword = keyword;
@@ -26,9 +29,12 @@ public class PictureVO {
 		this.authorComment = authorComment;
 		this.hits = hits;
 		this.pictureSpace = pictureSpace;
+		this.category = category;
 		this.memberVO = memberVO;
 		this.uploadFile = uploadFile;
 	}
+
+
 
 	public String getPictureDate() {
 		return pictureDate;
@@ -78,6 +84,14 @@ public class PictureVO {
 		this.pictureSpace = pictureSpace;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public MemberVO getMemberVO() {
 		return memberVO;
 	}
@@ -97,10 +111,8 @@ public class PictureVO {
 	@Override
 	public String toString() {
 		return "PictureVO [pictureDate=" + pictureDate + ", keyword=" + keyword + ", path=" + path + ", authorComment="
-				+ authorComment + ", hits=" + hits + ", pictureSpace=" + pictureSpace + ", memberVO=" + memberVO
-				+ ", uploadFile=" + uploadFile + "]";
+				+ authorComment + ", hits=" + hits + ", pictureSpace=" + pictureSpace + ", category=" + category
+				+ ", memberVO=" + memberVO + ", uploadFile=" + uploadFile + "]";
 	}
-	
-	
-	
+
 }

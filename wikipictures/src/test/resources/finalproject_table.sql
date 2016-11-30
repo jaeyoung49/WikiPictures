@@ -50,6 +50,13 @@ create table picture(
 	primary key(pic_date, keyword),
 	constraint fk_picture_member foreign key(id) references member(id)	
 )
+-- ***********picture table category column 추가***********--
+alter table picture add(category varchar2(100) not null);
+
+update picture set category = '장소';
+
+alter table picture MODIFY(category varchar2(100) not null);
+--***************3개 쿼리문 수행해 주세요***********--
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','광화문','저기','어느 광화문','서울 어딘가','java');
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.11','광화문','저기','어느 광화문','서울 어딘가','java');
@@ -109,4 +116,4 @@ WHEN NOT MATCHED THEN
   
 
 
-
+select * from member
