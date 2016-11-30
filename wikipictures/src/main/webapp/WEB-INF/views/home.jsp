@@ -12,27 +12,27 @@
   <title>Wiki Pictures</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
   <!-- Flipster Carousel CSS -->
   <link href="css/demo.css" rel="stylesheet">
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
   <!-- Bootstrap Carousel -->
-  <link href="css/carousel.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
   <!-- Flipster Carousel css -->
-  <link href="css/jquery.flipster.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/css/jquery.flipster.min.css" rel="stylesheet">
   <!-- icon css -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet" />
   <!-- Animate modal -->
-  <link rel="stylesheet" href="css/normalize.min.css">
+  <link href="${pageContext.request.contextPath}/resources/css/normalize.min.css" rel="stylesheet">
   <!-- Animate modal -->
-  <link rel="stylesheet" href="css/animate.min.css">
+  <link href="${pageContext.request.contextPath}/resources/css/animate.min.css" rel="stylesheet">
   
   <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-  <script src="js/ie-emulation-modes-warning.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/ie-emulation-modes-warning.js"></script>
   <!-- jQuery -->
-  <script src="js/jquery.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
 
 
   <!-- Animate modal setting -->
@@ -311,15 +311,15 @@
   <!-- animatedModal TEST END ================================================== -->
 
   <!-- Bootstrap core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
   <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-  <script src="js/holder.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/holder.min.js"></script>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="js/ie10-viewport-bug-workaround.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/ie10-viewport-bug-workaround.js"></script>
   <!-- Animate modal -->
-  <script src="js/animatedModal.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/animatedModal.min.js"></script>
   <!-- Flipster Carousel -->
-  <script src="js/jquery.flipster.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/jquery.flipster.min.js"></script>
   <script>
     $(document).ready(function(){
       // 상단 Carousel
