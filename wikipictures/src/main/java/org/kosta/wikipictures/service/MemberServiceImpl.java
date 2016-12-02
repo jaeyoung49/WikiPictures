@@ -31,4 +31,13 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO findMemberById(String id) {
 		return memberDAO.findMemberById(id);
 	}
+
+	@Override
+	public void updateMember(MemberVO vo) {
+		memberDAO.updateMember(vo);
+	}
+
+	
+
+	
 }

@@ -8,4 +8,8 @@ public interface MemberDAO {
 	public int idcheck(String id);
 	void registerMember(MemberVO vo);
 	public MemberVO findMemberById(String id);
+	
+	void updateMember(MemberVO vo);
+	
+	
 }

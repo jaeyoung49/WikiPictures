@@ -67,5 +67,25 @@ public class MemberController {
 		MemberVO vo = memberService.findMemberById(id);
 		return new ModelAndView("member/register_result", "memberVO", vo);
 	}
+	
+	
+	/*@RequestMapping("updateMemberForm.do")
+	public String updateMemberForm(HttpServletRequest request,MemberVO memberVO){		
+			HttpSession session=request.getSession(false);
+			session.setAttribute("mvo", memberVO);
+			memberService.updateMember(memberVO);
+			return "member/update_result";
+	}*/
+	
+	
+	@RequestMapping("updateMember.do")
+	public String updateMember(HttpServletRequest request,MemberVO memberVO){		
+		HttpSession session=request.getSession(false);
+		session.setAttribute("mvo", memberVO);
+		memberService.updateMember(memberVO);
+		return "member/update_result";
+	}
+	
+	
 }
 

@@ -8,4 +8,9 @@ public interface MemberService {
 	String idcheck(String id);
 	void registerMember(MemberVO vo);
 	public MemberVO findMemberById(String id);
+	
+	
+	void updateMember(MemberVO memberVO);
+	
+	
 }

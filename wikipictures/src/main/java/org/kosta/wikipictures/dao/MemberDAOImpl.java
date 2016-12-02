@@ -26,4 +26,11 @@ private SqlSessionTemplate template;
 	public MemberVO findMemberById(String id){
 		return template.selectOne("member.findMemberById",id);
 	}
+	
+	@Override
+	public void updateMember(MemberVO vo) {
+		template.update("member.updateMember",vo);
+		
+	}
+	
 }

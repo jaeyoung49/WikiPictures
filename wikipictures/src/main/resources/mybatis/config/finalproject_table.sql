@@ -54,6 +54,22 @@ create table picture(
 	constraint fk_picture_member foreign key(id) references member(id)	
 )
 
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('1999.06','종로','여기','광화문','서울 광화','java','장소');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('2000.06','판교','여기','광화문','서울 광화','java','장소');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('2001.06','숭례문','여기','광화문','서울 광화','java','장소');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('2002.06','금천교','여기','광화문','서울 광화','java','장소');
+
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('1990.07','판교','그곳','몰라','대전','ajax','아아');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('1992.05','숭례문','저곳','정말','부산','java','야야');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('1993.03','독립문','저쪽','진짜로','광교','java','여여');
+
+
+
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','종로','그곳','어느 종로','서울 종로','java','장소들');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','남산','저곳','어느 남산','서울 남산','java','장소들');
+
+
+
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','광화문','저기','어느 광화문','서울 어딘가','java');
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.11','광화문','저기','어느 광화문','서울 어딘가','java');
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.11','올림픽','저기','어느 광화문','서울 어딘가','ajax');
@@ -113,5 +129,16 @@ WHEN NOT MATCHED THEN
   insert(pic_date,keyword,hashtag_name) values('1999.10','광화문','촛불시위')
   
 
-
-
+	select rnum,keyword,path,author_comment,hits,pic_space from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space
+	from picture) where rnum between 1 and 5
+		
+	
+	
+	
+	select m.id,p.rnum,p.keyword,p.path,p.author_comment,p.hits,p.pic_space,p.category from (select row_number() over(order by keyword desc) as rnum,
+		keyword,path,author_comment,hits,pic_space,category from picture p=member m) picture p,member m where m.id=p.id and rnum between 1 and 5 
+	
+		
+		select rnum,keyword,path,author_comment,hits,pic_space,category from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
+	from picture) where rnum between 1 and 5		
+	
