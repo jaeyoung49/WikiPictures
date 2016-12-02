@@ -6,17 +6,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="picture">
 	
 	<insert id="registerHashtag" parameterType="hashtagVO">
-		insert into HASHTAG (pic_date, keyword, hashtag_name)
-		values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
+		MERGE INTO hashtag
+		USING DUAL
+		ON(hashtag_name=#{hashtagName})
+		WHEN MATCHED THEN  
+		   update set hashtag_count=hashtag_count+1
+		WHEN NOT MATCHED THEN
+		  insert(pic_date,keyword,hashtag_name) values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
 	</insert>
 	
 	<insert id="registerPicture" parameterType="pictureVO">
 		insert into PICTURE
-		(pic_date, keyword, path, author_comment, pic_space, id)
+		(pic_date, keyword, path, author_comment, pic_space, category, id)
 		values
 		(#{pictureDate}, #{keyword}, #{path}, #{authorComment},
-		#{pictureSpace}, #{memberVO.id})
+		#{pictureSpace}, #{category}, #{memberVO.id})
 	</insert>
+	
+	<select id="getPictures" resultType="pictureVO">
+		select path
+		from picture
+	</select>
 	
 </mapper>
 

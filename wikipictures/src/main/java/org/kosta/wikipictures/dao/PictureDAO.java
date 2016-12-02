@@ -11,5 +11,7 @@ public interface PictureDAO {
 
 	void registerPicture(PictureVO pictureVO);
 
+	List<PictureVO> getPictures();
+
 
 }

@@ -3,6 +3,7 @@ package org.kosta.wikipictures.vo;
 public class MypageVO {
 	private MemberVO memberVO;
 	private PictureVO pictureVO;
+	private int rowNumber;
 	private String replyDate;
 	private String replyContent;
 	private String buyDate;
@@ -12,10 +13,12 @@ public class MypageVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MypageVO(MemberVO memberVO, PictureVO pictureVO, String replyDate, String replyContent, String buyDate) {
+	public MypageVO(MemberVO memberVO, PictureVO pictureVO, int rowNumber, String replyDate, String replyContent,
+			String buyDate) {
 		super();
 		this.memberVO = memberVO;
 		this.pictureVO = pictureVO;
+		this.rowNumber = rowNumber;
 		this.replyDate = replyDate;
 		this.replyContent = replyContent;
 		this.buyDate = buyDate;
@@ -35,6 +38,14 @@ public class MypageVO {
 
 	public void setPictureVO(PictureVO pictureVO) {
 		this.pictureVO = pictureVO;
+	}
+
+	public int getRowNumber() {
+		return rowNumber;
+	}
+
+	public void setRowNumber(int rowNumber) {
+		this.rowNumber = rowNumber;
 	}
 
 	public String getReplyDate() {
@@ -63,9 +74,10 @@ public class MypageVO {
 
 	@Override
 	public String toString() {
-		return "MypageVO [memberVO=" + memberVO + ", pictureVO=" + pictureVO + ", replyDate=" + replyDate
-				+ ", replyContent=" + replyContent + ", buyDate=" + buyDate + "]";
+		return "MypageVO [memberVO=" + memberVO + ", pictureVO=" + pictureVO + ", rowNumber=" + rowNumber
+				+ ", replyDate=" + replyDate + ", replyContent=" + replyContent + ", buyDate=" + buyDate + "]";
 	}
+
 	
 	
 }

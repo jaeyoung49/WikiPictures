@@ -8,6 +8,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.kosta.wikipictures.dao.PictureDAO;
 import org.kosta.wikipictures.service.PictureService;
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.PictureVO;
@@ -22,6 +23,29 @@ public class PictureController {
 	
 	@Resource
 	private PictureService pictureService;
+	@Resource
+	private PictureDAO pictureDAO;
+	
+	
+	// 메인화면
+	@RequestMapping("home.do")
+	public ModelAndView home(){
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("home");
+		
+		return mv;
+	}
+	
+	// 사진 전체 나오는지 테스트
+	@RequestMapping("test2.do")
+	public ModelAndView test2(){
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("list", pictureDAO.getPictures());
+		mv.setViewName("test2");
+		return mv;
+	}
 	
 	//업로드 경로
 	private String uploadPath;
@@ -65,7 +89,7 @@ public class PictureController {
 		
 		// 사진파일을 서버에 저장
 		// 폴더 지정 및 생성
-		uploadPath = request.getSession().getServletContext().getRealPath("/resources/upload/");
+		uploadPath = request.getSession().getServletContext().getRealPath("/resources/img/");
 		File uploadDir = new File(uploadPath);
 		if(uploadDir.exists() == false)
 			uploadDir.mkdirs();
@@ -89,6 +113,7 @@ public class PictureController {
 			}
 		}
 		
+		// 차후 아이디 받아오는 것이 구현되면 삭제할것!!
 		pictureVO.getMemberVO().setId("java");
 		// 사진정보를 서버에 저장
 		pictureService.registerPicture(pictureVO);

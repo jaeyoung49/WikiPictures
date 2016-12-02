@@ -25,6 +25,11 @@ public class PictureDAOImpl implements PictureDAO {
 	public void registerPicture(PictureVO pictureVO) {
 		template.insert("picture.registerPicture", pictureVO);
 	}
+
+	@Override
+	public List<PictureVO> getPictures() {
+		return template.selectList("picture.getPictures");
+	}
 	
 
 }
