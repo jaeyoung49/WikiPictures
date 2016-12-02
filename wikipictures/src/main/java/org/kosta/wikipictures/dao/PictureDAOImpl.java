@@ -11,13 +11,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class PictureDAOImpl implements PictureDAO {
-	
+
 	@Resource
 	private SqlSessionTemplate template;
 
 	@Override
 	public void registerHashtag(List<HashtagVO> hashtagList) {
-		for(HashtagVO hvo : hashtagList)
+		for (HashtagVO hvo : hashtagList)
 			template.insert("picture.registerHashtag", hvo);
 	}
 
@@ -25,6 +25,8 @@ public class PictureDAOImpl implements PictureDAO {
 	public void registerPicture(PictureVO pictureVO) {
 		template.insert("picture.registerPicture", pictureVO);
 	}
-	
-
+	@Override
+	public List<PictureVO> pictureList(PictureVO pvo){
+		return template.selectList("admin.picturelist",pvo);
+	}
 }

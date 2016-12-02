@@ -24,6 +24,11 @@ public class PictureServiceImpl implements PictureService {
 	public void registerPicture(PictureVO pictureVO) {
 		pictureDAO.registerPicture(pictureVO);
 	}
+
+	@Override
+	public List<PictureVO> pictureList(PictureVO pvo) {
+		return pictureDAO.pictureList(pvo);
+	}
 	
 	
 	

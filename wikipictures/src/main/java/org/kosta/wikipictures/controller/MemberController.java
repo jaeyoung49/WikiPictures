@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MemberController {
+	
 	@RequestMapping("{viewName}.do")
 	public String showView(@PathVariable String viewName) {
 		System.out.println("1.@PathVariable:" + viewName);
@@ -35,8 +36,12 @@ public class MemberController {
 		MemberVO vo = memberService.login(memberVO);
 		if (vo == null) {
 			return "member/login_fail";
-		} else {
+		}if(vo.getId().equals("admin")){
 			request.getSession().setAttribute("mvo", vo);
+			return "admin/admin";
+		}else {
+			request.getSession().setAttribute("mvo", vo);
+			System.out.println(vo.getId());
 			return "home";
 		}
 	}
@@ -67,5 +72,6 @@ public class MemberController {
 		MemberVO vo = memberService.findMemberById(id);
 		return new ModelAndView("member/register_result", "memberVO", vo);
 	}
+	
 }
 

@@ -4,8 +4,8 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
- 	
- <!--  	<select id="getAddressList" resultType="string">
+	
+ 	<!--  	<select id="getAddressList" resultType="string">
  		select distinct address from security_member
  	</select>
  	<select id="findMemberListByAddress" resultType="memberVO">
@@ -23,7 +23,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 		<insert id="registerMember" parameterType="memberVO">
 		insert into member(id,nickname,password,birth,fav_space,enabled)
-		values(#{id},#{nickname},#{password},#{birth},#{favoriteSpace},0)
+		values(#{id},#{nickname},#{password},#{birth},#{fav_space},0)
 	</insert>
  	<!-- <select id="getMemberCount" resultType="int">
  		select count(*) from security_member

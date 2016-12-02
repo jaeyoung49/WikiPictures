@@ -11,5 +11,6 @@ public interface PictureService {
 
 	void registerPicture(PictureVO pictureVO);
 
+	public List<PictureVO> pictureList(PictureVO pvo);
 
 }
