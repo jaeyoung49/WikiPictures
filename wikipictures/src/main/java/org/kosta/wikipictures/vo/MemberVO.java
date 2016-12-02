@@ -1,6 +1,7 @@
 package org.kosta.wikipictures.vo;
 
 public class MemberVO {
+	private int rowNumber;
 	private String id;
 	private String nickname;
 	private String password;
@@ -9,13 +10,15 @@ public class MemberVO {
 	private int enabled;
 	private AuthoritiesVO authoritiesVO;
 	
+
 	public MemberVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public MemberVO(String id, String nickname, String password, String birth, String favoriteSpace, int enabled,
-			AuthoritiesVO authoritiesVO) {
+	public MemberVO(int rowNumber, String id, String nickname, String password, String birth, String favoriteSpace,
+			int enabled, AuthoritiesVO authoritiesVO) {
 		super();
+		this.rowNumber = rowNumber;
 		this.id = id;
 		this.nickname = nickname;
 		this.password = password;
@@ -23,6 +26,12 @@ public class MemberVO {
 		this.favoriteSpace = favoriteSpace;
 		this.enabled = enabled;
 		this.authoritiesVO = authoritiesVO;
+	}
+	public int getRowNumber() {
+		return rowNumber;
+	}
+	public void setRowNumber(int rowNumber) {
+		this.rowNumber = rowNumber;
 	}
 	public String getId() {
 		return id;
@@ -48,11 +57,9 @@ public class MemberVO {
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-
 	public String getFavoriteSpace() {
 		return favoriteSpace;
 	}
-
 	public void setFavoriteSpace(String favoriteSpace) {
 		this.favoriteSpace = favoriteSpace;
 	}
@@ -62,19 +69,17 @@ public class MemberVO {
 	public void setEnabled(int enabled) {
 		this.enabled = enabled;
 	}
-
 	public AuthoritiesVO getAuthoritiesVO() {
 		return authoritiesVO;
 	}
-
 	public void setAuthoritiesVO(AuthoritiesVO authoritiesVO) {
 		this.authoritiesVO = authoritiesVO;
 	}
-
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", nickname=" + nickname + ", password=" + password + ", birth=" + birth
-				+ ", favoriteSpace=" + favoriteSpace + ", enabled=" + enabled + ", authoritiesVO=" + authoritiesVO
-				+ "]";
+		return "MemberVO [rowNumber=" + rowNumber + ", id=" + id + ", nickname=" + nickname + ", password=" + password
+				+ ", birth=" + birth + ", favoriteSpace=" + favoriteSpace + ", enabled=" + enabled + ", authoritiesVO="
+				+ authoritiesVO + "]";
 	}
+	
 }

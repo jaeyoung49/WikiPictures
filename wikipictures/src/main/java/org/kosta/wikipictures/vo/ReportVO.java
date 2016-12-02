@@ -1,6 +1,7 @@
 package org.kosta.wikipictures.vo;
 
 public class ReportVO {
+	private int rowNumber;
 	private int reportNo;
 	private String reportType;
 	private String reportContent;
@@ -11,13 +12,23 @@ public class ReportVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReportVO(int reportNo, String reportType, String reportContent, String reportDate, PictureVO pictureVO) {
+	public ReportVO(int rowNumber, int reportNo, String reportType, String reportContent, String reportDate,
+			PictureVO pictureVO) {
 		super();
+		this.rowNumber = rowNumber;
 		this.reportNo = reportNo;
 		this.reportType = reportType;
 		this.reportContent = reportContent;
 		this.reportDate = reportDate;
 		this.pictureVO = pictureVO;
+	}
+
+	public int getRowNumber() {
+		return rowNumber;
+	}
+
+	public void setRowNumber(int rowNumber) {
+		this.rowNumber = rowNumber;
 	}
 
 	public int getReportNo() {
@@ -62,9 +73,10 @@ public class ReportVO {
 
 	@Override
 	public String toString() {
-		return "ReportVO [reportNo=" + reportNo + ", reportType=" + reportType + ", reportContent=" + reportContent
-				+ ", reportDate=" + reportDate + ", pictureVO=" + pictureVO + "]";
+		return "ReportVO [rowNumber=" + rowNumber + ", reportNo=" + reportNo + ", reportType=" + reportType
+				+ ", reportContent=" + reportContent + ", reportDate=" + reportDate + ", pictureVO=" + pictureVO + "]";
 	}
+
 	
 	
 	

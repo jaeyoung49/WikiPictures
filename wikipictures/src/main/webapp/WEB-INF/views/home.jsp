@@ -67,7 +67,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">로그인</a></li>
-            <li><a href="#">회원가입</a></li>
+            <li><a href="member/register_form.do">회원가입</a></li>
             <li><a href="#">타임머신</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -128,10 +128,12 @@
     <!-- Serch ================================================== -->
     <div class="col-xs-12">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="검색할 내용을 입력해주세요">
+     	 <form action ="searchPicture.do">
+        <input type="text" name="keyword" class="form-control" placeholder="검색할 내용을 입력해주세요">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button">검색</button>
+          <button class="btn btn-default" type="submit">검색</button>
         </span>
+        </form>
       </div><!-- /input-group -->
     </div><!-- /search -->
   </div><!-- /.carousel -->
@@ -156,7 +158,7 @@
     <div id="carousel">
       <ul class="flip-items">
         <li data-flip-title="대분류 1">
-          <img src="img/1.jpg" style="width: 500px; height: auto;">
+          <img src="resources/img/1.jpg" style="width: 500px; height: auto;">
         </li>
         <li data-flip-title="중분류 1" data-flip-category="대분류 2">
           <img src="img/2.jpg" style="width: 500px; height: auto;">

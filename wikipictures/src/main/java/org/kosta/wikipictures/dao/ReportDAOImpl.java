@@ -1,3 +1,4 @@
+
 package org.kosta.wikipictures.dao;
 
 import javax.annotation.Resource;
@@ -11,3 +12,4 @@ public class ReportDAOImpl implements ReportDAO {
 	private SqlSessionTemplate template;
 	
 }
+

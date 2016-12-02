@@ -6,17 +6,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="picture">
 	
 	<insert id="registerHashtag" parameterType="hashtagVO">
-		insert into HASHTAG (pic_date, keyword, hashtag_name)
-		values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
+		MERGE INTO hashtag
+		USING DUAL
+		ON(hashtag_name=#{hashtagName})
+		WHEN MATCHED THEN  
+		   update set hashtag_count=hashtag_count+1
+		WHEN NOT MATCHED THEN
+		  insert(pic_date,keyword,hashtag_name) values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
 	</insert>
 	
 	<insert id="registerPicture" parameterType="pictureVO">
 		insert into PICTURE
-		(pic_date, keyword, path, author_comment, pic_space, id)
+		(pic_date, keyword, path, author_comment, pic_space, category, id)
 		values
 		(#{pictureDate}, #{keyword}, #{path}, #{authorComment},
-		#{pictureSpace}, #{memberVO.id})
+		#{pictureSpace}, #{category}, #{memberVO.id})
 	</insert>
+	
+	<select id="getPictures" resultType="pictureVO">
+		select path
+		from picture
+	</select>
+
+	<select id="searchPicture" resultType="pictureVO">
+		select pic_date as pictureDate, keyword, path, author_comment as authorComment, hits,
+		 pic_space as pictureSpace, id, category from picture 
+		where keyword like '%'||#{value}||'%'
+	</select>
+	
+	<select id="picture" resultType="pictureVO">
+		select pic_date as pictureDate, keyword, path, author_comment as authorComment, hits,
+		 pic_space as pictureSpace, id, category from picture
+		where pic_date=#{pictureDate}
+		and keyword=#{keyword}
+	</select>
+	
+	<select id="searchDetailPicture" resultType="hashtagVO">
+		select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
+		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName from picture p, hashtag h
+		where p.keyword =#{pictureVO.keyword}
+		and p.pic_date=#{pictureVO.pictureDate}
+		and p.pic_date=h.pic_date
+		and p.keyword=h.keyword
+	</select>
+	
+	<select id="hashtagName" resultType="hashtagVO">
+		select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
+		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName from picture p, hashtag h
+		where p.keyword=#{hashtagName}
+		and p.pic_date=h.pic_date
+		and p.keyword=h.keyword
+	</select>
 	
 	<select id="totalContentCount" resultType="int">
 		select count(*) from picture

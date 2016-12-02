@@ -32,3 +32,4 @@ public class AdminContoller {
 		return "admin/show_sell_list";
 	}
 }
+

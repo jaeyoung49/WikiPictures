@@ -3,6 +3,7 @@ package org.kosta.wikipictures.vo;
 import org.springframework.web.multipart.MultipartFile;
 
 public class PictureVO {
+	private int rowNumber;
 	private String pictureDate;
 	private String keyword;
 	private String path;
@@ -18,11 +19,10 @@ public class PictureVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	public PictureVO(String pictureDate, String keyword, String path, String authorComment, int hits,
+	public PictureVO(int rowNumber, String pictureDate, String keyword, String path, String authorComment, int hits,
 			String pictureSpace, String category, MemberVO memberVO, MultipartFile uploadFile) {
 		super();
+		this.rowNumber = rowNumber;
 		this.pictureDate = pictureDate;
 		this.keyword = keyword;
 		this.path = path;
@@ -34,7 +34,13 @@ public class PictureVO {
 		this.uploadFile = uploadFile;
 	}
 
+	public int getRowNumber() {
+		return rowNumber;
+	}
 
+	public void setRowNumber(int rowNumber) {
+		this.rowNumber = rowNumber;
+	}
 
 	public String getPictureDate() {
 		return pictureDate;
@@ -110,9 +116,11 @@ public class PictureVO {
 
 	@Override
 	public String toString() {
-		return "PictureVO [pictureDate=" + pictureDate + ", keyword=" + keyword + ", path=" + path + ", authorComment="
-				+ authorComment + ", hits=" + hits + ", pictureSpace=" + pictureSpace + ", category=" + category
-				+ ", memberVO=" + memberVO + ", uploadFile=" + uploadFile + "]";
+		return "PictureVO [rowNumber=" + rowNumber + ", pictureDate=" + pictureDate + ", keyword=" + keyword + ", path="
+				+ path + ", authorComment=" + authorComment + ", hits=" + hits + ", pictureSpace=" + pictureSpace
+				+ ", category=" + category + ", memberVO=" + memberVO + ", uploadFile=" + uploadFile + "]";
 	}
+
+	
 
 }

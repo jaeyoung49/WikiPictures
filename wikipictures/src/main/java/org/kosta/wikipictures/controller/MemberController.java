@@ -1,3 +1,4 @@
+
 package org.kosta.wikipictures.controller;
 
 import javax.annotation.Resource;
@@ -91,4 +92,5 @@ public class MemberController {
 	
 	
 }
+
 

@@ -1,3 +1,4 @@
+
 package org.kosta.wikipictures.service;
 
 import javax.annotation.Resource;
@@ -11,3 +12,5 @@ public class ReportServiceImpl implements ReportService{
 	private ReportDAO reportDAO;
 
 }
+
+
