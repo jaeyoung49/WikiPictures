@@ -27,14 +27,14 @@
 아이디 : <input type="text" name="id">
 비밀번호 : <input type="password" name="password">
 <input type="submit" value="로그인">
- <a href="${pageContext.request.contextPath}/member/register_Form.do">회원가입</a><br>
+ <a href="${pageContext.request.contextPath}/member/register_form.do">회원가입</a><br>
 </form>
 <hr>
 </c:when>
  <c:otherwise>
  ${sessionScope.mvo.nickname}님 |
  <a href="${pageContext.request.contextPath}/logout.do">로그아웃 |</a>
- <a href="${pageContext.request.contextPath}/member/update_Form.do">회원정보수정</a>
+ <a href="${pageContext.request.contextPath}/member/update_form.do">회원정보수정</a>
 <hr>
 </c:otherwise>
 

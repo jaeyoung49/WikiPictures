@@ -25,7 +25,18 @@ public class PictureServiceImpl implements PictureService {
 		pictureDAO.registerPicture(pictureVO);
 	}
 	
-	
+	@Override
+	public List<PictureVO> searchPicture(String keyword){
+		return pictureDAO.searchPicture(keyword);
+	}
+	@Override
+	public PictureVO picture(PictureVO pictureVO){
+		return pictureDAO.picture(pictureVO);
+	}
+	@Override
+	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO){
+		return pictureDAO.searchDetailPicture(hashtagVO);
+	}
 	
 	
 }

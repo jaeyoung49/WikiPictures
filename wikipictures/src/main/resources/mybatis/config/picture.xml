@@ -18,6 +18,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{pictureSpace}, #{memberVO.id})
 	</insert>
 	
+	<select id="searchPicture" resultType="pictureVO">
+		select pic_date as pictureDate, keyword, path, author_comment as authorComment, hits,
+		 pic_space as pictureSpace, id, category from picture 
+		where keyword like '%'||#{value}||'%'
+	</select>
+	
+	<select id="picture" resultType="pictureVO">
+		select pic_date as pictureDate, keyword, path, author_comment as authorComment, hits,
+		 pic_space as pictureSpace, id, category from picture
+		where pic_date=#{pictureDate}
+		and keyword=#{keyword}
+	</select>
+	
+	<select id="searchDetailPicture" resultType="hashtagVO">
+		select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
+		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName from picture p, hashtag h
+		where p.keyword =#{pictureVO.keyword}
+		and p.pic_date=#{pictureVO.pictureDate}
+		and p.pic_date=h.pic_date
+		and p.keyword=h.keyword
+	</select>
+	
+	<select id="hashtagName" resultType="hashtagVO">
+		select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
+		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName from picture p, hashtag h
+		where p.keyword=#{hashtagName}
+		and p.pic_date=h.pic_date
+		and p.keyword=h.keyword
+	</select>
 </mapper>
 
 

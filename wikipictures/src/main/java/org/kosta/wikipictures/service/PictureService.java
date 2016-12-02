@@ -11,5 +11,9 @@ public interface PictureService {
 
 	void registerPicture(PictureVO pictureVO);
 
-
+	List<PictureVO> searchPicture(String keyword);
+	
+	PictureVO picture(PictureVO pictureVO);
+	
+	List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO);
 }

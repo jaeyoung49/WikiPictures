@@ -26,5 +26,17 @@ public class PictureDAOImpl implements PictureDAO {
 		template.insert("picture.registerPicture", pictureVO);
 	}
 	
+	@Override
+	public List<PictureVO> searchPicture(String keyword){
+		return template.selectList("picture.searchPicture",keyword);
+	}
+	@Override
+	public PictureVO picture(PictureVO pictureVO){
+		return template.selectOne("picture.picture",pictureVO);
+	}
+	@Override
+	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO){
+		return template.selectList("picture.searchDetailPicture",hashtagVO);
+	}
 
 }

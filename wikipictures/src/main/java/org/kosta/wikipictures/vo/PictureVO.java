@@ -17,8 +17,25 @@ public class PictureVO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	
+	
+	
+
+	public PictureVO(String pictureDate, String keyword, String path, String authorComment, int hits,
+			String pictureSpace, String category, MultipartFile uploadFile) {
+		super();
+		this.pictureDate = pictureDate;
+		this.keyword = keyword;
+		this.path = path;
+		this.authorComment = authorComment;
+		this.hits = hits;
+		this.pictureSpace = pictureSpace;
+		this.category = category;
+		this.uploadFile = uploadFile;
+	}
+
+
+
 
 	public PictureVO(String pictureDate, String keyword, String path, String authorComment, int hits,
 			String pictureSpace, String category, MemberVO memberVO, MultipartFile uploadFile) {

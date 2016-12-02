@@ -55,7 +55,7 @@ alter table picture add(category varchar2(100) null);
 
 update picture set category = '장소';
 
-alter table picture MODIFY(category varchar2(100) not null);
+alter table picture MODIFY(category varchar2(100) null);
 --***************3개 쿼리문 수행해 주세요***********--
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','광화문','저기','어느 광화문','서울 어딘가','java');
@@ -73,6 +73,7 @@ create table report(
 	keyword varchar2(50) not null,
 	constraint fk_report_picture foreign key(pic_date, keyword) references picture(pic_date,keyword)
 )
+
 
 insert into report values(1,'신고','선정성',sysdate,'1999.10','광화문');
 insert into report values(2,'신고','선정성',sysdate,'1999.10','광화문');
@@ -114,6 +115,24 @@ WHEN MATCHED THEN
 WHEN NOT MATCHED THEN
   insert(pic_date,keyword,hashtag_name) values('1999.10','광화문','촛불시위')
   
+-- 시퀀스 추가--
+create sequence seq_report_no; 
 
+select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits, p.pic_space as pictureSpace,
+p.id, p.category, h.hashtag_name from picture p, HASHTAG h
+where p.keyword like '%트래비%'
+and p.pic_date = h.pic_date
+and p.keyword = h.keyword
 
-select * from member
+select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
+		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName from picture p, hashtag h
+		where p.keyword = '트래비분수'
+		and p.pic_date='2016-06'
+		and p.pic_date=h.pic_date
+		and p.keyword=h.keyword
+		
+		select pic_date as pictureDate, keyword, path, author_comment as authorComment, hits,
+		 pic_space as pictureSpace, id, category from picture
+		where pic_date='2016-06'
+		and keyword='트래비분수'
+

@@ -7,7 +7,11 @@ public class HashtagVO {
 	
 	public HashtagVO() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+
+	public HashtagVO(PictureVO pictureVO) {
+		super();
+		this.pictureVO = pictureVO;
 	}
 
 	public HashtagVO(PictureVO pictureVO, String hashtagName, int hashtagCount) {
