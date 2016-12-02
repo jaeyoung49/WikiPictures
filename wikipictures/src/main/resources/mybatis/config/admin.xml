@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sql Mapper -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin">
+<resultMap type="memberVO" id="memberRM">
+		<result property="favoriteSpace" column="fav_space" />
+	</resultMap>
+	<resultMap type="reportVO" id="reportRM">
+	<result property="reportType" column="report_type"/>
+	<result property="reportContent" column="report_content"/>
+	<result property="reportDate" column="report_date"/>
+	<result property="pictureVO.keyword" column="keyword"/>
+	</resultMap>
+	<resultMap type="pictureVO" id="pictureRM">
+	<result property="pictureDate" column="pic_date"/>
+	<result property="authorComment" column="author_commnet"/>
+	<result property="pictureSpace" column="pic_space"/>
+	<result property="memberVO.id" column="id"/>
+	</resultMap>
+ 	 	<select id="memberlist" resultType="java.util.HashMap" >
+ 	select rnum, id, nickname, password, birth, fav_space from
+ 	 (select row_number() over(order by id desc) as rnum,id,nickname, password,
+ 	to_char(birth, 'yyyy.mm.dd')as birth, fav_space
+ 	 from member) where rnum between  #{startRowNumber} and #{endRowNumber}
+ 	</select> 
+ 	<select id="reportlist" resultMap="reportRM" resultType="reportVO">
+ 	select * from report
+ 	</select>
+ 	<select id="picturelist" resultMap="pictureRM" resultType="pictureVO">
+ 	select * from picture
+ 	</select>
+ 	<select id="memberTotalCount" resultType="int">
+		select count(*) from	member
+	</select>
+	<select id="getMemberList" resultMap="memberRM" parameterType="map">
+		SELECT b.no,b.title,b.time_posted,b.hits,b.id,m.name FROM(
+		SELECT row_number() over(order by no desc) as rnum,no,title,hits,
+		to_char(time_posted,'YYYY.MM.DD') as time_posted,id
+		FROM spring_board_inst) b,spring_member m where b.id=m.id and rnum between #{startRowNumber} and #{endRowNumber}
+		order by no desc
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+

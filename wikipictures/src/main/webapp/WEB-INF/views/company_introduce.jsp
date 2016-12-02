@@ -12,11 +12,6 @@
 $(document).ready(function(){
 	$(".menu>a").click(function(){
 		var intro = $(this).next("ul");
-		var agree = document.login.agree.checked;
-		if(agree==""){
-			alert("이용약관에 동의해주세요!");
-			return false;
-		}
 		if(intro.is(":visible")){
 			intro.slideUp();
 		}else{
@@ -31,10 +26,6 @@ $(document).ready(function(){
 </style>
 <body>
 <h3>WikiPictures</h3><br>
-<form name="login">
-<input type="checkbox" name="agree" id="agree">약관동의
-<input type="submit" value="시도">
-</form>
 WikiPictures는 위키피디아에 모티브를 얻어서 설립된 사이트로서, 위키피디아가 지식을<br>
 공유하는 사이트라면 위키픽쳐스는 추억을 공유하는 사이트이다. 각자의 사람들이 추억이<br>
 있었던 장소를 업로드 해서 시대별 장소의 모습을 확인 할 수 있고 여러 종류의 사진을<br>

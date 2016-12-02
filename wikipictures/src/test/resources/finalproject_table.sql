@@ -136,3 +136,8 @@ select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorC
 		where pic_date='2016-06'
 		and keyword='트래비분수'
 
+		
+-- **********마이페이지 buy_date 컬럼 not null 에서 null로 수정***********--
+alter table mypage MODIFY(buy_date date null);
+		
+

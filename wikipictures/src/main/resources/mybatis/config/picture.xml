@@ -47,14 +47,49 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and p.pic_date=h.pic_date
 		and p.keyword=h.keyword
 	</select>
+	
+	<select id="totalContentCount" resultType="int">
+		select count(*) from picture
+	</select>
+	
+	<resultMap type="pictureVO" id="pictureRM">
+		<result property="pictureDate" column="pic_date" />
+		<result property="authorComment" column="author_comment" />
+		<result property="pictureSpace" column="pic_space" />
+	</resultMap>
+	
+	<select id="mypictures" resultMap="pictureRM" parameterType="pictureVO">
+	select rnum,keyword,path,author_comment,hits,pic_space,category from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
+	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
+	</select>
+	
 </mapper>
+	
+		
+		
 
 
 
 
+	<!-- 	select m.id,p.rnum,p.keyword,p.path,p.author_comment,p.hits,p.pic_space,p.category from (select row_number() over(order by keyword desc) as rnum,
+		keyword,path,author_comment,hits,pic_space,category
+	from picture p),member m where m.id=p.id and rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc -->
+
+
+		<!-- select pictureDate,keyword,path,authorComment,hits,pictureSpace,category,uploadFile
+		from (select row_number() over(order by keyword desc) as rnum, pictureDate,path,authorComment,hits,pictureSpace,category,uploadFile
+		from picture)
+		where rnum between #{startRowNumber} and #{endRowNumber} order by no desc -->
 
 
 
+
+		<!-- SELECT b.no,b.title,b.time_posted,b.hits,b.id,m.name FROM(
+		SELECT row_number() over(order by no desc) as rnum,no,title,hits,
+		to_char(time_posted,'YYYY.MM.DD') as time_posted,id
+		FROM spring_board_inst
+		) b,spring_member m where b.id=m.id and rnum between #{startRowNumber} and #{endRowNumber}
+		order by no desc -->
 
 
 

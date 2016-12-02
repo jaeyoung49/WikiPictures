@@ -9,9 +9,9 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <body>
 <div id="container">
-	<div id="header"><tiles:insertAttribute name="header" /></div>
-	<div id="main"><tiles:insertAttribute name="main" /></div>
-	<div id="footer"><tiles:insertAttribute name="footer" /></div>
+	<div id="header"><tiles:insertAttribute name="header" ignore="true"/></div>
+	<div id="main"><tiles:insertAttribute name="main"   ignore="true"/></div>
+	<div id="footer"><tiles:insertAttribute name="footer"  ignore="true"/></div>
 </div>
 </body>
 </html>

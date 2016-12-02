@@ -1,11 +1,14 @@
 package org.kosta.wikipictures.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.kosta.wikipictures.dao.PictureDAO;
 import org.kosta.wikipictures.vo.HashtagVO;
+import org.kosta.wikipictures.vo.ListVO;
+import org.kosta.wikipictures.vo.PagingBean;
 import org.kosta.wikipictures.vo.PictureVO;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +39,35 @@ public class PictureServiceImpl implements PictureService {
 	@Override
 	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO){
 		return pictureDAO.searchDetailPicture(hashtagVO);
+	}
+	
+	@Override
+	public List<PictureVO> pictureList(PictureVO pvo) {
+		return pictureDAO.pictureList(pvo);
+	}
+	public ListVO<PictureVO> mypictures(String pageNo) {
+		int totalCount=pictureDAO.totalContentCount();
+		PagingBean pagingBean=null;
+		if(pageNo==null)
+			pagingBean=new PagingBean(totalCount);
+		else
+			pagingBean=new PagingBean(totalCount,Integer.parseInt(pageNo));
+			HashMap<String,Integer> paramMap=new HashMap<String,Integer>();
+			paramMap.put("startRowNumber",pagingBean.getStartRowNumber());
+			paramMap.put("endRowNumber", pagingBean.getEndRowNumber());
+		return new ListVO<PictureVO>(pictureDAO.mypictures(paramMap),pagingBean) ;
+	}
+
+	@Override
+	public ListVO<PictureVO> mypictures() {
+		// TODO Auto-generated method stub
+		return mypictures("1");
+	}
+
+	@Override
+	public int totalContentCount() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

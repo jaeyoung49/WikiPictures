@@ -21,7 +21,14 @@ drop table hashtag;
 	fav_space varchar2(100) not null,
 	enabled number not null
 )
+	select rnum, id, nickname, password, birth, fav_space from
+ 	 (select row_number() over(order by id desc) as rnum,id,nickname, password,
+ 	to_char(birth, 'yyyy.mm.dd')as birth, fav_space
+ 	 from member)  where rnum between  1 and 5
+ 	select row_number() over(order by id desc) as no, id, nickname, to_char
+ 	(birth, 'yyyy.mm.dd')from member;
 select * from member;
+select id,nickname,password,to_char(birth,'yyyy.mm.dd'),fav_space from member
         select id, nickname, to_char(birth,'YYYY.MM.DD'), fav_space from member;
   select p.pic_date, p.keyword, m.id from picture p, member m
        where p.id=m.id;
@@ -53,7 +60,33 @@ create table picture(
 	primary key(pic_date, keyword),
 	constraint fk_picture_member foreign key(id) references member(id)	
 )
+-- ***********picture table category column 추가***********--
+alter table picture add(category varchar2(100) null);
 
+<<<<<<< HEAD
+update picture set category = '장소';
+
+alter table picture MODIFY(category varchar2(100) null);
+--***************3개 쿼리문 수행해 주세요***********--
+select * from picture
+=======
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('1999.06','종로','여기','광화문','서울 광화','java','장소');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('2000.06','판교','여기','광화문','서울 광화','java','장소');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('2001.06','숭례문','여기','광화문','서울 광화','java','장소');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('2002.06','금천교','여기','광화문','서울 광화','java','장소');
+
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('1990.07','판교','그곳','몰라','대전','ajax','아아');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('1992.05','숭례문','저곳','정말','부산','java','야야');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) values('1993.03','독립문','저쪽','진짜로','광교','java','여여');
+
+
+
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','종로','그곳','어느 종로','서울 종로','java','장소들');
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','남산','저곳','어느 남산','서울 남산','java','장소들');
+
+
+
+>>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures.git
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','광화문','저기','어느 광화문','서울 어딘가','java');
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.11','광화문','저기','어느 광화문','서울 어딘가','java');
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.11','올림픽','저기','어느 광화문','서울 어딘가','ajax');
@@ -69,6 +102,13 @@ create table report(
 	keyword varchar2(50) not null,
 	constraint fk_report_picture foreign key(pic_date, keyword) references picture(pic_date,keyword)
 )
+select row_number() over(order by report_no desc) as rnum,
+ 	report_type,report_content,to_char(report_date,'YYYY.MM.DD') as report_date,keyword from report where rnum
+ 	between 1 and 5;
+ 	
+ 	select id,rnum from (select id,row_number() over(order by id desc) as rnum
+ 	 from member) where rnum between 1 and 5;
+ 	
 select * from report;
 select r.report_no, r.report_type, r.report_content, r.report_date,p.pic_date,
 p.keyword 
@@ -113,5 +153,23 @@ WHEN NOT MATCHED THEN
   insert(pic_date,keyword,hashtag_name) values('1999.10','광화문','촛불시위')
   
 
-
-
+<<<<<<< HEAD
+	select rnum, id, nickname, password, birth, fav_space from
+ 	 (select row_number() over(order by id desc) as rnum,id,nickname, password,
+ 	to_char(birth, 'yyyy.mm.dd')as birth, fav_space
+ 	 from member)
+=======
+	select rnum,keyword,path,author_comment,hits,pic_space from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space
+	from picture) where rnum between 1 and 5
+		
+	
+	
+	
+	select m.id,p.rnum,p.keyword,p.path,p.author_comment,p.hits,p.pic_space,p.category from (select row_number() over(order by keyword desc) as rnum,
+		keyword,path,author_comment,hits,pic_space,category from picture p=member m) picture p,member m where m.id=p.id and rnum between 1 and 5 
+	
+		
+		select rnum,keyword,path,author_comment,hits,pic_space,category from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
+	from picture) where rnum between 1 and 5		
+	
+>>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures.git

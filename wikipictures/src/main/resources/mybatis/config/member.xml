@@ -4,6 +4,10 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
+
+<resultMap type="memberVO" id="memberRM">
+		<result property="favoriteSpace" column="fav_space" />
+	</resultMap>
  	
  <!--  	<select id="getAddressList" resultType="string">
  		select distinct address from security_member
@@ -15,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<select id="findMemberById" resultType="memberVO">
  	select * from member	where id=#{value}
  	</select>
- 	<select id="login" resultType="memberVO">
+ 	<select id="login" resultMap="memberRM">
  	select * from member where id=#{id} and password=#{password}
  	</select>
  	<select id="idcheck" resultType="int">
@@ -23,15 +27,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 		<insert id="registerMember" parameterType="memberVO">
 		insert into member(id,nickname,password,birth,fav_space,enabled)
-		values(#{id},#{nickname},#{password},#{birth},#{favoriteSpace},0)
+		values(#{id},#{nickname},#{password},#{birth},#{fav_space},0)
 	</insert>
+ 	
+ 	<update id="updateMember" parameterType="memberVO">
+		update member set nickname=#{nickname}, password=#{password},fav_space=#{favoriteSpace}
+		where id=#{id}
+	</update>
  	<!-- <select id="getMemberCount" resultType="int">
  		select count(*) from security_member
  	</select>
- 	<update id="updateMember" parameterType="memberVO">
-		update security_member set password=#{password},name=#{name},address=#{address}
-		where id=#{id}
-	</update>
 
 	
 	

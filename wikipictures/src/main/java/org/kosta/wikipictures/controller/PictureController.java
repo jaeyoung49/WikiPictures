@@ -23,14 +23,35 @@ public class PictureController {
 	@Resource
 	private PictureService pictureService;
 
-	// 업로드 경로
+
+	// 업로드 경로	
+	/*@RequestMapping("mypictures.do")
+	public ModelAndView mypictures(PictureVO pvo){
+		List<PictureVO> plist=pictureService.mypictures(pvo);
+		return new ModelAndView("picture/mypictures","pictureVO",plist);
+	}*/
+	
+	
+	@RequestMapping("mypictures.do")
+	public ModelAndView mypictures(String pageNo) {
+		return new ModelAndView("picture/mypictures","pvo",pictureService.mypictures(pageNo));
+	}
+	
+	
+	//업로드 경로
+
 	private String uploadPath;
 
 	@RequestMapping("test.do")
 	public ModelAndView test() {
 		return new ModelAndView("picture/upload_form");
 	}
-
+	
+	@RequestMapping("mypage.do")
+	public String mypage(){
+		return "picture/mypage";
+	}
+	
 	// 사진 등록
 	@RequestMapping(method = RequestMethod.POST, value = "registerPicture.do")
 	public ModelAndView registerPicture(PictureVO pictureVO, String tempHashtags, HttpServletRequest request) {
