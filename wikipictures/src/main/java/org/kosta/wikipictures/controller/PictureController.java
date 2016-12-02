@@ -31,10 +31,10 @@ public class PictureController {
 	}*/
 	
 	
-	@RequestMapping("mypictures.do")
+/*	@RequestMapping("mypictures.do")
 	public ModelAndView mypictures(String pageNo) {
 		return new ModelAndView("picture/mypictures","pvo",pictureService.mypictures(pageNo));
-	}
+	}*/
 	
 	
 	//업로드 경로

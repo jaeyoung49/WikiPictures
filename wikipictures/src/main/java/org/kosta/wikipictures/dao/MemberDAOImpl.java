@@ -1,10 +1,6 @@
 package org.kosta.wikipictures.dao;
 
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.annotation.Resource;
 
 import org.kosta.wikipictures.vo.MemberVO;
@@ -31,19 +27,7 @@ private SqlSessionTemplate template;
 	public MemberVO findMemberById(String id){
 		return template.selectOne("member.findMemberById",id);
 	}
-	@Override
-	public  List<HashMap<String,Object>> memberList(String pageNo){
-		List<HashMap<String,Object>> list = template.selectList("admin.memberlist",pageNo);
-		System.out.println(list);
-		return list;
-	}
-	public int memeberTotalCount(){
-		return template.selectOne("admin.memberTotalCount");
-	}
-	@Override
-	public List<MemberVO> memberList(Map<String, Integer> pagingConfig) {
-		return template.selectList("admin.memberlist", pagingConfig);
-	}
+
 	@Override
 	public void updateMember(MemberVO vo) {
 		template.update("member.updateMember",vo);

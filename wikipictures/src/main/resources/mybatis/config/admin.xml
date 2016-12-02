@@ -8,10 +8,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="favoriteSpace" column="fav_space" />
 	</resultMap>
 	<resultMap type="reportVO" id="reportRM">
+	<result property="reportNo" column="report_no"/>
 	<result property="reportType" column="report_type"/>
 	<result property="reportContent" column="report_content"/>
 	<result property="reportDate" column="report_date"/>
 	<result property="pictureVO.keyword" column="keyword"/>
+	<result property="pictureVO.pictureDate" column="pic_date"/>
 	</resultMap>
 	<resultMap type="pictureVO" id="pictureRM">
 	<result property="pictureDate" column="pic_date"/>
@@ -26,20 +28,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	 from member) where rnum between  #{startRowNumber} and #{endRowNumber}
  	</select> 
  	<select id="reportlist" resultMap="reportRM" resultType="reportVO">
- 	select * from report
+	select rnum, report_no, pic_date,report_type, report_content, keyword, report_date from
+ 	 (select report_no,row_number() over(order by report_no desc) as rnum,pic_date,
+ 	 report_type,report_content, keyword , report_date
+ 	 from report) where rnum between  #{startRowNumber} and  #{endRowNumber} order by rnum desc
  	</select>
  	<select id="picturelist" resultMap="pictureRM" resultType="pictureVO">
- 	select * from picture
- 	</select>
+	select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
+	(select id, pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
+	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
+	</select>
  	<select id="memberTotalCount" resultType="int">
 		select count(*) from	member
 	</select>
-	<select id="getMemberList" resultMap="memberRM" parameterType="map">
-		SELECT b.no,b.title,b.time_posted,b.hits,b.id,m.name FROM(
-		SELECT row_number() over(order by no desc) as rnum,no,title,hits,
-		to_char(time_posted,'YYYY.MM.DD') as time_posted,id
-		FROM spring_board_inst) b,spring_member m where b.id=m.id and rnum between #{startRowNumber} and #{endRowNumber}
-		order by no desc
+		<select id="reportTotalCount" resultType="int">
+		select count(*) from	report
 	</select>
 </mapper>
 

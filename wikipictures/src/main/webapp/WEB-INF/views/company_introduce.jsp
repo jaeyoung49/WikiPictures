@@ -25,6 +25,7 @@ $(document).ready(function(){
 	.menu .hide{display:none;}
 </style>
 <body>
+<a href="home.do">	홈으로</a><br>
 <h3>WikiPictures</h3><br>
 WikiPictures는 위키피디아에 모티브를 얻어서 설립된 사이트로서, 위키피디아가 지식을<br>
 공유하는 사이트라면 위키픽쳐스는 추억을 공유하는 사이트이다. 각자의 사람들이 추억이<br>

@@ -1,44 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet">
-<title>회원리스트</title>
-</head>
+ <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+<title>신고리스트</title>
+</head>	
 <body>
-	<table class="table">
+<table class="table">
 
-		<caption>
-			<a href="${pageContext.request.contextPath}/admin/admin.do">관리자
-				홈으로</a><br>회원리스트
-		</caption>
-		<tr>
-			<td class="no"><h4>NO</h4></td>
-			<td class="id"><h4>아이디</h4></td>
-			<td class="nickname"><h4>닉네임</h4></td>
-			<td class="birth"><h4>생년월일</h4></td>
-			<td class="fav_space"><h4>선호장소</h4></td>
-		</tr>
-		
-		<c:forEach items="${listVO.list }" var="list" >
-			<tr>
-				<td>${list.RNUM}</td>
-				<td>${list.ID }</td>
-				<td>${list.NICKNAME }</td>
-				<td>${list.BIRTH }</td>
-				<td>${list.FAV_SPACE}</td>
-			</tr>
-		</c:forEach>
+<caption><a href="${pageContext.request.contextPath}/admin/show_admin_mypage.do">관리자 홈으로</a>
+<br>신고리스트</caption>
+<tr>
+<td class="report_no"><h4>NO</h4></td>
+<td class="report_type"><h4>타입</h4></td>
+<td class="report_content"><h4>내용</h4></td>
+<td class="report_date"><h4>신고날짜</h4></td>
+<td class="pic_date"><h4>촬영일시</h4></td>
+<td class="keyword"><h4>키워드</h4></td>
 
-	</table>
-	<p class="paging">
+</tr>
+	<c:forEach var="rvo" items="${requestScope.reportVO.list}" varStatus="status">
+<tr>
+<td>${rvo.reportNo}</td>
+<td>${rvo.reportType }</td>
+<td>${rvo.reportContent }</td>
+<td>${rvo.reportDate }</td>
+<td>${rvo.pictureVO.pictureDate}</td>
+<td>${rvo.pictureVO.keyword}</td>
+</tr>
+</c:forEach>
+</table>
+<p class="paging">
 		<!-- 코드를 줄이기 위해 pb 변수에 pagingBean을 담는다. -->
-		<c:set var="pb" value="${requestScope.listVO.pagingBean}"></c:set>
+		<c:set var="pb" value="${requestScope.reportVO.pagingBean}"></c:set>
 		<!-- 
 			step2 1) 이전 페이지 그룹이 있으면 이미지 보여준다. (img/left_arrow_btn.gif)
 				   		페이징빈의 previousPageGroup 이용 
@@ -47,7 +44,7 @@
 	 -->
 		<c:if test="${pb.previousPageGroup}">
 			<a
-				href="${pageContext.request.contextPath}/memberlist.do?pageNo=${pb.startPageOfPageGroup-1}">
+				href="${pageContext.request.contextPath}/show_report_list.do?pageNo=${pb.startPageOfPageGroup-1}">
 				<!-- <img src="img/left_arrow_btn.gif"> --> ◀&nbsp;
 			</a>
 		</c:if>
@@ -63,7 +60,7 @@
 			<c:choose>
 				<c:when test="${pb.nowPage!=i}">
 					<a
-						href="${pageContext.request.contextPath}/memberlist.do?pageNo=${i}">${i}</a>
+						href="${pageContext.request.contextPath}/show_report_list.do?pageNo=${i}">${i}</a>
 				</c:when>
 				<c:otherwise>
 	${i}
@@ -79,7 +76,7 @@
 	 -->
 		<c:if test="${pb.nextPageGroup}">
 			<a
-				href="${pageContext.request.contextPath}/memberlist.do?pageNo=${pb.endPageOfPageGroup+1}">
+				href="${pageContext.request.contextPath}/show_report_list.do?pageNo=${pb.endPageOfPageGroup+1}">
 				▶<!-- <img src="img/right_arrow_btn.gif"> -->
 			</a>
 		</c:if>

@@ -102,10 +102,16 @@ create table report(
 	keyword varchar2(50) not null,
 	constraint fk_report_picture foreign key(pic_date, keyword) references picture(pic_date,keyword)
 )
-select row_number() over(order by report_no desc) as rnum,
- 	report_type,report_content,to_char(report_date,'YYYY.MM.DD') as report_date,keyword from report where rnum
- 	between 1 and 5;
- 	
+select rnum, pic_date,report_type, report_content, keyword from
+ 	 (select report_no,row_number() over(order by report_no desc) as rnum,pic_date,report_type,report_content, keyword
+ 	 from report) where rnum between  1 and 5
+ 		select  report_no, pic_date, report_date, report_type, report_content, keyword from report;
+ 		
+ 	 select rnum, report_no, pic_date,report_type, report_content, keyword, report_date from
+ 	 (select report_no,row_number() over(order by report_no desc) as rnum,pic_date,
+ 	 report_type,report_content, keyword , report_date
+ 	 from report) where rnum between  1 and  5 order by rnum desc
+ 	 
  	select id,rnum from (select id,row_number() over(order by id desc) as rnum
  	 from member) where rnum between 1 and 5;
  	
@@ -128,6 +134,9 @@ create table mypage(
 	CONSTRAINT fk_mypage_member foreign key(id) references member(id)
 	)
 	
+	select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
+	(select id,pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
+	from picture) where rnum between 1 and 5 order by keyword desc
 insert into mypage values('java','1999.10','광화문',sysdate,'좋아요',sysdate);
 -- 무결성 제약조건에 위배되는 삽입 문(멤버아이디 존재하지 않음)
 insert into mypage values('java1','1999.10','광화문',sysdate,'좋아요',sysdate);

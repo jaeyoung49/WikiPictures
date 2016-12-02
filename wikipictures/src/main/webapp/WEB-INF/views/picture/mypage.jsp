@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<a href="${pageContext.request.contextPath}/member/update_member.do">회원정보수정 |</a>
+<a href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정 |</a>
 <a href="${pageContext.request.contextPath}/mypictures.do">내가올린사진들보기 |</a>
 <a href="${pageContext.request.contextPath}/secret_reply.do">시크릿댓글목록보기 |</a>
 <a href="${pageContext.request.contextPath}/picture/buylist.do">구매내역보기 |</a>

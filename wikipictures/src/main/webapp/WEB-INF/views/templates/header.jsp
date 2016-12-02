@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
@@ -17,6 +18,11 @@
 				alert("비밀번호를 입력하세요!");
 				return false;
 			}		
+			$("#logout").click(function(){
+	    		if(confirm("로그아웃하시겠습니까?")){
+	    			location.href="${pageContext.request.contextPath}/logout.do";
+	    		}
+	    	});
 		});
 	});
 </script>    
@@ -33,11 +39,10 @@
 </c:when>
  <c:otherwise>
  ${sessionScope.mvo.nickname}님 |
- <a href="${pageContext.request.contextPath}/member/update_form.do">회원정보수정 |</a>
- <a href="${pageContext.request.contextPath }/picture/upload_form.do">사진업로드</a>
+ <a href="${pageContext.request.contextPath }/picture/upload_form.do">사진업로드 |</a>
  <a href="${pageContext.request.contextPath}/picture/mypage.do">마이페이지 |</a>
- <a href="${pageContext.request.contextPath}/member/update_form.do">회원정보수정 |</a>
-  <a href="${pageContext.request.contextPath}/logout.do">로그아웃 |</a>
+ <a href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정 |</a>
+  <a href="${pageContext.request.contextPath}/logout.do" id="logout">로그아웃 |</a>
 <hr>
 </c:otherwise>
 

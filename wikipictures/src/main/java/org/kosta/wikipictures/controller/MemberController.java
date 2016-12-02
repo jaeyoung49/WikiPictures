@@ -35,13 +35,12 @@ public class MemberController {
 	public String login(MemberVO memberVO, HttpServletRequest request) {
 		MemberVO vo = memberService.login(memberVO);
 		if (vo == null) {
-			return "member/login_fail";
+			return "member/login_all_fail";
 		}if(vo.getId().equals("admin")){
 			request.getSession().setAttribute("mvo", vo);
-			return "admin/admin";
+			return "admin/show_admin_mypage";
 		}else {
 			request.getSession().setAttribute("mvo", vo);
-			System.out.println(vo.getId());
 			return "home";
 		}
 	}

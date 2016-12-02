@@ -26,10 +26,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="pictureDate" column="pic_date" />
 		<result property="authorComment" column="author_comment" />
 		<result property="pictureSpace" column="pic_space" />
+		<result property="memberVO.id" column="id"/>
 	</resultMap>
 	
 	<select id="mypictures" resultMap="pictureRM" parameterType="pictureVO">
-	select rnum,keyword,path,author_comment,hits,pic_space,category from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
+	select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
+	(select id, pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
 	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
 	</select>
 	

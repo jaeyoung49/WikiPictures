@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 <body>
-<a href="admin.do">관리자 홈으로</a><br>
+<a href="${pageContext.request.contextPath}/admin/show_admin_mypage.do">관리자 홈으로</a><br>
 공사중 아이유 구경 창 ㅎ
 <img src="${pageContext.request.contextPath}/resources/img/iu.jpg">
 </body>
