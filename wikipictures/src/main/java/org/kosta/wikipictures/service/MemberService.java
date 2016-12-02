@@ -12,4 +12,7 @@ public interface MemberService {
 	public  ListVO<MemberVO> memberList(String pageNo);
 	public  ListVO<MemberVO> memberList();
 	public int memeberTotalCount();
+	void updateMember(MemberVO memberVO);
+	
+	
 }

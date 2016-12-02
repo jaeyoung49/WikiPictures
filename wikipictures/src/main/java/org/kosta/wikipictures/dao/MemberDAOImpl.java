@@ -44,4 +44,10 @@ private SqlSessionTemplate template;
 	public List<MemberVO> memberList(Map<String, Integer> pagingConfig) {
 		return template.selectList("admin.memberlist", pagingConfig);
 	}
+	@Override
+	public void updateMember(MemberVO vo) {
+		template.update("member.updateMember",vo);
+		
+	}
+	
 }

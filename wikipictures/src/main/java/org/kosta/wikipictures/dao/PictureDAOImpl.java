@@ -1,6 +1,7 @@
 package org.kosta.wikipictures.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -29,4 +30,23 @@ public class PictureDAOImpl implements PictureDAO {
 	public List<PictureVO> pictureList(PictureVO pvo){
 		return template.selectList("admin.picturelist",pvo);
 	}
+
+	@Override
+	public int totalContentCount() {
+		// TODO Auto-generated method stub
+		return template.selectOne("picture.totalContentCount");
+	}
+
+	@Override
+	public List<PictureVO> mypictures(Map<String, Integer> pagingConfig) {
+		// TODO Auto-generated method stub
+		return template.selectList("picture.mypictures", pagingConfig);
+	}
+
+	@Override
+	public List<PictureVO> mypictures(String pageNo) {
+		return template.selectList("picture.mypictures",pageNo);
+	}
+	
+
 }

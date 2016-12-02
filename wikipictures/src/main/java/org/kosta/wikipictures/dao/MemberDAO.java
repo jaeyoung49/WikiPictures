@@ -15,5 +15,7 @@ public interface MemberDAO {
 	public int memeberTotalCount();
 	public  List<HashMap<String,Object>> memberList(String pageNo);
 	public List<MemberVO> memberList(Map<String, Integer> pagingConfig);
-
+	void updateMember(MemberVO vo);
+	
+	
 }
