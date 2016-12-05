@@ -67,6 +67,9 @@ public class PictureDAOImpl implements PictureDAO {
 	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO){
 		return template.selectList("picture.searchDetailPicture",hashtagVO);
 	}
-
+	
+	public void addHashtag(HashtagVO hashtagVO){
+		template.insert("picture.addHashtag",hashtagVO);
+	}
 
 }

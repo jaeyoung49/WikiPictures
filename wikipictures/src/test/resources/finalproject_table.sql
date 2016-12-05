@@ -607,4 +607,26 @@ select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorC
 -- **********마이페이지 buy_date 컬럼 not null 에서 null로 수정***********--
 alter table mypage MODIFY(buy_date date null);
 		
-select * from picture;
+select * from hashtag
+where hashtag_name='ㅁㅁㅁ';
+
+select * from HASHTAg
+where pic_date='1988-08'
+and keyword='올림픽'
+and hashtag_name='올림픽'
+
+MERGE INTO hashtag
+		USING DUAL
+		ON(pic_date='1988-08' and keyword='올림픽' and hashtag_name='올림픽')
+		WHEN MATCHED THEN  
+		   update set hashtag_count=hashtag_count+1
+		WHEN NOT MATCHED THEN
+		  insert(pic_date,keyword,hashtag_name) values('1988-08', '올림픽', '올림픽');
+		  
+		  MERGE INTO hashtag
+USING DUAL
+ON(hashtag_name='촛불시위')
+WHEN MATCHED THEN  
+   update set hashtag_count=hashtag_count+1
+WHEN NOT MATCHED THEN
+  insert(pic_date,keyword,hashtag_name) values('1999.10','광화문','촛불시위')

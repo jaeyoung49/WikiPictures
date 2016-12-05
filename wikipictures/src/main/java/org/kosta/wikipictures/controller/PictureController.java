@@ -150,4 +150,12 @@ public class PictureController {
 		return new ModelAndView("picture/show_picture_detail","pvo",pvo);
 	}
 	
+	@RequestMapping("addHashtag.do")
+	public ModelAndView addHashtag(HttpServletRequest request, HashtagVO hashtagVO, PictureVO pictureVO){
+		String hashtagName = request.getParameter("tempHashtags");
+		
+		System.out.println(hashtagName);
+		/*pictureService.addHashtag(hashtagName);*/
+		return new ModelAndView("picture/show_picture_detail");
+	}
 }

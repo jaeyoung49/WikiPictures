@@ -75,6 +75,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
 	</select>
 	
+	<insert id="addHashtag" parameterType="hashtagVO">
+		MERGE INTO hashtag
+		USING DUAL
+		ON(pic_date=#{pictureVO.pictureDate} and keyword=#{pictureVO.keyword} and hashtag_name=#{hashtagName})
+		WHEN MATCHED THEN  
+		   update set hashtag_count=hashtag_count+1
+		WHEN NOT MATCHED THEN
+		  insert(pic_date,keyword,hashtag_name) values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
+	</insert>
+	
 </mapper>
 	
 		

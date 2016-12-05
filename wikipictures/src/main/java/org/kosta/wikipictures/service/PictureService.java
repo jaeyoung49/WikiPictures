@@ -25,5 +25,7 @@ public interface PictureService {
 	
 	public int totalContentCount();
 	
+	void addHashtag(HashtagVO hashtagVO);
+	
 
 }

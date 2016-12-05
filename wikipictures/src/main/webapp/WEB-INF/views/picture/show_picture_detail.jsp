@@ -101,14 +101,17 @@
               </c:forEach> 
             </div>
           </div>
+          <form action="${pageContext.request.contextPath}/addHashtag.do?keyword=${requestScope.picturevo.keyword}&pic_date=${requestScope.picturevo.pictureDate}">
           <div class="form-group">
             해시태그추가
             <br>
             <input type="text" name="tempHashtags" id="tags" placeholder="태그입력후 Enter를 눌러주세요">
           </div>
-          <p><a href="#" class="btn btn-primary" id="addhashtag" role="button">버튼1</a>
+          <p><a href="searchHashtag.do" class="btn btn-primary" id="addhashtag" role="button">버튼1</a>
             <a href="#" class="btn btn-default" role="button">버튼2</a></p>
             <span id="dataView"></span>
+            <input type="submit" value="버튼">
+            </form>
         </div>
       </div>
     </div>

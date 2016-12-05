@@ -71,5 +71,8 @@ public class PictureServiceImpl implements PictureService {
 		return 0;
 	}
 	
+	public void addHashtag(HashtagVO hashtagVO){
+		pictureDAO.addHashtag(hashtagVO);
+	}
 
 }

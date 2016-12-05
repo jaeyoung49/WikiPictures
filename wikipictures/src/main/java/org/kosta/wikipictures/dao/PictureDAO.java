@@ -28,6 +28,8 @@ public interface PictureDAO {
 	List<PictureVO> mypictures(Map<String, Integer> pagingConfig);
 	
 	List<PictureVO> mypictures(String pageNo);
+	
+	void addHashtag(HashtagVO hashtagVO);
 
 
 }
