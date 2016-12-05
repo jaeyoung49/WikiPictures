@@ -6,4 +6,5 @@ alert("회원정보가수정되었습니다! ");
 
 회원정보가수정되었습니다. ${sessionScope.mvo}<br>
 
-<a href="${pageContext.request.contextPath}/picture/mypage.do">마이페이지로 돌아가기</a>
+<a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지로 돌아가기</a>
+

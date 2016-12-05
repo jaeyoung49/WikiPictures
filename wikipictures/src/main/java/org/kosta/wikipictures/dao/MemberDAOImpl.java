@@ -1,9 +1,14 @@
 package org.kosta.wikipictures.dao;
 
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.kosta.wikipictures.vo.MemberVO;
+import org.kosta.wikipictures.vo.MypageVO;
+import org.kosta.wikipictures.vo.PictureVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -31,7 +36,8 @@ private SqlSessionTemplate template;
 	@Override
 	public void updateMember(MemberVO vo) {
 		template.update("member.updateMember",vo);
-		
 	}
+	
+	
 	
 }

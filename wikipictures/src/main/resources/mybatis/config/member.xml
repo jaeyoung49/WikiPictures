@@ -34,6 +34,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update member set nickname=#{nickname}, password=#{password},fav_space=#{favoriteSpace}
 		where id=#{id}
 	</update>
+	
+	<resultMap type="pictureVO" id="pictureRM">
+		<result property="pictureDate" column="pic_date" />
+		<result property="authorComment" column="author_comment" />
+		<result property="pictureSpace" column="pic_space" />
+	</resultMap>
+	
+	<select id="mypictures" resultMap="pictureRM" parameterType="pictureVO">
+	select rnum,keyword,path,author_comment,hits,pic_space,id,category from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,id,category
+	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
+	</select>
+	
+	<select id="totalContentCount" resultType="int">
+		select count(*) from picture
+	</select>
+	
+	<resultMap type="mypageVO" id="mypageRM">
+		<result property="replyDate" column="reply_date" />
+		<result property="replyContent" column="reply_content" />
+		<result property="memberVO.id" column="id"/>
+	</resultMap>
+	
+	<select id="show_secretreply_list" resultMap="mypageRM" parameterType="mypageVO">
+	select id,reply_date,reply_content from(select row_number() over (order by id desc) as rnum,id,reply_date,reply_content from mypage) 
+	where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
+	</select>
+	
+	<select id="secretTotalContentCount" resultType="int">
+		select count(*) from mypage
+	</select>
+	
+</mapper>
+	
+	
  	<!-- <select id="getMemberCount" resultType="int">
  		select count(*) from security_member
  	</select>
@@ -58,7 +92,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM	authorities
 		WHERE	username=#{username}
 	</select> -->
-</mapper>
 
 
 

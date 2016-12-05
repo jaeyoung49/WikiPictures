@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.kosta.wikipictures.vo.HashtagVO;
+import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
 
 public interface PictureDAO {
@@ -23,11 +24,19 @@ public interface PictureDAO {
 	
 	public List<PictureVO> pictureList(PictureVO pvo);
 	
+	List<PictureVO> showMypictureList(Map<String, Integer> pagingConfig);
+
+	List<PictureVO> showMypictureList(String pageNo);
+
 	int totalContentCount();
+
+	List<MypageVO> showSecretreplyList(Map<String, Integer> pagingConfig);
 	
-	List<PictureVO> mypictures(Map<String, Integer> pagingConfig);
+	List<MypageVO> showSecretreplyList(String pageNo);
+
+	int secretTotalContentCount();
 	
-	List<PictureVO> mypictures(String pageNo);
+	
 
 
 }

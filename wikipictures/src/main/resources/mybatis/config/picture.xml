@@ -58,10 +58,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and p.keyword=h.keyword
 	</select>
 	
-	<select id="totalContentCount" resultType="int">
-		select count(*) from picture
-	</select>
-	
 	<resultMap type="pictureVO" id="pictureRM">
 		<result property="pictureDate" column="pic_date" />
 		<result property="authorComment" column="author_comment" />
@@ -69,16 +65,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="memberVO.id" column="id"/>
 	</resultMap>
 	
-	<select id="mypictures" resultMap="pictureRM" parameterType="pictureVO">
+	<select id="showMypictureList" resultMap="pictureRM" parameterType="pictureVO">
 	select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
 	(select id, pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
 	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
+	</select>
+	
+	<select id="totalContentCount" resultType="int">
+		select count(*) from picture
+	</select>
+	
+	
+	<resultMap type="mypageVO" id="mypageRM">
+		<result property="replyDate" column="reply_date" />
+		<result property="replyContent" column="reply_content" />
+		<result property="memberVO.id" column="id"/>
+	</resultMap>
+	
+	<select id="showSecretreplyList" resultMap="mypageRM" parameterType="mypageVO">
+	select id,reply_date,reply_content from(select row_number() over (order by id desc) as rnum,id,reply_date,reply_content from mypage) 
+	where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
+	</select>
+	
+	
+	<select id="secretTotalContentCount" resultType="int">
+		select count(*) from mypage
 	</select>
 	
 </mapper>
 	
 		
 		
+
+
+
 
 
 

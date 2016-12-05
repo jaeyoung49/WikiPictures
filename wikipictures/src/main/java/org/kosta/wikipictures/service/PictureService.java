@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.ListVO;
+import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
 
 public interface PictureService {
@@ -19,11 +20,18 @@ public interface PictureService {
 
 	public List<PictureVO> pictureList(PictureVO pvo);
 	
-	ListVO<PictureVO> mypictures(String pageNo);
 	
-	ListVO<PictureVO> mypictures();
+	ListVO<PictureVO> showMypictureList(String pageNo);
+	
+	ListVO<PictureVO> showMypictureList();
 	
 	public int totalContentCount();
+
+	ListVO<MypageVO> showSecretreplyList(String pageNo);
+	
+	ListVO<MypageVO> showSecretreplyList();
+	
+	public int secretTotalContentCount();
 	
 
 }

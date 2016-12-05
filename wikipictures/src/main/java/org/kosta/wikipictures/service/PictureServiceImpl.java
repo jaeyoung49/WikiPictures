@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.kosta.wikipictures.dao.PictureDAO;
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.ListVO;
+import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PagingBean;
 import org.kosta.wikipictures.vo.PictureVO;
 import org.springframework.stereotype.Service;
@@ -46,7 +47,10 @@ public class PictureServiceImpl implements PictureService {
 	public List<PictureVO> pictureList(PictureVO pvo) {
 		return pictureDAO.pictureList(pvo);
 	}
-	public ListVO<PictureVO> mypictures(String pageNo) {
+	
+	
+	@Override
+	public ListVO<PictureVO> showMypictureList(String pageNo) {
 		int totalCount=pictureDAO.totalContentCount();
 		PagingBean pagingBean=null;
 		if(pageNo==null)
@@ -56,17 +60,43 @@ public class PictureServiceImpl implements PictureService {
 			HashMap<String,Integer> paramMap=new HashMap<String,Integer>();
 			paramMap.put("startRowNumber",pagingBean.getStartRowNumber());
 			paramMap.put("endRowNumber", pagingBean.getEndRowNumber());
-		return new ListVO<PictureVO>(pictureDAO.mypictures(paramMap),pagingBean) ;
+		return new ListVO<PictureVO>(pictureDAO.showMypictureList(paramMap),pagingBean) ;
 	}
 
 	@Override
-	public ListVO<PictureVO> mypictures() {
+	public ListVO<PictureVO> showMypictureList() {
 		// TODO Auto-generated method stub
-		return mypictures("1");
+		return showMypictureList("1");
 	}
 
 	@Override
 	public int totalContentCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public ListVO<MypageVO> showSecretreplyList(String pageNo) {
+		int totalCount=pictureDAO.secretTotalContentCount();
+		PagingBean pagingBean=null;
+		if(pageNo==null)
+			pagingBean=new PagingBean(totalCount);
+		else
+			pagingBean=new PagingBean(totalCount,Integer.parseInt(pageNo));
+		HashMap<String,Integer> paramMap=new HashMap<String,Integer>();
+		paramMap.put("startRowNumber", pagingBean.getStartRowNumber());
+		paramMap.put("endRowNumber", pagingBean.getEndRowNumber());
+		return new ListVO<MypageVO>(pictureDAO.showSecretreplyList(paramMap),pagingBean);
+	}
+	
+	@Override
+	public ListVO<MypageVO> showSecretreplyList() {
+		// TODO Auto-generated method stub
+		return showSecretreplyList("1");
+	}
+	
+	@Override
+	public int secretTotalContentCount() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

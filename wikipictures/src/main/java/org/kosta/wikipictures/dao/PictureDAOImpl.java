@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.kosta.wikipictures.vo.HashtagVO;
+import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -39,23 +40,6 @@ public class PictureDAOImpl implements PictureDAO {
 	}
 
 	@Override
-	public int totalContentCount() {
-		// TODO Auto-generated method stub
-		return template.selectOne("picture.totalContentCount");
-	}
-
-	@Override
-	public List<PictureVO> mypictures(Map<String, Integer> pagingConfig) {
-		// TODO Auto-generated method stub
-		return template.selectList("picture.mypictures", pagingConfig);
-	}
-
-	@Override
-	public List<PictureVO> mypictures(String pageNo) {
-		return template.selectList("picture.mypictures",pageNo);
-	}
-	
-	@Override
 	public List<PictureVO> searchPicture(String keyword){
 		return template.selectList("picture.searchPicture",keyword);
 	}
@@ -66,6 +50,38 @@ public class PictureDAOImpl implements PictureDAO {
 	@Override
 	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO){
 		return template.selectList("picture.searchDetailPicture",hashtagVO);
+	}
+	
+	@Override
+	public List<PictureVO> showMypictureList(Map<String, Integer> pagingConfig) {
+		return template.selectList("picture.showMypictureList", pagingConfig);
+	}
+	
+	@Override
+	public List<PictureVO> showMypictureList(String pageNo) { 
+		return template.selectList("picture.showMypictureList",pageNo); 
+	}
+	
+	@Override
+	public int totalContentCount() {
+		// TODO Auto-generated method stub
+		return template.selectOne("picture.totalContentCount");
+	}
+	
+	@Override
+	public List<MypageVO> showSecretreplyList(Map<String, Integer> pagingConfig) {
+		return template.selectList("picture.showSecretreplyList", pagingConfig);
+	}
+
+	@Override
+	public List<MypageVO> showSecretreplyList(String pageNo) {
+		return template.selectList("picture.showSecretreplyList", pageNo);
+	}
+	
+	@Override
+	public int secretTotalContentCount() {
+		// TODO Auto-generated method stub
+		return template.selectOne("picture.secretTotalContentCount");
 	}
 
 

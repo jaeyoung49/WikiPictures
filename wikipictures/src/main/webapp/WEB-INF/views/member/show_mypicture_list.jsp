@@ -12,7 +12,8 @@
 	<caption>내가올린사진들보기 게시판</caption>
 	
 		<tr>
-			<!-- <th class="id">작성자</th> -->
+			<th class="id">작성자</th>
+			<th class="pictureDate">사진날짜</th>
 			<th class="keyword">키워드</th>
 			<th class="path">사진경로</th>
 			<th class="authorComment">원작자코멘트</th>
@@ -23,7 +24,8 @@
 		
 				<c:forEach var="pictureVO" items="${requestScope.pvo.list}" varStatus="status">
 		<tr>
-			<%-- <th>${pictureVO.memberVO.id}</th> --%>
+			<th>${pictureVO.memberVO.id}</th>
+			<th>${pictureVO.pictureDate}</th>
 			<th>${pictureVO.keyword}</th>
 			<th>${pictureVO.path}</th>
 			<th>${pictureVO.authorComment}</th>
@@ -48,7 +50,7 @@
 				   	    hint)   startPageOfPageGroup-1 하면 됨 		 
 	 -->      
 	<c:if test="${pb.previousPageGroup}">
-	<a href="${pageContext.request.contextPath}/mypictures.do?pageNo=${pb.startPageOfPageGroup-1}">
+	<a href="${pageContext.request.contextPath}/showMypictureList.do?pageNo=${pb.startPageOfPageGroup-1}">
 	<!-- <img src="img/left_arrow_btn.gif"> -->
 	◀&nbsp; </a>	
 	</c:if>
@@ -63,7 +65,7 @@
 	end="${pb.endPageOfPageGroup}">
 	<c:choose>
 	<c:when test="${pb.nowPage!=i}">
-	<a href="${pageContext.request.contextPath}/mypictures.do?pageNo=${i}">${i}</a> 
+	<a href="${pageContext.request.contextPath}/showMypictureList.do?pageNo=${i}">${i}</a> 
 	</c:when>
 	<c:otherwise>
 	${i}
@@ -78,7 +80,7 @@
 				   	    hint)   endPageOfPageGroup+1 하면 됨 		 
 	 -->   
 	<c:if test="${pb.nextPageGroup}">
-	<a href="${pageContext.request.contextPath}/mypictures.do?pageNo=${pb.endPageOfPageGroup+1}">
+	<a href="${pageContext.request.contextPath}/showMypictureList.do?pageNo=${pb.endPageOfPageGroup+1}">
 	▶<!-- <img src="img/right_arrow_btn.gif"> --></a>
 	</c:if>
 	</p>
