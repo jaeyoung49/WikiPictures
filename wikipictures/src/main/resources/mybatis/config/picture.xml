@@ -134,6 +134,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where rowNumber between 1 and 3 order by rowNumber asc
 	</select>
 	
+	<insert id="reportpicture" parameterType="reportVO">
+		insert into report(report_no, report_type,report_content,report_date,pic_date,keyword) 
+		values(#{report_no},#{report_type},#{report_contet},sysdate,#{pic_date},#{keyword});
+	</insert>
+	
 </mapper>
 	
 		

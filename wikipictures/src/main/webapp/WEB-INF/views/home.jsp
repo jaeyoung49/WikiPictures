@@ -100,7 +100,7 @@
         <ul class="nav navbar-nav pull-right">
           <li><a href="${pageContext.request.contextPath}/picture/register_picture_form.do">업로드</a></li>
           <li><a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지</a></li>	<!-- 두번째 인덱스 보내는것으로 연결 -->
-          <li><a href="#">정정 / 신고 요청}</a></li>
+          <li><a href="#">정정 / 신고 요청</a></li>
       <li class="dropdown-toggle">
         <a href="#" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">타임머신<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-filter >
@@ -135,6 +135,7 @@
                       <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                       <a href="#" class="btn btn-go"><i class="fa fa-google"></i> Google</a>
                     </div>
+
                     <form class="form" role="form" method="post" action="${pageContext.request.contextPath}/login.do" accept-charset="UTF-8" id="login-nav">
                       <div class="form-group">
                         <label class="sr-only" for="exampleInputId2">id</label>
@@ -146,12 +147,12 @@
                         <div class="help-block text-right"><a href="">비밀번호 찾기</a></div>
                       </div>
                       <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">로그인</button>
+                      <input type="submit" class="btn btn-primary btn-block" value="로그인">
                       </div>
                     </form>
                   </div>
-  				<div class="bottom text-center">
-                   회원이 아니세요? <a href="${pageContext.request.contextPath}/member/register_member_form.do" style="text-decoration:none;"><strong style="color: Navy">회원가입</strong></a>
+  				  <div class="bottom text-center">
+                    회원이 아니세요? <a href="${pageContext.request.contextPath}/member/register_member_form.do" style="text-decoration:none;"><strong style="color: blue">회원가입</strong></a>
                   </div>
                 </div>
               </li>
@@ -167,6 +168,7 @@
   <!-- MAIN START ================================================== -->
   <div id="pagepiling">
     <!-- Video Page START ================================================== -->
+    <br><br>
     <div class="section" id="section1">
       <video autoplay loop muted id="video">
         <source src="${pageContext.request.contextPath}/resources/video/${timeMachineVO.timeMachineYear}.mp4" type="video/mp4">

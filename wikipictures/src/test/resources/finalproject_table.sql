@@ -233,8 +233,8 @@ create table report(
 	keyword varchar2(50) not null,
 	constraint fk_report_picture foreign key(pic_date, keyword) references picture(pic_date,keyword)
 )
-
-insert into report values(1,'신고','실험',sysdate,'1988-03','올림픽');
+select * from report;
+insert into report(report_no, report_type,report_content,report_date,pic_date,keyword) values(2,'신고','실험',sysdate,'1988-03','올림픽');
 insert into report values(1,'신고','선정성',sysdate,'1999.10','광화문');
 insert into report values(2,'신고','선정성',sysdate,'1999.10','광화문');
 insert into report values(3,'정정','내용과 맞지 않음',sysdate,'2000,10','광화문');
@@ -629,7 +629,7 @@ insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT,
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2010', '순국선열의 명복을 빕니다', '천안함 격침', '천안함');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2014', '언제쯤이면 안전불감증에서 벗어날까', '세월호 침몰', '세월호');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2015', '누구를 위한 역사인가', '역사교과서 국정화 반대시위', '역사교과서국정화반대시위');
-insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2016', '우리는 꼭두각시를 대통령으로 하지 않았다', '박근혜 대통령 퇴진시위', '박근혜대통령 퇴진시위');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2016', '우리는 꼭두각시를 대통령으로 하지 않았다', '박근혜 대통령 퇴진시위', '박근혜대통령퇴진시위');
 
 
 
