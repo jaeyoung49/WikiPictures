@@ -20,6 +20,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<result property="authorComment" column="author_commnet"/>
 	<result property="pictureSpace" column="pic_space"/>
 	<result property="memberVO.id" column="id"/>
+	<result property="rowNumber" column="rnum"/>
+	</resultMap>
+	<resultMap type="mypageVO" id="mypageRM">
+	<result property="pictureVO.pictureDate" column="pic_date"/>
+	<result property="memberVO.id" column="id"/>
+	<result property="pictureVO.keyword" column="keyword"/>
+	<result property="replyDate" column="reply_date"/>
+	<result property="replyContent" column="reply_content"/>
+	<result property="buyDate" column="buy_date"/>
+	<result property="rowNumber" column="rnum"/>
 	</resultMap>
  	 	<select id="memberlist" resultType="java.util.HashMap" >
  	select rnum, id, nickname, password, birth, fav_space from
@@ -38,11 +48,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	(select id, pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
 	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
 	</select>
+	<select id="selllist" resultMap="mypageRM">
+	 select rnum,id, pic_date, keyword, reply_date, reply_content, buy_date from
+ 	 (select row_number() over(order by id desc) as rnum,id,pic_date,
+ 	 keyword,reply_date,reply_content, buy_date
+ 	 from mypage) where rnum between  #{startRowNumber} and  #{endRowNumber} order by rnum desc
+	</select>
  	<select id="memberTotalCount" resultType="int">
 		select count(*) from	member
 	</select>
 		<select id="reportTotalCount" resultType="int">
 		select count(*) from	report
+	</select>
+	<select id="sellTotalCount" resultType="int">
+		select count(*) from mypage
 	</select>
 </mapper>
 

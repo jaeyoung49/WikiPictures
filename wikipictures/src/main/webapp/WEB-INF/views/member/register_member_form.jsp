@@ -10,9 +10,6 @@
 				intro.slideDown();
 			}
 		});
-
-		
-
 		var checkResultId="";
 		$("#regForm").submit(function(){
 			var agree = document.getElementById('agree');
@@ -77,7 +74,7 @@
 닉네임 : <input type="text" name="nickname"><br>
 비밀번호 : <input type="password" name="password"><br>
 생년월일 : <input type="date" name="birth"><br>
-선호장소 : <input type="text" name="favorateSpace"><br>
+선호장소 : <input type="text" name="favoriteSpace"><br>
 이용약관 에 동의하십니까?
 <input type="checkbox" name="agree" id="agree"><br>
 

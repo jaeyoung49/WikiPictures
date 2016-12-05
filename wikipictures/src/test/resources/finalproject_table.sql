@@ -248,8 +248,10 @@ create table mypage(
 	CONSTRAINT FK_mypage_picture foreign key(pic_date, keyword) references picture(pic_date,keyword),
 	CONSTRAINT fk_mypage_member foreign key(id) references member(id)
 	)
-	
-insert into mypage values('java','1999.10','광화문',sysdate,'좋아요',sysdate);
+	select * from mypage;
+		
+ 	 
+insert into mypage values('java','2002-05','월드컵',sysdate,'좋아요',sysdate);
 -- 무결성 제약조건에 위배되는 삽입 문(멤버아이디 존재하지 않음)
 insert into mypage values('java1','1999.10','광화문',sysdate,'좋아요',sysdate);
 	
@@ -605,4 +607,4 @@ select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorC
 -- **********마이페이지 buy_date 컬럼 not null 에서 null로 수정***********--
 alter table mypage MODIFY(buy_date date null);
 		
-
+select * from picture;
