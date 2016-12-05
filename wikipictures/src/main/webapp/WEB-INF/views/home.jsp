@@ -65,7 +65,6 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
           <li><a href="#">업로드</a></li>
-          <li><a href="#">마이페이지</a></li>
           <li><a href="#">정정 / 신고 요청</a></li>
       <li class="dropdown-toggle">
         <a href="#" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">타임머신<span class="caret"></span></a>
@@ -111,23 +110,23 @@
                       <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                       <a href="#" class="btn btn-go"><i class="fa fa-google"></i> Google</a>
                     </div>
-                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                    <form class="form" role="form" method="post" action="${pageContext.request.contextPath}/login.do" 
+                    accept-charset="UTF-8" id="loginForm">
                       <div class="form-group">
-                        <label class="sr-only" for="exampleInputId2">id</label>
-                        <input type="text" class="form-control" id="exampleInputEmailId2" placeholder="아이디" required>
+                        <input type="text"  name="id" class="form-control"  placeholder="아이디" required>
                       </div>
                       <div class="form-group">
-                        <label class="sr-only" for="exampleInputPassword2">password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="비밀번호" required>
+                        <input type="password" class="form-control" name="password" placeholder="비밀번호" required>
+                        
                         <div class="help-block text-right"><a href="">비밀번호 찾기</a></div>
                       </div>
                       <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">로그인</button>
+                      <input type="submit" class="btn btn-primary btn-block" value="로그인">
                       </div>
                     </form>
                   </div>
-  				<div class="bottom text-center">
-                   회원이 아니세요? <a href="#" style="text-decoration:none;"><strong style="color: Navy">회원가입</strong></a>
+                  <div class="bottom text-center">
+                    회원이 아니세요? <a href="${pageContext.request.contextPath}/member/register_member_form.do"><strong style="color: blue">회원가입</strong></a>
                   </div>
                 </div>
               </li>
@@ -143,6 +142,7 @@
   <!-- MAIN START ================================================== -->
   <div id="pagepiling">
     <!-- Video Page START ================================================== -->
+    <br><br>
     <div class="section" id="section1">
       <video autoplay loop muted id="video">
         <source src="${pageContext.request.contextPath}/resources/img/1.mp4" type="video/mp4">
@@ -152,7 +152,7 @@
         <h2 class="text-center">Be the Reds</h2>
       </div>
     </div>
-    <!-- section2 Page START ================================================== -->
+    <!-- section2 Page START ================================================= -->
     <div class="section" id="section2">
       <div class="intro">
         <div id="carousel1-example-generic" class="carousel slide" data-ride="carousel">
