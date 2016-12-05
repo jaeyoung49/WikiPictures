@@ -231,8 +231,8 @@ create table report(
 	keyword varchar2(50) not null,
 	constraint fk_report_picture foreign key(pic_date, keyword) references picture(pic_date,keyword)
 )
-
-insert into report values(1,'신고','실험',sysdate,'1988-03','올림픽');
+select * from report;
+insert into report(report_no, report_type,report_content,report_date,pic_date,keyword) values(2,'신고','실험',sysdate,'1988-03','올림픽');
 insert into report values(1,'신고','선정성',sysdate,'1999.10','광화문');
 insert into report values(2,'신고','선정성',sysdate,'1999.10','광화문');
 insert into report values(3,'정정','내용과 맞지 않음',sysdate,'2000,10','광화문');
