@@ -1,11 +1,13 @@
 package org.kosta.wikipictures.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.ListVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.TimeMachineVO;
 
 public interface PictureService {
 	void registerHashtag(List<HashtagVO> hashtagList);
@@ -34,6 +36,11 @@ public interface PictureService {
 	public int secretTotalContentCount();
 	
 	void addHashtag(HashtagVO hashtagVO);
+	
+	List<TimeMachineVO> getTimeMachineList();
+	List<PictureVO> getAccidentPictureList(String timeMachineYear);
+	List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear);
+	
 	
 
 }

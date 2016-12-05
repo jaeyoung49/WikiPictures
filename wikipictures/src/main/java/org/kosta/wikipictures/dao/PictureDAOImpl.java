@@ -1,5 +1,6 @@
 package org.kosta.wikipictures.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import javax.annotation.Resource;
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.TimeMachineVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -92,6 +94,22 @@ public class PictureDAOImpl implements PictureDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public List<TimeMachineVO> getTimeMachineList() {
+		return template.selectList("picture.getTimeMachineList");
+	}
+
+	@Override
+	public List<PictureVO> getAccidentPictureList(String timeMachineYear) {
+		return template.selectList("picture.getAccidentPictureList", timeMachineYear);
+	}
+
+	@Override
+	public List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear) {
+		return template.selectList("picture.getPersonAndLocationPictureList", timeMachineYear);
+	}
+
 
 
 }

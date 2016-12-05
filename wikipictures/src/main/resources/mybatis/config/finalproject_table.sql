@@ -162,23 +162,17 @@ WHEN NOT MATCHED THEN
   insert(pic_date,keyword,hashtag_name) values('1999.10','광화문','촛불시위')
   
 
-<<<<<<< HEAD
+------------------------------------------------------연습들--------------------------------------------------------------
 	select rnum, id, nickname, password, birth, fav_space from
  	 (select row_number() over(order by id desc) as rnum,id,nickname, password,
  	to_char(birth, 'yyyy.mm.dd')as birth, fav_space
  	 from member)
-=======
-	select rnum,keyword,path,author_comment,hits,pic_space from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space
+
+ 	 select rnum,keyword,path,author_comment,hits,pic_space from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space
 	from picture) where rnum between 1 and 5
-		
-	
-	
 	
 	select m.id,p.rnum,p.keyword,p.path,p.author_comment,p.hits,p.pic_space,p.category from (select row_number() over(order by keyword desc) as rnum,
 		keyword,path,author_comment,hits,pic_space,category from picture p=member m) picture p,member m where m.id=p.id and rnum between 1 and 5 
-	
 		
 		select rnum,keyword,path,author_comment,hits,pic_space,category from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
 	from picture) where rnum between 1 and 5		
-	
->>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures.git

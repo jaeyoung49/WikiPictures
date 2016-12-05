@@ -168,37 +168,37 @@ insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,h
 values('2015-01','세월호','세월호_2015-01.JPG','세월호 침몰','대한민국','java', '사건', 46);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-06','역사교과서 국정화 반대시위','역사교과서 국정화 반대시위_2015-06.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 47);
+values('2015-06','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-06.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 47);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-07','역사교과서 국정화 반대시위','역사교과서 국정화 반대시위_2015-07.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 48);
+values('2015-07','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-07.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 48);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-08','역사교과서 국정화 반대시위','역사교과서 국정화 반대시위_2015-08.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 49);
+values('2015-08','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-08.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 49);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-09','역사교과서 국정화 반대시위','역사교과서 국정화 반대시위_2015-09.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 50);
+values('2015-09','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-09.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 50);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-10','역사교과서 국정화 반대시위','역사교과서 국정화 반대시위_2015-10.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 51);
+values('2015-10','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-10.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 51);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-11','역사교과서 국정화 반대시위','역사교과서 국정화 반대시위_2015-11.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 52);
+values('2015-11','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-11.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 52);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-12','역사교과서 국정화 반대시위','역사교과서 국정화 반대시위_2015-12.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 53);
+values('2015-12','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-12.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 53);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-06','일본 역사 교과서','일본 역사 교과서_2015-06.JPG','일본의 역사 왜곡 교과서','일본','java', '사건', 54);
+values('2015-06','일본역사교과서','일본역사교과서_2015-06.JPG','일본의 역사 왜곡 교과서','일본','java', '사건', 54);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-07','일본 역사 교과서','일본 역사 교과서_2015-07.JPG','일본의 역사 왜곡 교과서','일본','java', '사건', 55);
+values('2015-07','일본역사교과서','일본역사교과서_2015-07.JPG','일본의 역사 왜곡 교과서','일본','java', '사건', 55);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-08','일본 역사 교과서','일본 역사 교과서_2015-08.png','일본의 역사 왜곡 교과서','일본','java', '사건', 56);
+values('2015-08','일본역사교과서','일본역사교과서_2015-08.png','일본의 역사 왜곡 교과서','일본','java', '사건', 56);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-09','일본 역사 교과서','일본 역사 교과서_2015-09.JPG','일본의 역사 왜곡 교과서','일본','java', '사건', 57);
+values('2015-09','일본역사교과서','일본역사교과서_2015-09.JPG','일본의 역사 왜곡 교과서','일본','java', '사건', 57);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-09','박근혜대통령 퇴진시위','박근혜대통령 퇴진시위_2016-09.JPG','박근혜대통령 퇴진시위','대한민국 서울시광장','ajax', '사건', 58);
+values('2016-09','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-09.JPG','박근혜대통령 퇴진 시위','대한민국 서울시광장','ajax', '사건', 58);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-10','박근혜대통령 퇴진시위','박근혜대통령 퇴진시위_2016-10.JPG','박근혜대통령 퇴진시위','대한민국 서울시광장','ajax', '사건', 59);
+values('2016-10','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-10.JPG','박근혜대통령 퇴진 시위','대한민국 서울시광장','ajax', '사건', 59);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-11','박근혜대통령 퇴진시위','박근혜대통령 퇴진시위_2016-11.JPG','박근혜대통령 퇴진시위','대한민국 서울시광장','ajax', '사건', 60);
+values('2016-11','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-11.JPG','박근혜대통령 퇴진 시위','대한민국 서울시광장','ajax', '사건', 60);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-12','박근혜대통령 퇴진시위','박근혜대통령 퇴진시위_2016-12.JPG','박근혜대통령 퇴진시위','대한민국 서울시광장','ajax', '사건', 61);
+values('2016-12','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-12.JPG','박근혜대통령 퇴진 시위','대한민국 서울시광장','ajax', '사건', 61);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
 values('2016-10','박근혜대통령','박근혜대통령_2016-10.JPG','박근혜대통령','대한민국 청와대','java', '인물', 62);
@@ -208,17 +208,19 @@ insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,h
 values('2016-11','정유라','정유라_2016-11.JPG','정유라','대한민국','java', '인물', 64);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-10','정유라 기사내용','정유라 기사내용_2016-10.JPG','정유라 기사내용','대한민국','ajax', '사건', 65);
+values('2016-10','정유라기사내용','정유라기사내용_2016-10.JPG','정유라기사내용','대한민국','ajax', '사건', 65);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-11','정유라 기사내용','정유라 기사내용_2016-11.JPG','정유라 기사내용','대한민국','ajax', '사건', 66);
+values('2016-11','정유라기사내용','정유라기사내용_2016-11.JPG','정유라기사내용','대한민국','ajax', '사건', 66);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-12','정유라 기사내용','정유라 기사내용_2016-12.JPG','정유라 기사내용','대한민국','ajax', '사건', 67);
+values('2016-12','정유라기사내용','정유라기사내용_2016-12.JPG','정유라기사내용','대한민국','ajax', '사건', 67);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-10','최순실 방송기사','최순실 방송기사_2016-10.JPG','최순실 기사내용','대한민국','ajax', '사건', 68);
+values('2016-10','최순실방송기사','최순실방송기사_2016-10.JPG','최순실 기사내용','대한민국','ajax', '사건', 68);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-11','최순실 방송기사','최순실 방송기사_2016-11.JPG','최순실 기사내용','대한민국','ajax', '사건', 69);
+values('2016-11','최순실방송기사','최순실방송기사_2016-11.JPG','최순실 기사내용','대한민국','ajax', '사건', 69);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-12','최순실 방송기사','최순실 방송기사_2016-12.JPG','최순실 기사내용','대한민국','ajax', '사건', 70);
+values('2016-12','최순실방송기사','최순실방송기사_2016-12.JPG','최순실 기사내용','대한민국','ajax', '사건', 70);
+
+delete from PICTURE;
 
 --***************************여기까지 추가해주세요************************
 
@@ -470,76 +472,76 @@ insert into HASHTAG(pic_date,keyword,hashtag_name,hashtag_count) values('2015-01
 insert into HASHTAG(pic_date,keyword,hashtag_name,hashtag_count) values('2015-01','세월호','대한민국',37);
 
 
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '역사교과서 국정화 반대시위', '역사교과서', '38');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '역사교과서 국정화 반대시위', '대한민국', '39');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '역사교과서 국정화 반대시위', '국정화', '40');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '역사교과서 국정화 반대시위', '반대시위', '41');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '역사교과서 국정화 반대시위', '역사교과서', '38');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '역사교과서 국정화 반대시위', '대한민국', '39');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '역사교과서 국정화 반대시위', '국정화', '40');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '역사교과서 국정화 반대시위', '반대시위', '41');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '역사교과서 국정화 반대시위', '역사교과서', '38');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '역사교과서 국정화 반대시위', '대한민국', '39');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '역사교과서 국정화 반대시위', '국정화', '40');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '역사교과서 국정화 반대시위', '반대시위', '41');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '역사교과서 국정화 반대시위', '역사교과서', '38');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '역사교과서 국정화 반대시위', '대한민국', '39');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '역사교과서 국정화 반대시위', '국정화', '40');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '역사교과서 국정화 반대시위', '반대시위', '41');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-10', '역사교과서 국정화 반대시위', '역사교과서', '38');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-10', '역사교과서 국정화 반대시위', '대한민국', '39');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-10', '역사교과서 국정화 반대시위', '국정화', '40');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-10', '역사교과서 국정화 반대시위', '반대시위', '41');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-11', '역사교과서 국정화 반대시위', '역사교과서', '38');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-11', '역사교과서 국정화 반대시위', '대한민국', '39');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-11', '역사교과서 국정화 반대시위', '국정화', '40');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-11', '역사교과서 국정화 반대시위', '반대시위', '41');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-12', '역사교과서 국정화 반대시위', '역사교과서', '38');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-12', '역사교과서 국정화 반대시위', '대한민국', '39');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-12', '역사교과서 국정화 반대시위', '국정화', '40');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-12', '역사교과서 국정화 반대시위', '반대시위', '41');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '역사교과서국정화반대시위', '역사교과서', '38');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '역사교과서국정화반대시위', '대한민국', '39');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '역사교과서국정화반대시위', '국정화', '40');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '역사교과서국정화반대시위', '반대시위', '41');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '역사교과서국정화반대시위', '역사교과서', '38');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '역사교과서국정화반대시위', '대한민국', '39');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '역사교과서국정화반대시위', '국정화', '40');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '역사교과서국정화반대시위', '반대시위', '41');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '역사교과서국정화반대시위', '역사교과서', '38');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '역사교과서국정화반대시위', '대한민국', '39');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '역사교과서국정화반대시위', '국정화', '40');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '역사교과서국정화반대시위', '반대시위', '41');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '역사교과서국정화반대시위', '역사교과서', '38');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '역사교과서국정화반대시위', '대한민국', '39');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '역사교과서국정화반대시위', '국정화', '40');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '역사교과서국정화반대시위', '반대시위', '41');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-10', '역사교과서국정화반대시위', '역사교과서', '38');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-10', '역사교과서국정화반대시위', '대한민국', '39');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-10', '역사교과서국정화반대시위', '국정화', '40');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-10', '역사교과서국정화반대시위', '반대시위', '41');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-11', '역사교과서국정화반대시위', '역사교과서', '38');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-11', '역사교과서국정화반대시위', '대한민국', '39');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-11', '역사교과서국정화반대시위', '국정화', '40');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-11', '역사교과서국정화반대시위', '반대시위', '41');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-12', '역사교과서국정화반대시위', '역사교과서', '38');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-12', '역사교과서국정화반대시위', '대한민국', '39');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-12', '역사교과서국정화반대시위', '국정화', '40');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-12', '역사교과서국정화반대시위', '반대시위', '41');
 
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '일본 역사 교과서', '일본', '42');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '일본 역사 교과서', '역사왜곡', '43');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '일본 역사 교과서', '역사교과서', '44');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '일본 역사 교과서', '일본', '42');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '일본 역사 교과서', '역사왜곡', '43');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '일본 역사 교과서', '역사교과서', '44');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '일본 역사 교과서', '일본', '42');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '일본 역사 교과서', '역사왜곡', '43');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '일본 역사 교과서', '역사교과서', '44');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '일본 역사 교과서', '일본', '42');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '일본 역사 교과서', '역사왜곡', '43');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '일본 역사 교과서', '역사교과서', '44');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '일본역사교과서', '일본', '42');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '일본역사교과서', '역사왜곡', '43');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-06', '일본역사교과서', '역사교과서', '44');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '일본역사교과서', '일본', '42');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '일본역사교과서', '역사왜곡', '43');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-07', '일본역사교과서', '역사교과서', '44');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '일본역사교과서', '일본', '42');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '일본역사교과서', '역사왜곡', '43');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-08', '일본역사교과서', '역사교과서', '44');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '일본역사교과서', '일본', '42');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '일본역사교과서', '역사왜곡', '43');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2015-09', '일본역사교과서', '역사교과서', '44');
 
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령 퇴진시위', '박근혜', '45');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령 퇴진시위', '대통령', '46');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령 퇴진시위', '퇴진', '47');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령 퇴진시위', '시위', '48');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령 퇴진시위', '대한민국', '49');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령 퇴진시위', '서울', '50');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령 퇴진시위', '광장', '51');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령 퇴진시위', '박근혜', '45');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령 퇴진시위', '대통령', '46');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령 퇴진시위', '퇴진', '47');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령 퇴진시위', '시위', '48');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령 퇴진시위', '대한민국', '49');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령 퇴진시위', '서울', '50');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령 퇴진시위', '광장', '51');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령 퇴진시위', '박근혜', '45');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령 퇴진시위', '대통령', '46');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령 퇴진시위', '퇴진', '47');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령 퇴진시위', '시위', '48');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령 퇴진시위', '대한민국', '49');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령 퇴진시위', '서울', '50');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령 퇴진시위', '광장', '51');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령 퇴진시위', '박근혜', '45');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령 퇴진시위', '대통령', '46');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령 퇴진시위', '퇴진', '47');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령 퇴진시위', '시위', '48');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령 퇴진시위', '대한민국', '49');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령 퇴진시위', '서울', '50');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령 퇴진시위', '광장', '51');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령퇴진시위', '박근혜', '45');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령퇴진시위', '대통령', '46');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령퇴진시위', '퇴진', '47');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령퇴진시위', '시위', '48');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령퇴진시위', '대한민국', '49');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령퇴진시위', '서울', '50');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-09', '박근혜대통령퇴진시위', '광장', '51');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령퇴진시위', '박근혜', '45');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령퇴진시위', '대통령', '46');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령퇴진시위', '퇴진', '47');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령퇴진시위', '시위', '48');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령퇴진시위', '대한민국', '49');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령퇴진시위', '서울', '50');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령퇴진시위', '광장', '51');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령퇴진시위', '박근혜', '45');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령퇴진시위', '대통령', '46');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령퇴진시위', '퇴진', '47');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령퇴진시위', '시위', '48');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령퇴진시위', '대한민국', '49');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령퇴진시위', '서울', '50');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '박근혜대통령퇴진시위', '광장', '51');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령퇴진시위', '박근혜', '45');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령퇴진시위', '대통령', '46');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령퇴진시위', '퇴진', '47');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령퇴진시위', '시위', '48');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령퇴진시위', '대한민국', '49');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령퇴진시위', '서울', '50');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '박근혜대통령퇴진시위', '광장', '51');
 
 insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령', '박근혜', '52');
 insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '박근혜대통령', '대통령', '53');
@@ -554,22 +556,23 @@ insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-1
 insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라', '최순실', '56');
 insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라', '부정입학', '57');
 
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라 기사내용', '정유라', '58');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라 기사내용', '최순실', '59');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라 기사내용', '기사', '60');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라 기사내용', '부정입학', '61');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라 기사내용', '이화여대', '62');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라 기사내용', '정유라', '58');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라 기사내용', '최순실', '59');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라 기사내용', '경오', '60');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라 기사내용', '부정입학', '61');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라 기사내용', '이화여대', '62');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라 기사내용', '정유라', '58');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라 기사내용', '최순실', '59');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라 기사내용', '신미', '60');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라 기사내용', '부정입학', '61');
-insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라 기사내용', '이화여대', '62');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라기사내용', '정유라', '58');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라기사내용', '최순실', '59');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라기사내용', '기사', '60');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라기사내용', '부정입학', '61');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-10', '정유라기사내용', '이화여대', '62');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라기사내용', '정유라', '58');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라기사내용', '최순실', '59');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라기사내용', '경오', '60');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라기사내용', '부정입학', '61');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-11', '정유라기사내용', '이화여대', '62');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라기사내용', '정유라', '58');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라기사내용', '최순실', '59');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라기사내용', '신미', '60');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라기사내용', '부정입학', '61');
+insert into hashtag(pic_date,keyword,hashtag_name,hashtag_count) values ('2016-12', '정유라기사내용', '이화여대', '62');
 
+delete from hashtag;
 
 --*************여기까지 추가해주세요*****************
 
@@ -607,6 +610,31 @@ select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorC
 -- **********마이페이지 buy_date 컬럼 not null 에서 null로 수정***********--
 alter table mypage MODIFY(buy_date date null);
 		
+
+-- **********TimeMachine Table 추가*********** --
+create table TIMEMACHINE(
+	TIMEMACHINE_YEAR number(4) primary key,
+	TIMEMACHINE_TILE varchar2(100) not null,
+	TIMEMACHINE_CONTENT varchar2(300) not null,
+	TiMEMACHINE_KEYWORD varchar2(100) not null
+);
+
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('1988', '아, 대한민국', '서울올림픽, 굴렁쇠 소년 그리고 호돌이', '올림픽');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2002', '기억하시나요 붉은 함성', 'Be the Reds', '월드컵');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2003', '안이한 대책이 만든 인재(人災)', '대구 지하철 화재', '대구지하철화재');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2004', '아이시떼루 욘사마', '배용준', '배용준');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2005', '달려라, 산소탱크', '박지성', '박지성');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2008', '문화재 관리가 이렇게 허술했던가', '숭례문 화재', '숭례문');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2009', '의학이 발전했듯 바이러스도 진화했다', '신종플루', '신종플루');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2010', '순국선열의 명복을 빕니다', '천안함 격침', '천안함');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2014', '언제쯤이면 안전불감증에서 벗어날까', '세월호 침몰', '세월호');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2015', '누구를 위한 역사인가', '역사교과서 국정화 반대시위', '역사교과서국정화반대시위');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2016', '우리는 꼭두각시를 대통령으로 하지 않았다', '박근혜 대통령 퇴진시위', '박근혜대통령 퇴진시위');
+
+
+
+-- ************연습들************* --
+
 select * from hashtag
 where hashtag_name='ㅁㅁㅁ';
 
@@ -630,3 +658,20 @@ WHEN MATCHED THEN
    update set hashtag_count=hashtag_count+1
 WHEN NOT MATCHED THEN
   insert(pic_date,keyword,hashtag_name) values('1999.10','광화문','촛불시위')
+  
+select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
+	(select id, pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
+	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
+	
+	
+select rowNumber, id, pic_date, keyword, path, author_comment, hits, pic_space, category
+from (
+	select row_number() over(order by p.hits desc) as rowNumber, p.id, p.pic_date, p.keyword, p.path, p.author_comment, p.hits, p.pic_space, p.category
+	from picture p, (select keyword, pic_date, substr(pic_date, 1, 4) as year from picture) d
+	where p.pic_date=d.pic_date and p.keyword=d.keyword and d.year = 2016 and category='인물' or category='장소'
+)
+where rowNumber between 1 and 3 order by rowNumber asc
+
+
+
+

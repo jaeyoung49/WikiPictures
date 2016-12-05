@@ -2,7 +2,9 @@ package org.kosta.wikipictures.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -12,6 +14,7 @@ import org.kosta.wikipictures.dao.PictureDAO;
 import org.kosta.wikipictures.service.PictureService;
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.TimeMachineVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,11 +36,42 @@ public class PictureController {
 	
 	// 메인화면
 	@RequestMapping("home.do")
-	public ModelAndView home(){
+	public ModelAndView home(String timeMachineYear){
 		ModelAndView mv = new ModelAndView();
+		TimeMachineVO timeMachineVO = null;
 		
-		mv.setViewName("home");
+		// 타임머신 목록 리스트
+		List<TimeMachineVO> timeMachineYearList = pictureService.getTimeMachineList();
 		
+		// 타임머신 해당연도
+		if(timeMachineYear == null){
+			SimpleDateFormat sdf = new SimpleDateFormat("YYYY");
+			timeMachineYear = sdf.format(new Date());
+		}
+		// 해당연도의 타임머신 객체 뽑기
+		for(TimeMachineVO tvo : timeMachineYearList){
+			if(tvo.getTimeMachineYear() == Integer.parseInt(timeMachineYear)){
+				timeMachineVO = tvo;
+				break;
+			}
+		}
+		
+		// 사건, 인물장소 사진 리스트
+		List<PictureVO> accidentPictureList = pictureService.getAccidentPictureList(timeMachineYear);
+		List<PictureVO> personAndLocationPictureList = pictureService.getPersonAndLocationPictureList(timeMachineYear);
+		
+		// ModelAndView에 Parameter값 설정
+		mv.addObject("timeMachineYearList", timeMachineYearList);	// 타임머신 연도 리스트
+		mv.addObject("timeMachineVO", timeMachineVO);	// 타임머신 객체
+		mv.addObject("accidentPictureList", accidentPictureList);	// 사건 사진리스트
+		mv.addObject("personAndLocationPictureList", personAndLocationPictureList);	// 사건 사진리스트
+		mv.setViewName("home");	// viewName 설정
+		
+		for(PictureVO pvo : accidentPictureList)
+			System.out.println(pvo.getPath());
+		System.out.println("------------------------");
+		for(PictureVO pvo : personAndLocationPictureList)
+			System.out.println(pvo.getPath());
 		return mv;
 	}
 	
@@ -101,6 +135,10 @@ public class PictureController {
 
 		// 파일 전송
 		if (file.isEmpty() == false) {
+			// 키워드 빈공백 제거
+			String adjustKeyword = pictureVO.getKeyword().replaceAll(" ", "");
+			pictureVO.setKeyword(adjustKeyword);
+			// 파일이름
 			String fileName = pictureVO.getKeyword() + "_" + pictureVO.getPictureDate()
 					+ file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
 			System.out.println("파일명 : " + fileName);

@@ -102,6 +102,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  insert(pic_date,keyword,hashtag_name) values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
 	</insert>
 	
+	<resultMap type="timeMachineVO" id="timeMachineRM">
+		<result property="timeMachineYear" column="TIMEMACHINE_YEAR" />
+		<result property="timeMachineTitle" column="TIMEMACHINE_TILE" />
+		<result property="timeMachineContent" column="TIMEMACHINE_CONTENT"/>
+		<result property="timeMachineKeyword" column="TiMEMACHINE_KEYWORD"/>
+	</resultMap>
+	
+	<select id="getTimeMachineList" resultMap="timeMachineRM">
+		select TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD
+		from TIMEMACHINE
+	</select>
+	
+	<select id="getAccidentPictureList" resultMap="pictureRM" parameterType="string">
+		select rowNumber, id, pic_date, keyword, path, author_comment, hits, pic_space, category
+		from (
+			select row_number() over(order by p.hits desc) as rowNumber, p.id, p.pic_date, p.keyword, p.path, p.author_comment, p.hits, p.pic_space, p.category
+			from picture p, (select keyword, pic_date, substr(pic_date, 1, 4) as year from picture) d
+			where p.pic_date=d.pic_date and p.keyword=d.keyword and d.year = #{value} and category='사건'
+		)
+		where rowNumber between 1 and 3 order by rowNumber asc
+	</select>
+	
+	<select id="getPersonAndLocationPictureList" resultMap="pictureRM" parameterType="string">
+		select rowNumber, id, pic_date, keyword, path, author_comment, hits, pic_space, category
+		from (
+			select row_number() over(order by p.hits desc) as rowNumber, p.id, p.pic_date, p.keyword, p.path, p.author_comment, p.hits, p.pic_space, p.category
+			from picture p, (select keyword, pic_date, substr(pic_date, 1, 4) as year from picture) d
+			where p.pic_date=d.pic_date and p.keyword=d.keyword and d.year = #{value} and category='인물' or p.pic_date=d.pic_date and p.keyword=d.keyword and d.year = #{value} and category='장소'
+		)
+		where rowNumber between 1 and 3 order by rowNumber asc
+	</select>
+	
 </mapper>
 	
 		

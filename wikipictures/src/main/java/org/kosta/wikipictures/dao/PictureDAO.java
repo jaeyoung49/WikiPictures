@@ -6,6 +6,7 @@ import java.util.Map;
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.TimeMachineVO;
 
 public interface PictureDAO {
 
@@ -39,6 +40,13 @@ public interface PictureDAO {
 	List<PictureVO> mypictures(String pageNo);
 	
 	void addHashtag(HashtagVO hashtagVO);
+
+	List<TimeMachineVO> getTimeMachineList();
+
+	List<PictureVO> getAccidentPictureList(String timeMachineYear);
+
+	List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear);
+
 	
 
 

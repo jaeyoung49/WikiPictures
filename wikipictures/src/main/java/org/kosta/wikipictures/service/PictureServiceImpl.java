@@ -11,6 +11,7 @@ import org.kosta.wikipictures.vo.ListVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PagingBean;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.TimeMachineVO;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -103,6 +104,23 @@ public class PictureServiceImpl implements PictureService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public List<TimeMachineVO> getTimeMachineList() {
+		return pictureDAO.getTimeMachineList();
+	}
+
+	@Override
+	public List<PictureVO> getAccidentPictureList(String timeMachineYear) {
+		return pictureDAO.getAccidentPictureList(timeMachineYear);
+	}
+
+	@Override
+	public List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear) {
+		return pictureDAO.getPersonAndLocationPictureList(timeMachineYear);
+	}
+
+
 	
 
 }

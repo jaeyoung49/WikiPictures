@@ -1,5 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- Attribute START ================================================== -->
+<c:set var="timeMachineYearList" value="${requestScope.timeMachineYearList}"/>
+<c:set var="timeMachineVO" value="${requestScope.timeMachineVO }"/>
+<c:set var="accidentPictureList" value="${requestScope.accidentPictureList }"/>
+<c:set var="personAndLocationPictureList" value="${requestScope.personAndLocationPictureList }"/>
+<!-- Attribute END ================================================== -->
 <!DOCTYPE html>
 <html>
 
@@ -32,17 +38,45 @@
   var deleteLog = false;
 
   $(document).ready(function() {
-    $('#pagepiling').pagepiling({
-      menu: '#menu',
-      anchors: ['page1', 'page2', 'page3'],
-      loopTop: true,
-      loopBottom: true,
+	var flag1 = ${accidentPictureList.isEmpty()};
+	var flag2 = ${personAndLocationPictureList.isEmpty()};
+	if(flag1){
+		$('#pagepiling').pagepiling({
+		      menu: '#menu',
+		      anchors: ['page1', 'page3'],
+		      loopTop: true,
+		      loopBottom: true,
 
-      afterRender: function() {
-        //playing the video
-        $('video').get(0).play();
-      }
-    });
+		      afterRender: function() {
+		        //playing the video
+		        $('video').get(0).play();
+		      }
+		    });
+	} else if(flag2){
+		$('#pagepiling').pagepiling({
+		      menu: '#menu',
+		      anchors: ['page1', 'page2',],
+		      loopTop: true,
+		      loopBottom: true,
+
+		      afterRender: function() {
+		        //playing the video
+		        $('video').get(0).play();
+		      }
+		    });
+	} else {
+		$('#pagepiling').pagepiling({
+		      menu: '#menu',
+		      anchors: ['page1', 'page2', 'page3'],
+		      loopTop: true,
+		      loopBottom: true,
+
+		      afterRender: function() {
+		        //playing the video
+		        $('video').get(0).play();
+		      }
+		});
+	}
   });
   </script>
 </head>
@@ -59,41 +93,31 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#" style="font-size: 2em;">Wiki Pictures</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do" style="font-size: 2em;">Wiki Pictures #${timeMachineVO.timeMachineYear }</a>
       </div>
       <!-- NAVBAR Button -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
-          <li><a href="#">업로드</a></li>
-          <li><a href="#">마이페이지</a></li>
-          <li><a href="#">정정 / 신고 요청</a></li>
+          <li><a href="${pageContext.request.contextPath}/picture/register_picture_form.do">업로드</a></li>
+          <li><a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지</a></li>	<!-- 두번째 인덱스 보내는것으로 연결 -->
+          <li><a href="#">정정 / 신고 요청}</a></li>
       <li class="dropdown-toggle">
         <a href="#" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">타임머신<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-filter >
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1980</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1981</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1982</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1983</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1984</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1985</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1986</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1987</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1988</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1989</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">1990</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2000</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2001</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2002</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2003</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2004</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">2005</a></li>
+          	<c:forEach items="${timeMachineYearList}" var="row" >
+          	  <li role="presentation">
+          	  	<a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/home.do?timeMachineYear=${row.timeMachineYear}">
+          	  	  ${row.timeMachineYear}
+          	  	</a>
+          	  </li>
+          	</c:forEach>
           </ul>
         </li>
         </ul>
         <!-- 검색 ================================================== -->
-        <form class="navbar-form navbar-right" role="search">
+        <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="검색어를 입력해주세요">
+            <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
           </div>
           <button type="submit" class="btn btn-default">검색</button>
         </form>
@@ -111,14 +135,14 @@
                       <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                       <a href="#" class="btn btn-go"><i class="fa fa-google"></i> Google</a>
                     </div>
-                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                    <form class="form" role="form" method="post" action="${pageContext.request.contextPath}/login.do" accept-charset="UTF-8" id="login-nav">
                       <div class="form-group">
                         <label class="sr-only" for="exampleInputId2">id</label>
-                        <input type="text" class="form-control" id="exampleInputEmailId2" placeholder="아이디" required>
+                        <input type="text" class="form-control" id="exampleInputEmailId2" name="id" placeholder="아이디" required>
                       </div>
                       <div class="form-group">
                         <label class="sr-only" for="exampleInputPassword2">password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="비밀번호" required>
+                        <input type="password" class="form-control" id="exampleInputPassword2" name="password" placeholder="비밀번호" required>
                         <div class="help-block text-right"><a href="">비밀번호 찾기</a></div>
                       </div>
                       <div class="form-group">
@@ -127,7 +151,7 @@
                     </form>
                   </div>
   				<div class="bottom text-center">
-                   회원이 아니세요? <a href="#" style="text-decoration:none;"><strong style="color: Navy">회원가입</strong></a>
+                   회원이 아니세요? <a href="${pageContext.request.contextPath}/member/register_member_form.do" style="text-decoration:none;"><strong style="color: Navy">회원가입</strong></a>
                   </div>
                 </div>
               </li>
@@ -145,14 +169,17 @@
     <!-- Video Page START ================================================== -->
     <div class="section" id="section1">
       <video autoplay loop muted id="video">
-        <source src="${pageContext.request.contextPath}/resources/img/1.mp4" type="video/mp4">
+        <source src="${pageContext.request.contextPath}/resources/video/${timeMachineVO.timeMachineYear}.mp4" type="video/mp4">
       </video>
       <div class="layer">
-        <h1 class="text-center">기억하시나요 붉은 함성</h1>
-        <h2 class="text-center">Be the Reds</h2>
+      	<a href="${pageContext.request.contextPath}/searchPicture.do?keyword=${timeMachineVO.timeMachineKeyword}"> <!-- 서치 페이지 보여줌 -->
+          <h1 class="text-center">${timeMachineVO.timeMachineTitle }</h1>
+          <h2 class="text-center">${timeMachineVO.timeMachineContent }</h2>
+        </a>
       </div>
     </div>
     <!-- section2 Page START ================================================== -->
+    <c:if test="${accidentPictureList.size() != 0 }">
     <div class="section" id="section2">
       <div class="intro">
         <div id="carousel1-example-generic" class="carousel slide" data-ride="carousel">
@@ -165,29 +192,35 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-              <img src="${pageContext.request.contextPath}/resources/img/1.JPG" alt="" />
+              <img src="${pageContext.request.contextPath}/resources/img/${accidentPictureList[0].path }" alt="조회수 : ${accidentPictureList[0].hits}" />
               <div class="container">
                 <div class="carousel-caption">
-                  <h1 class="text-center">Bootstrap Carousel Fullscreen</h1>
-                  <p class="text-center">Just turns the Twitter Bootstrap Carousel in fullscreen mode, and scale to fit the screen resolution</p>
+                  <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${accidentPictureList[0].pictureDate}&keyword=${accidentPictureList[0].keyword}">
+                    <h1 class="text-center">${accidentPictureList[0].keyword}</h1>
+                    <p class="text-center">${accidentPictureList[0].authorComment}</p>
+                  </a>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="${pageContext.request.contextPath}/resources/img/2.JPG" alt="" />
+              <img src="${pageContext.request.contextPath}/resources/img/${accidentPictureList[1].path }" alt="조회수 : ${accidentPictureList[1].hits}" />
               <div class="container">
                 <div class="carousel-caption">
-                  <h1 class="text-center">Bootstrap Carousel Fullscreen</h1>
-                  <p class="text-center">Just turns the Twitter Bootstrap Carousel in fullscreen mode, and scale to fit the screen resolution</p>
+                  <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${accidentPictureList[1].pictureDate}&keyword=${accidentPictureList[1].keyword}">
+                    <h1 class="text-center">${accidentPictureList[1].keyword}</h1>
+                    <p class="text-center">${accidentPictureList[1].authorComment}</p>
+                  </a>
                 </div>
               </div>
             </div>
             <div class="item">
-              <img src="${pageContext.request.contextPath}/resources/img/3.JPG" alt="" />
+              <img src="${pageContext.request.contextPath}/resources/img/${accidentPictureList[2].path }" alt="조회수 : ${accidentPictureList[2].hits}" />
               <div class="container">
                 <div class="carousel-caption">
-                  <h1 class="text-center">Bootstrap Carousel Fullscreen</h1>
-                  <p class="text-center">Just turns the Twitter Bootstrap Carousel in fullscreen mode, and scale to fit the screen resolution</p>
+				  <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${accidentPictureList[2].pictureDate}&keyword=${accidentPictureList[2].keyword}">                
+                    <h1 class="text-center">${accidentPictureList[2].keyword}</h1>
+                    <p class="text-center">${accidentPictureList[2].authorComment}</p>
+                  </a>
                 </div>
               </div>
             </div>
@@ -203,11 +236,13 @@
         </div>
       </div>
     </div>
-
+	</c:if>
     <!-- section3 Page START ================================================== -->
+    <c:if test="${personAndLocationPictureList.size() != 0 }">
     <div class="section" id="section3">
       <div class="intro">
         <div id="carousel2-example-generic" class="carousel slide" data-ride="carousel">
+          
           <!-- Indicators -->
           <ol class="carousel-indicators">
             <li data-target="#carousel2-example-generic" data-slide-to="0" class="active"></li>
@@ -215,38 +250,53 @@
             <li data-target="#carousel2-example-generic" data-slide-to="2"></li>
           </ol>
           <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="${pageContext.request.contextPath}/resources/img/4.JPG" alt="" />
-              <div class="container">
-                <div class="carousel-caption">
-                  <h1 class="text-center">Bootstrap Carousel Fullscreen</h1>
-                  <p class="text-center">Just turns the Twitter Bootstrap Carousel in fullscreen mode, and scale to fit the screen resolution</p>
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="${pageContext.request.contextPath}/resources/img/${personAndLocationPictureList[0].path }" alt="${personAndLocationPictureList[0].hits }" />
+                <div class="container">
+                  <div class="carousel-caption">
+                    <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${personAndLocationPictureList[0].pictureDate}&keyword=${personAndLocationPictureList[0].keyword}">
+                      <h1 class="text-center">${personAndLocationPictureList[0].keyword}</h1>
+                      <p class="text-center">${personAndLocationPictureList[0].authorComment}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="${pageContext.request.contextPath}/resources/img/${personAndLocationPictureList[1].path }" alt="${personAndLocationPictureList[1].hits }" />
+                <div class="container">
+                  <div class="carousel-caption">
+                    <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${personAndLocationPictureList[1].pictureDate}&keyword=${personAndLocationPictureList[1].keyword}">
+                      <h1 class="text-center">${personAndLocationPictureList[1].keyword}</h1>
+                      <p class="text-center">${personAndLocationPictureList[1].authorComment}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <img src="${pageContext.request.contextPath}/resources/img/${personAndLocationPictureList[2].path }" alt="${personAndLocationPictureList[2].hits }" />
+                <div class="container">
+                  <div class="carousel-caption">
+			        <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${personAndLocationPictureList[2].pictureDate}&keyword=${personAndLocationPictureList[2].keyword}">                
+                      <h1 class="text-center">${personAndLocationPictureList[2].keyword}</h1>
+                      <p class="text-center">${personAndLocationPictureList[2].authorComment}</p>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="item">
-              <img src="${pageContext.request.contextPath}/resources/img/5.JPG" alt="" />
-              <div class="container">
-                <div class="carousel-caption">
-                  <h1 class="text-center">Bootstrap Carousel Fullscreen</h1>
-                  <p class="text-center">Just turns the Twitter Bootstrap Carousel in fullscreen mode, and scale to fit the screen resolution</p>
-                </div>
-              </div>
-            </div>
+            <!-- Carousel 좌우 Button -->
+            <a class="left carousel-control" href="#carousel2-example-generic" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel2-example-generic" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
           </div>
-          
-          <!-- Carousel 좌우 Button -->
-          <a class="left carousel-control" href="#carousel2-example-generic" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#carousel2-example-generic" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
         </div>
       </div>
+      </c:if>
     </div>
-  </div>
   <!-- MAIN END ================================================== -->
 
   <!-- 부트스트랩 핵심 js -->
