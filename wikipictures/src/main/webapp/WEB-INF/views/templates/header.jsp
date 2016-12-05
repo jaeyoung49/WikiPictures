@@ -41,7 +41,6 @@
 </c:when>
  <c:otherwise>
  ${sessionScope.mvo.nickname}님 |
- <a href="${pageContext.request.contextPath }/picture/upload_form.do">사진업로드 |</a>
  <a href="${pageContext.request.contextPath }/picture/register_picture_form.do">사진업로드 |</a>
  <a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지 |</a>
  <a href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정 |</a>
