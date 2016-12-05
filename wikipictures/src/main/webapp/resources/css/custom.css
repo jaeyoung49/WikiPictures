@@ -1,0 +1,164 @@
+/*-------------------------------*/
+/*            navbar             */
+/*-------------------------------*/
+.navbar, .dropdown-menu {
+	background: rgba(255, 255, 255, 0.25);
+	border: none;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+	text-decoration: none;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus,
+	.dropdown-menu>li>a:hover, .navbar-toggle {
+	color: #fff;
+}
+
+.dropdown-menu {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.navbar-toggle .icon-bar {
+	color: #fff;
+	background-color: #fff;
+}
+
+#video {
+	position: absolute;
+	z-index: 4;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 78%;
+	background-size: 100% 100%;
+	background-color: black;
+	/* in case the video doesn't fit the whole page*/
+	background-image: /* our video */;
+	background-position: center center;
+	background-size: contain;
+	object-fit: cover;
+	/*cover video background */
+}
+
+.carousel-caption {
+	top: 30%;
+}
+
+.carousel-caption h1 {
+	font-size: 6em;
+}
+
+.carousel-caption h2 {
+	font-size: 5em;
+}
+
+.carousel-caption h3 {
+	font-size: 4em;
+}
+
+.carousel-caption h4 {
+	font-size: 3em;
+}
+
+.carousel-caption h5 {
+	font-size: 2em;
+}
+
+.layer {
+	position: absolute;
+	z-index: 5;
+	width: 100%;
+	left: 0;
+	top: 30%;
+	height: 100%;
+	color: #fff;
+}
+
+.layer h1 {
+	font-size: 6em;
+}
+
+.layer h2 {
+	font-size: 5em;
+}
+
+.layer h3 {
+	font-size: 4em;
+}
+
+.layer h4 {
+	font-size: 3em;
+}
+
+.layer h5 {
+	font-size: 2em;
+}
+
+#login-dp {
+	min-width: 250px;
+	padding: 14px 14px 0;
+	overflow: hidden;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+#login-dp .help-block {
+	font-size: 12px
+}
+
+#login-dp .bottom {
+	background-color: rgba(255, 255, 255, 0.3);
+	border-top: 1px solid #ddd;
+	clear: both;
+	padding: 14px;
+}
+
+#login-dp .social-buttons {
+	margin: 12px 0
+}
+
+#login-dp .social-buttons a {
+	width: 49%;
+}
+
+#login-dp .form-group {
+	margin-bottom: 10px;
+}
+
+.btn-fb {
+	color: #fff;
+	background-color: #3b5998;
+}
+
+.btn-fb:hover {
+	color: #fff;
+	background-color: #496ebc
+}
+
+.btn-go {
+	color: #fff;
+	background-color: #EA4335;
+}
+
+.btn-go:hover {
+	color: #fff;
+	background-color: #e26158;
+}
+
+@media ( max-width :768px) {
+	#login-dp {
+		background-color: inherit;
+		color: #fff;
+	}
+	#login-dp .bottom {
+		background-color: inherit;
+		border-top: 0 none;
+	}
+}
