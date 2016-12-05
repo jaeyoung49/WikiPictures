@@ -84,6 +84,7 @@
 //     		}
 //     	});
 		
+<<<<<<< HEAD
 // 		$("#loginForm").submit(function(){			
 // 			if($("#loginForm :input[name=id]").val()==""){
 // 				alert("아이디를 입력하세요!");
@@ -115,7 +116,6 @@
 <!--   <a href="#" id="logout">로그아웃 |</a> -->
 <!-- <hr> -->
 <%-- </c:otherwise> --%>
-
 <%-- </c:choose> --%>
 <!-- </body> -->
 <!-- </html> -->
