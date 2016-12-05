@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.kosta.wikipictures.dao.AdminDAO;
 import org.kosta.wikipictures.vo.ListVO;
 import org.kosta.wikipictures.vo.MemberVO;
+import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PagingBean;
 import org.kosta.wikipictures.vo.PictureVO;
 import org.kosta.wikipictures.vo.ReportVO;
@@ -86,5 +87,29 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int reportTotalCount() {
 		return 0;
+	}
+
+	@Override
+	public int sellTotalCount() {
+		return 0;
+	}
+
+	@Override
+	public ListVO<MypageVO> sellList() {
+		return sellList("1");
+	}
+
+	@Override
+	public ListVO<MypageVO> sellList(String pageNo) {
+		int totalCount = adminDAO.sellTotalCount();
+		PagingBean pagingBean = null;
+		if (pageNo == null)
+			pagingBean = new PagingBean(totalCount);
+		else
+			pagingBean = new PagingBean(totalCount, Integer.parseInt(pageNo));
+		HashMap<String, Integer> paramMap = new HashMap<String, Integer>();
+		paramMap.put("startRowNumber", pagingBean.getStartRowNumber());
+		paramMap.put("endRowNumber", pagingBean.getEndRowNumber());
+		return new ListVO<MypageVO>(adminDAO.sellList(paramMap), pagingBean);
 	}
 }

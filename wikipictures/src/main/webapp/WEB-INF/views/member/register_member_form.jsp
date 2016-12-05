@@ -2,17 +2,6 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".menu>a").click(function(){
-			var intro = $(this).next("ul");
-			if(intro.is(":visible")){
-				intro.slideUp();
-			}else{
-				intro.slideDown();
-			}
-		});
-
-		
-
 		var checkResultId="";
 		$("#regForm").submit(function(){
 			var agree = document.getElementById('agree');
@@ -49,7 +38,6 @@
 				checkResultId="";
 				return;
 		}
-		
 			$.ajax({
 				type:"POST",
 				url:"${pageContext.request.contextPath}/idcheckAjax.do",
@@ -68,24 +56,16 @@
 	});
 });
 </script>
-<style>
-	.menu a {cursor:pointer;}
-	.menu .hide{display:none;}
-</style>
+
+
 <form name="login" method="post" action="${pageContext.request.contextPath}/registerMember.do" id="regForm">
 아이디 : <input type="text" name="id" id="memberId"><span id="idCheckView"></span><br>
 닉네임 : <input type="text" name="nickname"><br>
 비밀번호 : <input type="password" name="password"><br>
 생년월일 : <input type="date" name="birth"><br>
-선호장소 : <input type="text" name="favorateSpace"><br>
-이용약관 에 동의하십니까?
-<input type="checkbox" name="agree" id="agree"><br>
+선호장소 : <input type="text" name="favoriteSpace"><br>
 
-
-<div><ul><li class="menu">
-<a>이용약관 상세보기</a>
-<ul class="hide">
-<li>
+<a href='javascript:void(0)' onclick=this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';>이용약관 상세보기</a><DIV style='display:none'>
 <br>1. 개인 정보<br><br>
 
 WikiPictures은 회원들의 개인 정보 보호를 위해 최선을 다합니다. 회원님이 WikiPictures을 이용하여 회원님의 콘텐츠와 정보를 타인과 공유하는 방법,<br>
@@ -119,9 +99,10 @@ WikiPictures에서 해당 정보를 수집 및 이용하는 방법에 대해 중
 회원님은 적절한 연령 제한 없이 주류나 기타 성인 관련 콘텐츠(광고 포함)가 포함된 타사 앱을 개발하거나 운영할 수 없습니다.<br>
 회원님은 WikiPictures을 이용해 불법 행위, 오해의 소지가 있는 행위, 악의적 행위 또는 차별적 행위를 할 수 없습니다.<br>
 회원님은  WikiPictures의 원활한 운영을 중단하거나 운영에 과부하를 가져오거나 외양을 손상할 수 있는 행위를 해서는 안 됩니다.<br>
-회원님은 본 정책의 위반을 조장하거나 권장해서는 안 됩니다.<br></li>
-</ul>
-</ul>
-</div>
+회원님은 본 정책의 위반을 조장하거나 권장해서는 안 됩니다.<br>
+<A onclick=this.parentNode.style.display='none'; href=javascript:void(0)></A></DIV>
+<br>
+이용약관 에 동의하십니까?
+<input type="checkbox" name="agree" id="agree"><br>
 <input type="submit" value="회원가입">
 </form>

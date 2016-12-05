@@ -131,9 +131,9 @@ public class PictureController {
 		String kw = request.getParameter("keyword");
 		List<PictureVO> searchPicture = pictureService.searchPicture(kw);
 		if (searchPicture.isEmpty()) {
-			return new ModelAndView("picture/search_result_fail");
+			return new ModelAndView("picture/search_picture_fail");
 		} else {
-			return new ModelAndView("picture/search_result_ok", "searchPicture", searchPicture);
+			return new ModelAndView("picture/search_picture_ok", "searchPicture", searchPicture);
 		}
 	}
 	//사진 상세 보기
@@ -143,7 +143,7 @@ public class PictureController {
 		hashtagVO.setPictureVO(picturevo);
 		List<HashtagVO> pvo = pictureService.searchDetailPicture(hashtagVO);
 		request.setAttribute("picturevo", picturevo);
-		return new ModelAndView("picture/detail","pvo",pvo);
+		return new ModelAndView("picture/show_picture_detail","pvo",pvo);
 	}
 	
 }
