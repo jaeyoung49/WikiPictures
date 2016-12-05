@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="searchDetailPicture" resultType="hashtagVO">
 		select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
-		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName from picture p, hashtag h
+		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName, h.hashtag_count as hashtagCount from picture p, hashtag h
 		where p.keyword =#{pictureVO.keyword}
 		and p.pic_date=#{pictureVO.pictureDate}
 		and p.pic_date=h.pic_date
