@@ -25,7 +25,8 @@ public class PictureController {
 	private PictureService pictureService;
 	@Resource
 	private PictureDAO pictureDAO;
-
+	
+	
 	//업로드 경로
 	private String uploadPath;
 
@@ -53,11 +54,6 @@ public class PictureController {
 	@RequestMapping("test.do")
 	public ModelAndView test() {
 		return new ModelAndView("picture/upload_form");
-	}
-	
-	@RequestMapping("mypage.do")
-	public String mypage(){
-		return "picture/mypage";
 	}
 	
 	// 사진 등록

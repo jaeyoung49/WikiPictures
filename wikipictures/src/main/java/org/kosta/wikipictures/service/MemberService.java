@@ -10,4 +10,6 @@ public interface MemberService {
 	public MemberVO findMemberById(String id);
 	void updateMember(MemberVO memberVO);
 	
+	
+	
 }
