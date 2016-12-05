@@ -8,14 +8,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <resultMap type="memberVO" id="memberRM">
 		<result property="favoriteSpace" column="fav_space" />
 	</resultMap>
- 	
- <!--  	<select id="getAddressList" resultType="string">
- 		select distinct address from security_member
- 	</select>
- 	<select id="findMemberListByAddress" resultType="memberVO">
- 		select id,name from security_member
- 		where address=#{value}
- 	</select> -->
  	<select id="findMemberById" resultType="memberVO">
  	select * from member	where id=#{value}
  	</select>

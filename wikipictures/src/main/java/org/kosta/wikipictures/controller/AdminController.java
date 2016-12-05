@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class AdminContoller {
+public class AdminController {
 	
 	@Resource
 	private AdminService adminService;
@@ -28,8 +28,8 @@ public class AdminContoller {
 		return new ModelAndView("admin/show_picture_list","pictureVO",adminService.mypictures(pageNo));
 	}
 	@RequestMapping("show_sell_list.do")
-	public String iu(){
-		return "admin/show_sell_list";
+	public ModelAndView sellList(String pageNo){
+		return new ModelAndView("admin/show_sell_list","sellList",adminService.sellList(pageNo));
 	}
 }
 

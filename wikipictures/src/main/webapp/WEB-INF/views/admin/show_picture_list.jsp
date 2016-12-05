@@ -23,7 +23,7 @@
 </tr>
 	<c:forEach var="pvo" items="${requestScope.pictureVO.list}" varStatus="status">
 <tr>
-<td>${status.count}</td>
+<td>${pvo.rowNumber}</td>
 <td>${pvo.memberVO.id }</td>
 <td>${pvo.pictureDate }</td>	
 <td>${pvo.keyword }</td>
@@ -42,7 +42,7 @@
 	 -->
 		<c:if test="${pb.previousPageGroup}">
 			<a
-				href="${pageContext.request.contextPath}/show_report_list.do?pageNo=${pb.startPageOfPageGroup-1}">
+				href="${pageContext.request.contextPath}/show_picture_list.do?pageNo=${pb.startPageOfPageGroup-1}">
 				<!-- <img src="img/left_arrow_btn.gif"> --> ◀&nbsp;
 			</a>
 		</c:if>
@@ -58,7 +58,7 @@
 			<c:choose>
 				<c:when test="${pb.nowPage!=i}">
 					<a
-						href="${pageContext.request.contextPath}/show_report_list.do?pageNo=${i}">${i}</a>
+						href="${pageContext.request.contextPath}/show_picture_list.do?pageNo=${i}">${i}</a>
 				</c:when>
 				<c:otherwise>
 	${i}
@@ -74,7 +74,7 @@
 	 -->
 		<c:if test="${pb.nextPageGroup}">
 			<a
-				href="${pageContext.request.contextPath}/show_report_list.do?pageNo=${pb.endPageOfPageGroup+1}">
+				href="${pageContext.request.contextPath}/show_picture_list.do?pageNo=${pb.endPageOfPageGroup+1}">
 				▶<!-- <img src="img/right_arrow_btn.gif"> -->
 			</a>
 		</c:if>

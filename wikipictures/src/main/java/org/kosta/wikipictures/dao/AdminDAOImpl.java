@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.kosta.wikipictures.vo.MemberVO;
+import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
 import org.kosta.wikipictures.vo.ReportVO;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -61,6 +62,21 @@ private SqlSessionTemplate template;
 	@Override
 	public List<PictureVO> reportList(String pageNo) {
 		return template.selectList("admin.reportlist", pageNo);
+	}
+
+	@Override
+	public int sellTotalCount() {
+		return template.selectOne("admin.sellTotalCount");
+	}
+
+	@Override
+	public List<MypageVO> sellList(Map<String, Integer> pagingConfig) {
+		return template.selectList("admin.selllist", pagingConfig);
+	}
+
+	@Override
+	public List<MypageVO> sellList(String pageNo) {
+		return template.selectList("admin.selllist", pageNo);
 	}
 	
 }
