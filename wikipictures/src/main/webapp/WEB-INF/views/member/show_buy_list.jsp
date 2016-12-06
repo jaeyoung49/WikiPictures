@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
 	<li role="presentation"><a
 		href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정</a></li>
@@ -10,9 +9,9 @@
 		href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
 	<li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
 </ul>
+<div class="container">
+<legend>구매한 사진들</legend>
 <table class="table">
-	<caption>구매내역보기 게시판</caption>
-	
 		<tr>
 			<th class="id">작성자</th>
 			<th class="buyDate">구매한 날짜</th>
@@ -36,6 +35,7 @@
 				   2)  이미지에 이전 그룹의 마지막 페이지번호를 링크한다. 
 				   	    hint)   startPageOfPageGroup-1 하면 됨 		 
 	 -->      
+	 <div class="text-center">
 	<c:if test="${pb.previousPageGroup}">
 	<a href="${pageContext.request.contextPath}/showBuyList.do?pageNo=${pb.startPageOfPageGroup-1}">
 	<!-- <img src="img/left_arrow_btn.gif"> -->
@@ -71,3 +71,5 @@
 	▶<!-- <img src="img/right_arrow_btn.gif"> --></a>
 	</c:if>
 	</p>
+	</div>
+</div>
