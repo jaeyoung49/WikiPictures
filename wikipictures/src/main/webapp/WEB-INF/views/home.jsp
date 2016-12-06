@@ -91,11 +91,12 @@
         </li>
         </ul>
         <!-- 검색 ================================================== -->
-        <form class="navbar-form navbar-right" role="search">
+        <form class="navbar-form navbar-right" action ="searchPicture.do" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="검색어를 입력해주세요">
+            <input type="text" name="keyword" class="form-control" placeholder="검색어를 입력해주세요">
           </div>
           <button type="submit" class="btn btn-default">검색</button>
+          
         </form>
         <!-- 로그인 ================================================== -->
         <ul class="nav navbar-nav navbar-right">

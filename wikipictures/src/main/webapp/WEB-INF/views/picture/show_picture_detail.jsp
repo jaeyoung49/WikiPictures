@@ -22,10 +22,13 @@
   <!-- jQuery -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/inputTags.jquery.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#tags').inputTags();
-    });
+  <script type="text/javascript">
+    $(document).ready(function(){
+		$("#addhashtag").click(function(){
+			$("#hashtagForm").submit();
+		}); // click
+		$("#tags").inputTags(); 
+    }); //ready
   </script>
 
    <style>
@@ -38,13 +41,7 @@
     text-decoration: none;
   }
   </style>
-  <script type="text/javascript">
-  $(document).ready(function(){
-	  $("#addhashtag").click(function(){
-		 $("#dataView").html($("#tags").text(val()));
-	  });
-  });
-  </script>
+
 </head>
 
 <body>
@@ -101,17 +98,18 @@
               </c:forEach> 
             </div>
           </div>
-          <form action="${pageContext.request.contextPath}/addHashtag.do?keyword=${requestScope.picturevo.keyword}&pic_date=${requestScope.picturevo.pictureDate}">
+          <form id="hashtagForm" action="addHashtag.do">
           <div class="form-group">
             해시태그추가
             <br>
-            <input type="text" name="tempHashtags" id="tags" placeholder="태그입력후 Enter를 눌러주세요">
+            <input type="text" name="hashtagName" id="tags" placeholder="태그입력후 Enter를 눌러주세요">  
+             <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
+             <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
           </div>
-          <p><a href="searchHashtag.do" class="btn btn-primary" id="addhashtag" role="button">버튼1</a>
-            <a href="#" class="btn btn-default" role="button">버튼2</a></p>
-            <span id="dataView"></span>
-            <input type="submit" value="버튼">
-            </form>
+          <p><a class="btn btn-primary" id="addhashtag" role="button">버튼1</a>
+          </form>
+            <!-- <a href="#" class="btn btn-default" role="button">버튼2</a> --></p>
+            <!-- <span id="dataView"></span> -->
         </div>
       </div>
     </div>
@@ -120,7 +118,7 @@
     <div class="container" style="padding-top: 100px;">
       <hr>
       <p class="pull-right"><a href="#top">맨위로</a></p>
-      <p>© 2016 Six-Men studios. ·
+      <p>ⓒ 2016 Six-Men studios. ·
         <a href="#">이용약관</a> ·
         <a href="#">Six-Men studios 소개</a> ·
         <a href="#">채용정보</a> ·

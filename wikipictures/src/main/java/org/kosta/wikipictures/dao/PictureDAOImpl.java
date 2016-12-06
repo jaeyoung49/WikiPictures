@@ -19,10 +19,14 @@ public class PictureDAOImpl implements PictureDAO {
 
 	@Override
 	public void registerHashtag(List<HashtagVO> hashtagList) {
+		/*System.out.println(hashtagList);*/
 		for (HashtagVO hvo : hashtagList)
 			template.insert("picture.registerHashtag", hvo);
 	}
-
+	@Override
+	public void addHashtag(HashtagVO hashtagVO){
+		template.insert("picture.addHashtag",hashtagVO);
+	}
 	@Override
 	public void registerPicture(PictureVO pictureVO) {
 		template.insert("picture.registerPicture", pictureVO);
@@ -52,9 +56,6 @@ public class PictureDAOImpl implements PictureDAO {
 		return template.selectList("picture.searchDetailPicture",hashtagVO);
 	}
 	
-	public void addHashtag(HashtagVO hashtagVO){
-		template.insert("picture.addHashtag",hashtagVO);
-	}
 	@Override
 	public List<PictureVO> showMypictureList(Map<String, Integer> pagingConfig) {
 		return template.selectList("picture.showMypictureList", pagingConfig);
