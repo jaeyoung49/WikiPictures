@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-	<!-- <context:component-scan base-package="org.kosta.wikipictures.controller" /> -->
+	<context:component-scan base-package="org.kosta.wikipictures.controller" />
 	<mvc:annotation-driven />
 	
 	<!-- ViewResolver -->

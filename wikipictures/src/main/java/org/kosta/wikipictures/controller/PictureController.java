@@ -2,6 +2,8 @@ package org.kosta.wikipictures.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -67,11 +69,6 @@ public class PictureController {
 		mv.addObject("personAndLocationPictureList", personAndLocationPictureList);	// 사건 사진리스트
 		mv.setViewName("home");	// viewName 설정
 		
-		for(PictureVO pvo : accidentPictureList)
-			System.out.println(pvo.getPath());
-		System.out.println("------------------------");
-		for(PictureVO pvo : personAndLocationPictureList)
-			System.out.println(pvo.getPath());
 		return mv;
 	}
 	
@@ -92,8 +89,8 @@ public class PictureController {
 	
 	// 사진 등록
 	@RequestMapping(method = RequestMethod.POST, value = "registerPicture.do")
-	public ModelAndView registerPicture(PictureVO pictureVO, String tempHashtags, HttpServletRequest request) {
-		ModelAndView mv = new ModelAndView();
+	public String registerPicture(PictureVO pictureVO, String tempHashtags, HttpServletRequest request) throws UnsupportedEncodingException {
+//		ModelAndView mv = new ModelAndView();
 
 		// 사진 정보 세팅 - 날짜
 		pictureVO.setPictureDate(pictureVO.getPictureDate().trim().substring(0, 7));
@@ -155,12 +152,15 @@ public class PictureController {
 		
 		// 차후 아이디 받아오는 것이 구현되면 삭제할것!!
 		pictureVO.getMemberVO().setId("java");
-		// 사진정보를 서버에 저장
+		// 사진정보를 DB에 저장
 		pictureService.registerPicture(pictureVO);
-		// 해시태그를 서버에 저장
+		// 해시태그를 DB에 저장
 		pictureService.registerHashtag(hashtagList);
-
-		return mv;
+		// 이동 경로
+//		mv.setViewName("searchDetailPicture.do");
+//		mv.addObject("pvo", pictureVO);
+		String keyword = URLEncoder.encode(pictureVO.getKeyword(), "UTF-8");
+		return "redirect:searchDetailPicture.do?pictureDate="+pictureVO.getPictureDate()+"&keyword="+keyword;
 	}
 
 	// 사진검색
