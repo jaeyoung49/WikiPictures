@@ -1,13 +1,14 @@
 package org.kosta.wikipictures.dao;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.TimeMachineVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -55,38 +56,6 @@ public class PictureDAOImpl implements PictureDAO {
 	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO){
 		return template.selectList("picture.searchDetailPicture",hashtagVO);
 	}
-	
-	@Override
-	public List<PictureVO> showMypictureList(Map<String, Integer> pagingConfig) {
-		return template.selectList("picture.showMypictureList", pagingConfig);
-	}
-	
-	@Override
-	public List<PictureVO> showMypictureList(String pageNo) { 
-		return template.selectList("picture.showMypictureList",pageNo); 
-	}
-	
-	@Override
-	public int totalContentCount() {
-		// TODO Auto-generated method stub
-		return template.selectOne("picture.totalContentCount");
-	}
-	
-	@Override
-	public List<MypageVO> showSecretreplyList(Map<String, Integer> pagingConfig) {
-		return template.selectList("picture.showSecretreplyList", pagingConfig);
-	}
-
-	@Override
-	public List<MypageVO> showSecretreplyList(String pageNo) {
-		return template.selectList("picture.showSecretreplyList", pageNo);
-	}
-	
-	@Override
-	public int secretTotalContentCount() {
-		// TODO Auto-generated method stub
-		return template.selectOne("picture.secretTotalContentCount");
-	}
 
 	@Override
 	public List<PictureVO> mypictures(String pageNo) {
@@ -94,5 +63,50 @@ public class PictureDAOImpl implements PictureDAO {
 		return null;
 	}
 
+	@Override
+	public List<TimeMachineVO> getTimeMachineList() {
+		return template.selectList("picture.getTimeMachineList");
+	}
 
+	@Override
+	public List<PictureVO> getAccidentPictureList(String timeMachineYear) {
+		return template.selectList("picture.getAccidentPictureList", timeMachineYear);
+	}
+
+	@Override
+	public List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear) {
+		return template.selectList("picture.getPersonAndLocationPictureList", timeMachineYear);
+	}
+	
+	@Override
+	public List<PictureVO> showMypictureList(HashMap<String, String> paramMap) {
+		return template.selectList("picture.showMypictureList", paramMap);
+	}
+	@Override
+	public int totalContentCount(String string) {
+		return template.selectOne("picture.totalContentCount", string);
+	}
+
+	@Override
+	public List<MypageVO> showSecretreplyList(HashMap<String, String> paramMap) {
+		return template.selectList("picture.showSecretreplyList", paramMap);
+	}
+
+	@Override
+	public int secretTotalContentCount(String string) {
+		return template.selectOne("picture.secretTotalContentCount", string);
+	}
+
+	@Override
+	public List<MypageVO> showBuyList(HashMap<String, String> paramMap) {
+		return template.selectList("picture.showBuyList", paramMap);
+	}
+
+	@Override
+	public int buyTotalContentCount(String string) {
+		return template.selectOne("picture.buyTotalContentCount", string);
+	}
+	
+	
+	
 }

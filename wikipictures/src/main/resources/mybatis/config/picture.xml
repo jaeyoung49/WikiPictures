@@ -75,34 +75,95 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="memberVO.id" column="id"/>
 	</resultMap>
 	
-	<select id="showMypictureList" resultMap="pictureRM" parameterType="pictureVO">
-	select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
-	(select id, pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
-	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
+	<select id="showMypictureList" resultMap="pictureRM" parameterType="map">
+		select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category 
+		from (
+			select id, pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
+			from picture  
+			where id = #{id} 
+		) 
+		where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
 	</select>
 	
-	<select id="totalContentCount" resultType="int">
-		select count(*) from picture
+	<select id="totalContentCount" resultType="int" parameterType="string">
+		select count(*) from picture where id = #{value}
 	</select>
 	
 	
 	<resultMap type="mypageVO" id="mypageRM">
 		<result property="replyDate" column="reply_date" />
 		<result property="replyContent" column="reply_content" />
+		<result property="buyDate" column="buy_date"/>
 		<result property="memberVO.id" column="id"/>
 	</resultMap>
 	
-	<select id="showSecretreplyList" resultMap="mypageRM" parameterType="mypageVO">
-	select id,reply_date,reply_content from(select row_number() over (order by id desc) as rnum,id,reply_date,reply_content from mypage) 
-	where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
+<select id="showSecretreplyList" resultMap="mypageRM" parameterType="map">
+		select id,reply_date,reply_content
+		from(
+			select row_number() over (order by id desc) as rnum,id,reply_date,reply_content 
+			from mypage
+			where id=#{id}
+		)
+		where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
 	</select>
-	
 	
 	<select id="secretTotalContentCount" resultType="int">
-		select count(*) from mypage
+		select count(*) from mypage where id = #{value}
+	</select>
+	
+	<select id="showBuyList" resultMap="mypageRM" parameterType="map" >
+		select id, buy_date 
+		from(
+			select row_number() over (order by id desc) as rnum,id,buy_date
+			from mypage
+			where id=#{id}
+		)
+		where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
+	</select>
+	
+	<select id="buyTotalContentCount" resultType="int">
+		select count(*) from mypage where id = #{value}
 	</select>
 	
 	
+	
+	
+	<resultMap type="timeMachineVO" id="timeMachineRM">
+		<result property="timeMachineYear" column="TIMEMACHINE_YEAR" />
+		<result property="timeMachineTitle" column="TIMEMACHINE_TILE" />
+		<result property="timeMachineContent" column="TIMEMACHINE_CONTENT"/>
+		<result property="timeMachineKeyword" column="TiMEMACHINE_KEYWORD"/>
+	</resultMap>
+	
+	<select id="getTimeMachineList" resultMap="timeMachineRM">
+		select TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD
+		from TIMEMACHINE
+	</select>
+	
+	<select id="getAccidentPictureList" resultMap="pictureRM" parameterType="string">
+		select rowNumber, id, pic_date, keyword, path, author_comment, hits, pic_space, category
+		from (
+			select row_number() over(order by p.hits desc) as rowNumber, p.id, p.pic_date, p.keyword, p.path, p.author_comment, p.hits, p.pic_space, p.category
+			from picture p, (select keyword, pic_date, substr(pic_date, 1, 4) as year from picture) d
+			where p.pic_date=d.pic_date and p.keyword=d.keyword and d.year = #{value} and category='사건'
+		)
+		where rowNumber between 1 and 3 order by rowNumber asc
+	</select>
+	
+	<select id="getPersonAndLocationPictureList" resultMap="pictureRM" parameterType="string">
+		select rowNumber, id, pic_date, keyword, path, author_comment, hits, pic_space, category
+		from (
+			select row_number() over(order by p.hits desc) as rowNumber, p.id, p.pic_date, p.keyword, p.path, p.author_comment, p.hits, p.pic_space, p.category
+			from picture p, (select keyword, pic_date, substr(pic_date, 1, 4) as year from picture) d
+			where p.pic_date=d.pic_date and p.keyword=d.keyword and d.year = #{value} and category='인물' or p.pic_date=d.pic_date and p.keyword=d.keyword and d.year = #{value} and category='장소'
+		)
+		where rowNumber between 1 and 3 order by rowNumber asc
+	</select>
+	
+	<insert id="reportpicture" parameterType="reportVO">
+		insert into report(report_no, report_type,report_content,report_date,pic_date,keyword) 
+		values(#{report_no},#{report_type},#{report_contet},sysdate,#{pic_date},#{keyword});
+	</insert>
 	
 </mapper>
 	

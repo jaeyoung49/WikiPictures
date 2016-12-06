@@ -12,22 +12,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#" style="font-size: 2em;">Wiki Pictures</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do" style="font-size: 2em;">Wiki Pictures</a>
       </div>
       <!-- NAVBAR Button -->
+<c:choose>
+<c:when test="${sessionScope.mvo==null}">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
-          <li><a href="#">업로드</a></li>
-          <li><a href="#">마이페이지</a></li>
-          <li><a href="#">정정 / 신고 요청</a></li>
-        </ul>
-        <!-- 검색 ================================================== -->
-        <form class="navbar-form navbar-right" role="search">
+             <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="검색어를 입력해주세요">
+            <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
           </div>
           <button type="submit" class="btn btn-default">검색</button>
         </form>
+        </ul>
+        <!-- 검색 ================================================== -->
+        
          <!-- 로그인 ================================================== -->
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -41,61 +41,79 @@
                       <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                       <a href="#" class="btn btn-go"><i class="fa fa-google"></i> Google</a>
                     </div>
-                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                    <form class="form" role="form" method="post" action="${pageContext.request.contextPath}/login.do" 
+                    accept-charset="UTF-8" id="loginForm">
                       <div class="form-group">
-                        <label class="sr-only" for="exampleInputId2">id</label>
-                        <input type="text" class="form-control" id="exampleInputEmailId2" placeholder="아이디" required>
+                        <input type="text"  name="id" class="form-control"  placeholder="아이디" required>
                       </div>
                       <div class="form-group">
-                        <label class="sr-only" for="exampleInputPassword2">password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="비밀번호" required>
+                        <input type="password" class="form-control" name="password" placeholder="비밀번호" required>
                         <div class="help-block text-right"><a href="">비밀번호 찾기</a></div>
                       </div>
                       <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block">로그인</button>
+                      <input type="submit" class="btn btn-primary btn-block" value="로그인">
                       </div>
                     </form>
                   </div>
                   <div class="bottom text-center">
-                    회원이 아니세요? <a href="#"><strong style="color: blue">회원가입</strong></a>
+                    회원이 아니세요? <a href="${pageContext.request.contextPath}/member/register_member_form.do"><strong style="color: blue">회원가입</strong></a>
                   </div>
                 </div>
               </li>
             </ul>
           </li>
         </ul>
+        
         <!-- /.navbar-collapse -->
       </div>
+      </c:when>
+      <c:otherwise>
+       
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         
+        <ul class="nav navbar-nav pull-right">
+        <li><a href="#">${sessionScope.mvo.nickname}님 </a></li>
+        <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
+          <div class="form-group">
+            <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
+          </div>
+          <button type="submit" class="btn btn-default">검색</button>
+        </form>
+          <li><a href="${pageContext.request.contextPath}/picture/register_picture_form.do">업로드</a></li>
+          <li><a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지</a></li>
+          <li><a href="#" id="logout">로그아웃 </a>
+          </ul>
+          </div>
+       </c:otherwise>
+       </c:choose>
     </div>
+  
  </nav> 
-    
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
-<!-- <html> -->
-<!-- <head> -->
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
-<%--   <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet"> --%>
-<!-- <title>Insert title here</title> -->
-<!-- </head> -->
-<!-- <script type="text/javascript"> -->
-// 	$(document).ready(function(){	
-// 		$("#logout").click(function(){
-//     		if(confirm("로그아웃하시겠습니까?")){
-//     			location.href="${pageContext.request.contextPath}/logout.do";
-//     		}
-//     	});
-		
-<<<<<<< HEAD
-// 		$("#loginForm").submit(function(){			
-// 			if($("#loginForm :input[name=id]").val()==""){
-// 				alert("아이디를 입력하세요!");
-// 				return false;
-// 			}else if($("#loginForm :input[name=password]").val()==""){
-// 				alert("비밀번호를 입력하세요!");
-// 				return false;
-// 			}		
-// 		});
-// 	});
-<!-- </script>     -->
+<%--  <a href="${pageContext.request.contextPath }/picture/upload_form.do">사진업로드 |</a>
+ <a href="${pageContext.request.contextPath }/picture/register_picture_form.do">사진업로드 |</a>
+ <a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지 |</a>
+ <a href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정 |</a> --%>
+<!--   <a href="#" id="logout">로그아웃 |</a> -->
+<!-- <hr> -->
+
+<script type="text/javascript">
+ 	$(document).ready(function(){	
+ 		$("#logout").click(function(){
+    		if(confirm("로그아웃하시겠습니까?")){
+     			location.href="${pageContext.request.contextPath}/logout.do";
+    		}
+     	});
+ 		$("#loginForm").submit(function(){			
+ 			if($("#loginForm :input[name=id]").val()==""){
+ 				alert("아이디를 입력하세요!");
+ 				return false;
+ 			}else if($("#loginForm :input[name=password]").val()==""){
+ 				alert("비밀번호를 입력하세요!");
+ 				return false;
+ 			}		
+ 		});
+ 	});
+ </script>
 <!-- <body> -->
 <%--  <c:choose> --%>
 <%--    		<c:when test="${sessionScope.mvo==null}"> --%>
@@ -106,16 +124,6 @@
 <%--  <a href="${pageContext.request.contextPath}/member/register_member_form.do">회원가입</a><br> --%>
 <!-- </form> -->
 <!-- <hr> -->
-<%-- </c:when> --%>
-<%--  <c:otherwise> --%>
-<%--  ${sessionScope.mvo.nickname}님 | --%>
-<%--  <a href="${pageContext.request.contextPath }/picture/upload_form.do">사진업로드 |</a> --%>
-<%--  <a href="${pageContext.request.contextPath }/picture/register_picture_form.do">사진업로드 |</a> --%>
-<%--  <a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지 |</a> --%>
-<%--  <a href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정 |</a> --%>
-<!--   <a href="#" id="logout">로그아웃 |</a> -->
-<!-- <hr> -->
-<%-- </c:otherwise> --%>
-<%-- </c:choose> --%>
+
 <!-- </body> -->
 <!-- </html> -->

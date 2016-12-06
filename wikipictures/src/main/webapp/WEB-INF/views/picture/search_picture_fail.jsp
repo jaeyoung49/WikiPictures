@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   
 <img src="resources/img/이미지없음.jpg" align="center" width="600" height="450">
 <br>
 일치하는 정보를 찾을수 없습니다.

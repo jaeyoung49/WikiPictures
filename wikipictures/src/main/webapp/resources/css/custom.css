@@ -30,28 +30,32 @@
 }
 
 #video {
-	position: absolute;
-	z-index: 4;
-	right: 0;
-	bottom: 0;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 78%;
-	background-size: 100% 100%;
-	background-color: black;
-	/* in case the video doesn't fit the whole page*/
-	background-image: /* our video */;
-	background-position: center center;
-	background-size: contain;
-	object-fit: cover;
-	/*cover video background */
+ 	position: absolute;
+    z-index: 4;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    right: 0;
+    width: 100%;
+    margin:0;
+    height:auto;
+    background-size: 100% 100% 100% 100%;
+    background-color: black;
+    /* in case the video doesn't fit the whole page*/
+    background-image: /* our video */;
+    background-position: center center;
+    background-size: contain;
+    object-fit: cover;
+    /*cover video background */
 }
 
 .carousel-caption {
 	top: 30%;
 }
 
+.carousel-caption a {
+	text-decoration: none;
+}
 .carousel-caption h1 {
 	font-size: 6em;
 }
@@ -81,7 +85,9 @@
 	height: 100%;
 	color: #fff;
 }
-
+.layer a {
+	text-decoration: none;
+}
 .layer h1 {
 	font-size: 6em;
 }

@@ -137,7 +137,7 @@ create table mypage(
 	select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
 	(select id,pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
 	from picture) where rnum between 1 and 5 order by keyword desc
-insert into mypage values('java','1999.10','광화문',sysdate,'좋아요',sysdate);
+insert into mypage values('java','1999-10','광화문',sysdate,'좋아요',sysdate);
 -- 무결성 제약조건에 위배되는 삽입 문(멤버아이디 존재하지 않음)
 insert into mypage values('java1','1999.10','광화문',sysdate,'좋아요',sysdate);
 	
@@ -162,23 +162,17 @@ WHEN NOT MATCHED THEN
   insert(pic_date,keyword,hashtag_name) values('1999.10','광화문','촛불시위')
   
 
-<<<<<<< HEAD
+------------------------------------------------------연습들--------------------------------------------------------------
 	select rnum, id, nickname, password, birth, fav_space from
  	 (select row_number() over(order by id desc) as rnum,id,nickname, password,
  	to_char(birth, 'yyyy.mm.dd')as birth, fav_space
  	 from member)
-=======
-	select rnum,keyword,path,author_comment,hits,pic_space from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space
+
+ 	 select rnum,keyword,path,author_comment,hits,pic_space from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space
 	from picture) where rnum between 1 and 5
-		
-	
-	
 	
 	select m.id,p.rnum,p.keyword,p.path,p.author_comment,p.hits,p.pic_space,p.category from (select row_number() over(order by keyword desc) as rnum,
 		keyword,path,author_comment,hits,pic_space,category from picture p=member m) picture p,member m where m.id=p.id and rnum between 1 and 5 
-	
 		
 		select rnum,keyword,path,author_comment,hits,pic_space,category from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
 	from picture) where rnum between 1 and 5		
-	
->>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures.git

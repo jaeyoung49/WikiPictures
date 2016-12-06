@@ -32,7 +32,7 @@ public class TestUnit {
 	
 	@Test
 	public void mainTest(){
-		System.out.println(memberDAO.findMemberById("java"));
-		
+		String str = " 가  나  다  라 마 바 사  아 자 차";
+		System.out.println(str.replaceAll(" ", ""));
 	}
 }
