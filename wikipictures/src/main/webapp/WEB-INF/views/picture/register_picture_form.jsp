@@ -6,9 +6,26 @@
 
     // 파일첨부 Controll
     $(":file").filestyle();
+<<<<<<< HEAD
+        
+=======
+    
+>>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures
+    // 제출
+    $("#formButton").click(function(){
+    	$("#registerForm").submit();
+    });
   });
   </script>
-
+<ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
+	<li role="presentation"><a
+		href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정</a></li>
+	<li role="presentation"><a
+		href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a></li>
+	<li role="presentation"><a
+		href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
+	<li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
+</ul>
  <div class="container">
       <form id="registerForm" action="${pageContext.request.contextPath}/registerPicture.do" method="post" enctype="multipart/form-data" class="form-horizontal">
         <legend>사진 업로드</legend>
@@ -48,6 +65,6 @@
           <br>
           <input type="text" name="tempHashtags" id="tags">
         </div>
-        <input type="button" value="등록하기">
+        <input id="formButton" type="button" value="등록하기">
       </form>
     </div>

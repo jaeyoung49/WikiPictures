@@ -130,6 +130,7 @@ $("#logout").click(function(){
           	</c:forEach>
           </ul>
         </li>
+
         <!-- 검색 ================================================== -->
            <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
           <div class="form-group">
@@ -171,7 +172,8 @@ $("#logout").click(function(){
                     </form>
                   </div>
   				  <div class="bottom text-center">
-                    회원이 아니세요? <a href="${pageContext.request.contextPath}/member/register_member_form.do" style="text-decoration:none;"><strong style="color: blue">회원가입</strong></a>
+                    회원이 아니세요<a href="#" style="text-decoration:none;" data-toggle="modal"
+                    data-target="#registerModal"><strong style="color: Navy">회원가입</strong></a>
                   </div>
                 </div>
               </li>
@@ -353,6 +355,13 @@ $("#logout").click(function(){
     </div>
   <!-- MAIN END ================================================== -->
 
+  <!-- Register Form Modal START ================================================== -->
+  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true" style="background-color: rgba(255, 255, 255, 0.3);">
+  	<c:import url ="member/register_member_form.jsp"/>
+  </div>
+  <!-- Register Form Modal END ================================================== -->
+  
   <!-- 부트스트랩 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
   <!-- Window8 & IE10 버그 해결 js -->
@@ -363,22 +372,12 @@ $("#logout").click(function(){
   <script src="${pageContext.request.contextPath}/resources/js/diacritics.js"></script>
   <!-- 타임머신 검색 필터 -->
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap-dropdown-filter.js"></script>
-  
-<!--   나중에 처리할 예정
-  담당자 : 장현석 
-  2016-12-05 -->
-<!--   <script>
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36251023-1']);
-    _gaq.push(['_setDomainName', 'jqueryscript.net']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script> -->
+  <!-- Datepicker Controll js -->
+  <script src="${pageContext.request.contextPath}/resources/js/datepicker.js"></script>
+  <!-- Datepicker 달력 js -->
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.min.js"></script>
+  <!-- Datepicker 달력 한글화 js -->
+  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.kr.min.js"></script>
 </body>
 
 </html>

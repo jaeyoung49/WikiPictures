@@ -9,9 +9,9 @@
 		href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
 		<li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
 </ul>
+<div class="container">
+<legend>나의 사진들</legend>
 <table class="table">
-	<caption>내가올린사진들보기 게시판</caption>
-	
 		<tr>
 			<th class="id">작성자</th>
 			<th class="pictureDate">사진날짜</th>
@@ -85,3 +85,4 @@
 	▶<!-- <img src="img/right_arrow_btn.gif"> --></a>
 	</c:if>
 	</p>
+</div>
