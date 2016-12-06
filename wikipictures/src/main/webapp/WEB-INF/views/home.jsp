@@ -130,9 +130,10 @@ $("#logout").click(function(){
           	</c:forEach>
           </ul>
         </li>
-              <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
+        <!-- 검색 ================================================== -->
+           <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
           <div class="form-group">
-            <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
+            <input type="text" name="keyword" class="form-control" placeholder="검색어를 입력해주세요">
           </div>
           <button type="submit" class="btn btn-default">검색</button>
         </form>

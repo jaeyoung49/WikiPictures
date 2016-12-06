@@ -93,10 +93,11 @@ public class PictureController {
 //		ModelAndView mv = new ModelAndView();
 
 		// 사진 정보 세팅 - 날짜
+		System.out.println(pictureVO.getPictureDate());
 		pictureVO.setPictureDate(pictureVO.getPictureDate().trim().substring(0, 7));
 
 		// 해시태그 세팅 - 태그 정렬
-		String[] tags = tempHashtags.substring(1).split("#");
+		String[] tags = tempHashtags.split(",");
 		for (int i = 0; i < tags.length; i++) {
 			tags[i] = tags[i].trim();
 		}
@@ -185,11 +186,37 @@ public class PictureController {
 	}
 	
 	@RequestMapping("addHashtag.do")
-	public ModelAndView addHashtag(HttpServletRequest request, HashtagVO hashtagVO, PictureVO pictureVO){
-		String hashtagName = request.getParameter("tempHashtags");
-		
-		System.out.println(hashtagName);
-		/*pictureService.addHashtag(hashtagName);*/
-		return new ModelAndView("picture/show_picture_detail");
+	public ModelAndView addHashtag(HashtagVO hashtagVO, PictureVO pictureVO) throws UnsupportedEncodingException{
+		String hash = hashtagVO.getHashtagName().trim();
+		hash =hash.replaceAll("\\p{Z}", "");
+		hash=hash.replaceAll("\\p{Space}", "");
+		/*System.out.println("1"+hash);*/
+		String[] tags = hash.split(",");
+		for (int i = 0; i < tags.length; i++) {
+			tags[i] = tags[i].trim();
+		}
+		ArrayList<String> hashtagNames = new ArrayList<String>();
+		for (String str : tags) {
+			boolean duplicated = false;
+			for (int i = 0; i < hashtagNames.size(); i++) {
+				if (str.equals(hashtagNames.get(i)))
+					duplicated = true;
+				break;
+			}
+			if (duplicated == false)
+				hashtagNames.add(str);
+		}
+		List<HashtagVO> hashtagList = new ArrayList<HashtagVO>();
+		for (String str : hashtagNames) {
+			str=str.replaceAll("\\p{Space}", "");
+			HashtagVO hvo = new HashtagVO();
+			hvo.setHashtagName(str);
+			hvo.setPictureVO(pictureVO);
+			hashtagList.add(hvo);
+		}
+		pictureService.registerHashtag(hashtagList);
+		// 해시태그 세팅 - 태그 정렬
+		String keyword = URLEncoder.encode(pictureVO.getKeyword(),"UTF-8");
+		return new ModelAndView("redirect:searchDetailPicture.do?keyword="+keyword+"&pictureDate="+pictureVO.getPictureDate());
 	}
 }

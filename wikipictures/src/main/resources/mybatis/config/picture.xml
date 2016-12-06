@@ -8,7 +8,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="registerHashtag" parameterType="hashtagVO">
 		MERGE INTO hashtag
 		USING DUAL
-		ON(hashtag_name=#{hashtagName})
+		ON(pic_date=#{pictureVO.pictureDate} and keyword=#{pictureVO.keyword} and hashtag_name=#{hashtagName})
+		WHEN MATCHED THEN  
+		   update set hashtag_count=hashtag_count+1
+		WHEN NOT MATCHED THEN
+		  insert(pic_date,keyword,hashtag_name) values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
+	</insert>
+	
+	<insert id="addHashtag" parameterType="hashtagVO">
+		MERGE INTO hashtag
+		USING DUAL
+		ON(pic_date=#{pictureVO.pictureDate} and keyword=#{pictureVO.keyword} and hashtag_name=#{hashtagName})
 		WHEN MATCHED THEN  
 		   update set hashtag_count=hashtag_count+1
 		WHEN NOT MATCHED THEN
@@ -116,15 +126,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	<insert id="addHashtag" parameterType="hashtagVO">
-		MERGE INTO hashtag
-		USING DUAL
-		ON(pic_date=#{pictureVO.pictureDate} and keyword=#{pictureVO.keyword} and hashtag_name=#{hashtagName})
-		WHEN MATCHED THEN  
-		   update set hashtag_count=hashtag_count+1
-		WHEN NOT MATCHED THEN
-		  insert(pic_date,keyword,hashtag_name) values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
-	</insert>
+	
 	
 	<resultMap type="timeMachineVO" id="timeMachineRM">
 		<result property="timeMachineYear" column="TIMEMACHINE_YEAR" />
