@@ -16,7 +16,7 @@
 
 		<caption>
 			<a href="${pageContext.request.contextPath}/admin/show_admin_mypage.do">관리자
-				홈으로</a><br>회원리스트${listVO.list }
+				홈으로</a><br>회원리스트
 		</caption>
 		<tr>
 			<td class="no"><h4>NO</h4></td>

@@ -38,11 +38,6 @@ public class PictureDAOImpl implements PictureDAO {
 	public List<PictureVO> getPictures() {
 		return template.selectList("picture.getPictures");
 	}
-		
-	@Override
-	public List<PictureVO> pictureList(PictureVO pvo){
-		return template.selectList("admin.picturelist",pvo);
-	}
 
 	@Override
 	public List<PictureVO> searchPicture(String keyword){
@@ -55,12 +50,6 @@ public class PictureDAOImpl implements PictureDAO {
 	@Override
 	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO){
 		return template.selectList("picture.searchDetailPicture",hashtagVO);
-	}
-
-	@Override
-	public List<PictureVO> mypictures(String pageNo) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
