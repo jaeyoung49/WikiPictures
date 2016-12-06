@@ -63,6 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="sellTotalCount" resultType="int">
 		select count(*) from mypage
 	</select>
+	
 </mapper>
 
 

@@ -48,7 +48,7 @@
         </div>
         <div class="form-group">
           사진의 날짜를 지정해주세요.
-          <input class="form-control" id="date" name="pictureDate" placeholder="년/월/일" type="text" required>
+          <input class="form-control" id="date" name="pictureDate" placeholder="년-월-일" type="text" required>
         </div>
         <div class="form-group">
           원작자코멘트
