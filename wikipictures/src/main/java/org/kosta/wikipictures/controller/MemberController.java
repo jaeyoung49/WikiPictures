@@ -46,7 +46,7 @@ public class MemberController {
 			return "admin/show_admin_mypage";
 		}else {
 			request.getSession().setAttribute("mvo", vo);
-			return "home";
+			return "redirect:home.do";
 		}
 	}
 
@@ -55,7 +55,7 @@ public class MemberController {
 		HttpSession session = request.getSession(false);
 		if (session != null)
 			session.invalidate();
-		return "home";
+		return "redirect:home.do";
 	}
 	@RequestMapping("introduce.do")
 	public String test(){

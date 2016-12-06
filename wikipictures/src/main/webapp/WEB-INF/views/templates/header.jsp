@@ -12,22 +12,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#" style="font-size: 2em;">Wiki Pictures</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do" style="font-size: 2em;">Wiki Pictures</a>
       </div>
       <!-- NAVBAR Button -->
 <c:choose>
 <c:when test="${sessionScope.mvo==null}">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
-          <li><a href="#">정정 / 신고 요청</a	></li>
-        </ul>
-        <!-- 검색 ================================================== -->
-        <form class="navbar-form navbar-right" role="search">
+             <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="검색어를 입력해주세요">
+            <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
           </div>
           <button type="submit" class="btn btn-default">검색</button>
         </form>
+        </ul>
+        <!-- 검색 ================================================== -->
+        
          <!-- 로그인 ================================================== -->
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -70,14 +70,20 @@
       <c:otherwise>
        
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         
         <ul class="nav navbar-nav pull-right">
-          <li><a href="#">${sessionScope.mvo.nickname}님 </a></li>
-          <li><a href="#">업로드</a></li>
-          <li><a href="#">마이페이지</a></li>
-          <li><a href="#">정정 / 신고 요청</a></li>
+        <li><a href="#">${sessionScope.mvo.nickname}님 </a></li>
+        <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
+          <div class="form-group">
+            <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
+          </div>
+          <button type="submit" class="btn btn-default">검색</button>
+        </form>
+          <li><a href="${pageContext.request.contextPath}/picture/register_picture_form.do">업로드</a></li>
+          <li><a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지</a></li>
           <li><a href="#" id="logout">로그아웃 </a>
-        </ul>
-        </div>
+          </ul>
+          </div>
        </c:otherwise>
        </c:choose>
     </div>

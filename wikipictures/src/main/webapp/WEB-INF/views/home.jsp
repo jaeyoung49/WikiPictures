@@ -36,10 +36,10 @@
   <script>
   // pagepiling Controll
   var deleteLog = false;
-
   $(document).ready(function() {
 	var flag1 = ${accidentPictureList.isEmpty()};
 	var flag2 = ${personAndLocationPictureList.isEmpty()};
+	
 	if(flag1){
 		$('#pagepiling').pagepiling({
 		      menu: '#menu',
@@ -79,11 +79,29 @@
 	}
   });
   </script>
+<script type="text/javascript">
+$(document).ready(function() {
+$("#logout").click(function(){
+		if(confirm("로그아웃하시겠습니까?")){
+			location.href="${pageContext.request.contextPath}/logout.do";
+		}
+	});
+	$("#loginForm").submit(function(){			
+		if($("#loginForm :input[name=id]").val()==""){
+			alert("아이디를 입력하세요!");
+			return false;
+		}else if($("#loginForm :input[name=password]").val()==""){
+			alert("비밀번호를 입력하세요!");
+			return false;
+		}		
+	});
+});
+</script>
 </head>
 
 <body>
   <!-- NAVBAR START ================================================== -->
-  <nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0px;">
+  <nav class="navbar-inverse navbar-fixed-top" role="navigation" style="margin-bottom: 0px;">
     <div class="container">
       <!-- Toggle Display -->
       <div class="navbar-header">
@@ -96,11 +114,10 @@
         <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do" style="font-size: 2em;">Wiki Pictures #${timeMachineVO.timeMachineYear }</a>
       </div>
       <!-- NAVBAR Button -->
+      <c:choose>
+      <c:when test="${sessionScope.mvo==null }">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
-          <li><a href="${pageContext.request.contextPath}/picture/register_picture_form.do">업로드</a></li>
-          <li><a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지</a></li>	<!-- 두번째 인덱스 보내는것으로 연결 -->
-          <li><a href="#">정정 / 신고 요청</a></li>
       <li class="dropdown-toggle">
         <a href="#" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">타임머신<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-filter >
@@ -113,14 +130,15 @@
           	</c:forEach>
           </ul>
         </li>
-        </ul>
-        <!-- 검색 ================================================== -->
-        <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
+              <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
           <div class="form-group">
             <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
           </div>
           <button type="submit" class="btn btn-default">검색</button>
         </form>
+        </ul>
+        <!-- 검색 ================================================== -->
+       
         <!-- 로그인 ================================================== -->
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -159,7 +177,40 @@
             </ul>
           </li>
         </ul>
+        
       </div>
+       
+        </c:when>
+        <c:otherwise>
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         
+        <ul class="nav navbar-nav pull-right">
+        <li><a href="#">${sessionScope.mvo.nickname}님 </a></li>
+        <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
+          <div class="form-group">
+            <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
+          </div>
+          <button type="submit" class="btn btn-default">검색</button>
+        </form>
+          <li><a href="${pageContext.request.contextPath}/picture/register_picture_form.do">업로드</a></li>
+          <li><a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지</a></li>
+          <li><a href="#" id="logout">로그아웃 </a>
+          <li class="dropdown-toggle">
+        <a href="#" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">타임머신<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-filter >
+          	<c:forEach items="${timeMachineYearList}" var="row" >
+          	  <li role="presentation">
+          	  	<a role="menuitem" tabindex="-1" href="${pageContext.request.contextPath}/home.do?timeMachineYear=${row.timeMachineYear}">
+          	  	  ${row.timeMachineYear}
+          	  	</a>
+          	  </li>
+          	</c:forEach>
+          </ul>
+        </li>
+          </ul>
+          </div>
+        </c:otherwise>
+        </c:choose>
       <!-- /.navbar-collapse -->
     </div>
   </nav>
