@@ -52,6 +52,9 @@
 	top: 30%;
 }
 
+.carousel-caption a {
+	text-decoration: none;
+}
 .carousel-caption h1 {
 	font-size: 6em;
 }
@@ -81,7 +84,9 @@
 	height: 100%;
 	color: #fff;
 }
-
+.layer a {
+	text-decoration: none;
+}
 .layer h1 {
 	font-size: 6em;
 }

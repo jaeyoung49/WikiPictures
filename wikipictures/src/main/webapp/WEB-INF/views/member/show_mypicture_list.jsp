@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
+	<li role="presentation"><a
+		href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정</a></li>
+	<li role="presentation"><a
+		href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a></li>
+	<li role="presentation"><a
+		href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
+	<li role="presentation"><a
+		href="${pageContext.request.contextPath}/buylist.do">구매내역보기</a></li>
+</ul>
 <table class="table">
 	<caption>내가올린사진들보기 게시판</caption>
 	
@@ -84,6 +86,3 @@
 	▶<!-- <img src="img/right_arrow_btn.gif"> --></a>
 	</c:if>
 	</p>
-	
-</body>
-</html>
