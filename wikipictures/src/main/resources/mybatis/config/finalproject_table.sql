@@ -121,7 +121,8 @@ p.keyword
 insert into report values(1,'신고','선정성',sysdate,'1999.10','광화문');
 insert into report values(2,'신고','선정성',sysdate,'1999.10','광화문');
 insert into report values(3,'정정','내용과 맞지 않음',sysdate,'2000,10','광화문');
-
+delete from picture where keyword='아이유'
+delete from hashtag where keyword='아이유' 
 create table mypage(
 	id varchar2(20) not null,
 	pic_date varchar2(7) not null,
@@ -137,7 +138,7 @@ create table mypage(
 	select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
 	(select id,pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
 	from picture) where rnum between 1 and 5 order by keyword desc
-insert into mypage values('java','1999-10','광화문',sysdate,'좋아요',sysdate);
+insert into mypage values('java','2002-05','월드컵',sysdate,'좋아요',sysdate);
 -- 무결성 제약조건에 위배되는 삽입 문(멤버아이디 존재하지 않음)
 insert into mypage values('java1','1999.10','광화문',sysdate,'좋아요',sysdate);
 	

@@ -6,7 +6,11 @@
 
     // 파일첨부 Controll
     $(":file").filestyle();
+<<<<<<< HEAD
         
+=======
+    
+>>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures
     // 제출
     $("#formButton").click(function(){
     	$("#registerForm").submit();
@@ -61,6 +65,6 @@
           <br>
           <input type="text" name="tempHashtags" id="tags">
         </div>
-        <input type="button" value="등록하기">
+        <input id="formButton" type="button" value="등록하기">
       </form>
     </div>
