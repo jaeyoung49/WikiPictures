@@ -1,7 +1,7 @@
 package org.kosta.wikipictures.dao;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.MypageVO;
@@ -25,18 +25,6 @@ public interface PictureDAO {
 	
 	public List<PictureVO> pictureList(PictureVO pvo);
 	
-	List<PictureVO> showMypictureList(Map<String, Integer> pagingConfig);
-
-	List<PictureVO> showMypictureList(String pageNo);
-
-	int totalContentCount();
-
-	List<MypageVO> showSecretreplyList(Map<String, Integer> pagingConfig);
-	
-	List<MypageVO> showSecretreplyList(String pageNo);
-
-	int secretTotalContentCount();
-	
 	List<PictureVO> mypictures(String pageNo);
 	
 	void addHashtag(HashtagVO hashtagVO);
@@ -47,6 +35,17 @@ public interface PictureDAO {
 
 	List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear);
 
+	List<PictureVO> showMypictureList(HashMap<String, String> paramMap);
+	
+	int totalContentCount(String string);
+
+	List<MypageVO> showSecretreplyList(HashMap<String, String> paramMap);
+
+	int secretTotalContentCount(String string);
+
+	List<MypageVO> showBuyList(HashMap<String, String> paramMap);
+
+	int buyTotalContentCount(String string);
 	
 
 

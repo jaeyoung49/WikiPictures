@@ -87,16 +87,28 @@ public class MemberController {
 	}
 	
 	//마이페이지 내가올린사진들보기 게시판
-	@RequestMapping("showMypictureList.do")
-	public ModelAndView showMypictureList(String pageNo){ 
-		return new ModelAndView("member/show_mypicture_list","pvo",pictureService.showMypictureList(pageNo));
-			}
-			
-	//마이페이지 시크릿댓글목록보기 게시판 
-	@RequestMapping("showSecretreplyList.do")
-	public ModelAndView showSecretreplyList (String pageNo){
-		return new ModelAndView("member/show_secretreply_list","svo",pictureService.showSecretreplyList(pageNo));
-			}
+		@RequestMapping("showMypictureList.do")
+		public ModelAndView showMypictureList(HttpServletRequest request,String pageNo){ 
+			HttpSession session=request.getSession(false);
+			MemberVO mvo=(MemberVO) session.getAttribute("mvo");
+			return new ModelAndView("member/show_mypicture_list","pvo",pictureService.showMypictureList(pageNo,mvo));
+				}
+		
+		//마이페이지 시크릿댓글목록보기 게시판 
+		@RequestMapping("showSecretreplyList.do")
+		public ModelAndView showSecretreplyList (HttpServletRequest request,String pageNo){
+			HttpSession session=request.getSession(false);
+			MemberVO mvo=(MemberVO) session.getAttribute("mvo");
+			return new ModelAndView("member/show_secretreply_list","svo",pictureService.showSecretreplyList(pageNo,mvo));
+		}
+		
+		//마이페이지 구매내역보기 게시판
+		@RequestMapping("showBuyList.do")
+		public ModelAndView showBuyList(HttpServletRequest request,String pageNo){
+			HttpSession session=request.getSession(false);
+			MemberVO mvo=(MemberVO) session.getAttribute("mvo");
+			return new ModelAndView("member/show_buy_list","bvo",pictureService.showBuyList(pageNo,mvo));
+		}
 		
 }
 

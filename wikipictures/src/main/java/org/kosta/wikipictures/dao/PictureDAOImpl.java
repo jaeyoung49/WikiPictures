@@ -1,8 +1,7 @@
 package org.kosta.wikipictures.dao;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -57,37 +56,6 @@ public class PictureDAOImpl implements PictureDAO {
 	public void addHashtag(HashtagVO hashtagVO){
 		template.insert("picture.addHashtag",hashtagVO);
 	}
-	@Override
-	public List<PictureVO> showMypictureList(Map<String, Integer> pagingConfig) {
-		return template.selectList("picture.showMypictureList", pagingConfig);
-	}
-	
-	@Override
-	public List<PictureVO> showMypictureList(String pageNo) { 
-		return template.selectList("picture.showMypictureList",pageNo); 
-	}
-	
-	@Override
-	public int totalContentCount() {
-		// TODO Auto-generated method stub
-		return template.selectOne("picture.totalContentCount");
-	}
-	
-	@Override
-	public List<MypageVO> showSecretreplyList(Map<String, Integer> pagingConfig) {
-		return template.selectList("picture.showSecretreplyList", pagingConfig);
-	}
-
-	@Override
-	public List<MypageVO> showSecretreplyList(String pageNo) {
-		return template.selectList("picture.showSecretreplyList", pageNo);
-	}
-	
-	@Override
-	public int secretTotalContentCount() {
-		// TODO Auto-generated method stub
-		return template.selectOne("picture.secretTotalContentCount");
-	}
 
 	@Override
 	public List<PictureVO> mypictures(String pageNo) {
@@ -109,7 +77,36 @@ public class PictureDAOImpl implements PictureDAO {
 	public List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear) {
 		return template.selectList("picture.getPersonAndLocationPictureList", timeMachineYear);
 	}
+	
+	@Override
+	public List<PictureVO> showMypictureList(HashMap<String, String> paramMap) {
+		return template.selectList("picture.showMypictureList", paramMap);
+	}
+	@Override
+	public int totalContentCount(String string) {
+		return template.selectOne("picture.totalContentCount", string);
+	}
 
+	@Override
+	public List<MypageVO> showSecretreplyList(HashMap<String, String> paramMap) {
+		return template.selectList("picture.showSecretreplyList", paramMap);
+	}
 
+	@Override
+	public int secretTotalContentCount(String string) {
+		return template.selectOne("picture.secretTotalContentCount", string);
+	}
 
+	@Override
+	public List<MypageVO> showBuyList(HashMap<String, String> paramMap) {
+		return template.selectList("picture.showBuyList", paramMap);
+	}
+
+	@Override
+	public int buyTotalContentCount(String string) {
+		return template.selectOne("picture.buyTotalContentCount", string);
+	}
+	
+	
+	
 }
