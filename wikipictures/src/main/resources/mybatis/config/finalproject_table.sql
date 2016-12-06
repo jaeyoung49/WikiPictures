@@ -137,7 +137,7 @@ create table mypage(
 	select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
 	(select id,pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
 	from picture) where rnum between 1 and 5 order by keyword desc
-insert into mypage values('java','1999.10','광화문',sysdate,'좋아요',sysdate);
+insert into mypage values('java','1999-10','광화문',sysdate,'좋아요',sysdate);
 -- 무결성 제약조건에 위배되는 삽입 문(멤버아이디 존재하지 않음)
 insert into mypage values('java1','1999.10','광화문',sysdate,'좋아요',sysdate);
 	
