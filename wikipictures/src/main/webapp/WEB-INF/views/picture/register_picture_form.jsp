@@ -6,11 +6,7 @@
 
     // 파일첨부 Controll
     $(":file").filestyle();
-<<<<<<< HEAD
-        
-=======
     
->>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures
     // 제출
     $("#formButton").click(function(){
     	$("#registerForm").submit();
