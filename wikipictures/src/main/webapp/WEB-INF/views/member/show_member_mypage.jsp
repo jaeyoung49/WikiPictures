@@ -17,8 +17,7 @@
 		href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a></li>
 	<li role="presentation"><a
 		href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
-	<li role="presentation"><a
-		href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
+	<li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
 </ul>
 <img src="${pageContext.request.contextPath}/img/na.jpg"><br>
 마이페이지 입니다.<br>
