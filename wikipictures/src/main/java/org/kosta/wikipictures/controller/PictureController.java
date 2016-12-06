@@ -2,7 +2,12 @@ package org.kosta.wikipictures.controller;
 
 import java.io.File;
 import java.io.IOException;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +23,7 @@ import org.kosta.wikipictures.vo.TimeMachineVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -185,11 +191,37 @@ public class PictureController {
 	}
 	
 	@RequestMapping("addHashtag.do")
-	public ModelAndView addHashtag(HttpServletRequest request, HashtagVO hashtagVO, PictureVO pictureVO){
-		String hashtagName = request.getParameter("tempHashtags");
-		
-		System.out.println(hashtagName);
-		/*pictureService.addHashtag(hashtagName);*/
-		return new ModelAndView("picture/show_picture_detail");
+	public ModelAndView addHashtag(HashtagVO hashtagVO, PictureVO pictureVO) throws UnsupportedEncodingException{
+		String hash = hashtagVO.getHashtagName().trim();
+		hash =hash.replaceAll("\\p{Z}", "");
+		hash=hash.replaceAll("\\p{Space}", "");
+		/*System.out.println("1"+hash);*/
+		String[] tags = hash.split(",");
+		for (int i = 0; i < tags.length; i++) {
+			tags[i] = tags[i].trim();
+		}
+		ArrayList<String> hashtagNames = new ArrayList<String>();
+		for (String str : tags) {
+			boolean duplicated = false;
+			for (int i = 0; i < hashtagNames.size(); i++) {
+				if (str.equals(hashtagNames.get(i)))
+					duplicated = true;
+				break;
+			}
+			if (duplicated == false)
+				hashtagNames.add(str);
+		}
+		List<HashtagVO> hashtagList = new ArrayList<HashtagVO>();
+		for (String str : hashtagNames) {
+			str=str.replaceAll("\\p{Space}", "");
+			HashtagVO hvo = new HashtagVO();
+			hvo.setHashtagName(str);
+			hvo.setPictureVO(pictureVO);
+			hashtagList.add(hvo);
+		}
+		pictureService.registerHashtag(hashtagList);
+		// 해시태그 세팅 - 태그 정렬
+		String keyword = URLEncoder.encode(pictureVO.getKeyword(),"UTF-8");
+		return new ModelAndView("redirect:searchDetailPicture.do?keyword="+keyword+"&pictureDate="+pictureVO.getPictureDate());
 	}
 }

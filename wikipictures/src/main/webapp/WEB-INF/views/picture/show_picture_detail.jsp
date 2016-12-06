@@ -3,10 +3,29 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>   
 
-    <script type="text/javascript">
-    $(document).ready(function() {
-      $('#tags').inputTags();
-    });
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Six-Men studios">
+  <title>Wiki Pictures</title>
+  <!-- Bootstrap core CSS -->
+  <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/resources/css/inputTags.min.css" rel="stylesheet">
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <script src="${pageContext.request.contextPath}/resources/js/ie-emulation-modes-warning.js"></script>
+  <!-- jQuery -->
+  <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/inputTags.jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+		$("#addhashtag").click(function(){
+			$("#hashtagForm").submit();
+		}); // click
+		$("#tags").inputTags(); 
+    }); //ready
   </script>
 
    <style>
@@ -19,13 +38,10 @@
     text-decoration: none;
   }
   </style>
-  <script type="text/javascript">
-  $(document).ready(function(){
-	  $("#addhashtag").click(function(){
-		 $("#dataView").html($("#tags").text(val()));
-	  });
-  });
-  </script>
+
+
+</head>
+
 
 	
     <!-- /#sidebar-wrapper -->
@@ -52,21 +68,35 @@
               </c:forEach> 
             </div>
           </div>
-          <form action="${pageContext.request.contextPath}/addHashtag.do?keyword=${requestScope.picturevo.keyword}&pic_date=${requestScope.picturevo.pictureDate}">
+          <form id="hashtagForm" action="addHashtag.do">
           <div class="form-group">
             해시태그추가
             <br>
-            <input type="text" name="tempHashtags" id="tags" placeholder="태그입력후 Enter를 눌러주세요">
+            <input type="text" name="hashtagName" id="tags" placeholder="태그입력후 Enter를 눌러주세요">  
+             <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
+             <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
           </div>
-          <p><a href="searchHashtag.do" class="btn btn-primary" id="addhashtag" role="button">버튼1</a>
-            <a href="#" class="btn btn-default" role="button">버튼2</a></p>
-            <span id="dataView"></span>
-            <input type="submit" value="버튼">
-            </form>
+          <p><a class="btn btn-primary" id="addhashtag" role="button">버튼1</a>
+          </form>
+            <!-- <a href="#" class="btn btn-default" role="button">버튼2</a> --></p>
+            <!-- <span id="dataView"></span> -->
         </div>
       </div>
     </div>
   </div>
+  <footer class="footer">
+    <div class="container" style="padding-top: 100px;">
+      <hr>
+      <p class="pull-right"><a href="#top">맨위로</a></p>
+      <p>ⓒ 2016 Six-Men studios. ·
+        <a href="#">이용약관</a> ·
+        <a href="#">Six-Men studios 소개</a> ·
+        <a href="#">채용정보</a> ·
+      </p>
+    </div>
+  </footer>
+
+
 
 
    <script src="${pageContext.request.contextPath}/resources/js/jquery.tagcloud.js"></script>
