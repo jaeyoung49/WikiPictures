@@ -23,9 +23,7 @@ public interface PictureDAO {
 	
 	List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO);
 	
-	public List<PictureVO> pictureList(PictureVO pvo);
 	
-	List<PictureVO> mypictures(String pageNo);
 	
 	void addHashtag(HashtagVO hashtagVO);
 

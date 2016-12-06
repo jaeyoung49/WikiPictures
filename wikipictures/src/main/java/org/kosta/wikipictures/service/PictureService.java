@@ -20,8 +20,6 @@ public interface PictureService {
 	
 	List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO);
 
-	public List<PictureVO> pictureList(PictureVO pvo);
-	
 	void addHashtag(HashtagVO hashtagVO);
 	
 	List<TimeMachineVO> getTimeMachineList();
@@ -31,15 +29,12 @@ public interface PictureService {
 	List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear);
 	
 	ListVO<PictureVO> showMypictureList(String pageNo, MemberVO mvo);
-	ListVO<PictureVO> showMypictureList();
 	public int totalContentCount();
 	
 	ListVO<MypageVO> showSecretreplyList(String pageNo, MemberVO mvo);
-	ListVO<MypageVO> showSecretreplyList();
 	public int secretTotalContentCount();
 	
 	ListVO<MypageVO> showBuyList(String pageNo, MemberVO mvo);
-	ListVO<MypageVO> showBuyList();
 	public int buyTotalContentCount();
 	
 

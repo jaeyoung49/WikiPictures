@@ -80,7 +80,7 @@
               <input type="text" name="nickname" class="form-control" placeholder="닉네임" required>
             </div>
         	<div class="form-group">
-          		<input class="form-control" id="date" name="birth" placeholder="년/월/일" type="text" required>
+          		<input class="form-control" id="date" name="birth" placeholder="년-월-일" type="text" required>
         	</div>
             <div class="form-group">
               <label class="sr-only">선호장소</label>

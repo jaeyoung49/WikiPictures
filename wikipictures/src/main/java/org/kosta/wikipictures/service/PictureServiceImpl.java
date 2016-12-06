@@ -46,10 +46,6 @@ public class PictureServiceImpl implements PictureService {
 		return pictureDAO.searchDetailPicture(hashtagVO);
 	}
 	
-	@Override
-	public List<PictureVO> pictureList(PictureVO pvo) {
-		return pictureDAO.pictureList(pvo);
-	}
 	
 	public void addHashtag(HashtagVO hashtagVO){
 		pictureDAO.addHashtag(hashtagVO);
@@ -85,11 +81,6 @@ public class PictureServiceImpl implements PictureService {
 		return new ListVO<PictureVO>(pictureDAO.showMypictureList(paramMap),pagingBean);
 	}
 	
-	@Override
-	public ListVO<PictureVO> showMypictureList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	@Override
 	public int totalContentCount() {
@@ -112,11 +103,6 @@ public class PictureServiceImpl implements PictureService {
 		return new ListVO<MypageVO>(pictureDAO.showSecretreplyList(paramMap),pagingBean);
 	}
 
-	@Override
-	public ListVO<MypageVO> showSecretreplyList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public int secretTotalContentCount() {
@@ -140,14 +126,7 @@ public class PictureServiceImpl implements PictureService {
 	}
 
 	@Override
-	public ListVO<MypageVO> showBuyList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public int buyTotalContentCount() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

@@ -86,7 +86,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="totalContentCount" resultType="int" parameterType="string">
-		select count(*) from picture where id = #{value}
+		select count(*) from picture 
+		 <if test="value != null">
+   			 where id = #{value}
+ 		 </if>
 	</select>
 	
 	
