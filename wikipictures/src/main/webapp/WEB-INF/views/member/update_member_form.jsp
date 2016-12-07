@@ -20,7 +20,7 @@
   </div>
   <div class="form-group">
     <label for="exampleInputFile">닉네임</label>
-	<input class="form-control" type="text" name="nickname" value="${sessionScope.mvo.nickname}"required>
+	<input class="form-control" type="text" name="nickname" value="${sessionScope.mvo.nickname}" required>
   </div>
   <div class="form-group">
     <label for="birth">생년월일</label>
@@ -28,7 +28,7 @@
   </div>
   <div class="form-group">
     <label for="birth">선호지역</label>
-	<input class="form-control" type="text" name="favoriteSpace" value="${sessionScope.mvo.favoriteSpace}"required>
+	<input class="form-control" type="text" name="favoriteSpace" value="${sessionScope.mvo.favoriteSpace}" required>
   </div>
   <input class="btn btn-default btn-lg btn-block" type="submit" value="회원정보수정">
 </form>
