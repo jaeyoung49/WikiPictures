@@ -12,7 +12,7 @@
 <form method="post" action="${pageContext.request.contextPath}/updateMember.do" class="form-horizontal">
   <div class="form-group">
     <label for="id">아이디</label>
-    <input class="form-control" type="text" name="id" value="${sessionScope.mvo.id}" disabled>
+    <input class="form-control" type="text" name="id" value="${sessionScope.mvo.id}" readonly>
   </div>
   <div class="form-group">
     <label for="password">비밀번호</label>
@@ -24,7 +24,7 @@
   </div>
   <div class="form-group">
     <label for="birth">생년월일</label>
-	<input class="form-control" type="text" name="birth" value="${sessionScope.mvo.birth}" disabled>
+	<input class="form-control" type="text" name="birth" value="${sessionScope.mvo.birth}" readonly>
   </div>
   <div class="form-group">
     <label for="birth">선호지역</label>

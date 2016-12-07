@@ -16,7 +16,7 @@
 			}if($("#regForm :input[name=birth]").val().trim()==""){
 				alert("생년월일을 입력하세요!");
 				return false;
-			}if($("#regForm :input[name=favorateSpace]").val().trim()==""){
+			}if($("#regForm :input[name=favoriteSpaceㄴ]").val().trim()==""){
 				alert("선호장소를 입력하세요!");
 				return false;
 			}if(checkResultId==""){
