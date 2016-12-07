@@ -27,16 +27,14 @@
   <link href="${pageContext.request.contextPath}/resources/css/jquery.carousel.fullscreen.css" rel="stylesheet">
   <!-- PagePiling css -->
   <link href="${pageContext.request.contextPath}/resources/css/jquery.pagepiling.css" rel="stylesheet">
-  <!-- Sweet Alert css -->
-  <link href="${pageContext.request.contextPath}/resources/css/sweetalert.css" rel="stylesheet">
+  <!-- Alertify css -->
+  <script src="${pageContext.request.contextPath}/resources/js/alertify.min.css"></script>
   <!-- jQuery v1.12.4 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
   <!-- google api jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <!-- Pagepiling js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.pagepiling.min.js"></script>
-  <!-- Sweet Alert js -->
-  <script src="${pageContext.request.contextPath}/resources/js/sweetalert.min.js"></script>
   
   <script>
   // pagepiling Controll
@@ -383,6 +381,8 @@
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.min.js"></script>
   <!-- Datepicker 달력 한글화 js -->
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.kr.min.js"></script>
+  <!-- Alertify js -->
+  <script src="${pageContext.request.contextPath}/resources/js/alertify.min.js"></script>
 </body>
 
 </html>

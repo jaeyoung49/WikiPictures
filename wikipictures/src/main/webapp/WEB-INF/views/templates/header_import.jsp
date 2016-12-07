@@ -18,7 +18,7 @@
   <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
   <!-- Photo Gallery css -->
   <link href="${pageContext.request.contextPath}/resources/css/PhotoGallery.css" rel="stylesheet">
-  <!-- Alertify js -->
+  <!-- Alertify css -->
   <script src="${pageContext.request.contextPath}/resources/js/alertify.min.css"></script>
   <!-- 아이콘 -->
   <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet">
