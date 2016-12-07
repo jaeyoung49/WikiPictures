@@ -37,7 +37,4 @@ private SqlSessionTemplate template;
 	public void updateMember(MemberVO vo) {
 		template.update("member.updateMember",vo);
 	}
-	
-	
-	
 }

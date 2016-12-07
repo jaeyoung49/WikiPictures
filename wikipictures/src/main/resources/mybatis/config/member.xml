@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 		<insert id="registerMember" parameterType="memberVO">
 		insert into member(id,nickname,password,birth,fav_space,enabled)
-		values(#{id},#{nickname},#{password},#{birth},#{fav_space},0)
+		values(#{id},#{nickname},#{password},#{birth},#{favoriteSpace},0)
 	</insert>
  	
  	<update id="updateMember" parameterType="memberVO">
