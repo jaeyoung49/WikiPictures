@@ -63,7 +63,7 @@
           <!-- /.navbar-collapse -->
         </div>
       </c:when>
-      <c:when test="${sessionScope.mvo.id=='admin' }">
+      <c:when test="${sessionScope.mvo.id=='admin'}">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          
         <ul class="nav navbar-nav pull-right">

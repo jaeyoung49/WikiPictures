@@ -28,4 +28,3 @@
   <script src="${pageContext.request.contextPath}/resources/js/inputTags.jquery.min.js"></script>
   <!-- Photo Gallery js -->
   <script src="${pageContext.request.contextPath}/resources/js/PhotoGallery.js"></script>
-  

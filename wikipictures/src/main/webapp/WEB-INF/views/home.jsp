@@ -2,9 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Attribute START ================================================== -->
 <c:set var="timeMachineYearList" value="${requestScope.timeMachineYearList}"/>
-<c:set var="timeMachineVO" value="${requestScope.timeMachineVO }"/>
-<c:set var="accidentPictureList" value="${requestScope.accidentPictureList }"/>
-<c:set var="personAndLocationPictureList" value="${requestScope.personAndLocationPictureList }"/>
+<c:set var="timeMachineVO" value="${requestScope.timeMachineVO}"/>
+<c:set var="accidentPictureList" value="${requestScope.accidentPictureList}"/>
+<c:set var="personAndLocationPictureList" value="${requestScope.personAndLocationPictureList}"/>
 <!-- Attribute END ================================================== -->
 <!DOCTYPE html>
 <html>
@@ -116,7 +116,7 @@
       </div>
       <!-- NAVBAR Button -->
       <c:choose>
-      <c:when test="${sessionScope.mvo==null }">
+      <c:when test="${sessionScope.mvo==null}">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
       <li class="dropdown-toggle">
@@ -185,7 +185,7 @@
       </div>
        
         </c:when>
-        <c:when test="${sessionScope.mvo.id=='admin' }">
+        <c:when test="${sessionScope.mvo.id=='admin'}">
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          
         <ul class="nav navbar-nav pull-right">
@@ -385,12 +385,14 @@
     </div>
   <!-- MAIN END ================================================== -->
 
+  <c:if test="${sessionScope.mvo==null}">
   <!-- Register Form Modal START ================================================== -->
   <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true" style="background-color: rgba(255, 255, 255, 0.3);">
   	<c:import url ="member/register_member_form.jsp"/>
   </div>
   <!-- Register Form Modal END ================================================== -->
+  </c:if>
   
   <!-- 부트스트랩 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
