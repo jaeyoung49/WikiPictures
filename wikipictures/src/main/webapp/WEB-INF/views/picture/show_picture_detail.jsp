@@ -20,9 +20,35 @@
   <script src="${pageContext.request.contextPath}/resources/js/inputTags.jquery.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
+    	<%-- 해쉬태그 추가 --%>
 		$("#addhashtag").click(function(){
 			$("#hashtagForm").submit();
 		}); // click
+		
+		<%-- 원작자코멘트 수정 --%>
+		if(${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}){
+		  $("#authorComment").next().hide();
+		  
+		  $("#authorComment").click(function(){
+			  $(this).next().toggle();
+		  });
+		  $("#updateAuthorCommentBtn").click(function(){
+			  $("#updateAuthorCommentForm").submit();
+		  }); // click
+		}
+		
+		<%-- 시크릿댓글 등록/수정 --%>
+		if(${requestScope.mypageVO != null}){
+			$("#secretReply").next().hide();
+			
+			$("#secretReply").click(function(){
+				$(this).next().toggle();
+			});
+		}
+		$("#registerSecretReplyBtn").click(function(){
+			$("#registerSecretReplyForm").submit();
+		}); // click
+		  
 		$("#tags").inputTags(); 
     }); //ready
   </script>
@@ -45,7 +71,52 @@
         <img src="${pageContext.request.contextPath}/resources/img/${requestScope.picturevo.path}" alt="이미지설명">
         <div class="caption">
           <h3>제목 : ${requestScope.picturevo.keyword}</h3>
-          <p>내용 : ${requestScope.picturevo.authorComment}</p>
+          <p id="authorComment">
+            내용 : ${requestScope.picturevo.authorComment}
+            <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
+              (변경하려면 클릭!)
+            </c:if>
+          </p>
+          <div class="form-group">
+            <form id="updateAuthorCommentForm" action="updateAuthorComment.do">
+              <p>
+                <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
+                  <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
+                  <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
+                  <input type="text" name="authorComment" value="${requestScope.picturevo.authorComment}">
+                  <a class="btn btn-primary" id="updateAuthorCommentBtn" role="button">변경</a>
+                </c:if>
+              </p>
+            </form>
+          </div>
+          <c:if test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
+            <p id="secretReply">
+              시크릿댓글 : ${requestScope.mypageVO.replyContent }
+                <c:if test="${sessionScope.mvo.id == requestScope.mypageVO.memberVO.id}">
+                  (변경하려면 클릭!)
+                </c:if>
+            </p>
+          </c:if>
+          <c:if test="${sessionScope.mvo.id != null}">
+            <div class="form-group">
+              <form id="registerSecretReplyForm" action="registerSecretReply.do">
+                <p>
+                  <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
+                  <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
+                  <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
+                  <c:choose>
+                    <c:when test="${requestScope.mypageVO==null }">
+	                  <input type="text" name="replyContent" value="나만의 새로운 코멘트를 등록해보세요!">
+	                </c:when>
+	                <c:otherwise>
+	                  <input type="text" name="replyContent" value="${requestScope.mypageVO.replyContent }">
+	                </c:otherwise>
+                  </c:choose>
+                  <a class="btn btn-primary" id="registerSecretReplyBtn" role="button">등록/변경</a>
+                </p>
+              </form>
+            </div>
+          </c:if>
           <p>촬영일 : ${requestScope.picturevo.pictureDate}</p>
           <div class="form-group">
           </div>

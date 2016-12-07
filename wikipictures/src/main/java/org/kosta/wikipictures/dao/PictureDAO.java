@@ -44,6 +44,12 @@ public interface PictureDAO {
 	List<MypageVO> showBuyList(HashMap<String, String> paramMap);
 
 	int buyTotalContentCount(String string);
+
+	void updateAuthorComment(PictureVO pictureVO);
+
+	MypageVO getMypageVO(MypageVO mypageVO);
+
+	void registerSecretReply(MypageVO mypageVO);
 	
 
 

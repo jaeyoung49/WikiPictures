@@ -95,6 +95,18 @@ public class PictureDAOImpl implements PictureDAO {
 	public int buyTotalContentCount(String string) {
 		return template.selectOne("picture.buyTotalContentCount", string);
 	}
+	@Override
+	public void updateAuthorComment(PictureVO pictureVO) {
+		template.update("picture.updateAuthorComment", pictureVO);
+	}
+	@Override
+	public MypageVO getMypageVO(MypageVO mypageVO) {
+		return template.selectOne("picture.getMypageVO", mypageVO);
+	}
+	@Override
+	public void registerSecretReply(MypageVO mypageVO) {
+		template.insert("picture.registerSecretReply", mypageVO);
+	}
 	
 	
 	

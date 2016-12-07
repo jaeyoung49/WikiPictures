@@ -130,6 +130,21 @@ public class PictureServiceImpl implements PictureService {
 		return 0;
 	}
 
+	@Override
+	public void updateAuthorComment(PictureVO pictureVO) {
+		pictureDAO.updateAuthorComment(pictureVO);
+	}
+
+	@Override
+	public MypageVO getMypageVO(MypageVO mypageVO) {
+		return pictureDAO.getMypageVO(mypageVO);
+	}
+
+	@Override
+	public void registerSecretReply(MypageVO mypageVO) {
+		pictureDAO.registerSecretReply(mypageVO);
+	}
+
 	
 
 }

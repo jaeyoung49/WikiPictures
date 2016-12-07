@@ -36,6 +36,12 @@ public interface PictureService {
 	
 	ListVO<MypageVO> showBuyList(String pageNo, MemberVO mvo);
 	public int buyTotalContentCount();
+
+	void updateAuthorComment(PictureVO pictureVO);
+
+	MypageVO getMypageVO(MypageVO mypageVO);
+
+	void registerSecretReply(MypageVO mypageVO);
 	
 
 }
