@@ -1,7 +1,6 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0px;">
     <div class="container">
       <!-- Toggle Display -->
@@ -68,7 +67,6 @@
       </div>
       </c:when>
       <c:otherwise>
-       
        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          
         <ul class="nav navbar-nav pull-right">

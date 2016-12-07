@@ -1,19 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
     <li role="presentation"><a href="${pageContext.request.contextPath}/show_member_list.do">회원리스트</a></li>
-    <li role="presentation"><a href="${pageContext.request.contextPath}/show_report_list.do">신고리스트</a></li>
+    <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/show_report_list.do">신고리스트</a></li>
     <li role="presentation"><a href="${pageContext.request.contextPath}/show_sell_list.do">판매리스트</a></li>
     <li role="presentation"><a href="${pageContext.request.contextPath}/show_picture_list.do">사진리스트</a></li>
     <li role="presentation"><a href="${pageContext.request.contextPath}/admin/register_ad_form.do">광고</a></li>
   </ul>
+<div class="container">
 <table class="table">
-
-<caption><a href="${pageContext.request.contextPath}/admin/show_admin_mypage.do">관리자 홈으로</a>
-<br>신고리스트</caption>
 <tr>
 <td class="report_no"><h4>NO</h4></td>
 <td class="report_type"><h4>타입</h4></td>
@@ -21,7 +17,6 @@
 <td class="report_date"><h4>신고날짜</h4></td>
 <td class="pic_date"><h4>촬영일시</h4></td>
 <td class="keyword"><h4>키워드</h4></td>
-
 </tr>
 	<c:forEach var="rvo" items="${requestScope.reportVO.list}" varStatus="status">
 <tr>
@@ -82,3 +77,4 @@
 			</a>
 		</c:if>
 	</p>
+</div>

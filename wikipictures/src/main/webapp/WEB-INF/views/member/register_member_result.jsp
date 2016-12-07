@@ -4,4 +4,3 @@
 alert("회원가입 ok! ");
 location.href="home.do";
 </script>
-

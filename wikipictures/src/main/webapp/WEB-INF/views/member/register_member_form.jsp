@@ -4,12 +4,6 @@
 	$(document).ready(function(){
 		var checkResultId="";
 		$("#regForm").submit(function(){
-			var agree = document.getElementById('agree');
-			var agree1=$(agree).is(":checked");
-			if(agree1==false){
-				alert("이용약관에 동의하세요!");
-				return false;
-			}
 			if($("#regForm :input[name=id]").val().trim()==""){
 				alert("아이디를 입력하세요!");
 				return false;
@@ -58,7 +52,7 @@
 </script>
 
     <div class="modal-dialog">
-      <p class="form-title">환영합니다</p>
+      <h1 class="text-center" style="color:#fff;">환영합니다</h1>
       <form name="login" class="register" role="form" method="post" id="regForm"
       	action="${pageContext.request.contextPath}/registerMember.do" accept-charset="UTF-8">
         <b style="color: #fff">소셜 가입</b>
