@@ -67,7 +67,7 @@
             </div>
             <div class="form-group">
               <label class="sr-only">비밀번호</label>
-              <input type="password" class="form-control" placeholder="비밀번호" required>
+              <input type="password" name="password" class="form-control" placeholder="비밀번호" required>
             </div>
             <div class="form-group">
               <label class="sr-only">닉네임</label>
