@@ -53,9 +53,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from picture
 	</select>
 
+<!-- 	select p.pic_date , p.keyword, p.path, p.author_comment, p.hits,
+		 p.id, p.category, h.hashtag_name , h.hashtag_count  from picture p, hashtag h
+		where p.keyword =h.keyword
+		and p.pic_date=h.pic_date
+		and h.keyword like '%'||#{value}||'%' -->
 	<select id="searchPicture" resultType="pictureVO">
-		select pic_date as pictureDate, keyword, path, author_comment as authorComment, hits,
-		 pic_space as pictureSpace, id, category from picture 
+		 select pic_date as pictureDate, keyword, path, author_comment as authorComment, hits,
+		 pic_space as pictureSpace, id, category from picture
 		where keyword like '%'||#{value}||'%'
 	</select>
 	
@@ -65,10 +70,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where pic_date=#{pictureDate}
 		and keyword=#{keyword}
 	</select>
+	<select id="reportForm" resultType="pictureVO">
+	select * from picture
+	</select>
 	
-	<select id="searchDetailPicture" resultType="hashtagVO">
-		select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
-		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName, h.hashtag_count as hashtagCount from picture p, hashtag h
+		<resultMap type="hashtagVO" id="hashtagRM">
+		<result property="pictureVO.keyword"  column="keyword"/>
+		<result property="pictureVO.pictureDate" column="pic_date" />
+		<result property="pictureVO.pictureSpace" column="pic_space" />
+		<result property="pictureVO.memberVO.id" column="id"/>
+		<result property="hashtagName" column="hashtag_name"/>
+		<result property="hashtagCount" column="hashtag_count"/>
+		<result property="pictureVO.path" column="path"/>
+		<result property="pictureVO.authorComment" column="authorComment"/>
+		<result property="pictureVO.hits" column="hits"/>
+		<result property="pictureVO.category" column="category"/>
+	</resultMap>
+	<select id="searchDetailPicture" resultMap="hashtagRM">
+		select p.pic_date , p.keyword, p.path, p.author_comment, p.hits,
+		 p.pic_space , p.id, p.category, h.hashtag_name , h.hashtag_count  from picture p, hashtag h
 		where p.keyword =#{pictureVO.keyword}
 		and p.pic_date=#{pictureVO.pictureDate}
 		and p.pic_date=h.pic_date
@@ -82,7 +102,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and p.pic_date=h.pic_date
 		and p.keyword=h.keyword
 	</select>
-	
 	
 	<select id="showMypictureList" resultMap="pictureRM" parameterType="map">
 		select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category 
@@ -163,10 +182,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
 		where rowNumber between 1 and 3 order by rowNumber asc
 	</select>
-	
-	<insert id="reportpicture" parameterType="reportVO">
+	<insert id="report" parameterType="reportVO">
+		<selectKey keyProperty="reportNo" resultType="int" order="BEFORE">
+			select
+			seq_report_no.nextval from dual
+		</selectKey>
 		insert into report(report_no, report_type,report_content,report_date,pic_date,keyword) 
-		values(#{report_no},#{report_type},#{report_contet},sysdate,#{pic_date},#{keyword});
+		values(#{reportNo},#{reportType},#{reportContent},sysdate,#{pictureVO.pictureDate},#{pictureVO.keyword})
 	</insert>
 	
 	<update id="updateAuthorComment" parameterType="pictureVO">

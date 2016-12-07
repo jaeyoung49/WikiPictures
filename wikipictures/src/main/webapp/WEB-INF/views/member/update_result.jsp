@@ -2,8 +2,5 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
 	alert("회원정보가수정되었습니다! ");
+	location.href="${pageContext.request.contextPath}/home.do";
 </script>    
-
-회원정보가수정되었습니다. ${sessionScope.mvo}<br>
-
-<a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지로 돌아가기</a>

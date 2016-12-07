@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.ReportVO;
 import org.kosta.wikipictures.vo.TimeMachineVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -108,6 +109,12 @@ public class PictureDAOImpl implements PictureDAO {
 		template.insert("picture.registerSecretReply", mypageVO);
 	}
 	
-	
-	
+	@Override
+	public PictureVO reportForm(PictureVO pictureVO) {
+		return template.selectOne("picture.reportForm",pictureVO);
+	}
+	@Override
+	public int report(ReportVO rvo) {
+		return template.insert("picture.report",rvo);
+	}
 }

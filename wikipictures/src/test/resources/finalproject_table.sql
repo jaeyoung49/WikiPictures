@@ -587,7 +587,7 @@ WHEN NOT MATCHED THEN
   
 -- 시퀀스 추가--
 create sequence seq_report_no; 
-
+drop sequence seq_report_no;
 select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits, p.pic_space as pictureSpace,
 p.id, p.category, h.hashtag_name from picture p, HASHTAG h
 where p.keyword like '%트래비%'
