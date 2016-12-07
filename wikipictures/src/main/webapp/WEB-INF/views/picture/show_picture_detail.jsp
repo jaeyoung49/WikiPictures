@@ -70,7 +70,7 @@
             해시태그추가
             <br>
             <div class="input-group">
-          		<input type="text" name="hashtagName" id="tags" class="form-control">  
+          		<input type="text" name="hashtagName" id="tags" class="form-control" required>  
       			<a class="btn btn-primary" id="addhashtag" role="button">추가</a>
   			 </div>
              <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
