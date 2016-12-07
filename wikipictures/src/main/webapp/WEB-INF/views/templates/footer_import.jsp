@@ -10,3 +10,5 @@
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.min.js"></script>
   <!-- Datepicker 달력 한글화 js -->
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.kr.min.js"></script>
+  <!-- Alertify js -->
+  <script src="${pageContext.request.contextPath}/resources/js/alertify.min.js"></script>

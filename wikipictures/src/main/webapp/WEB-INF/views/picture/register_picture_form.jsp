@@ -13,15 +13,6 @@
     });
   });
   </script>
-<ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
-	<li role="presentation"><a
-		href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정</a></li>
-	<li role="presentation"><a
-		href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a></li>
-	<li role="presentation"><a
-		href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
-	<li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
-</ul>
  <div class="container">
       <form id="registerForm" action="${pageContext.request.contextPath}/registerPicture.do" method="post" enctype="multipart/form-data" class="form-horizontal">
         <legend>사진 업로드</legend>

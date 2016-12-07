@@ -74,7 +74,7 @@ public class MemberController {
 	@RequestMapping("registerResultView.do")
 	public ModelAndView registerResultView(String id) {		
 		MemberVO vo = memberService.findMemberById(id);
-		return new ModelAndView("member/register_result", "memberVO", vo);
+		return new ModelAndView("member/register_member_result", "memberVO", vo);
 	}
 	
 	// 마이페이지 회원정보수정

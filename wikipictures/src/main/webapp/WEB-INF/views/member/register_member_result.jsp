@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <script type="text/javascript">
 alert("회원가입 ok! ");
-location.href="home.do";
+location.href="${pageContext.request.contextPath}/home.do";
 </script>

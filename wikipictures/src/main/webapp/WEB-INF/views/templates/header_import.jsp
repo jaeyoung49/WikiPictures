@@ -18,8 +18,8 @@
   <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
   <!-- Photo Gallery css -->
   <link href="${pageContext.request.contextPath}/resources/css/PhotoGallery.css" rel="stylesheet">
-  <!-- Sweet Alert css -->
-  <link href="${pageContext.request.contextPath}/resources/css/sweetalert.css" rel="stylesheet">
+  <!-- Alertify css -->
+  <script src="${pageContext.request.contextPath}/resources/js/alertify.min.css"></script>
   <!-- 아이콘 -->
   <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet">
   <!-- jQuery v1.12.4 핵심 js -->
@@ -30,5 +30,4 @@
   <script src="${pageContext.request.contextPath}/resources/js/inputTags.jquery.min.js"></script>
   <!-- Photo Gallery js -->
   <script src="${pageContext.request.contextPath}/resources/js/PhotoGallery.js"></script>
-  <!-- Sweet Alert js -->
-  <script src="${pageContext.request.contextPath}/resources/js/sweetalert.min.js"></script>
+  
