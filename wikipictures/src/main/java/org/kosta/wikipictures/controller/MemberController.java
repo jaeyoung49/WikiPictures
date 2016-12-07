@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.kosta.wikipictures.service.MemberService;
 import org.kosta.wikipictures.service.PictureService;
 import org.kosta.wikipictures.vo.MemberVO;
+import org.kosta.wikipictures.vo.ReportVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,6 +72,7 @@ public class MemberController {
 		memberService.registerMember(vo);		
 		return "redirect:registerResultView.do?id=" + vo.getId();
 	}
+
 	@RequestMapping("registerResultView.do")
 	public ModelAndView registerResultView(String id) {		
 		MemberVO vo = memberService.findMemberById(id);

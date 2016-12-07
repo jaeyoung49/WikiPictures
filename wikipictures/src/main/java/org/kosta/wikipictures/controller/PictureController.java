@@ -13,9 +13,11 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.kosta.wikipictures.dao.PictureDAO;
+import org.kosta.wikipictures.service.AdminService;
 import org.kosta.wikipictures.service.PictureService;
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.ReportVO;
 import org.kosta.wikipictures.vo.TimeMachineVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +32,8 @@ public class PictureController {
 	private PictureService pictureService;
 	@Resource
 	private PictureDAO pictureDAO;
-	
+	@Resource
+	private AdminService adminService;
 	
 	//업로드 경로
 	private String uploadPath;
@@ -182,9 +185,25 @@ public class PictureController {
 		hashtagVO.setPictureVO(picturevo);
 		List<HashtagVO> pvo = pictureService.searchDetailPicture(hashtagVO);
 		request.setAttribute("picturevo", picturevo);
+		System.out.println("검색"+pvo);
 		return new ModelAndView("picture/show_picture_detail","pvo",pvo);
 	}
-	
+	//사진 신고 
+	@RequestMapping("register_report_form.do")
+	public ModelAndView pictureList(HttpServletRequest request, HashtagVO hashtagVO, PictureVO pictureVO){
+		PictureVO picturevo = pictureService.picture(pictureVO);
+		hashtagVO.setPictureVO(picturevo);
+		List<HashtagVO> pvo = pictureService.searchDetailPicture(hashtagVO);
+		request.setAttribute("picturevo", picturevo);
+		System.out.println(pvo);
+		return new ModelAndView("picture/register_report_form","pvo",pvo);
+		}
+	@RequestMapping("report.do")
+	public String report(ReportVO rvo){
+		pictureService.report(rvo);
+		return "picture/report_ok";
+	}
+	//해시태그추가
 	@RequestMapping("addHashtag.do")
 	public ModelAndView addHashtag(HashtagVO hashtagVO, PictureVO pictureVO) throws UnsupportedEncodingException{
 		String hash = hashtagVO.getHashtagName().trim();
