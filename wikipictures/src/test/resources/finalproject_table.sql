@@ -233,7 +233,7 @@ values('2015-06','일본역사교과서','일본역사교과서_2015-06.JPG','�
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
 values('2015-07','일본역사교과서','일본역사교과서_2015-07.JPG','역사 왜곡','일본','java', '사건', 75);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-08','일본역사교과서','일본역사교과서_2015-08.png','일본 역사왜곡 반대','일본','java', '사건', 76);
+values('2015-08','일본역사교과서','일본역사교과서_2015-08.JPG','일본 역사왜곡 반대','일본','java', '사건', 76);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
 values('2015-09','일본역사교과서','일본역사교과서_2015-09.JPG','후손들에게 바른 역사를','일본','java', '사건', 77);
 
