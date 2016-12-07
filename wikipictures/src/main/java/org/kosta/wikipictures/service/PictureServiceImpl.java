@@ -12,6 +12,7 @@ import org.kosta.wikipictures.vo.MemberVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PagingBean;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.ReportVO;
 import org.kosta.wikipictures.vo.TimeMachineVO;
 import org.springframework.stereotype.Service;
 
@@ -106,7 +107,6 @@ public class PictureServiceImpl implements PictureService {
 
 	@Override
 	public int secretTotalContentCount() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -130,6 +130,28 @@ public class PictureServiceImpl implements PictureService {
 		return 0;
 	}
 
-	
+	@Override
+	public void updateAuthorComment(PictureVO pictureVO) {
+		pictureDAO.updateAuthorComment(pictureVO);
+	}
 
+	@Override
+	public MypageVO getMypageVO(MypageVO mypageVO) {
+		return pictureDAO.getMypageVO(mypageVO);
+	}
+
+	@Override
+	public void registerSecretReply(MypageVO mypageVO) {
+		pictureDAO.registerSecretReply(mypageVO);
+	}
+
+	@Override
+	public PictureVO reportForm(PictureVO pictureVO) {
+		return pictureDAO.reportForm(pictureVO);
+	}
+
+	@Override
+	public int report(ReportVO rvo) {
+		return pictureDAO.report(rvo);
+	}
 }

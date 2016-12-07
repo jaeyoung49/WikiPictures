@@ -59,6 +59,12 @@
 	font-weight: bold;
 	text-shadow: 5px 0 black, 0 0px black, 5px 0 black, 0 0px black;
 }
+.carousel-caption a:hover {
+	text-decoration: none;
+	color:   #FFD600;
+	font-weight: bold;
+	text-shadow: 5px 0 black, 0 0px black, 5px 0 black, 0 0px black;
+}
 .carousel-caption h1 {
 	font-size: 6em;
 }
@@ -91,6 +97,12 @@
 .layer a {
 	text-decoration: none;
 	color:   white;
+	font-weight: bold;
+	text-shadow: 5px 0 black, 0 0px black, 5px 0 black, 0 0px black;
+}
+.layer a:hover {
+	text-decoration: none;
+	color:   #FFD600;
 	font-weight: bold;
 	text-shadow: 5px 0 black, 0 0px black, 5px 0 black, 0 0px black;
 }

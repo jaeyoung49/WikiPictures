@@ -6,6 +6,7 @@ import java.util.List;
 import org.kosta.wikipictures.vo.HashtagVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.ReportVO;
 import org.kosta.wikipictures.vo.TimeMachineVO;
 
 public interface PictureDAO {
@@ -23,7 +24,9 @@ public interface PictureDAO {
 	
 	List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO);
 	
+	PictureVO reportForm(PictureVO pictureVO);
 	
+	int report(ReportVO rvo);
 	
 	void addHashtag(HashtagVO hashtagVO);
 
@@ -44,6 +47,12 @@ public interface PictureDAO {
 	List<MypageVO> showBuyList(HashMap<String, String> paramMap);
 
 	int buyTotalContentCount(String string);
+
+	void updateAuthorComment(PictureVO pictureVO);
+
+	MypageVO getMypageVO(MypageVO mypageVO);
+
+	void registerSecretReply(MypageVO mypageVO);
 	
 
 

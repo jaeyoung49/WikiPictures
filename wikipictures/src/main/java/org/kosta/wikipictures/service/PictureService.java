@@ -7,6 +7,7 @@ import org.kosta.wikipictures.vo.ListVO;
 import org.kosta.wikipictures.vo.MemberVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
+import org.kosta.wikipictures.vo.ReportVO;
 import org.kosta.wikipictures.vo.TimeMachineVO;
 
 public interface PictureService {
@@ -36,6 +37,13 @@ public interface PictureService {
 	
 	ListVO<MypageVO> showBuyList(String pageNo, MemberVO mvo);
 	public int buyTotalContentCount();
-	
 
+	void updateAuthorComment(PictureVO pictureVO);
+
+	MypageVO getMypageVO(MypageVO mypageVO);
+
+	void registerSecretReply(MypageVO mypageVO);
+	
+	PictureVO reportForm(PictureVO pictureVO);
+	public int report(ReportVO rvo);
 }
