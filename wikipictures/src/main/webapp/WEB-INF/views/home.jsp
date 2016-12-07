@@ -27,12 +27,17 @@
   <link href="${pageContext.request.contextPath}/resources/css/jquery.carousel.fullscreen.css" rel="stylesheet">
   <!-- PagePiling css -->
   <link href="${pageContext.request.contextPath}/resources/css/jquery.pagepiling.css" rel="stylesheet">
+  <!-- Sweet Alert css -->
+  <link href="${pageContext.request.contextPath}/resources/css/sweetalert.css" rel="stylesheet">
   <!-- jQuery v1.12.4 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
   <!-- google api jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <!-- Pagepiling js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.pagepiling.min.js"></script>
+  <!-- Sweet Alert js -->
+  <script src="${pageContext.request.contextPath}/resources/js/sweetalert.min.js"></script>
+  
   <script>
   // pagepiling Controll
   var deleteLog = false;
