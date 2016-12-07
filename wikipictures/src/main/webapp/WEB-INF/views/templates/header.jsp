@@ -63,6 +63,23 @@
           <!-- /.navbar-collapse -->
         </div>
       </c:when>
+      <c:when test="${sessionScope.mvo.id=='admin' }">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         
+        <ul class="nav navbar-nav pull-right">
+        <li><a href="${pageContext.request.contextPath}/admin/show_admin_mypage.do">관리자 홈으로</a><br></li>
+        <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
+          <div class="form-group">
+            <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
+          </div>
+          <button type="submit" class="btn btn-default">검색</button>
+        </form>
+          <li><a href="${pageContext.request.contextPath}/picture/register_picture_form.do">업로드</a></li>
+          <li><a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지</a></li>
+          <li><a href="#" id="logout">로그아웃 </a>
+          </ul>
+          </div>
+      </c:when>
       <c:otherwise>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav pull-right">

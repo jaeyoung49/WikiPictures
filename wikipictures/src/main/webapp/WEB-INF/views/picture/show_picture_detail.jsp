@@ -23,6 +23,9 @@
 		$("#addhashtag").click(function(){
 			$("#hashtagForm").submit();
 		}); // click
+		$("#register_report_formBtn").click(function(){
+			$("#register_report_form").submit();
+		});
 		$("#tags").inputTags(); 
     }); //ready
   </script>
@@ -42,7 +45,8 @@
   <div class="row">
     <div class="container">
       <div class="thumbnail"> 
-        <img src="${pageContext.request.contextPath}/resources/img/${requestScope.picturevo.path}" alt="이미지설명">
+        <img src="${pageContext.request.contextPath}/resources/img/${requestScope.picturevo.path}"
+         >
         <div class="caption">
           <h3>제목 : ${requestScope.picturevo.keyword}</h3>
           <p>내용 : ${requestScope.picturevo.authorComment}</p>
@@ -57,7 +61,7 @@
             <div id="tagcloud" class="hashTag">
               <!-- rel은 글씨 크기를 좌우한다 -->
               <c:forEach items="${requestScope.pvo}" var="pvo">
-              <a href="${pageContext.request.contextPath}/searchPicture.do?keyword=${pvo.hashtagName}" rel="${pvo.hashtagCount}">#${pvo.hashtagName}</a>
+            <a href="${pageContext.request.contextPath}/searchPicture.do?keyword=${pvo.hashtagName}" rel="${pvo.hashtagCount}">#${pvo.hashtagName}</a>
               </c:forEach> 
             </div>
           </div>
@@ -72,8 +76,12 @@
              <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
              <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
           </div>
-          <p class="text-right"><a class="btn btn-primary" id="addhashtag" role="button">버튼1</a></p>
           </form>
+           <form id="register_report_form" action="register_report_form.do">
+               <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
+             <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
+         <p class="text-right"><a id="register_report_formBtn" class="btn btn-primary" role="button">신고/정정 요청</a></p>
+        </form>
         </div>
       </div>
     </div>

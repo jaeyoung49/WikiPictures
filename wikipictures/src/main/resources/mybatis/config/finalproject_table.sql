@@ -12,6 +12,7 @@ drop table picture;
 drop table mypage;
 drop table report;
 drop table hashtag;
+create sequence num_seq;
 
  create table member(
 	id varchar2(20) primary key,
@@ -84,15 +85,15 @@ insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category) 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','종로','그곳','어느 종로','서울 종로','java','장소들');
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','남산','저곳','어느 남산','서울 남산','java','장소들');
 
-
-
->>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures.git
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.10','광화문','저기','어느 광화문','서울 어딘가','java');
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.11','광화문','저기','어느 광화문','서울 어딘가','java');
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.11','올림픽','저기','어느 광화문','서울 어딘가','ajax');
+
 -- 무결성 제약조건에 위배되는 삽입 문
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1999.11','광화문','저기','어느 광화문','서울 어딘가','ajax');
-
+insert into report(report_no, report_type,report_content,report_date,pic_date,keyword) 
+		values(1,'신','더러움',sysdate,'2016-12','최순실방송기사');
+		select * from report;
 create table report(
 	report_no number primary key,
 	report_type varchar2(30) not null,
@@ -149,7 +150,17 @@ create table hashtag(
 	hashtag_count number default 1,
 	constraint fk_hashtag_picture foreign key(pic_date,keyword) references picture(pic_date,keyword)
 )
-
+select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
+		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName, h.hashtag_count as hashtagCount 
+		 from picture p, hashtag h
+		where p.keyword =h.keyword
+				and p.pic_date=h.pic_date
+		and p.keyword=h.keyword and h.hashtag_name='화재'
+			select p.pic_date , p.keyword, p.path, p.author_comment, p.hits,
+		 p.id, p.category, h.hashtag_name , h.hashtag_count  from picture p, hashtag h
+		where p.keyword =h.keyword
+		and p.pic_date=h.pic_date
+		and h.hashtag_name like'화재'
 select * from hashtag
 
 insert into hashtag(pic_date,keyword,hashtag_name) values('1999.10','광화문','박근혜하야')
