@@ -36,6 +36,7 @@ insert into member values('admin','관리자','rhksflwk','19910916','하늘',1);
 insert into member values('java','아이유','1234','19900818','광화문',0);
 insert into member values('ajax','설현','1234','19880818','올림픽',0);
         insert into member values('ajax1','설현','1234','19880818','올림픽',0);
+        
 create table authorities(
 	authority varchar2(100) not null,
 	id varchar2(20) not null,

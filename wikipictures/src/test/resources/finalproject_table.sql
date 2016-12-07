@@ -67,158 +67,204 @@ insert into picture(pic_date,keyword,path,author_comment,pic_space,id) values('1
 
 --******************다음의 사진DB는 꼭 추가해서 실행해주세요******************--
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('1988-03','올림픽','올림픽_1988-03.JPG','88서울올림픽','대한민국 서울','java', '사건', 1);
+values('1988-03','올림픽','올림픽_1988-03.JPG','일동 선서!','대한민국 서울','java', '사건', 1);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('1988-05','올림픽','올림픽_1988-05.JPG','88서울올림픽','대한민국 서울','java', '사건', 2);
+values('1988-05','올림픽','올림픽_1988-05.JPG','씩씩한 행진','대한민국 서울','java', '사건', 2);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('1988-08','올림픽','올림픽_1988-08.JPG','88서울올림픽','대한민국 서울','java', '사건', 3);
+values('1988-08','올림픽','올림픽_1988-08.JPG','젖 먹던 힘 까지','대한민국 서울','java', '사건', 3);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('1988-09','올림픽','올림픽_1988-09.JPG','88서울올림픽','대한민국 서울','java', '사건', 4);
+values('1988-09','올림픽','올림픽_1988-09.JPG','한치의 오차없이 정확하게','대한민국 서울','java', '사건', 4);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('1988-10','올림픽','올림픽_1988-10.JPG','88서울올림픽','대한민국 서울','java', '사건', 5);
+values('1988-10','올림픽','올림픽_1988-10.JPG','동해물과 백두산이~','대한민국 서울','java', '사건', 5);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
 values('2002-05','월드컵','월드컵_2002-05.JPG','2002한일월드컵','대한민국','ajax', '사건', 6);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2002-06','월드컵','월드컵_2002-06.JPG','2002한일월드컵','대한민국','ajax', '사건', 7);
+values('2002-06','월드컵','월드컵_2002-06.JPG','가자! 결승으로','대한민국','ajax', '사건', 7);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2002-07','월드컵','월드컵_2002-07.JPG','2002한일월드컵','대한민국','ajax', '사건', 8);
+values('2002-07','월드컵','월드컵_2002-07.JPG','오~필승코리아','대한민국','ajax', '사건', 8);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2002-09','월드컵','월드컵_2002-09.JPG','2002한일월드컵','대한민국','ajax', '사건', 9);
+values('2002-09','월드컵','월드컵_2002-09.JPG','반지의 제왕 반지 키스','대한민국','ajax', '사건', 9);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2003-01','대구지하철화재','대구지하철화재_2003-01.JPG','대구지하철화재 참사','대한민국 대구','java', '사건', 10);
+values('2003-01','대구지하철화재','대구지하철화재_2003-01.JPG','대구지하철 참사 그후','대한민국 대구','java', '사건', 10);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2003-02','대구지하철화재','대구지하철화재_2003-02.JPG','대구지하철화재 참사','대한민국 대구','java', '사건', 11);
+values('2003-02','대구지하철화재','대구지하철화재_2003-02.JPG','대구지하철 현장사진','대한민국 대구','java', '사건', 11);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2003-03','대구지하철화재','대구지하철화재_2003-03.JPG','대구지하철화재 참사','대한민국 대구','java', '사건', 12);
+values('2003-03','대구지하철화재','대구지하철화재_2003-03.JPG','삼가 고인의 명복을 빕니다','대한민국 대구','java', '사건', 12);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2003-04','대구지하철화재','대구지하철화재_2003-04.JPG','대구지하철화재 참사','대한민국 대구','java', '사건', 13);
+values('2003-04','대구지하철화재','대구지하철화재_2003-04.JPG','참혹했던 사건 현장','대한민국 대구','java', '사건', 13);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2004-04','배용준','배용준_2004-04.JPG','욘사마','팬미팅 장소','ajax', '인물', 14);
+values('2004-04','배용준','배용준_2004-04.JPG','행복하게 살겠습니다','팬미팅 장소','ajax', '인물', 14);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2004-05','배용준','배용준_2004-05.JPG','욘사마','팬미팅 장소','ajax', '인물', 15);
+values('2004-05','배용준','배용준_2004-05.JPG','영화 스캔들 속으로','팬미팅 장소 ','ajax', '인물', 15);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2004-06','배용준','배용준_2004-06.JPG','욘사마','팬미팅 장소','ajax', '인물', 16);
+values('2004-06','배용준','배용준_2004-06.JPG','한류스타 욘사마','팬미팅 장소','ajax', '인물', 16);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2005-05','박지성','박지성_2005-05.JPG','박지성','네덜란드','java', '인물', 17);
+values('2005-03','박지성','박지성_2005-03.JPG','퍼거슨 감독님과','네덜란드','java', '인물', 17);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2005-04','박지성','박지성_2005-04.JPG','캡틴 지성팍','네덜란드','java', '인물', 18);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2005-05','박지성','박지성_2005-05.JPG','지송빠레~~','네덜란드','java', '인물', 19);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2008-01','숭례문','숭례문_2008-01.JPG','숭례문 화재','대한민국 서울','ajax', '장소', 18);
+values('2006-04','백남준','백남준_2006-04.JPG','백남준 작가','한국','java', '인물', 20);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2008-02','숭례문','숭례문_2008-02.JPG','숭례문 화재','대한민국 서울','ajax', '장소', 19);
+values('2006-05','백남준','백남준_2006-05.JPG','백남준 비디오아트','한국','java', '인물', 21);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2008-03','숭례문','숭례문_2008-03.JPG','숭례문 화재','대한민국 서울','ajax', '장소', 20);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2008-04','숭례문','숭례문_2008-04.JPG','숭례문 화재','대한민국 서울','ajax', '장소', 21);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2008-05','숭례문','숭례문_2008-05.JPG','숭례문 화재','대한민국 서울','ajax', '장소', 22);
+values('2006-06','백남준','백남준_2006-06.JPG','수레바퀴','한국','java', '인물', 22);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2009-05','신종플루','신종플루_2009-05.JPG','신종플루 확산','대한민국','java', '사건', 23);
+values('2007-03','원더걸스','원더걸스_2007-03.JPG','원더걸스 데뷔','대한민국','java', '인물', 23);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2009-06','신종플루','신종플루_2009-06.JPG','신종플루 확산','대한민국','java', '사건', 24);
+values('2007-04','원더걸스','원더걸스_2007-04.JPG','Tell me Tell me','대한민국','java', '인물', 24);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2009-07','신종플루','신종플루_2009-07.JPG','신종플루 확산','대한민국','java', '사건', 25);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2009-08','신종플루','신종플루_2009-08.JPG','신종플루 확산','대한민국','java', '사건', 26);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2009-09','신종플루','신종플루_2009-09.JPG','신종플루 확산','대한민국','java', '사건', 27);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2009-10','신종플루','신종플루_2009-10.JPG','신종플루 확산','대한민국','java', '사건', 28);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2009-11','신종플루','신종플루_2009-11.JPG','신종플루 확산','대한민국','java', '사건', 29);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2009-12','신종플루','신종플루_2009-12.JPG','신종플루 확산','대한민국','java', '사건', 30);
+values('2007-05','원더걸스','원더걸스_2007-05.JPG','원더우먼 원더걸스','대한민국','java', '인물', 25);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2010-03','천안함','천안함_2010-03.JPG','천안함 격침','대한민국 서해','ajax', '사건', 31);
+values('2008-01','숭례문','숭례문_2008-01.JPG','진화현장','대한민국 서울','ajax', '장소', 26);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2010-04','천안함','천안함_2010-04.JPG','천안함 격침','대한민국 서해','ajax', '사건', 32);
+values('2008-02','숭례문','숭례문_2008-02.JPG','숭례문 화재','대한민국 서울','ajax', '장소', 27);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2010-05','천안함','천안함_2010-05.JPG','천안함 격침','대한민국 서해','ajax', '사건', 33);
+values('2008-03','숭례문','숭례문_2008-03.JPG','숭례문 화재 그 후','대한민국 서울','ajax', '장소', 28);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2008-04','숭례문','숭례문_2008-04.JPG','화재 그 후 참혹한 현장','대한민국 서울','ajax', '장소', 29);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2008-05','숭례문','숭례문_2008-05.JPG','화재진화 현장','대한민국 서울','ajax', '장소', 30);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-01','세월호','세월호_2014-01.JPG','세월호 침몰','대한민국','java', '사건', 34);
+values('2009-05','신종플루','신종플루_2009-05.JPG','예방접종 현장','대한민국','java', '사건', 31);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-02','세월호','세월호_2014-02.JPG','세월호 침몰','대한민국','java', '사건', 35);
+values('2009-06','신종플루','신종플루_2009-06.JPG','손을 깨끗히','대한민국','java', '사건', 32);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-03','세월호','세월호_2014-03.JPG','세월호 침몰','대한민국','java', '사건', 36);
+values('2009-07','신종플루','신종플루_2009-07.JPG','확산방지연구','대한민국','java', '사건', 33);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-04','세월호','세월호_2014-04.JPG','세월호 침몰','대한민국','java', '사건', 37);
+values('2009-08','신종플루','신종플루_2009-08.JPG','긴급대책 마련 기자회견','대한민국','java', '사건', 34);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-05','세월호','세월호_2014-05.JPG','세월호 침몰','대한민국','java', '사건', 38);
+values('2009-09','신종플루','신종플루_2009-09.JPG','예방대책','대한민국','java', '사건', 35);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-06','세월호','세월호_2014-06.JPG','세월호 침몰','대한민국','java', '사건', 39);
+values('2009-10','신종플루','신종플루_2009-10.JPG','예방접종 복지관','대한민국','java', '사건', 36);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-07','세월호','세월호_2014-07.JPG','세월호 침몰','대한민국','java', '사건', 40);
+values('2009-11','신종플루','신종플루_2009-11.JPG','예방합시다 신종플루','대한민국','java', '사건', 37);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-08','세월호','세월호_2014-08.JPG','세월호 침몰','대한민국','java', '사건', 41);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-09','세월호','세월호_2014-09.JPG','세월호 침몰','대한민국','java', '사건', 42);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-10','세월호','세월호_2014-10.JPG','세월호 침몰','대한민국','java', '사건', 43);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-11','세월호','세월호_2014-11.JPG','세월호 침몰','대한민국','java', '사건', 44);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2014-12','세월호','세월호_2014-12.JPG','세월호 침몰','대한민국','java', '사건', 45);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-01','세월호','세월호_2015-01.JPG','세월호 침몰','대한민국','java', '사건', 46);
+values('2009-12','신종플루','신종플루_2009-12.JPG','현수막','대한민국','java', '사건', 38);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-06','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-06.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 47);
+values('2010-03','천안함','천안함_2010-03.JPG','천안함 뉴스','대한민국 서해','ajax', '사건', 39);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-07','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-07.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 48);
+values('2010-04','천안함','천안함_2010-04.JPG','천안함 격침','대한민국 서해','ajax', '사건', 40);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-08','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-08.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 49);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-09','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-09.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 50);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-10','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-10.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 51);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-11','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-11.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 52);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-12','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-12.JPG','역사교과서 국정화 반대시위','대한민국','ajax', '사건', 53);
+values('2010-05','천안함','천안함_2010-05.JPG','천안함호 인양현장','대한민국 서해','ajax', '사건', 41);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-06','일본역사교과서','일본역사교과서_2015-06.JPG','일본의 역사 왜곡 교과서','일본','java', '사건', 54);
+values('2010-03','연평도','연평도_2010-03.JPG','연평도 포격사건','대한민국 서해','ajax', '사건', 42);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-07','일본역사교과서','일본역사교과서_2015-07.JPG','일본의 역사 왜곡 교과서','일본','java', '사건', 55);
+values('2010-04','연평도','연평도_2010-04.JPG','연평 포격','대한민국 서해','ajax', '사건', 43);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-08','일본역사교과서','일본역사교과서_2015-08.png','일본의 역사 왜곡 교과서','일본','java', '사건', 56);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2015-09','일본역사교과서','일본역사교과서_2015-09.JPG','일본의 역사 왜곡 교과서','일본','java', '사건', 57);
+values('2010-05','연평도','연평도_2010-05.JPG','연평도포격속 나','대한민국 서해','ajax', '사건', 44);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-09','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-09.JPG','박근혜대통령 퇴진 시위','대한민국 서울시광장','ajax', '사건', 58);
+values('2011-03','스티브잡스','스티브잡스_2011-03.JPG','혁신적인 창조자','미국','java', '인물', 45);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-10','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-10.JPG','박근혜대통령 퇴진 시위','대한민국 서울시광장','ajax', '사건', 59);
+values('2011-04','스티브잡스','스티브잡스_2011-04.JPG','맥북의 초기버전','미국','java', '인물', 46);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-11','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-11.JPG','박근혜대통령 퇴진 시위','대한민국 서울시광장','ajax', '사건', 60);
-insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-12','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-12.JPG','박근혜대통령 퇴진 시위','대한민국 서울시광장','ajax', '사건', 61);
+values('2011-05','스티브잡스','스티브잡스_2011-05.JPG','스티브잡스 발표','미국','java', '인물', 47);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-10','박근혜대통령','박근혜대통령_2016-10.JPG','박근혜대통령','대한민국 청와대','java', '인물', 62);
+values('2012-04','싸이','싸이_2012-04.JPG','강남스타일','대한민국','java', '인물', 48);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-11','박근혜대통령','박근혜대통령_2016-11.JPG','박근혜대통령','대한민국 청와대','java', '인물', 63);
+values('2012-05','싸이','싸이_2012-05.JPG','싸이 콘서트','대한민국','java', '인물', 49);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-11','정유라','정유라_2016-11.JPG','정유라','대한민국','java', '인물', 64);
+values('2012-06','싸이','싸이_2012-06.JPG','유튜브 스타 싸이','대한민국','java', '인물', 50);
 
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-10','정유라기사내용','정유라기사내용_2016-10.JPG','정유라기사내용','대한민국','ajax', '사건', 65);
+values('2013-03','별그대','별그대_2013-03.JPG','별에서온그대','대한민국','java', '인물', 51);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-11','정유라기사내용','정유라기사내용_2016-11.JPG','정유라기사내용','대한민국','ajax', '사건', 66);
+values('2013-04','별그대','별그대_2013-04.JPG','김수현과 전지현','대한민국','java', '인물', 52);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-12','정유라기사내용','정유라기사내용_2016-12.JPG','정유라기사내용','대한민국','ajax', '사건', 67);
+values('2013-05','별그대','별그대_2013-05.JPG','두근두근','대한민국','java', '인물', 53);
+
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-10','최순실방송기사','최순실방송기사_2016-10.JPG','최순실 기사내용','대한민국','ajax', '사건', 68);
+values('2014-01','세월호','세월호_2014-01.JPG','구조현장','대한민국','java', '사건', 54);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-11','최순실방송기사','최순실방송기사_2016-11.JPG','최순실 기사내용','대한민국','ajax', '사건', 69);
+values('2014-02','세월호','세월호_2014-02.JPG','구조의 모습','대한민국','java', '사건', 55);
 insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
-values('2016-12','최순실방송기사','최순실방송기사_2016-12.JPG','최순실 기사내용','대한민국','ajax', '사건', 70);
+values('2014-03','세월호','세월호_2014-03.JPG','기울어진 세월호','대한민국','java', '사건', 56);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2014-04','세월호','세월호_2014-04.JPG','한명의 생존자라도 더','대한민국','java', '사건', 57);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2014-05','세월호','세월호_2014-05.JPG','고개만 든 세월호','대한민국','java', '사건', 58);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2014-06','세월호','세월호_2014-06.JPG','집회현장','대한민국','java', '사건', 59);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2014-07','세월호','세월호_2014-07.JPG','삼가 고인의 명복을 빕니다','대한민국','java', '사건', 60);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2014-08','세월호','세월호_2014-08.JPG','한명의 생존자라도','대한민국','java', '사건', 61);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2014-09','세월호','세월호_2014-09.JPG','안타까운 현장','대한민국','java', '사건', 62);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2014-10','세월호','세월호_2014-10.JPG','뒤집혀진 세월호','대한민국','java', '사건', 63);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2014-11','세월호','세월호_2014-11.JPG','기울어진 세월호','대한민국','java', '사건', 64);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2014-12','세월호','세월호_2014-12.JPG','한명의 생존자를 위하여','대한민국','java', '사건', 65);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-01','세월호','세월호_2015-01.JPG','삼가고인의 명복을 빕니다','대한민국','java', '사건', 66);
+
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-06','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-06.JPG','역사를 바로잡자 시위현장 ','대한민국','ajax', '사건', 67);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-07','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-07.JPG','역사를 바로잡자','대한민국','ajax', '사건', 68);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-08','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-08.JPG','국정화 반대','대한민국','ajax', '사건', 69);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-09','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-09.JPG','올바른 역사교육을','대한민국','ajax', '사건', 70);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-10','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-10.JPG','밤 늦게까지','대한민국','ajax', '사건', 71);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-11','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-11.JPG','국정화 철회','대한민국','ajax', '사건', 72);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-12','역사교과서국정화반대시위','역사교과서국정화반대시위_2015-12.JPG','국정 역사교과서 반대','대한민국','ajax', '사건', 73);
+
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-06','일본역사교과서','일본역사교과서_2015-06.JPG','역사 왜곡현장','일본','java', '사건', 74);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-07','일본역사교과서','일본역사교과서_2015-07.JPG','역사 왜곡','일본','java', '사건', 75);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-08','일본역사교과서','일본역사교과서_2015-08.png','일본 역사왜곡 반대','일본','java', '사건', 76);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2015-09','일본역사교과서','일본역사교과서_2015-09.JPG','후손들에게 바른 역사를','일본','java', '사건', 77);
+
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-09','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-09.JPG','촛불집회현장','대한민국 서울시광장','ajax', '사건', 78);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-10','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-10.JPG','퇴진 시위현장 속으로','대한민국 서울시광장','ajax', '사건', 79);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-11','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-11.JPG','퇴진,하야','대한민국 서울시광장','ajax', '사건', 80);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-12','박근혜대통령퇴진시위','박근혜대통령퇴진시위_2016-12.JPG','국정농단','대한민국 서울시광장','ajax', '사건', 81);
+
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-10','박근혜대통령','박근혜대통령_2016-10.JPG','새로운 대한민국을 만들겠습니다','대한민국 청와대','java', '인물', 82);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-11','박근혜대통령','박근혜대통령_2016-11.JPG','감사합니다','대한민국 청와대','java', '인물', 83);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-11','정유라','정유라_2016-11.JPG','승마선수 정유라','대한민국','java', '인물', 84);
+
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-10','정유라기사내용','정유라기사내용_2016-10.JPG','돈도 실력이다','대한민국','ajax', '사건', 85);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-11','정유라기사내용','정유라기사내용_2016-11.JPG','승마선수 시절','대한민국','ajax', '사건', 86);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-12','정유라기사내용','정유라기사내용_2016-12.JPG','대학교 성적표','대한민국','ajax', '사건', 87);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-10','최순실방송기사','최순실방송기사_2016-10.JPG','성형 순방의혹','대한민국','ajax', '사건', 88);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-11','최순실방송기사','최순실방송기사_2016-11.JPG','비선실세 최순실','대한민국','ajax', '사건', 89);
+insert into picture(pic_date,keyword,path,author_comment,pic_space,id,category,hits) 
+values('2016-12','최순실방송기사','최순실방송기사_2016-12.JPG','국정농단','대한민국','ajax', '사건', 90);
 
 delete from PICTURE;
 
@@ -233,11 +279,15 @@ create table report(
 	keyword varchar2(50) not null,
 	constraint fk_report_picture foreign key(pic_date, keyword) references picture(pic_date,keyword)
 )
+
+
 select * from report;
+
+delete from report;
 insert into report(report_no, report_type,report_content,report_date,pic_date,keyword) values(2,'신고','실험',sysdate,'1988-03','올림픽');
-insert into report values(1,'신고','선정성',sysdate,'1999.10','광화문');
+insert into report values(1,'신고','선정성',sysdate,'1988-05','올림픽');
 insert into report values(2,'신고','선정성',sysdate,'1999.10','광화문');
-insert into report values(3,'정정','내용과 맞지 않음',sysdate,'2000,10','광화문');
+insert into report values(3,'정정','내용과 맞지 않음',sysdate,'2008-03','숭례문');
 
 create table mypage(
 	id varchar2(20) not null,
@@ -251,7 +301,8 @@ create table mypage(
 	CONSTRAINT fk_mypage_member foreign key(id) references member(id)
 	)
 	select * from mypage;
-		
+	
+	delete from mypage;
  	 
 insert into mypage values('java','2002-05','월드컵',sysdate,'좋아요',sysdate);
 -- 무결성 제약조건에 위배되는 삽입 문(멤버아이디 존재하지 않음)
@@ -623,14 +674,19 @@ insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT,
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2003', '안이한 대책이 만든 인재(人災)', '대구 지하철 화재', '대구지하철화재');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2004', '아이시떼루 욘사마', '배용준', '배용준');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2005', '달려라, 산소탱크', '박지성', '박지성');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2006', '비디오 아트의 거장', '백남준', '백남준');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2007', 'TELL ME~ TELL ME~', '원더걸스', '원더걸스');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2008', '문화재 관리가 이렇게 허술했던가', '숭례문 화재', '숭례문');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2009', '의학이 발전했듯 바이러스도 진화했다', '신종플루', '신종플루');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2010', '순국선열의 명복을 빕니다', '천안함 격침', '천안함');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2011', '창조적 혁신가 스티브잡스', '스티브잡스', '스티브잡스');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2012', '강남 스타일', '싸이', '싸이');
+insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2013', '김수현과 전지현', '별에서온그대', '별에서온그대');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2014', '언제쯤이면 안전불감증에서 벗어날까', '세월호 침몰', '세월호');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2015', '누구를 위한 역사인가', '역사교과서 국정화 반대시위', '역사교과서국정화반대시위');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2016', '우리는 꼭두각시를 대통령으로 하지 않았다', '박근혜 대통령 퇴진시위', '박근혜대통령퇴진시위');
 
-
+delete from timemachine;
 
 -- ************연습들************* --
 
