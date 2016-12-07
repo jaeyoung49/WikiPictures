@@ -203,7 +203,7 @@ public class PictureController {
 		pictureService.report(rvo);
 		return "picture/report_ok";
 	}
-	//해시태그추가
+	//해시태그추가//
 	@RequestMapping("addHashtag.do")
 	public ModelAndView addHashtag(HashtagVO hashtagVO, PictureVO pictureVO) throws UnsupportedEncodingException{
 		String hash = hashtagVO.getHashtagName().trim();
