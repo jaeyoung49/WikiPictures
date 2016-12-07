@@ -5,28 +5,25 @@
 		href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정</a></li>
 	<li role="presentation"><a
 		href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a></li>
-	<li role="presentation"><a
+	<li role="presentation" class="active"><a
 		href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
 		<li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
 </ul>
-<table class="table">
-	<caption>시크릿댓글목록보기 게시판</caption>
-	
+<div class="container">
+<table class="table table-striped">
 		<tr>
 			<th class="id">작성자</th>
 			<th class="replyDate">시크릿댓글날짜</th>
 			<th class="replyContent">시크릿댓글내용</th>
 		</tr>
-		
-				<c:forEach var="mypageVO" items="${requestScope.svo.list}" varStatus="status">
+			<c:forEach var="mypageVO" items="${requestScope.svo.list}" varStatus="status">
 		<tr>
 			<th>${mypageVO.memberVO.id}</th>
 			<th>${mypageVO.replyDate}</th>
 			<th>${mypageVO.replyContent}</th>
 		</tr>					
-				</c:forEach>
+			</c:forEach>
 </table>
-
 	<br><br>	
 <p class="paging">
 	<%-- 코드를 줄이기 위해 pb 변수에 pagingBean을 담는다. --%>
@@ -72,4 +69,4 @@
 	▶<!-- <img src="img/right_arrow_btn.gif"> --></a>
 	</c:if>
 	</p>
-	
+</div>

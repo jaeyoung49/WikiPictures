@@ -3,15 +3,14 @@
 <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
 	<li role="presentation"><a
 		href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정</a></li>
-	<li role="presentation"><a
-		href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a></li>
+	<li role="presentation" class="active">
+	<a href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a></li>
 	<li role="presentation"><a
 		href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
-		<li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
+	<li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
 </ul>
 <div class="container">
-<legend>나의 사진들</legend>
-<table class="table">
+<table class="table table-striped">
 		<tr>
 			<th class="id">작성자</th>
 			<th class="pictureDate">사진날짜</th>
@@ -22,8 +21,7 @@
 			<th class="pictureSpace">사진장소</th>
 			<th class="category">카테고리</th>
 		</tr>
-		
-				<c:forEach var="pictureVO" items="${requestScope.pvo.list}" varStatus="status">
+			<c:forEach var="pictureVO" items="${requestScope.pvo.list}" varStatus="status">
 		<tr>
 			<th>${pictureVO.memberVO.id}</th>
 			<th>${pictureVO.pictureDate}</th>
@@ -34,8 +32,7 @@
 			<th>${pictureVO.pictureSpace}</th>
 			<th>${pictureVO.category}</th>
 		</tr>					
-				
-				</c:forEach>
+			</c:forEach>
 </table>
 
 

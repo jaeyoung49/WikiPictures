@@ -1,37 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
- <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+  <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
     <li role="presentation"><a href="${pageContext.request.contextPath}/show_member_list.do">회원리스트</a></li>
     <li role="presentation"><a href="${pageContext.request.contextPath}/show_report_list.do">신고리스트</a></li>
     <li role="presentation"><a href="${pageContext.request.contextPath}/show_sell_list.do">판매리스트</a></li>
-    <li role="presentation"><a href="${pageContext.request.contextPath}/show_picture_list.do">사진리스트</a></li>
+    <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/show_picture_list.do">사진리스트</a></li>
     <li role="presentation"><a href="${pageContext.request.contextPath}/admin/register_ad_form.do">광고</a></li>
   </ul>
-<table class="table">
-<caption>
-<a href="${pageContext.request.contextPath}/admin/show_admin_mypage.do">관리자 홈으로</a><br>
-사진리스트</caption>
-<tr>
-<td class="no"><h4>NO</h4></td>
-<td class="id"><h4>아이디</h4></td>
-<td class="nickname"><h4>촬영일자</h4></td>
-<td class="birth"><h4>키워드</h4></td>
-<td class="fav_space"><h4>조회수</h4></td>
-</tr>
+  <div class="container">
+<table class="table table-striped">
+	<tr>
+		<td class="no"><h4>NO</h4></td>
+		<td class="id"><h4>아이디</h4></td>
+		<td class="nickname"><h4>촬영일자</h4></td>
+		<td class="birth"><h4>키워드</h4></td>
+		<td class="fav_space"><h4>조회수</h4></td>
+	</tr>
 	<c:forEach var="pvo" items="${requestScope.pictureVO.list}" varStatus="status">
-<tr>
-<td>${pvo.rowNumber}</td>
-<td>${pvo.memberVO.id }</td>
-<td>${pvo.pictureDate }</td>	
-<td>${pvo.keyword }</td>
-<td>${pvo.hits }</td>
-</tr>
-</c:forEach>
+	<tr>
+		<td>${pvo.rowNumber}</td>
+		<td>${pvo.memberVO.id }</td>
+		<td>${pvo.pictureDate }</td>	
+		<td>${pvo.keyword }</td>
+		<td>${pvo.hits }</td>
+	</tr>
+	</c:forEach>
 </table>
-<p class="paging">
+<div class="row text-center">
 		<!-- 코드를 줄이기 위해 pb 변수에 pagingBean을 담는다. -->
 		<c:set var="pb" value="${requestScope.pictureVO.pagingBean}"></c:set>
 		<!-- 
@@ -78,4 +75,5 @@
 				▶<!-- <img src="img/right_arrow_btn.gif"> -->
 			</a>
 		</c:if>
-	</p>
+	</div>
+</div>

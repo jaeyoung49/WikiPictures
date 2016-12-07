@@ -7,22 +7,21 @@
 		href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a></li>
 	<li role="presentation"><a
 		href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
-	<li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
+	<li role="presentation" class="active">
+	<a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
 </ul>
 <div class="container">
-<legend>구매한 사진들</legend>
-<table class="table">
+<table class="table table-striped">
 		<tr>
 			<th class="id">작성자</th>
 			<th class="buyDate">구매한 날짜</th>
 		</tr>
-		
-				<c:forEach var="mypageVO" items="${requestScope.bvo.list}" varStatus="status">
+			<c:forEach var="mypageVO" items="${requestScope.bvo.list}" varStatus="status">
 		<tr>
 			<th>${mypageVO.memberVO.id}</th>
 			<th>${mypageVO.buyDate}</th>
 		</tr>					
-				</c:forEach>
+			</c:forEach>
 </table>
 
 	<br><br>	

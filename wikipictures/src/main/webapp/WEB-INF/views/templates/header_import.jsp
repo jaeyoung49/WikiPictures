@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +18,8 @@
   <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
   <!-- Photo Gallery css -->
   <link href="${pageContext.request.contextPath}/resources/css/PhotoGallery.css" rel="stylesheet">
+  <!-- Sweet Alert css -->
+  <link href="${pageContext.request.contextPath}/resources/css/sweetalert.css" rel="stylesheet">
   <!-- 아이콘 -->
   <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet">
   <!-- jQuery v1.12.4 핵심 js -->
@@ -29,3 +30,5 @@
   <script src="${pageContext.request.contextPath}/resources/js/inputTags.jquery.min.js"></script>
   <!-- Photo Gallery js -->
   <script src="${pageContext.request.contextPath}/resources/js/PhotoGallery.js"></script>
+  <!-- Sweet Alert js -->
+  <script src="${pageContext.request.contextPath}/resources/js/sweetalert.min.js"></script>

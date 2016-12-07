@@ -13,8 +13,7 @@
 	<li role="presentation"><a
 		href="${pageContext.request.contextPath}/admin/register_ad_form.do">광고</a></li>
 </ul>
-관리자 관리 페이지
-<br>
+<div class="container">
 <img src="${pageContext.request.contextPath}/resources/img/1.JPG">
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -42,4 +41,5 @@
 			<button class="btn btn-primary">변경사항 저장</button>
 		</div>
 	</div>
+</div>
 </div>

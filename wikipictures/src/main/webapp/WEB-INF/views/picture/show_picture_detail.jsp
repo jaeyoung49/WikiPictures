@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>   
+<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>   
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,7 +28,6 @@
   </script>
 
    <style>
-  
   .hashTag {
     margin: auto;
   }
@@ -37,12 +36,7 @@
     text-decoration: none;
   }
   </style>
-
-
 </head>
-
-
-	
     <!-- /#sidebar-wrapper -->
    
   <div class="row">
@@ -71,32 +65,19 @@
           <div class="form-group">
             해시태그추가
             <br>
-            <input type="text" name="hashtagName" id="tags" placeholder="태그입력후 Enter를 눌러주세요">  
+            <div class="input-group">
+          		<input type="text" name="hashtagName" id="tags" class="form-control">  
+      			<a class="btn btn-primary" id="addhashtag" role="button">추가</a>
+  			 </div>
              <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
              <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
           </div>
-          <p><a class="btn btn-primary" id="addhashtag" role="button">버튼1</a>
+          <p class="text-right"><a class="btn btn-primary" id="addhashtag" role="button">버튼1</a></p>
           </form>
-            <!-- <a href="#" class="btn btn-default" role="button">버튼2</a> --></p>
-            <!-- <span id="dataView"></span> -->
         </div>
       </div>
     </div>
   </div>
-  <footer class="footer">
-    <div class="container" style="padding-top: 100px;">
-      <hr>
-      <p class="pull-right"><a href="#top">맨위로</a></p>
-      <p>ⓒ 2016 Six-Men studios. ·
-        <a href="#">이용약관</a> ·
-        <a href="#">Six-Men studios 소개</a> ·
-        <a href="#">채용정보</a> ·
-      </p>
-    </div>
-  </footer>
-
-
-
 
    <script src="${pageContext.request.contextPath}/resources/js/jquery.tagcloud.js"></script>
     <script>

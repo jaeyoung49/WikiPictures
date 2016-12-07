@@ -79,24 +79,24 @@
 	}
   });
   </script>
-<script type="text/javascript">
-$(document).ready(function() {
-$("#logout").click(function(){
-		if(confirm("로그아웃하시겠습니까?")){
-			location.href="${pageContext.request.contextPath}/logout.do";
-		}
-	});
-	$("#loginForm").submit(function(){			
-		if($("#loginForm :input[name=id]").val()==""){
-			alert("아이디를 입력하세요!");
-			return false;
-		}else if($("#loginForm :input[name=password]").val()==""){
-			alert("비밀번호를 입력하세요!");
-			return false;
-		}		
-	});
-});
-</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		$("#logout").click(function(){
+				if(confirm("로그아웃하시겠습니까?")){
+					location.href="${pageContext.request.contextPath}/logout.do";
+				}
+			});
+			$("#loginForm").submit(function(){			
+				if($("#loginForm :input[name=id]").val()==""){
+					alert("아이디를 입력하세요!");
+					return false;
+				}else if($("#loginForm :input[name=password]").val()==""){
+					alert("비밀번호를 입력하세요!");
+					return false;
+				}		
+			});
+		});
+	</script>
 </head>
 
 <body>
@@ -172,8 +172,8 @@ $("#logout").click(function(){
                     </form>
                   </div>
   				  <div class="bottom text-center">
-                    회원이 아니세요<a href="#" style="text-decoration:none;" data-toggle="modal"
-                    data-target="#registerModal"><strong style="color: Navy">회원가입</strong></a>
+                    회원이 아니세요?&nbsp;<a href="#" style="text-decoration:none;" data-toggle="modal"
+                    data-target="#registerModal"><strong style="color: Navy">&nbsp;회원가입</strong></a>
                   </div>
                 </div>
               </li>
@@ -199,7 +199,7 @@ $("#logout").click(function(){
           <li><a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지</a></li>
           <li><a href="#" id="logout">로그아웃 </a>
           <li class="dropdown-toggle">
-        <a href="#" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">타임머신<span class="caret"></span></a>
+        <a href="#" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true"><b>타임머신</b><span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" data-filter >
           	<c:forEach items="${timeMachineYearList}" var="row" >
           	  <li role="presentation">
@@ -227,10 +227,10 @@ $("#logout").click(function(){
       <video autoplay loop muted id="video">
         <source src="${pageContext.request.contextPath}/resources/video/${timeMachineVO.timeMachineYear}.mp4" type="video/mp4">
       </video>
-      <div class="layer">
+      <div class="layer text-center">
       	<a href="${pageContext.request.contextPath}/searchPicture.do?keyword=${timeMachineVO.timeMachineKeyword}"> <!-- 서치 페이지 보여줌 -->
           <h1 class="text-center">${timeMachineVO.timeMachineTitle }</h1>
-          <h2 class="text-center">${timeMachineVO.timeMachineContent }</h2>
+          <h3 class="text-center">${timeMachineVO.timeMachineContent }</h3>
         </a>
       </div>
     </div>
@@ -253,7 +253,7 @@ $("#logout").click(function(){
                 <div class="carousel-caption">
                   <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${accidentPictureList[0].pictureDate}&keyword=${accidentPictureList[0].keyword}">
                     <h1 class="text-center">${accidentPictureList[0].keyword}</h1>
-                    <p class="text-center">${accidentPictureList[0].authorComment}</p>
+                    <h3 class="text-center">${accidentPictureList[0].authorComment}</h3>
                   </a>
                 </div>
               </div>
@@ -264,7 +264,7 @@ $("#logout").click(function(){
                 <div class="carousel-caption">
                   <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${accidentPictureList[1].pictureDate}&keyword=${accidentPictureList[1].keyword}">
                     <h1 class="text-center">${accidentPictureList[1].keyword}</h1>
-                    <p class="text-center">${accidentPictureList[1].authorComment}</p>
+                    <h3 class="text-center">${accidentPictureList[1].authorComment}</h3>
                   </a>
                 </div>
               </div>
@@ -275,7 +275,7 @@ $("#logout").click(function(){
                 <div class="carousel-caption">
 				  <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${accidentPictureList[2].pictureDate}&keyword=${accidentPictureList[2].keyword}">                
                     <h1 class="text-center">${accidentPictureList[2].keyword}</h1>
-                    <p class="text-center">${accidentPictureList[2].authorComment}</p>
+                    <h3 class="text-center">${accidentPictureList[2].authorComment}</h3>
                   </a>
                 </div>
               </div>
@@ -313,7 +313,7 @@ $("#logout").click(function(){
                   <div class="carousel-caption">
                     <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${personAndLocationPictureList[0].pictureDate}&keyword=${personAndLocationPictureList[0].keyword}">
                       <h1 class="text-center">${personAndLocationPictureList[0].keyword}</h1>
-                      <p class="text-center">${personAndLocationPictureList[0].authorComment}</p>
+                      <h3 class="text-center">${personAndLocationPictureList[0].authorComment}</h3>
                     </a>
                   </div>
                 </div>
@@ -324,7 +324,7 @@ $("#logout").click(function(){
                   <div class="carousel-caption">
                     <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${personAndLocationPictureList[1].pictureDate}&keyword=${personAndLocationPictureList[1].keyword}">
                       <h1 class="text-center">${personAndLocationPictureList[1].keyword}</h1>
-                      <p class="text-center">${personAndLocationPictureList[1].authorComment}</p>
+                      <h3 class="text-center">${personAndLocationPictureList[1].authorComment}</h3>
                     </a>
                   </div>
                 </div>
@@ -335,7 +335,7 @@ $("#logout").click(function(){
                   <div class="carousel-caption">
 			        <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${personAndLocationPictureList[2].pictureDate}&keyword=${personAndLocationPictureList[2].keyword}">                
                       <h1 class="text-center">${personAndLocationPictureList[2].keyword}</h1>
-                      <p class="text-center">${personAndLocationPictureList[2].authorComment}</p>
+                      <h3 class="text-center">${personAndLocationPictureList[2].authorComment}</h3>
                     </a>
                   </div>
                 </div>
