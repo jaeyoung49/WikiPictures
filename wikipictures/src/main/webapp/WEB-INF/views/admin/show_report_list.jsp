@@ -16,7 +16,7 @@
         <thead>
           <tr class="active">
             <th>NO</th>
-            <th>타입</th>
+            <th>유형</th>
             <th>내용</th>
             <th>신고날짜</th>
             <th>촬영일시</th>

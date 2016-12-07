@@ -11,11 +11,6 @@
 <div class="container">
   <form id="미정Form" action="${pageContext.request.contextPath}/미정.do" method="post" enctype="multipart/form-data" class="form-horizontal">
     <div class="form-group">
-      <input type="hidden" name="미정" value="미정">
-      <label for="uploadFile">미정</label>
-      <input type="file" id="input04" name="uploadFile">
-    </div>
-    <div class="form-group">
       <label for="category">신고유형</label>
       <select name="category" multiple class="form-control">
         <option value="미정">미정</option>
