@@ -5889,8 +5889,8 @@ a.label:hover {
 .badge {
     display: inline-block;
     min-width: 10px;
-    padding: 3px 7px;
-    font-size: 12px;
+    padding: 6px 10px;
+    font-size: 15px;
     font-weight: 700;
     line-height: 1;
     color: #fff;

@@ -176,7 +176,7 @@ public class PictureController {
 		String kw = request.getParameter("keyword");
 		List<PictureVO> searchPicture = pictureService.searchPicture(kw);
 		if (searchPicture.isEmpty()) {
-			return new ModelAndView("picture/search_picture_fail");
+			return new ModelAndView("picture/search_picture_fail", "searchPicture", searchPicture);
 		} else {
 			return new ModelAndView("picture/search_picture_ok", "searchPicture", searchPicture);
 		}

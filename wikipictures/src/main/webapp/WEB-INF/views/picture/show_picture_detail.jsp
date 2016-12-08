@@ -51,7 +51,10 @@
           <img src="${pageContext.request.contextPath}/resources/img/${requestScope.picturevo.path}">
         </div>
         <div class="caption">
-       <h2> ${requestScope.picturevo.keyword}</h2><hr>
+       <h2> ${requestScope.picturevo.keyword}</h2>
+  			<span class="badge">${requestScope.picturevo.pictureDate}</span>
+  			<span class="badge">${requestScope.picturevo.pictureSpace}</span>
+       <hr>
           <p id="authorComment">
             <h5>${requestScope.picturevo.authorComment}</h5>
             <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
@@ -98,13 +101,6 @@
               </form>
             </div>
           </c:if>
-          <p>촬영일 : ${requestScope.picturevo.pictureDate}</p>
-          <div class="form-group">
-          </div>
-          <p>장소 : ${requestScope.picturevo.pictureSpace}</p>
-          <div class="form-group">
-          </div>
-          해시태그
           <div class="form-group">
             <div id="tagcloud">
               <!-- rel은 글씨 크기를 좌우한다 -->
@@ -115,26 +111,32 @@
           </div>
           <form id="hashtagForm" action="addHashtag.do">
           <div class="form-group">
-            해시태그추가
-            <br>
-            <div class="input-group">
-          		<input type="text" name="hashtagName" id="tags" class="form-control" required>  
-      			<a class="btn btn-primary" id="addhashtag" role="button">추가</a>
-  			 </div>
+             <label for="hashtagName">해시태그 (입력 후 엔터를 눌러주세요! 최대 6개:)</label>
+          	 <input type="text" name="hashtagName" id="tags" class="form-control" required>  
              <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
              <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
           </div>
           </form>
-           <form id="register_report_form" action="register_report_form.do">
-               <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
+             <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
              <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
-         <p class="text-right"><a id="register_report_formBtn" class="btn btn-primary" role="button">신고/정정 요청</a></p>
-        </form>
+             <div class="btn-group btn-group-justified">
+  				<a href="#" class="btn btn-info" id="addhashtag">해시태그추가</a>
+  				<a href="#" class="btn btn-info">원본구매하기</a>
+  				<a href="#" class="btn btn-info">다운로드</a>
+			    <a href="#" class="btn btn-info" id="register_report_formBtn" role="button"
+			    data-toggle="modal" data-target="#reportModal">신고/정정 요청</a>
+			</div>
         </div>
       
     </div>
 </div>
 </div>
+
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true" >
+	<c:import url ="../picture/register_report_form.jsp"/>
+</div>
+
   <!-- TagCloud!! -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.tagcloud.js"></script>
     <script>

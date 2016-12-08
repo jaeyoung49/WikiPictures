@@ -52,7 +52,7 @@
       <label for="tempHashtags">해시태그 (입력 후 엔터를 눌러주세요! 최대 6개:)</label>
       <input type="text" name="tempHashtags" id="tags" required>
     </div>
-    <input class="btn btn-default btn-lg btn-block" id="formButton" type="button" value="등록하기">
+    <input class="btn btn-success btn-lg btn-block" id="formButton" type="button" value="등록하기">
   </form>
 </div>
 	<!-- 파일업로드 라이브러리 js -->
