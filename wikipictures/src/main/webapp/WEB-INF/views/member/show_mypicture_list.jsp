@@ -29,7 +29,8 @@
             <tr>
               <td>${pictureVO.memberVO.id}</td>
               <td>${pictureVO.pictureDate}</td>
-              <td>${pictureVO.keyword}</td>
+              <td><%-- <a href="${pageContext.request.contextPath}/searchPicture.do?keyword= ${pictureVO.keyword}"> --%>
+              ${pictureVO.keyword}</td>
               <td>${pictureVO.path}</td>
               <td>${pictureVO.authorComment}</td>
               <td>${pictureVO.hits}</td>

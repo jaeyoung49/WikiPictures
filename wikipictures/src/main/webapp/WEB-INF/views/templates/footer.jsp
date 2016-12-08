@@ -6,8 +6,8 @@
     <hr>
     <p class="pull-right"><a href="#top">맨위로</a></p>
     <p>© 2016 Six-Men studios. ·
-      <a href="#">이용약관</a> ·
-      <a href="${pageContext.request.contextPath}/introduce.do">Six-Men studios 소개</a> ·
+      <a href="${pageContext.request.contextPath}/templates/tos.do">이용약관</a> ·
+      <a href="${pageContext.request.contextPath}/templates/company_introduce.do">Six-Men studios 소개</a> ·
     </p>
   </div>
 </footer>

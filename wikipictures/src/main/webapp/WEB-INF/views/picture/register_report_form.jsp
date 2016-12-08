@@ -8,6 +8,7 @@ $(document).ready(function() {
   });
 });
 </script>
+<div style="width:300px; height:auto; margin:0 auto; border:1px solid white;">
 <img src="${pageContext.request.contextPath}/resources/img/${requestScope.picturevo.path}" style="max-width: =200px; height: 200px;">
 <div class="caption">
   <h3>제목 : ${requestScope.picturevo.keyword}</h3>
@@ -32,3 +33,4 @@ $(document).ready(function() {
   <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
   <p class="text-right"><a id="reportBtn" class="btn btn-primary" role="button">신고/정정 요청</a></p>
 </form>
+</div>

@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<div class="container">
 <h3>이용약관</h3>
 
 <br>1. 개인 정보<br><br>
@@ -42,5 +37,4 @@ WikiPictures에서 해당 정보를 수집 및 이용하는 방법에 대해 중
 회원님은 WikiPictures을 이용해 불법 행위, 오해의 소지가 있는 행위, 악의적 행위 또는 차별적 행위를 할 수 없습니다.<br>
 회원님은  WikiPictures의 원활한 운영을 중단하거나 운영에 과부하를 가져오거나 외양을 손상할 수 있는 행위를 해서는 안 됩니다.<br>
 회원님은 본 정책의 위반을 조장하거나 권장해서는 안 됩니다.<br>
-</body>
-</html>
+</div>

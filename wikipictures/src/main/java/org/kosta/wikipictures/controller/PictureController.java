@@ -181,6 +181,7 @@ public class PictureController {
 			return new ModelAndView("picture/search_picture_ok", "searchPicture", searchPicture);
 		}
 	}
+	
 
 	/**
 	 * 

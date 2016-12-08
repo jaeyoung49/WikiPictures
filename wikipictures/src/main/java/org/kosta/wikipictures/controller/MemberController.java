@@ -60,11 +60,15 @@ public class MemberController {
 		return "redirect:home.do";
 	}
 
-	@RequestMapping("introduce.do")
-	public String test() {
+	@RequestMapping("company_introduce.do")
+	public String introduce() {
 		return "company_introduce";
 	}
-
+	@RequestMapping("tos.do")
+	public String tos(){
+		return "tos";
+	}
+	
 	@RequestMapping("idcheckAjax.do")
 	@ResponseBody
 	public String idcheckAjax(String id) {
