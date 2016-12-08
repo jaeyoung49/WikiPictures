@@ -7,6 +7,7 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -310,4 +311,13 @@ public class PictureController {
 		String keyword = URLEncoder.encode(mypageVO.getPictureVO().getKeyword(),"UTF-8");
 		return "redirect:searchDetailPicture.do?keyword="+keyword+"&pictureDate="+mypageVO.getPictureVO().getPictureDate();
 	}
+	
+	@RequestMapping("fileDownload.do")
+	public ModelAndView fileDownload(HttpServletRequest request, String fileName){
+		HashMap<String,String> map=new HashMap<String,String>();
+		String downloadPath = request.getSession().getServletContext().getRealPath("/resources/img/");
+		map.put("path", downloadPath);
+		return new ModelAndView("downloadView",map);
+	}
+	
 }

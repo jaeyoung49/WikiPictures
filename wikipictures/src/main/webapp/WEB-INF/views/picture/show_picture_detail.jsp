@@ -38,6 +38,19 @@
 		});
 		
 		$("#tags").inputTags(); 
+		
+		<%-- 사진구매 --%>
+		$("#buyBtn").click(function(){
+			if(confirm("사진을 구매하시겠습니까?")){
+				$("#registerBuyForm").submit();
+			}
+		});
+		
+		<%-- 사진다운로드 --%>
+		$("#pictureDownloadBtn").click(function(){
+			$("#pictureDownloadForm").submit();
+		});
+		
     }); //ready
   </script>
 
@@ -51,7 +64,7 @@
           <img src="${pageContext.request.contextPath}/resources/img/${requestScope.picturevo.path}">
         </div>
         <div class="caption">
-       <h2> ${requestScope.picturevo.keyword}</h2><hr>
+          <h2> ${requestScope.picturevo.keyword}</h2><hr>
           <p id="authorComment">
             <h5>${requestScope.picturevo.authorComment}</h5>
             <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
@@ -64,7 +77,7 @@
                 <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
                   <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
                   <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
-                  <input type="text" name="authorComment" value="${requestScope.picturevo.authorComment}">
+                  <input type="text" name="authorComment" value="${requestScope.picturevo.authorComment}" placeholder="원작자 코멘트">
                   <a class="btn btn-primary" id="updateAuthorCommentBtn" role="button">변경</a>
                 </c:if>
               </p>
@@ -73,9 +86,9 @@
           <c:if test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
             <p id="secretReply">
               시크릿댓글 : ${requestScope.mypageVO.replyContent }
-                <c:if test="${sessionScope.mvo.id == requestScope.mypageVO.memberVO.id}">
+              <c:if test="${sessionScope.mvo.id == requestScope.mypageVO.memberVO.id}">
                   (변경하려면 클릭!)
-                </c:if>
+              </c:if>
             </p>
           </c:if>
           <c:if test="${sessionScope.mvo.id != null}">
@@ -87,7 +100,7 @@
                   <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
                   <c:choose>
                     <c:when test="${requestScope.mypageVO==null }">
-	                  <input type="text" name="replyContent" value="나만의 새로운 코멘트를 등록해보세요!">
+	                  <input type="text" name="replyContent" placeholder="시크릿댓글">
 	                </c:when>
 	                <c:otherwise>
 	                  <input type="text" name="replyContent" value="${requestScope.mypageVO.replyContent }">
@@ -125,11 +138,31 @@
              <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
           </div>
           </form>
-           <form id="register_report_form" action="register_report_form.do">
-               <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
-             <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
-         <p class="text-right"><a id="register_report_formBtn" class="btn btn-primary" role="button">신고/정정 요청</a></p>
-        </form>
+          <c:if test="${sessionScope.mvo.id != null}">
+            <c:choose>
+              <c:when test="${requestScope.mypageVO.buyDate==null && sessionScope.mvo.id != requestScope.picturevo.memberVO.id}">
+                <form id="registerBuyForm" action="registerBuy.do">
+                  <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
+                  <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
+                  <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
+                  <p class="text-right"><a id="buyBtn" class="btn btn-primary" role="button">사진구매</a></p>
+                </form>
+              </c:when>
+              <c:otherwise>
+                <form id="pictureDownloadForm" action="#">
+                  <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
+                  <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
+                  <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
+                  <p class="text-right"><a href="${pageContext.request.contextPath}/fileDownload.do?fileName=${requestScope.picturevo.path}" id="pictureDownloadBtn" class="btn btn-primary" role="button">사진 다운로드</a></p>
+                </form>
+              </c:otherwise>
+            </c:choose>
+          </c:if>
+          <form id="register_report_form" action="register_report_form.do">
+            <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
+            <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
+            <p class="text-right"><a id="register_report_formBtn" class="btn btn-primary" role="button">신고/정정 요청</a></p>
+          </form>
         </div>
       
     </div>

@@ -294,15 +294,15 @@ create table mypage(
 	id varchar2(20) not null,
 	pic_date varchar2(7) not null,
 	keyword varchar2(50) not null,
-	reply_date date not null,
-	reply_content clob not null,
-	buy_date date not null,
+	reply_date date null,
+	reply_content clob null,
+	buy_date date null,
 	primary key(id,pic_date, keyword),
 	CONSTRAINT FK_mypage_picture foreign key(pic_date, keyword) references picture(pic_date,keyword),
 	CONSTRAINT fk_mypage_member foreign key(id) references member(id)
 	)
 	select * from mypage;
-	
+	drop table mypage;
 	delete from mypage;
  	 
 insert into mypage values('java','2002-05','월드컵',sysdate,'좋아요',sysdate);
@@ -660,6 +660,8 @@ select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorC
 	
 -- **********마이페이지 buy_date 컬럼 not null 에서 null로 수정***********--
 alter table mypage MODIFY(buy_date date null);
+alter table mypage MODIFY(reply_date date null);
+alter table mypage MODIFY(reply_content clob null);
 		
 
 -- **********TimeMachine Table 추가*********** --

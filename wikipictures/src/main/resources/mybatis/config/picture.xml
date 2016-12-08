@@ -121,13 +121,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 <select id="showSecretreplyList" resultMap="mypageRM" parameterType="map">
-		select id,reply_date,reply_content
+		select s.id,s.reply_date,s.reply_content,p.keyword,p.pic_date
 		from(
-			select row_number() over (order by id desc) as rnum,id,reply_date,reply_content 
+			select row_number() over (order by id desc) as rnum,id,reply_date,reply_content, pic_date, keyword 
 			from mypage
 			where id=#{id}
-		)
-		where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
+		) s, picture p
+		where s.keyword=p.keyword and s.pic_date=p.pic_date and rnum between #{startRowNumber} and #{endRowNumber} order by id desc
 	</select>
 	
 	<select id="secretTotalContentCount" resultType="int">
@@ -135,13 +135,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="showBuyList" resultMap="mypageRM" parameterType="map" >
-		select id, buy_date 
+		select b.id, b.buy_date,p.keyword,p.pic_date
 		from(
-			select row_number() over (order by id desc) as rnum,id,buy_date
+			select row_number() over (order by id desc) as rnum,id,buy_date,pic_date,keyword 
 			from mypage
 			where id=#{id}
-		)
-		where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
+		) b, picture p
+		where b.keyword=p.keyword and b.pic_date=p.pic_date and rnum between #{startRowNumber} and #{endRowNumber} order by id desc
 	</select>
 	
 	<select id="buyTotalContentCount" resultType="int">
@@ -209,7 +209,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		USING DUAL
 		ON(pic_date=#{pictureVO.pictureDate} and keyword=#{pictureVO.keyword} and id=#{memberVO.id})
 		WHEN MATCHED THEN  
-		   update set reply_content=#{replyContent}
+		   update set reply_content=#{replyContent}, reply_date=sysdate
 		WHEN NOT MATCHED THEN
 		  insert(id,pic_date,keyword,reply_date,reply_content) 
 		  values(#{memberVO.id}, #{pictureVO.pictureDate}, #{pictureVO.keyword} ,sysdate ,#{replyContent})

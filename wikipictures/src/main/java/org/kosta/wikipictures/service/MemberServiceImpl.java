@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.kosta.wikipictures.dao.MemberDAO;
 import org.kosta.wikipictures.vo.MemberVO;
+import org.kosta.wikipictures.vo.MypageVO;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -34,6 +35,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void updateMember(MemberVO vo) {
 		memberDAO.updateMember(vo);
+	}
+
+	@Override
+	public void registerBuy(MypageVO mypageVO) {
+		memberDAO.registerBuy(mypageVO);
 	}
 	
 	
