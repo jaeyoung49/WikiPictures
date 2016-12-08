@@ -5,85 +5,90 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
 
-<resultMap type="memberVO" id="memberRM">
+	<resultMap type="memberVO" id="memberRM">
 		<result property="favoriteSpace" column="fav_space" />
 	</resultMap>
- 	<select id="findMemberById" resultType="memberVO">
- 	select * from member	where id=#{value}
- 	</select>
- 	<select id="login" resultMap="memberRM">
- 	select * from member where id=#{id} and password=#{password}
- 	</select>
- 	<select id="idcheck" resultType="int">
-		select count(*) from member where id=#{value}
+	<select id="findMemberById" resultType="memberVO">
+		select * from member where id=#{value}
 	</select>
-		<insert id="registerMember" parameterType="memberVO">
-		insert into member(id,nickname,password,birth,fav_space,enabled)
+	<select id="login" resultMap="memberRM">
+		select * from member where id=#{id} and password=#{password}
+	</select>
+	<select id="idcheck" resultType="int">
+		select count(*) from member
+		where id=#{value}
+	</select>
+	<insert id="registerMember" parameterType="memberVO">
+		insert into
+		member(id,nickname,password,birth,fav_space,enabled)
 		values(#{id},#{nickname},#{password},#{birth},#{favoriteSpace},0)
 	</insert>
- 	
- 	<update id="updateMember" parameterType="memberVO">
-		update member set nickname=#{nickname}, password=#{password},fav_space=#{favoriteSpace}
+
+	<update id="updateMember" parameterType="memberVO">
+		update member set
+		nickname=#{nickname}, password=#{password},fav_space=#{favoriteSpace}
 		where id=#{id}
 	</update>
-	
+
 	<resultMap type="pictureVO" id="pictureRM">
 		<result property="pictureDate" column="pic_date" />
 		<result property="authorComment" column="author_comment" />
 		<result property="pictureSpace" column="pic_space" />
 	</resultMap>
-	
+
 	<select id="mypictures" resultMap="pictureRM" parameterType="pictureVO">
-	select rnum,keyword,path,author_comment,hits,pic_space,id,category from (select row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,id,category
-	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
+		select rnum,keyword,path,author_comment,hits,pic_space,id,category
+		from (select row_number() over(order by keyword desc) as
+		rnum,keyword,path,author_comment,hits,pic_space,id,category
+		from picture) where rnum between #{startRowNumber} and #{endRowNumber}
+		order by keyword desc
 	</select>
-	
+
 	<select id="totalContentCount" resultType="int">
-		select count(*) from picture
+		select count(*) from
+		picture
 	</select>
-	
+
 	<resultMap type="mypageVO" id="mypageRM">
 		<result property="replyDate" column="reply_date" />
 		<result property="replyContent" column="reply_content" />
-		<result property="memberVO.id" column="id"/>
+		<result property="memberVO.id" column="id" />
 	</resultMap>
-	
-	<select id="show_secretreply_list" resultMap="mypageRM" parameterType="mypageVO">
-	select id,reply_date,reply_content from(select row_number() over (order by id desc) as rnum,id,reply_date,reply_content from mypage) 
-	where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
-	</select>
-	
-	<select id="secretTotalContentCount" resultType="int">
-		select count(*) from mypage
-	</select>
-	
-</mapper>
-	
-	
- 	<!-- <select id="getMemberCount" resultType="int">
- 		select count(*) from security_member
- 	</select>
 
+	<select id="show_secretreply_list" resultMap="mypageRM"
+		parameterType="mypageVO">
+		select id,reply_date,reply_content from(select row_number() over (order by
+		id desc) as rnum,id,reply_date,reply_content from mypage)
+		where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
+	</select>
+
+	<select id="secretTotalContentCount" resultType="int">
+		select count(*)
+		from mypage
+	</select>
 	
-	
-	<insert id="registerRole" parameterType="authority">
-		insert into authorities(username,authority) values(#{username},#{authority})
+	<insert id="registerBuy" parameterType="mypageVO">
+		MERGE INTO mypage
+		USING DUAL
+		ON(pic_date=#{pictureVO.pictureDate} and keyword=#{pictureVO.keyword} and id=#{memberVO.id})
+		WHEN MATCHED THEN  
+		   update set buy_date=sysdate
+		WHEN NOT MATCHED THEN
+		  insert(id,pic_date,keyword,buy_date) 
+		  values(#{memberVO.id}, #{pictureVO.pictureDate}, #{pictureVO.keyword} ,sysdate)
 	</insert>
-	Spring Security에서 로그인 인증시 사용 : 
-	      사용가능한(enabled 1) 계정일 경우만 조회. 
-	
-	<select id="findMemberById" resultType="memberVO">
- 		SELECT	id,	password,	name, address, enabled
-		FROM	security_member
-		WHERE 	id=#{value}	
-		AND		enabled=1 		
- 	</select>
-	Spring Security에서 권한 체크를 위해 사용
-	<select id="selectAuthorityByUsername"  resultType="authority">
-		SELECT	username,authority
-		FROM	authorities
-		WHERE	username=#{username}
-	</select> -->
+
+</mapper>
+
+
+<!-- <select id="getMemberCount" resultType="int"> select count(*) from security_member 
+	</select> <insert id="registerRole" parameterType="authority"> insert into 
+	authorities(username,authority) values(#{username},#{authority}) </insert> 
+	Spring Security에서 로그인 인증시 사용 : 사용가능한(enabled 1) 계정일 경우만 조회. <select id="findMemberById" 
+	resultType="memberVO"> SELECT id, password, name, address, enabled FROM security_member 
+	WHERE id=#{value} AND enabled=1 </select> Spring Security에서 권한 체크를 위해 사용 
+	<select id="selectAuthorityByUsername" resultType="authority"> SELECT username,authority 
+	FROM authorities WHERE username=#{username} </select> -->
 
 
 

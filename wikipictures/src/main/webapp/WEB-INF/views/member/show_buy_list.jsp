@@ -25,7 +25,11 @@
           <tbody>
             <tr>
 			<td>${mypageVO.memberVO.id}</td>
-			<td>${mypageVO.buyDate}</td>
+			<td>
+			  <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${mypageVO.pictureVO.pictureDate}&keyword=${mypageVO.pictureVO.keyword}">
+			    ${mypageVO.buyDate}
+			  </a>
+			</td>
             </tr>
         </c:forEach>
         </tbody>

@@ -28,9 +28,9 @@ public class DownloadView extends AbstractView{
  @Override
  protected void renderMergedOutputModel(Map<String, Object> map,
    HttpServletRequest request, HttpServletResponse response) throws Exception {
-  String path=request.getSession().getServletContext().getRealPath("/resources/upload/");
+  String path=request.getSession().getServletContext().getRealPath("/resources/img/");
   String filename=request.getParameter("fileName");
-  request.getSession().getServletContext().getRealPath("/resources/upload/");
+  request.getSession().getServletContext().getRealPath("/resources/img/");
   System.out.println("DownloadView 실행 "+path+filename);
   // 업로드 파일 객체 
   File file=new File(path+filename);

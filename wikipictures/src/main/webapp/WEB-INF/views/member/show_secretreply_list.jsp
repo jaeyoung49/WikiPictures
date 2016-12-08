@@ -22,7 +22,11 @@
             <tr>
               <td>${mypageVO.memberVO.id}</td>
               <td>${mypageVO.replyDate}</td>
-              <td>${mypageVO.replyContent}</td>
+              <td>
+                <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${mypageVO.pictureVO.pictureDate}&keyword=${mypageVO.pictureVO.keyword}">
+                  ${mypageVO.replyContent}
+                </a>
+              </td>
             </tr>
         </c:forEach>
         </tbody>

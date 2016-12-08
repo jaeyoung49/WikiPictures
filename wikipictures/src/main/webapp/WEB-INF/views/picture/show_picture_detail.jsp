@@ -38,6 +38,19 @@
 		});
 		
 		$("#tags").inputTags(); 
+		
+		<%-- 사진구매 --%>
+		$("#buyBtn").click(function(){
+			if(confirm("사진을 구매하시겠습니까?")){
+				$("#registerBuyForm").submit();
+			}
+		});
+		
+		<%-- 사진다운로드 --%>
+		$("#pictureDownloadBtn").click(function(){
+			$("#pictureDownloadForm").submit();
+		});
+		
     }); //ready
   </script>
 
@@ -54,33 +67,68 @@
        <h2> ${requestScope.picturevo.keyword}</h2>
   			<span class="badge">${requestScope.picturevo.pictureDate}</span>
   			<span class="badge">${requestScope.picturevo.pictureSpace}</span>
+  			<br><br>
+          <blockquote>
+  			<p>${requestScope.picturevo.authorComment}</p>
+        <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
+  			<a href="#" id="authorComment" data-toggle="tooltip" data-placement="top"
+  			title="코멘트 수정하기">
+  			<span class="glyphicon glyphicon-edit text-right" aria-hidden="true"></span></a>
+        </c:if>
+		  </blockquote>
        <hr>
-          <p id="authorComment">
-            <h5>${requestScope.picturevo.authorComment}</h5>
-            <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
-              (변경하려면 클릭!)
-            </c:if>
-          </p>
+       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          시크릿 댓글</a>
+          <c:if test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
+          &nbsp;&nbsp;&nbsp;
+        <a href="#" id="secretReply" data-toggle="tooltip" data-placement="top" title="댓글 편집하기">
+        <span class="glyphicon glyphicon-edit text-right" aria-hidden="true"></span>
+        </a>
+        </c:if>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+      <c:choose>
+      <c:when test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
+        ${requestScope.mypageVO.replyContent}
+      </c:when>
+      <c:otherwise>
+      	<a href="#" class="btn btn-default btn-lg btn-block">
+      	댓글이 없군요! 당신만의 추억을 기록해보세요 :)</a>
+      </c:otherwise>
+      </c:choose>
+      </div>
+    </div>
+  </div>
+</div>		
+            
           <div class="form-group">
             <form id="updateAuthorCommentForm" action="updateAuthorComment.do">
               <p>
                 <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
                   <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
                   <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
-                  <input type="text" name="authorComment" value="${requestScope.picturevo.authorComment}">
+                  <input type="text" name="authorComment" value="${requestScope.picturevo.authorComment}" placeholder="원작자 코멘트">
                   <a class="btn btn-primary" id="updateAuthorCommentBtn" role="button">변경</a>
                 </c:if>
               </p>
             </form>
           </div>
-          <c:if test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
+<%--           <c:if test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
             <p id="secretReply">
-              시크릿댓글 : ${requestScope.mypageVO.replyContent }
-                <c:if test="${sessionScope.mvo.id == requestScope.mypageVO.memberVO.id}">
+              시크릿댓글 : ${requestScope.mypageVO.replyContent}
+          		<!-- 시크릿 댓글 있는 수정 -->
+              <c:if test="${sessionScope.mvo.id == requestScope.mypageVO.memberVO.id}">
                   (변경하려면 클릭!)
-                </c:if>
+              </c:if>
             </p>
-          </c:if>
+          </c:if> --%>
+			<!-- 시크릿 댓글 작성 -->
           <c:if test="${sessionScope.mvo.id != null}">
             <div class="form-group">
               <form id="registerSecretReplyForm" action="registerSecretReply.do">
@@ -89,8 +137,8 @@
                   <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
                   <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
                   <c:choose>
-                    <c:when test="${requestScope.mypageVO==null }">
-	                  <input type="text" name="replyContent" value="나만의 새로운 코멘트를 등록해보세요!">
+                    <c:when test="${requestScope.mypageVO==null}">
+	                  <input type="text" name="replyContent" placeholder="시크릿댓글">
 	                </c:when>
 	                <c:otherwise>
 	                  <input type="text" name="replyContent" value="${requestScope.mypageVO.replyContent }">
@@ -121,13 +169,39 @@
              <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
              <div class="btn-group btn-group-justified">
   				<a href="#" class="btn btn-info" id="addhashtag">해시태그추가</a>
-  				<a href="#" class="btn btn-info">원본구매하기</a>
-  				<a href="#" class="btn btn-info">다운로드</a>
+  				<c:if test="${sessionScope.mvo.id != null}">
+  					<c:choose>
+              			<c:when test="${requestScope.mypageVO.buyDate==null && sessionScope.mvo.id != requestScope.picturevo.memberVO.id}">
+  						<a href="#" id="buyBtn" class="btn btn-info">사진구매</a>
+  						</c:when>
+              		<c:otherwise>
+              			<a href="${pageContext.request.contextPath}/fileDownload.do?fileName=${requestScope.picturevo.path}" id="buyBtn" class="btn btn-info">사진다운로드</a>
+	  				</c:otherwise>
+	            	</c:choose>
+	      	    </c:if>
 			    <a href="#" class="btn btn-info" id="register_report_formBtn" role="button"
 			    data-toggle="modal" data-target="#reportModal">신고/정정 요청</a>
 			</div>
+			
+          <c:if test="${sessionScope.mvo.id != null}">
+            <c:choose>
+              <c:when test="${requestScope.mypageVO.buyDate==null && sessionScope.mvo.id != requestScope.picturevo.memberVO.id}">
+                <form id="registerBuyForm" action="registerBuy.do">
+                  <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
+                  <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
+                  <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
+                </form>
+              </c:when>
+              <c:otherwise>
+                <form id="pictureDownloadForm" action="#">
+                  <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
+                  <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
+                  <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
+                </form>
+              </c:otherwise>
+            </c:choose>
+          </c:if>
         </div>
-      
     </div>
 </div>
 </div>
@@ -151,6 +225,10 @@
         end: '#46CFB0'
       }
     });
+    
+    $(function () {
+    	  $('[data-toggle="tooltip"]').tooltip()
+    	})
     </script>
    
  

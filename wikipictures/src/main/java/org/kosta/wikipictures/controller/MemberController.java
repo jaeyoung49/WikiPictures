@@ -1,6 +1,9 @@
 
 package org.kosta.wikipictures.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.kosta.wikipictures.service.MemberService;
 import org.kosta.wikipictures.service.PictureService;
 import org.kosta.wikipictures.vo.MemberVO;
+import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.ReportVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -118,6 +122,24 @@ public class MemberController {
 		HttpSession session = request.getSession(false);
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		return new ModelAndView("member/show_buy_list", "bvo", pictureService.showBuyList(pageNo, mvo));
+	}
+	
+	/**
+	 * 
+	  * <PRE>
+	  * 메소드 설명
+	  * </PRE>
+	  * @date : 2016. 12. 8.
+	  * @author : Jaeyoung
+	  * @param mypageVO
+	  * @return
+	  * @throws UnsupportedEncodingException
+	 */
+	@RequestMapping("registerBuy.do")
+	public String registerBuy(MypageVO mypageVO) throws UnsupportedEncodingException{
+		memberService.registerBuy(mypageVO);
+		String keyword = URLEncoder.encode(mypageVO.getPictureVO().getKeyword(),"UTF-8");
+		return "redirect:searchDetailPicture.do?keyword="+keyword+"&pictureDate="+mypageVO.getPictureVO().getPictureDate();
 	}
 
 }

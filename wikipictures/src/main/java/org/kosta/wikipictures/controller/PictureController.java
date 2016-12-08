@@ -7,6 +7,7 @@ import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -175,10 +176,24 @@ public class PictureController {
 	public ModelAndView searchPicture(HttpServletRequest request, PictureVO pictureVO) {
 		String kw = request.getParameter("keyword");
 		List<PictureVO> searchPicture = pictureService.searchPicture(kw);
-		if (searchPicture.isEmpty()) {
-			return new ModelAndView("picture/search_picture_fail", "searchPicture", searchPicture);
-		} else {
+		List<PictureVO> searchHashtagPicture = pictureService.searchHashtag(kw);
+		/*List<HashtagVO> searchHashtag =pictureService.searchHashtag(kw);
+		request.setAttribute("searchHashtag", searchHashtag);*/
+		if (searchPicture.isEmpty() && searchHashtagPicture.isEmpty()) {
+			return new ModelAndView("picture/search_picture_fail");
+		} else if(searchHashtagPicture.isEmpty()){
+			System.out.println("1"+searchPicture);
 			return new ModelAndView("picture/search_picture_ok", "searchPicture", searchPicture);
+		} else if(searchPicture.isEmpty()){
+			System.out.println("2"+searchHashtagPicture);
+			return new ModelAndView("picture/search_picture_ok", "searchHashtagPicture", searchHashtagPicture);
+		} else {
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("searchPicture", searchPicture);
+			mv.addObject("searchHashtagPicture", searchHashtagPicture);
+			mv.setViewName("picture/search_picture_ok");
+			/*mv.addObject("searchHashtagPicture", searchHashtagPicture);*/
+			return mv;
 		}
 	}
 	
@@ -310,4 +325,13 @@ public class PictureController {
 		String keyword = URLEncoder.encode(mypageVO.getPictureVO().getKeyword(),"UTF-8");
 		return "redirect:searchDetailPicture.do?keyword="+keyword+"&pictureDate="+mypageVO.getPictureVO().getPictureDate();
 	}
+	
+	@RequestMapping("fileDownload.do")
+	public ModelAndView fileDownload(HttpServletRequest request, String fileName){
+		HashMap<String,String> map=new HashMap<String,String>();
+		String downloadPath = request.getSession().getServletContext().getRealPath("/resources/img/");
+		map.put("path", downloadPath);
+		return new ModelAndView("downloadView",map);
+	}
+	
 }

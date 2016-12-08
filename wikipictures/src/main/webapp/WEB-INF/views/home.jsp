@@ -114,7 +114,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do" style="font-size: 2em;">Wiki Pictures #${timeMachineVO.timeMachineYear }</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do" style="font-size: 2em;">
+        Wiki Pictures <small>#${timeMachineVO.timeMachineYear}</small></a>
       </div>
       <!-- NAVBAR Button -->
       <c:choose>
