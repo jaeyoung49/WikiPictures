@@ -44,6 +44,10 @@ public class PictureDAOImpl implements PictureDAO {
 	public List<PictureVO> searchPicture(String keyword){
 		return template.selectList("picture.searchPicture",keyword);
 	}
+	
+	public List<PictureVO> searchHashtag(String keyword){
+		return template.selectList("picture.searchHashtag", keyword);
+	}
 	@Override
 	public PictureVO picture(PictureVO pictureVO){
 		return template.selectOne("picture.picture",pictureVO);
