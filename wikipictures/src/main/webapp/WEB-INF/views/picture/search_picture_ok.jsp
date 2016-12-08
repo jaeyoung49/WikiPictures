@@ -16,10 +16,11 @@
         <ul class="row first">
                <c:forEach items="${requestScope.searchPicture}" var ="pictureVO">
             <li>
-		<img alt="${pictureVO.authorComment}" src="${pageContext.request.contextPath}/resources/img/${pictureVO.path}">
            <div class="thumbnail">
+		<img alt="${pictureVO.authorComment}" src="${pageContext.request.contextPath}/resources/img/${pictureVO.path}">
+		<div class="text"><a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a></div>
            <div>${pictureVO.pictureDate}</div>
-           <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a>
+       		<div>${pictureVO.authorComment}</div>	
            </div>
            </li>
         </c:forEach>
