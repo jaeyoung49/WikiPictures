@@ -8,6 +8,7 @@ $(document).ready(function() {
   });
 });
 </script>
+<!--  -->
 <div style="width:300px; height:auto; margin:0 auto; border:1px solid white;">
 <img src="${pageContext.request.contextPath}/resources/img/${requestScope.picturevo.path}" style="max-width: =200px; height: 200px;">
 <div class="caption">
