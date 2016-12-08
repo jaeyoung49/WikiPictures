@@ -12,23 +12,6 @@
     </script>
  
   <div class="container" style="margin-top: 20px;">
-  <%-- <c:choose>
-  <c:when test="${empty requestScope.searchHashtagPicture}">
-  
-  	<legend>키워드 : ${pictureVO.keyword}</legend>
-        <ul class="row first">
-               <c:forEach items="${requestScope.searchPicture}" var ="pictureVO">
-            <li>
-		<img alt="${pictureVO.authorComment}" src="${pageContext.request.contextPath}/resources/img/${pictureVO.path}">
-           <div class="thumbnail">
-           <div>${pictureVO.pictureDate}</div>
-           <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a>
-           </div>
-           </li>
-        </c:forEach>
-           </ul>
-           </c:when>
-           <c:otherwise> --%>
            <legend>키워드 : ${pictureVO.keyword}</legend>
         <ul class="row first">
                <c:forEach items="${requestScope.searchPicture}" var ="pictureVO">
@@ -54,6 +37,5 @@
            </li>
         </c:forEach>
            </ul>
-          <%--  </c:otherwise>
-           </c:choose> --%>
   </div>
+        
