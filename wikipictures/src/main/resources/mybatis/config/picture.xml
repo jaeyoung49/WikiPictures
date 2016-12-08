@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and p.pic_date=h.pic_date
 		and h.keyword like '%'||#{value}||'%' -->
 	<select id="searchPicture" resultType="pictureVO">
-		 select pic_date as pictureDate, keyword, path, author_comment as authorComment, hits,
+		 select pic_date as pictureDate, keyword, path, hits,
 		 pic_space as pictureSpace, id, category from picture
 		where keyword like '%'||#{value}||'%'
 	</select>
@@ -95,10 +95,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		and p.keyword=h.keyword
 	</select>
 	
-	<select id="hashtagName" resultType="hashtagVO">
-		select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
+	<select id="searchHashtag" resultType="pictureVO">
+		select p.pic_date as pictureDate, p.keyword, p.path, p.hits,
 		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName from picture p, hashtag h
-		where p.keyword=#{hashtagName}
+		where h.hashtag_name like '%'||#{value}||'%'
 		and p.pic_date=h.pic_date
 		and p.keyword=h.keyword
 	</select>

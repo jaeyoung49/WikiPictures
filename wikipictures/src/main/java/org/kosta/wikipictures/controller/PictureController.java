@@ -176,10 +176,24 @@ public class PictureController {
 	public ModelAndView searchPicture(HttpServletRequest request, PictureVO pictureVO) {
 		String kw = request.getParameter("keyword");
 		List<PictureVO> searchPicture = pictureService.searchPicture(kw);
-		if (searchPicture.isEmpty()) {
+		List<PictureVO> searchHashtagPicture = pictureService.searchHashtag(kw);
+		/*List<HashtagVO> searchHashtag =pictureService.searchHashtag(kw);
+		request.setAttribute("searchHashtag", searchHashtag);*/
+		if (searchPicture.isEmpty() && searchHashtagPicture.isEmpty()) {
 			return new ModelAndView("picture/search_picture_fail");
-		} else {
+		} else if(searchHashtagPicture.isEmpty()){
+			System.out.println("1"+searchPicture);
 			return new ModelAndView("picture/search_picture_ok", "searchPicture", searchPicture);
+		} else if(searchPicture.isEmpty()){
+			System.out.println("2"+searchHashtagPicture);
+			return new ModelAndView("picture/search_picture_ok", "searchHashtagPicture", searchHashtagPicture);
+		} else {
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("searchPicture", searchPicture);
+			mv.addObject("searchHashtagPicture", searchHashtagPicture);
+			mv.setViewName("picture/search_picture_ok");
+			/*mv.addObject("searchHashtagPicture", searchHashtagPicture);*/
+			return mv;
 		}
 	}
 	

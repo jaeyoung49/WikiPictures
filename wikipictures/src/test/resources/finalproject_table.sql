@@ -1267,3 +1267,27 @@ insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT,
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2014', '언제쯤이면 안전불감증에서 벗어날까', '세월호 침몰', '세월호');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2015', '누구를 위한 역사인가', '역사교과서 국정화 반대시위', '역사교과서국정화반대시위');
 insert into timemachine(TIMEMACHINE_YEAR, TIMEMACHINE_TILE, TIMEMACHINE_CONTENT, TiMEMACHINE_KEYWORD) values ('2016', '우리는 꼭두각시를 대통령으로 하지 않았다', '박근혜 대통령 퇴진시위', '박근혜대통령퇴진시위');
+
+
+select p.pic_date as pictureDate, p.keyword, p.path, p.author_comment as authorComment, p.hits,
+		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName from picture p, hashtag h
+		where h.hashtag_name like '%올림픽%'
+		and p.pic_date=h.pic_date
+		and p.keyword=h.keyword
+		
+		select * from hashtag
+		where hashtag_name like '%확산%'
+		
+		
+		select * from picture
+		where keyword like '%싸이%'
+		
+		select * from HASHTAG
+		where hashtag_name like  '%싸이%'
+		
+				select p.pic_date as pictureDate, p.keyword, p.path, p.hits,
+		 p.pic_space as pictureSpace, p.id, p.category, h.hashtag_name as hashtagName from picture p, hashtag h
+		where h.hashtag_name like '%올림픽%'
+		and p.pic_date=h.pic_date
+		and p.keyword=h.keyword
+		and 

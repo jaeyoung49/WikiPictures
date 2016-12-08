@@ -37,6 +37,10 @@ public class PictureServiceImpl implements PictureService {
 		return pictureDAO.searchPicture(keyword);
 	}
 	
+	public List<PictureVO> searchHashtag(String keyword){
+		return pictureDAO.searchHashtag(keyword);
+	}
+	
 	@Override
 	public PictureVO picture(PictureVO pictureVO){
 		return pictureDAO.picture(pictureVO);
