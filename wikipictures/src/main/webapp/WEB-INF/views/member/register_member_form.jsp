@@ -74,7 +74,8 @@
               <input type="text" name="nickname" class="form-control" placeholder="닉네임" required>
             </div>
         	<div class="form-group">
-          		<input class="form-control" id="date" name="birth" placeholder="년-월-일" type="text" required>
+        	    <input class="form-control" type="text" data-format="Y-m-d" data-lang="ko" 
+    			id="date" name="birth" required>
         	</div>
             <div class="form-group">
               <label class="sr-only">선호장소</label>
@@ -86,3 +87,9 @@
             </div>
           </form>
     </div>
+	<script>
+	$(document).ready(function() {
+	// 날짜 선택 Controll
+	  $('#date').dateDropper();
+	});
+</script>

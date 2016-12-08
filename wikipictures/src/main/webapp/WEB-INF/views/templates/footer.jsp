@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<footer class="footer">
-  <div class="container" style="margin-top: 100px;">
+<footer class="footer navbar-fixed-bottom">
+  <div class="container">
     <hr>
     <p class="pull-right"><a href="#top">맨위로</a></p>
     <p>© 2016 Six-Men studios. ·

@@ -2,9 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Attribute START ================================================== -->
 <c:set var="timeMachineYearList" value="${requestScope.timeMachineYearList}"/>
-<c:set var="timeMachineVO" value="${requestScope.timeMachineVO }"/>
-<c:set var="accidentPictureList" value="${requestScope.accidentPictureList }"/>
-<c:set var="personAndLocationPictureList" value="${requestScope.personAndLocationPictureList }"/>
+<c:set var="timeMachineVO" value="${requestScope.timeMachineVO}"/>
+<c:set var="accidentPictureList" value="${requestScope.accidentPictureList}"/>
+<c:set var="personAndLocationPictureList" value="${requestScope.personAndLocationPictureList}"/>
 <!-- Attribute END ================================================== -->
 <!DOCTYPE html>
 <html>
@@ -27,13 +27,15 @@
   <link href="${pageContext.request.contextPath}/resources/css/jquery.carousel.fullscreen.css" rel="stylesheet">
   <!-- PagePiling css -->
   <link href="${pageContext.request.contextPath}/resources/css/jquery.pagepiling.css" rel="stylesheet">
+  <!-- 달력 css -->
+  <link href="${pageContext.request.contextPath}/resources/css/datedropper.min.css" rel="stylesheet">
   <!-- jQuery v1.12.4 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
   <!-- google api jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <!-- Pagepiling js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.pagepiling.min.js"></script>
-  
+  	  
   <script>
   // pagepiling Controll
   var deleteLog = false;
@@ -116,7 +118,7 @@
       </div>
       <!-- NAVBAR Button -->
       <c:choose>
-      <c:when test="${sessionScope.mvo==null }">
+      <c:when test="${sessionScope.mvo==null}">
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav pull-right">
       <li class="dropdown-toggle">
@@ -185,7 +187,7 @@
       </div>
        
         </c:when>
-        <c:when test="${sessionScope.mvo.id=='admin' }">
+        <c:when test="${sessionScope.mvo.id=='admin'}">
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          
         <ul class="nav navbar-nav pull-right">
@@ -385,12 +387,14 @@
     </div>
   <!-- MAIN END ================================================== -->
 
+  <c:if test="${sessionScope.mvo==null}">
   <!-- Register Form Modal START ================================================== -->
   <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true" style="background-color: rgba(255, 255, 255, 0.3);">
   	<c:import url ="member/register_member_form.jsp"/>
   </div>
   <!-- Register Form Modal END ================================================== -->
+  </c:if>
   
   <!-- 부트스트랩 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
@@ -402,12 +406,8 @@
   <script src="${pageContext.request.contextPath}/resources/js/diacritics.js"></script>
   <!-- 타임머신 검색 필터 -->
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap-dropdown-filter.js"></script>
-  <!-- Datepicker Controll js -->
-  <script src="${pageContext.request.contextPath}/resources/js/datepicker.js"></script>
-  <!-- Datepicker 달력 js -->
-  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.min.js"></script>
-  <!-- Datepicker 달력 한글화 js -->
-  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.kr.min.js"></script>
+  <!-- 달력 js -->
+  <script src="${pageContext.request.contextPath}/resources/js/datedropper.min.js"></script>
 </body>
 
 </html>

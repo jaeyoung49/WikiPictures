@@ -75,8 +75,6 @@ a.bsp-controls:hover {
   margin-bottom: 0px;
   padding: 0 12px 5px;
 } 
- 
-
 @media screen and (max-width: 380px){
    .col-xxs-12 {
      width:100%;
@@ -84,4 +82,7 @@ a.bsp-controls:hover {
    .col-xxs-12 img {
      width:100%;
    }
+}
+li{
+  list-style-type: none;
 }

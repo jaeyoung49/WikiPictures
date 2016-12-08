@@ -4382,6 +4382,7 @@ tbody.collapse.in {
 .navbar-fixed-bottom .dropdown .caret {
     content: "";
     border-top: 0;
+    margin-top : 10px; /* 수정 */
     border-bottom: 4px dashed;
     border-bottom: 4px solid\9
 }
@@ -4391,6 +4392,7 @@ tbody.collapse.in {
     top: auto;
     bottom: 100%;
     margin-bottom: 2px
+    margin-top : 10px; /* 수정 */
 }
 
 @media (min-width:768px) {
@@ -5114,7 +5116,13 @@ textarea.input-group-sm>.input-group-btn>.btn {
     }
 }
 
-.navbar-fixed-bottom,
+.navbar-fixed-bottom{
+	/* 수정 */
+	position: fixed;
+    right: 0;
+    left: 0;
+    z-index: -1; /* 수정 z-index: 1030 */
+}
 .navbar-fixed-top {
     position: fixed;
     right: 0;

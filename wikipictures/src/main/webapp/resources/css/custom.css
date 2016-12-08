@@ -186,3 +186,7 @@
 		border-top: 0 none;
 	}
 }
+
+#tagcloud a {
+	text-decoration: none;
+}

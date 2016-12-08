@@ -2,22 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>   
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Six-Men studios">
-  <title>Wiki Pictures</title>
-  <!-- Bootstrap core CSS -->
-  <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-  <link href="${pageContext.request.contextPath}/resources/css/inputTags.min.css" rel="stylesheet">
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-  <script src="${pageContext.request.contextPath}/resources/js/ie-emulation-modes-warning.js"></script>
-  <!-- jQuery -->
-  <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
-  <script src="${pageContext.request.contextPath}/resources/js/inputTags.jquery.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
     	<%-- 해쉬태그 추가 --%>
@@ -57,27 +41,19 @@
     }); //ready
   </script>
 
-   <style>
-  .hashTag {
-    margin: auto;
-  }
-  
-  .hashTag a {
-    text-decoration: none;
-  }
-  </style>
+
 </head>
     <!-- /#sidebar-wrapper -->
-   
-  <div class="row">
-    <div class="container">
-      <div class="thumbnail"> 
-        <img src="${pageContext.request.contextPath}/resources/img/${requestScope.picturevo.path}"
-         >
+ <div class="container" style="margin-top:20px;">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="thumbnail">
+          <img src="${pageContext.request.contextPath}/resources/img/${requestScope.picturevo.path}">
+        </div>
         <div class="caption">
-          <h3>제목 : ${requestScope.picturevo.keyword}</h3>
+       <h2> ${requestScope.picturevo.keyword}</h2><hr>
           <p id="authorComment">
-            내용 : ${requestScope.picturevo.authorComment}
+            <h5>${requestScope.picturevo.authorComment}</h5>
             <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
               (변경하려면 클릭!)
             </c:if>
@@ -130,7 +106,7 @@
           </div>
           해시태그
           <div class="form-group">
-            <div id="tagcloud" class="hashTag">
+            <div id="tagcloud">
               <!-- rel은 글씨 크기를 좌우한다 -->
               <c:forEach items="${requestScope.pvo}" var="pvo">
             <a href="${pageContext.request.contextPath}/searchPicture.do?keyword=${pvo.hashtagName}" rel="${pvo.hashtagCount}">#${pvo.hashtagName}</a>
@@ -155,16 +131,17 @@
          <p class="text-right"><a id="register_report_formBtn" class="btn btn-primary" role="button">신고/정정 요청</a></p>
         </form>
         </div>
-      </div>
+      
     </div>
-  </div>
-
-   <script src="${pageContext.request.contextPath}/resources/js/jquery.tagcloud.js"></script>
+</div>
+</div>
+  <!-- TagCloud!! -->
+  <script src="${pageContext.request.contextPath}/resources/js/jquery.tagcloud.js"></script>
     <script>
     $("#tagcloud a").tagcloud({
       size: {
-        start: 12,
-        end: 36,
+        start: 20,
+        end: 50,
         unit: "px"
       },
       color: {
@@ -173,19 +150,5 @@
       }
     });
     </script>
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36251023-1']);
-    _gaq.push(['_setDomainName', 'jqueryscript.net']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script');
-      ga.type = 'text/javascript';
-      ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
+   
  
