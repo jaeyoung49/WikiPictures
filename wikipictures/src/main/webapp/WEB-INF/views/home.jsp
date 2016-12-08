@@ -27,13 +27,15 @@
   <link href="${pageContext.request.contextPath}/resources/css/jquery.carousel.fullscreen.css" rel="stylesheet">
   <!-- PagePiling css -->
   <link href="${pageContext.request.contextPath}/resources/css/jquery.pagepiling.css" rel="stylesheet">
+  <!-- 달력 css -->
+  <link href="${pageContext.request.contextPath}/resources/css/datedropper.min.css" rel="stylesheet">
   <!-- jQuery v1.12.4 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
   <!-- google api jQuery -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <!-- Pagepiling js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.pagepiling.min.js"></script>
-  
+  	  
   <script>
   // pagepiling Controll
   var deleteLog = false;
@@ -404,12 +406,8 @@
   <script src="${pageContext.request.contextPath}/resources/js/diacritics.js"></script>
   <!-- 타임머신 검색 필터 -->
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap-dropdown-filter.js"></script>
-  <!-- Datepicker Controll js -->
-  <script src="${pageContext.request.contextPath}/resources/js/datepicker.js"></script>
-  <!-- Datepicker 달력 js -->
-  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.min.js"></script>
-  <!-- Datepicker 달력 한글화 js -->
-  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-datepicker.kr.min.js"></script>
+  <!-- 달력 js -->
+  <script src="${pageContext.request.contextPath}/resources/js/datedropper.min.js"></script>
 </body>
 
 </html>

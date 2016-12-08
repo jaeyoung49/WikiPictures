@@ -12,8 +12,8 @@
   <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
   <!-- 해시태그 입력 css -->
   <link href="${pageContext.request.contextPath}/resources/css/inputTags.min.css" rel="stylesheet">
-  <!-- Datepicker css -->
-  <link href="${pageContext.request.contextPath}/resources/css/bootstrap-datepicker.css" rel="stylesheet">
+  <!-- 달력 css -->
+  <link href="${pageContext.request.contextPath}/resources/css/datedropper.min.css" rel="stylesheet">
   <!-- Window8 & IE10 버그 해결 css -->
   <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
   <!-- Photo Gallery css -->
@@ -22,8 +22,6 @@
   <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet">
   <!-- jQuery v1.12.4 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
-  <!-- File 첨부 js -->
-  <script src="${pageContext.request.contextPath}/resources/js/bootstrap-filestyle.min.js"></script>
   <!-- 해시태그 입력 js -->
   <script src="${pageContext.request.contextPath}/resources/js/inputTags.jquery.min.js"></script>
   <!-- Photo Gallery js -->

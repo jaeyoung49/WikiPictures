@@ -10,22 +10,18 @@
         });
       });
     </script>
-
  
-  <div style="margin-bottom: 20px;">
-  </div>
- 
+  <div class="container" style="margin-top: 20px;">
+  	<legend>${pictureVO.keyword}</legend>
         <ul class="row first">
-               <c:forEach items="${requestScope.searchPicture }" var ="pictureVO">
+               <c:forEach items="${requestScope.searchPicture}" var ="pictureVO">
             <li>
-<%-- <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}"> --%>
-<img alt="" src="${pageContext.request.contextPath}/resources/img/${pictureVO.path}">
-    <!-- </a> -->
-                    <div class="text"><h3><a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">${pictureVO.keyword }</a></h3></div>
-           </li> 
+		<img alt="${pictureVO.authorComment}" src="${pageContext.request.contextPath}/resources/img/${pictureVO.path}">
+           <div class="thumbnail">
+           <div>${pictureVO.pictureDate}</div>
+           <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a>
+           </div>
+           </li>
         </c:forEach>
-        <!-- <li>
-                <img alt="키워드"  src="resources/img/2.jpg">
-                <div class="text"><a href="http://www.naver.com">링크</a></div>
-            </li> -->
-  </ul>
+           </ul>
+  </div>

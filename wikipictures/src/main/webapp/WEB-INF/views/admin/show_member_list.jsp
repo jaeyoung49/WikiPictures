@@ -6,7 +6,7 @@
   <li role="presentation"><a href="${pageContext.request.contextPath}/show_report_list.do">신고리스트</a></li>
   <li role="presentation"><a href="${pageContext.request.contextPath}/show_sell_list.do">판매리스트</a></li>
   <li role="presentation"><a href="${pageContext.request.contextPath}/show_picture_list.do">사진리스트</a></li>
-  <li role="presentation"><a href="${pageContext.request.contextPath}/admin/register_ad_form.do">광고</a></li>
+  <li role="presentation"><a href="${pageContext.request.contextPath}/admin/register_ad_form.do">광고등록</a></li>
 </ul>
 <div class="container">
 <div class="panel panel-default panel-table">
