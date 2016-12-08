@@ -17,9 +17,11 @@
                <c:forEach items="${requestScope.searchPicture}" var ="pictureVO">
             <li>
            <div class="thumbnail">
-			<img alt="${pictureVO.authorComment}" src="${pageContext.request.contextPath}/resources/img/${pictureVO.path}">
-           <div class="text"><div>${pictureVO.pictureDate}</div>
-           <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a>
+
+		<img alt="${pictureVO.authorComment}" src="${pageContext.request.contextPath}/resources/img/${pictureVO.path}">
+		<div class="text"><a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a></div>
+           <div>${pictureVO.pictureDate}</div>
+       		<div>${pictureVO.authorComment}</div>	
            </div>
            
         
