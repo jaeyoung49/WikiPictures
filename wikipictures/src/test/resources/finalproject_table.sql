@@ -296,7 +296,7 @@ create table mypage(
 	keyword varchar2(50) not null,
 	reply_date date null,
 	reply_content clob null,
-	buy_date date null,
+	buy_date date ,
 	primary key(id,pic_date, keyword),
 	CONSTRAINT FK_mypage_picture foreign key(pic_date, keyword) references picture(pic_date,keyword),
 	CONSTRAINT fk_mypage_member foreign key(id) references member(id)

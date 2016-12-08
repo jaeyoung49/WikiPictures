@@ -19,7 +19,11 @@
 		<img alt="${pictureVO.authorComment}" src="${pageContext.request.contextPath}/resources/img/${pictureVO.path}">
            <div class="thumbnail">
            <div>${pictureVO.pictureDate}</div>
-           <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a>
+          <div class="text"> 
+          <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a>
+			</div>
+           <div>${pictureVO.pictureDate}</div>
+          <div>${pictureVO.keyword }</div>
            </div>
            </li>
         </c:forEach>
@@ -32,10 +36,15 @@
 		<img alt="${pictureVO.authorComment}" src="${pageContext.request.contextPath}/resources/img/${pictureVO.path}">
            <div class="thumbnail">
            <div>${pictureVO.pictureDate}</div>
+            <div class="text"> 
            <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a>
+       </div>
+          <div>${pictureVO.pictureDate}</div>
+          <div>${pictureVO.keyword }</div>
            </div>
            </li>
         </c:forEach>
+ 
            </ul>
   </div>
         
