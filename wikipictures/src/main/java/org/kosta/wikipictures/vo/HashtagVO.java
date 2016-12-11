@@ -4,7 +4,7 @@ public class HashtagVO {
 	private PictureVO pictureVO;
 	private String hashtagName;
 	private int hashtagCount;
-	
+
 	public HashtagVO() {
 		super();
 	}
@@ -50,7 +50,5 @@ public class HashtagVO {
 		return "HashtagVO [pictureVO=" + pictureVO + ", hashtagName=" + hashtagName + ", hashtagCount=" + hashtagCount
 				+ "]";
 	}
-	
-	
-	
+
 }

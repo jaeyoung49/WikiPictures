@@ -21,19 +21,20 @@ public class PictureDAOImpl implements PictureDAO {
 
 	@Override
 	public void registerHashtag(List<HashtagVO> hashtagList) {
-		/*System.out.println(hashtagList);*/
+		/* System.out.println(hashtagList); */
 		for (HashtagVO hvo : hashtagList)
 			template.insert("picture.registerHashtag", hvo);
 	}
+
 	@Override
-	public void addHashtag(HashtagVO hashtagVO){
-		template.insert("picture.addHashtag",hashtagVO);
+	public void addHashtag(HashtagVO hashtagVO) {
+		template.insert("picture.addHashtag", hashtagVO);
 	}
+
 	@Override
 	public void registerPicture(PictureVO pictureVO) {
 		template.insert("picture.registerPicture", pictureVO);
 	}
-
 
 	@Override
 	public List<PictureVO> getPictures() {
@@ -41,20 +42,22 @@ public class PictureDAOImpl implements PictureDAO {
 	}
 
 	@Override
-	public List<PictureVO> searchPicture(String keyword){
-		return template.selectList("picture.searchPicture",keyword);
+	public List<PictureVO> searchPicture(String keyword) {
+		return template.selectList("picture.searchPicture", keyword);
 	}
-	
-	public List<PictureVO> searchHashtag(String keyword){
+
+	public List<PictureVO> searchHashtag(String keyword) {
 		return template.selectList("picture.searchHashtag", keyword);
 	}
+
 	@Override
-	public PictureVO picture(PictureVO pictureVO){
-		return template.selectOne("picture.picture",pictureVO);
+	public PictureVO picture(PictureVO pictureVO) {
+		return template.selectOne("picture.picture", pictureVO);
 	}
+
 	@Override
-	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO){
-		return template.selectList("picture.searchDetailPicture",hashtagVO);
+	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO) {
+		return template.selectList("picture.searchDetailPicture", hashtagVO);
 	}
 
 	@Override
@@ -71,11 +74,12 @@ public class PictureDAOImpl implements PictureDAO {
 	public List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear) {
 		return template.selectList("picture.getPersonAndLocationPictureList", timeMachineYear);
 	}
-	
+
 	@Override
 	public List<PictureVO> showMypictureList(HashMap<String, String> paramMap) {
 		return template.selectList("picture.showMypictureList", paramMap);
 	}
+
 	@Override
 	public int totalContentCount(String string) {
 		return template.selectOne("picture.totalContentCount", string);
@@ -100,25 +104,29 @@ public class PictureDAOImpl implements PictureDAO {
 	public int buyTotalContentCount(String string) {
 		return template.selectOne("picture.buyTotalContentCount", string);
 	}
+
 	@Override
 	public void updateAuthorComment(PictureVO pictureVO) {
 		template.update("picture.updateAuthorComment", pictureVO);
 	}
+
 	@Override
 	public MypageVO getMypageVO(MypageVO mypageVO) {
 		return template.selectOne("picture.getMypageVO", mypageVO);
 	}
+
 	@Override
 	public void registerSecretReply(MypageVO mypageVO) {
 		template.insert("picture.registerSecretReply", mypageVO);
 	}
-	
+
 	@Override
 	public PictureVO reportForm(PictureVO pictureVO) {
-		return template.selectOne("picture.reportForm",pictureVO);
+		return template.selectOne("picture.reportForm", pictureVO);
 	}
+
 	@Override
 	public int report(ReportVO rvo) {
-		return template.insert("picture.report",rvo);
+		return template.insert("picture.report", rvo);
 	}
 }

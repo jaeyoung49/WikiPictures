@@ -12,7 +12,6 @@ import org.kosta.wikipictures.service.MemberService;
 import org.kosta.wikipictures.service.PictureService;
 import org.kosta.wikipictures.vo.MemberVO;
 import org.kosta.wikipictures.vo.MypageVO;
-import org.kosta.wikipictures.vo.ReportVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,11 +67,12 @@ public class MemberController {
 	public String introduce() {
 		return "company_introduce";
 	}
+
 	@RequestMapping("tos.do")
-	public String tos(){
+	public String tos() {
 		return "tos";
 	}
-	
+
 	@RequestMapping("idcheckAjax.do")
 	@ResponseBody
 	public String idcheckAjax(String id) {
@@ -123,23 +123,25 @@ public class MemberController {
 		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
 		return new ModelAndView("member/show_buy_list", "bvo", pictureService.showBuyList(pageNo, mvo));
 	}
-	
+
 	/**
 	 * 
-	  * <PRE>
-	  * 메소드 설명
-	  * </PRE>
-	  * @date : 2016. 12. 8.
-	  * @author : Jaeyoung
-	  * @param mypageVO
-	  * @return
-	  * @throws UnsupportedEncodingException
+	 * <PRE>
+	 * 메소드 설명
+	 * </PRE>
+	 * 
+	 * @date : 2016. 12. 8.
+	 * @author : Jaeyoung
+	 * @param mypageVO
+	 * @return
+	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping("registerBuy.do")
-	public String registerBuy(MypageVO mypageVO) throws UnsupportedEncodingException{
+	public String registerBuy(MypageVO mypageVO) throws UnsupportedEncodingException {
 		memberService.registerBuy(mypageVO);
-		String keyword = URLEncoder.encode(mypageVO.getPictureVO().getKeyword(),"UTF-8");
-		return "redirect:searchDetailPicture.do?keyword="+keyword+"&pictureDate="+mypageVO.getPictureVO().getPictureDate();
+		String keyword = URLEncoder.encode(mypageVO.getPictureVO().getKeyword(), "UTF-8");
+		return "redirect:searchDetailPicture.do?keyword=" + keyword + "&pictureDate="
+				+ mypageVO.getPictureVO().getPictureDate();
 	}
 
 }

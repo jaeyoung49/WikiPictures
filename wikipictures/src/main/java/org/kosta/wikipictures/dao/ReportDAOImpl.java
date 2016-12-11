@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ReportDAOImpl implements ReportDAO {
-	@Resource(name="sqlSessionTemplate")
+	@Resource(name = "sqlSessionTemplate")
 	private SqlSessionTemplate template;
-	
-}
 
+}

@@ -4,66 +4,120 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin">
-<resultMap type="memberVO" id="memberRM">
+	<resultMap type="memberVO" id="memberRM">
 		<result property="favoriteSpace" column="fav_space" />
 	</resultMap>
 	<resultMap type="reportVO" id="reportRM">
-	<result property="reportNo" column="report_no"/>
-	<result property="reportType" column="report_type"/>
-	<result property="reportContent" column="report_content"/>
-	<result property="reportDate" column="report_date"/>
-	<result property="pictureVO.keyword" column="keyword"/>
-	<result property="pictureVO.pictureDate" column="pic_date"/>
+		<result property="reportNo" column="report_no" />
+		<result property="reportType" column="report_type" />
+		<result property="reportContent" column="report_content" />
+		<result property="reportDate" column="report_date" />
+		<result property="pictureVO.keyword" column="keyword" />
+		<result property="pictureVO.pictureDate" column="pic_date" />
 	</resultMap>
 	<resultMap type="pictureVO" id="pictureRM">
-	<result property="pictureDate" column="pic_date"/>
-	<result property="authorComment" column="author_commnet"/>
-	<result property="pictureSpace" column="pic_space"/>
-	<result property="memberVO.id" column="id"/>
-	<result property="rowNumber" column="rnum"/>
+		<result property="pictureDate" column="pic_date" />
+		<result property="authorComment" column="author_commnet" />
+		<result property="pictureSpace" column="pic_space" />
+		<result property="memberVO.id" column="id" />
+		<result property="rowNumber" column="rnum" />
 	</resultMap>
 	<resultMap type="mypageVO" id="mypageRM">
-	<result property="pictureVO.pictureDate" column="pic_date"/>
-	<result property="memberVO.id" column="id"/>
-	<result property="pictureVO.keyword" column="keyword"/>
-	<result property="replyDate" column="reply_date"/>
-	<result property="replyContent" column="reply_content"/>
-	<result property="buyDate" column="buy_date"/>
-	<result property="rowNumber" column="rnum"/>
+		<result property="pictureVO.pictureDate" column="pic_date" />
+		<result property="memberVO.id" column="id" />
+		<result property="pictureVO.keyword" column="keyword" />
+		<result property="replyDate" column="reply_date" />
+		<result property="replyContent" column="reply_content" />
+		<result property="buyDate" column="buy_date" />
+		<result property="rowNumber" column="rnum" />
 	</resultMap>
- 	 	<select id="memberlist" resultType="java.util.HashMap" >
- 	select rnum, id, nickname, password, birth, fav_space from
- 	 (select row_number() over(order by id desc) as rnum,id,nickname, password,
- 	to_char(birth, 'yyyy.mm.dd')as birth, fav_space
- 	 from member) where rnum between  #{startRowNumber} and #{endRowNumber}
- 	</select> 
- 	<select id="reportlist" resultMap="reportRM" resultType="reportVO">
-	select rnum, report_no, pic_date,report_type, report_content, keyword, report_date from
- 	 (select report_no,row_number() over(order by report_no desc) as rnum,pic_date,
- 	 report_type,report_content, keyword , report_date
- 	 from report) where rnum between  #{startRowNumber} and  #{endRowNumber} order by rnum desc
- 	</select>
- 	<select id="picturelist" resultMap="pictureRM" resultType="pictureVO">
-	select id,pic_date,rnum,keyword,path,author_comment,hits,pic_space,category from 
-	(select id, pic_date,row_number() over(order by keyword desc) as rnum,keyword,path,author_comment,hits,pic_space,category
-	from picture) where rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc
+	<select id="memberlist" resultType="java.util.HashMap">
+		SELECT rnum
+		, id
+		, nickname
+		, password
+		, birth
+		, fav_space
+		FROM
+		(SELECT row_number() OVER(order by id desc)
+		AS rnum
+		, id
+		, nickname
+		, password
+		, TO_CHAR(birth, 'yyyy.mm.dd')
+		AS birth
+		, fav_space
+		FROM member)
+		WHERE
+		rnum 
+		BETWEEN 
+		#{startRowNumber} AND #{endRowNumber}
+	</select>
+	<select id="reportlist" resultMap="reportRM" resultType="reportVO">
+		SELECT rnum
+		, report_no
+		, pic_date
+		, report_type
+		, report_content
+		, keyword
+		, report_date 
+		FROM
+		(SELECT report_no,row_number() OVER(order by report_no desc)
+		AS rnum
+		, pic_date
+		, report_type
+		, report_content
+		, keyword
+		, report_date
+		FROM report)
+		 WHERE rnum
+		 BETWEEN #{startRowNumber} AND #{endRowNumber}
+		ORDER BY rnum DESC
+	</select>
+	<select id="picturelist" resultMap="pictureRM" resultType="pictureVO">
+		SELECT
+		id
+		,pic_date
+		,rnum
+		,keyword
+		,path
+		,author_comment
+		,hits
+		,pic_space
+		,category
+		FROM
+		(SELECT id, pic_date, row_number() OVER(order by keyword desc) AS
+		rnum,keyword,path,author_comment,hits,pic_space,category
+		FROM picture)
+		WHERE rnum BETWEEN #{startRowNumber} AND #{endRowNumber}
+		ORDER BY
+		keyword DESC
 	</select>
 	<select id="selllist" resultMap="mypageRM">
-	 select rnum,id, pic_date, keyword, reply_date, reply_content, buy_date from
- 	 (select row_number() over(order by id desc) as rnum,id,pic_date,
- 	 keyword,reply_date,reply_content, buy_date
- 	 from mypage) where rnum between  #{startRowNumber} and  #{endRowNumber} order by rnum desc
+		SELECT rnum
+		, id
+		, pic_date
+		, keyword
+		, reply_date
+		, reply_content
+		, buy_date
+		FROM (SELECT row_number() OVER(order by id desc)
+		AS rnum, id, pic_date, keyword, reply_date, reply_content, buy_date
+		FROM mypage)
+		WHERE rnum
+		BETWEEN #{startRowNumber} AND #{endRowNumber}
+		ORDER BY rnum DESC
 	</select>
- 	<select id="memberTotalCount" resultType="int">
-		select count(*) from	member
+	<select id="memberTotalCount" resultType="int">
+		SELECT count(*) FROM member
 	</select>
-		<select id="reportTotalCount" resultType="int">
-		select count(*) from	report
+	<select id="reportTotalCount" resultType="int">
+		SELECT count(*) FROM report
 	</select>
 	<select id="sellTotalCount" resultType="int">
-		select count(*) from mypage
+		SELECT count(*) FROM mypage
 	</select>
-	
+
 </mapper>
 
 

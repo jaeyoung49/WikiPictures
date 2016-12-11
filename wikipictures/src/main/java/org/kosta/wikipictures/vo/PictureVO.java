@@ -16,7 +16,6 @@ public class PictureVO {
 
 	public PictureVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public PictureVO(int rowNumber, String pictureDate, String keyword, String path, String authorComment, int hits,
@@ -120,7 +119,5 @@ public class PictureVO {
 				+ path + ", authorComment=" + authorComment + ", hits=" + hits + ", pictureSpace=" + pictureSpace
 				+ ", category=" + category + ", memberVO=" + memberVO + ", uploadFile=" + uploadFile + "]";
 	}
-
-	
 
 }

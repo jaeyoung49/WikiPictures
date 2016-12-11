@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PictureServiceImpl implements PictureService {
-	
+
 	@Resource
 	private PictureDAO pictureDAO;
 
@@ -26,36 +26,35 @@ public class PictureServiceImpl implements PictureService {
 	public void registerHashtag(List<HashtagVO> hashtagList) {
 		pictureDAO.registerHashtag(hashtagList);
 	}
-	
+
 	@Override
 	public void registerPicture(PictureVO pictureVO) {
 		pictureDAO.registerPicture(pictureVO);
 	}
-	
+
 	@Override
-	public List<PictureVO> searchPicture(String keyword){
+	public List<PictureVO> searchPicture(String keyword) {
 		return pictureDAO.searchPicture(keyword);
 	}
-	
-	public List<PictureVO> searchHashtag(String keyword){
+
+	public List<PictureVO> searchHashtag(String keyword) {
 		return pictureDAO.searchHashtag(keyword);
 	}
-	
+
 	@Override
-	public PictureVO picture(PictureVO pictureVO){
+	public PictureVO picture(PictureVO pictureVO) {
 		return pictureDAO.picture(pictureVO);
 	}
-	
+
 	@Override
-	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO){
+	public List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO) {
 		return pictureDAO.searchDetailPicture(hashtagVO);
 	}
-	
-	
-	public void addHashtag(HashtagVO hashtagVO){
+
+	public void addHashtag(HashtagVO hashtagVO) {
 		pictureDAO.addHashtag(hashtagVO);
 	}
-	
+
 	@Override
 	public List<TimeMachineVO> getTimeMachineList() {
 		return pictureDAO.getTimeMachineList();
@@ -70,23 +69,22 @@ public class PictureServiceImpl implements PictureService {
 	public List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear) {
 		return pictureDAO.getPersonAndLocationPictureList(timeMachineYear);
 	}
-	
+
 	@Override
 	public ListVO<PictureVO> showMypictureList(String pageNo, MemberVO mvo) {
-		int totalCount=pictureDAO.totalContentCount(mvo.getId());
-		PagingBean pagingBean=null;
-		if(pageNo==null)
-			pagingBean=new PagingBean(totalCount);
+		int totalCount = pictureDAO.totalContentCount(mvo.getId());
+		PagingBean pagingBean = null;
+		if (pageNo == null)
+			pagingBean = new PagingBean(totalCount);
 		else
-			pagingBean=new PagingBean(totalCount,Integer.parseInt(pageNo));
-		HashMap<String,String> paramMap=new HashMap<String,String>();
+			pagingBean = new PagingBean(totalCount, Integer.parseInt(pageNo));
+		HashMap<String, String> paramMap = new HashMap<String, String>();
 		paramMap.put("id", mvo.getId());
-		paramMap.put("startRowNumber",String.valueOf(pagingBean.getStartRowNumber()));
+		paramMap.put("startRowNumber", String.valueOf(pagingBean.getStartRowNumber()));
 		paramMap.put("endRowNumber", String.valueOf(pagingBean.getEndRowNumber()));
-		return new ListVO<PictureVO>(pictureDAO.showMypictureList(paramMap),pagingBean);
+		return new ListVO<PictureVO>(pictureDAO.showMypictureList(paramMap), pagingBean);
 	}
-	
-	
+
 	@Override
 	public int totalContentCount() {
 		// TODO Auto-generated method stub
@@ -95,19 +93,18 @@ public class PictureServiceImpl implements PictureService {
 
 	@Override
 	public ListVO<MypageVO> showSecretreplyList(String pageNo, MemberVO mvo) {
-		int totalCount=pictureDAO.secretTotalContentCount(mvo.getId());
-		PagingBean pagingBean=null;
-		if(pageNo==null)
-			pagingBean=new PagingBean(totalCount);
+		int totalCount = pictureDAO.secretTotalContentCount(mvo.getId());
+		PagingBean pagingBean = null;
+		if (pageNo == null)
+			pagingBean = new PagingBean(totalCount);
 		else
-			pagingBean=new PagingBean(totalCount,Integer.parseInt(pageNo));
-		HashMap<String,String> paramMap=new HashMap<String,String>();
+			pagingBean = new PagingBean(totalCount, Integer.parseInt(pageNo));
+		HashMap<String, String> paramMap = new HashMap<String, String>();
 		paramMap.put("id", mvo.getId());
-		paramMap.put("startRowNumber",String.valueOf(pagingBean.getStartRowNumber()));
+		paramMap.put("startRowNumber", String.valueOf(pagingBean.getStartRowNumber()));
 		paramMap.put("endRowNumber", String.valueOf(pagingBean.getEndRowNumber()));
-		return new ListVO<MypageVO>(pictureDAO.showSecretreplyList(paramMap),pagingBean);
+		return new ListVO<MypageVO>(pictureDAO.showSecretreplyList(paramMap), pagingBean);
 	}
-
 
 	@Override
 	public int secretTotalContentCount() {
@@ -116,17 +113,17 @@ public class PictureServiceImpl implements PictureService {
 
 	@Override
 	public ListVO<MypageVO> showBuyList(String pageNo, MemberVO mvo) {
-		int totalCount=pictureDAO.buyTotalContentCount(mvo.getId());
-		PagingBean pagingBean=null;
-		if(pageNo==null)
-			pagingBean=new PagingBean(totalCount);
+		int totalCount = pictureDAO.buyTotalContentCount(mvo.getId());
+		PagingBean pagingBean = null;
+		if (pageNo == null)
+			pagingBean = new PagingBean(totalCount);
 		else
-			pagingBean=new PagingBean(totalCount,Integer.parseInt(pageNo));
-		HashMap<String,String> paramMap=new HashMap<String,String>();
+			pagingBean = new PagingBean(totalCount, Integer.parseInt(pageNo));
+		HashMap<String, String> paramMap = new HashMap<String, String>();
 		paramMap.put("id", mvo.getId());
-		paramMap.put("startRowNumber",String.valueOf(pagingBean.getStartRowNumber()));
+		paramMap.put("startRowNumber", String.valueOf(pagingBean.getStartRowNumber()));
 		paramMap.put("endRowNumber", String.valueOf(pagingBean.getEndRowNumber()));
-		return new ListVO<MypageVO>(pictureDAO.showBuyList(paramMap),pagingBean);
+		return new ListVO<MypageVO>(pictureDAO.showBuyList(paramMap), pagingBean);
 	}
 
 	@Override

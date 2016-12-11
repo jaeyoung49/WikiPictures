@@ -177,41 +177,43 @@ public class PictureController {
 		String kw = request.getParameter("keyword");
 		List<PictureVO> searchPicture = pictureService.searchPicture(kw);
 		List<PictureVO> searchHashtagPicture = pictureService.searchHashtag(kw);
-		/*List<HashtagVO> searchHashtag =pictureService.searchHashtag(kw);
-		request.setAttribute("searchHashtag", searchHashtag);*/
+		/*
+		 * List<HashtagVO> searchHashtag =pictureService.searchHashtag(kw);
+		 * request.setAttribute("searchHashtag", searchHashtag);
+		 */
 		if (searchPicture.isEmpty() && searchHashtagPicture.isEmpty()) {
 			return new ModelAndView("picture/search_picture_fail");
-		} else if(searchHashtagPicture.isEmpty()){
-			System.out.println("1"+searchPicture);
+		} else if (searchHashtagPicture.isEmpty()) {
+			System.out.println("1" + searchPicture);
 			return new ModelAndView("picture/search_picture_ok", "searchPicture", searchPicture);
-		} else if(searchPicture.isEmpty()){
-			System.out.println("2"+searchHashtagPicture);
+		} else if (searchPicture.isEmpty()) {
+			System.out.println("2" + searchHashtagPicture);
 			return new ModelAndView("picture/search_picture_ok", "searchHashtagPicture", searchHashtagPicture);
 		} else {
 			ModelAndView mv = new ModelAndView();
 			mv.addObject("searchPicture", searchPicture);
 			mv.addObject("searchHashtagPicture", searchHashtagPicture);
 			mv.setViewName("picture/search_picture_ok");
-			/*mv.addObject("searchHashtagPicture", searchHashtagPicture);*/
+			/* mv.addObject("searchHashtagPicture", searchHashtagPicture); */
 			return mv;
 		}
 	}
-	
 
 	/**
 	 * 
-	  * <PRE>
-	  * 메소드 설명
-	  * </PRE>
-	  * @date : 2016. 12. 7.
-	  * @author : Jaeyoung
-	  * @param session
-	  * @param hashtagVO
-	  * @param pictureVO
-	  * @return
+	 * <PRE>
+	 * 메소드 설명
+	 * </PRE>
+	 * 
+	 * @date : 2016. 12. 7.
+	 * @author : Jaeyoung
+	 * @param session
+	 * @param hashtagVO
+	 * @param pictureVO
+	 * @return
 	 */
 	@RequestMapping("searchDetailPicture.do")
-	public ModelAndView searchDetailPicture(HttpSession session, HashtagVO hashtagVO, PictureVO pictureVO){
+	public ModelAndView searchDetailPicture(HttpSession session, HashtagVO hashtagVO, PictureVO pictureVO) {
 		ModelAndView mv = new ModelAndView();
 		// 사진 내용
 		PictureVO picturevo = pictureService.picture(pictureVO);
@@ -219,7 +221,7 @@ public class PictureController {
 		hashtagVO.setPictureVO(picturevo);
 		List<HashtagVO> pvo = pictureService.searchDetailPicture(hashtagVO);
 		// 시크릿댓글
-		if(session.getAttribute("mvo") != null){
+		if (session.getAttribute("mvo") != null) {
 			MemberVO memberVO = (MemberVO) session.getAttribute("mvo");
 			MypageVO mypageVO = new MypageVO();
 			mypageVO.setMemberVO(memberVO);
@@ -227,7 +229,7 @@ public class PictureController {
 			mypageVO = pictureService.getMypageVO(mypageVO);
 			mv.addObject("mypageVO", mypageVO);
 		}
-		
+
 		// ModelAndView에 값
 		mv.addObject("picturevo", picturevo);
 		mv.addObject("pvo", pvo);
@@ -289,49 +291,52 @@ public class PictureController {
 		return new ModelAndView(
 				"redirect:searchDetailPicture.do?keyword=" + keyword + "&pictureDate=" + pictureVO.getPictureDate());
 	}
-	
+
 	/**
 	 * 
-	  * <PRE>
-	  * 원작자 코멘트 수정
-	  * </PRE>
-	  * @date : 2016. 12. 7.
-	  * @author : Jaeyoung
-	  * @param pictureVO
-	  * @return
-	  * @throws UnsupportedEncodingException
+	 * <PRE>
+	 * 원작자 코멘트 수정
+	 * </PRE>
+	 * 
+	 * @date : 2016. 12. 7.
+	 * @author : Jaeyoung
+	 * @param pictureVO
+	 * @return
+	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping("updateAuthorComment.do")
-	public String updateAuthorComment(PictureVO pictureVO) throws UnsupportedEncodingException{
-		pictureService.updateAuthorComment(pictureVO);		
-		String keyword = URLEncoder.encode(pictureVO.getKeyword(),"UTF-8");
-		return "redirect:searchDetailPicture.do?keyword="+keyword+"&pictureDate="+pictureVO.getPictureDate();
+	public String updateAuthorComment(PictureVO pictureVO) throws UnsupportedEncodingException {
+		pictureService.updateAuthorComment(pictureVO);
+		String keyword = URLEncoder.encode(pictureVO.getKeyword(), "UTF-8");
+		return "redirect:searchDetailPicture.do?keyword=" + keyword + "&pictureDate=" + pictureVO.getPictureDate();
 	}
-	
+
 	/**
 	 * 
-	  * <PRE>
-	  * 메소드 설명
-	  * </PRE>
-	  * @date : 2016. 12. 7.
-	  * @author : Jaeyoung
-	  * @param mypageVO
-	  * @return
-	  * @throws UnsupportedEncodingException
+	 * <PRE>
+	 * 메소드 설명
+	 * </PRE>
+	 * 
+	 * @date : 2016. 12. 7.
+	 * @author : Jaeyoung
+	 * @param mypageVO
+	 * @return
+	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping("registerSecretReply.do")
-	public String registerSecretReply(MypageVO mypageVO) throws UnsupportedEncodingException{
+	public String registerSecretReply(MypageVO mypageVO) throws UnsupportedEncodingException {
 		pictureService.registerSecretReply(mypageVO);
-		String keyword = URLEncoder.encode(mypageVO.getPictureVO().getKeyword(),"UTF-8");
-		return "redirect:searchDetailPicture.do?keyword="+keyword+"&pictureDate="+mypageVO.getPictureVO().getPictureDate();
+		String keyword = URLEncoder.encode(mypageVO.getPictureVO().getKeyword(), "UTF-8");
+		return "redirect:searchDetailPicture.do?keyword=" + keyword + "&pictureDate="
+				+ mypageVO.getPictureVO().getPictureDate();
 	}
-	
+
 	@RequestMapping("fileDownload.do")
-	public ModelAndView fileDownload(HttpServletRequest request, String fileName){
-		HashMap<String,String> map=new HashMap<String,String>();
+	public ModelAndView fileDownload(HttpServletRequest request, String fileName) {
+		HashMap<String, String> map = new HashMap<String, String>();
 		String downloadPath = request.getSession().getServletContext().getRealPath("/resources/img/");
 		map.put("path", downloadPath);
-		return new ModelAndView("downloadView",map);
+		return new ModelAndView("downloadView", map);
 	}
-	
+
 }

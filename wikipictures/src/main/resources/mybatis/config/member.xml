@@ -9,25 +9,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="favoriteSpace" column="fav_space" />
 	</resultMap>
 	<select id="findMemberById" resultType="memberVO">
-		select * from member where id=#{value}
+		SELECT * FROM member
+		WHERE id = #{value}
 	</select>
 	<select id="login" resultMap="memberRM">
-		select * from member where id=#{id} and password=#{password}
+		SELECT * FROM member
+		WHERE id = #{id}
+		AND
+		password = #{password}
 	</select>
 	<select id="idcheck" resultType="int">
-		select count(*) from member
-		where id=#{value}
+		SELECT count(*) FROM member
+		WHERE id = #{value}
 	</select>
 	<insert id="registerMember" parameterType="memberVO">
-		insert into
-		member(id,nickname,password,birth,fav_space,enabled)
-		values(#{id},#{nickname},#{password},#{birth},#{favoriteSpace},0)
+		INSERT INTO
+		member(id
+		, nickname
+		, password
+		, birth
+		, fav_space
+		, enabled)
+		VALUES
+		(#{id}
+		, #{nickname}
+		, #{password}
+		, #{birth}
+		, #{favoriteSpace}
+		,0)
 	</insert>
 
 	<update id="updateMember" parameterType="memberVO">
-		update member set
-		nickname=#{nickname}, password=#{password},fav_space=#{favoriteSpace}
-		where id=#{id}
+		UPDATE member
+		SET
+		nickname = #{nickname}
+		, password = #{password}
+		, fav_space = #{favoriteSpace}
+		WHERE id = #{id}
 	</update>
 
 	<resultMap type="pictureVO" id="pictureRM">
@@ -37,16 +55,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 
 	<select id="mypictures" resultMap="pictureRM" parameterType="pictureVO">
-		select rnum,keyword,path,author_comment,hits,pic_space,id,category
-		from (select row_number() over(order by keyword desc) as
-		rnum,keyword,path,author_comment,hits,pic_space,id,category
-		from picture) where rnum between #{startRowNumber} and #{endRowNumber}
-		order by keyword desc
+		SELECT rnum
+		, keyword
+		, path
+		, author_comment
+		, hits
+		, pic_space
+		, id
+		, category
+		FROM (SELECT row_number() OVER(ORDER BY keyword DESC)
+		AS
+		rnum
+		, keyword
+		, path
+		, author_comment
+		, hits
+		, pic_space
+		, id
+		, category
+		FROM
+		picture) 
+		WHERE rnum BETWEEN #{startRowNumber} AND #{endRowNumber}
+		ORDER BY keyword DESC
 	</select>
 
 	<select id="totalContentCount" resultType="int">
-		select count(*) from
-		picture
+		SELECT count(*) FROM picture
 	</select>
 
 	<resultMap type="mypageVO" id="mypageRM">
@@ -57,25 +91,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="show_secretreply_list" resultMap="mypageRM"
 		parameterType="mypageVO">
-		select id,reply_date,reply_content from(select row_number() over (order by
-		id desc) as rnum,id,reply_date,reply_content from mypage)
-		where rnum between #{startRowNumber} and #{endRowNumber} order by id desc
+		select id,reply_date,reply_content from(select
+		row_number() over (order by
+		id desc) as
+		rnum,id,reply_date,reply_content from mypage)
+		where rnum between
+		#{startRowNumber} and #{endRowNumber} order by id desc
 	</select>
 
 	<select id="secretTotalContentCount" resultType="int">
-		select count(*)
-		from mypage
+		SELECT count(*) FROM mypage
 	</select>
-	
+
 	<insert id="registerBuy" parameterType="mypageVO">
 		MERGE INTO mypage
-		USING DUAL
-		ON(pic_date=#{pictureVO.pictureDate} and keyword=#{pictureVO.keyword} and id=#{memberVO.id})
-		WHEN MATCHED THEN  
-		   update set buy_date=sysdate
+		USING
+		DUAL
+		ON(pic_date = #{pictureVO.pictureDate}
+		AND
+		keyword = #{pictureVO.keyword} AND id = #{memberVO.id})
+		WHEN MATCHED THEN
+		UPDATE SET buy_date = sysdate
 		WHEN NOT MATCHED THEN
-		  insert(id,pic_date,keyword,buy_date) 
-		  values(#{memberVO.id}, #{pictureVO.pictureDate}, #{pictureVO.keyword} ,sysdate)
+		INSERT(id,pic_date,keyword,buy_date)
+		VALUES(#{memberVO.id}
+		, #{pictureVO.pictureDate}
+		, #{pictureVO.keyword}
+		, sysdate)
 	</insert>
 
 </mapper>

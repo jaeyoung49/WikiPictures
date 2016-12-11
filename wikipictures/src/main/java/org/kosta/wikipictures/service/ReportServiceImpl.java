@@ -7,10 +7,8 @@ import org.kosta.wikipictures.dao.ReportDAO;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ReportServiceImpl implements ReportService{
+public class ReportServiceImpl implements ReportService {
 	@Resource
 	private ReportDAO reportDAO;
 
 }
-
-

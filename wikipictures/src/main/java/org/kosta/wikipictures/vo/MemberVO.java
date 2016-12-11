@@ -13,7 +13,6 @@ public class MemberVO {
 
 	public MemberVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public MemberVO(int rowNumber, String id, String nickname, String password, String birth, String favoriteSpace,
 			int enabled, AuthoritiesVO authoritiesVO) {

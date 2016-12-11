@@ -1,11 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <ul class="nav nav-tabs nav-justified" style="margin-bottom: 20px;">
-  <li role="presentation"><a href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정</a></li>
-  <li role="presentation"><a href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a></li>
-  <li role="presentation" class="active"><a href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a></li>
-  <li role="presentation"><a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a></li>
+  <li role="presentation">
+  	<a href="${pageContext.request.contextPath}/member/update_member_form.do">회원정보수정</a>
+  </li>
+  <li role="presentation">
+  	<a href="${pageContext.request.contextPath}/showMypictureList.do">내가올린사진들보기</a>
+  </li>
+  <li role="presentation" class="active">
+  	<a href="${pageContext.request.contextPath}/showSecretreplyList.do">시크릿댓글목록보기</a>
+  </li>
+  <li role="presentation">
+  	<a href="${pageContext.request.contextPath}/showBuyList.do">구매내역보기</a>
+  </li>
 </ul>
+
 <div class="container">
   <div class="panel panel-default panel-table">
     <div class="panel-body">
@@ -79,3 +88,4 @@
     </div>
   </div>
 </div>
+

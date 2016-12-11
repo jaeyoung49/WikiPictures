@@ -15,8 +15,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO {
-	@Resource(name="sqlSessionTemplate")
-private SqlSessionTemplate template;
+	@Resource(name = "sqlSessionTemplate")
+	private SqlSessionTemplate template;
 
 	@Override
 	public int memeberTotalCount() {
@@ -25,7 +25,7 @@ private SqlSessionTemplate template;
 
 	@Override
 	public List<HashMap<String, Object>> memberList(String pageNo) {
-		List<HashMap<String,Object>> list = template.selectList("admin.memberlist",pageNo);
+		List<HashMap<String, Object>> list = template.selectList("admin.memberlist", pageNo);
 		return list;
 	}
 
@@ -46,7 +46,7 @@ private SqlSessionTemplate template;
 
 	@Override
 	public List<PictureVO> mypictures(String pageNo) {
-		return template.selectList("admin.picturelist",pageNo);
+		return template.selectList("admin.picturelist", pageNo);
 	}
 
 	@Override
@@ -78,5 +78,5 @@ private SqlSessionTemplate template;
 	public List<MypageVO> sellList(String pageNo) {
 		return template.selectList("admin.selllist", pageNo);
 	}
-	
+
 }

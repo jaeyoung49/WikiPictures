@@ -7,9 +7,9 @@ public class ReportVO {
 	private String reportContent;
 	private String reportDate;
 	private PictureVO pictureVO;
+
 	public ReportVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ReportVO(int rowNumber, int reportNo, String reportType, String reportContent, String reportDate,
@@ -77,7 +77,4 @@ public class ReportVO {
 				+ ", reportContent=" + reportContent + ", reportDate=" + reportDate + ", pictureVO=" + pictureVO + "]";
 	}
 
-	
-	
-	
 }

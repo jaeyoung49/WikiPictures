@@ -23,42 +23,42 @@ public class PagingBean {
 	}
 
 	public int getStartRowNumber() {
-		return contentNumberPerPage*(nowPage-1) + 1;
+		return contentNumberPerPage * (nowPage - 1) + 1;
 	}
 
 	public int getEndRowNumber() {
 		int endRowNumber = contentNumberPerPage * nowPage;
-		
-		if(totalContents < endRowNumber)
+
+		if (totalContents < endRowNumber)
 			return totalContents;
-		
+
 		return endRowNumber;
 	}
 
 	public int getTotalPage() {
 		int totalPage = totalContents / contentNumberPerPage;
-		
-		if(totalContents % contentNumberPerPage != 0)
+
+		if (totalContents % contentNumberPerPage != 0)
 			totalPage = totalPage + 1;
-		
+
 		return totalPage;
 	}
 
 	public int getTotalPageGroup() {
 		int totalPageGroup = this.getTotalPage() / pageNumberPerPageGroup;
-		
-		if(this.getTotalPage()%pageNumberPerPageGroup!=0)
+
+		if (this.getTotalPage() % pageNumberPerPageGroup != 0)
 			totalPageGroup = totalPageGroup + 1;
-			
+
 		return totalPageGroup;
 	}
 
 	public int getNowPageGroup() {
 		int nowPageGroup = nowPage / pageNumberPerPageGroup;
-				
-		if(nowPage % pageNumberPerPageGroup != 0 )
+
+		if (nowPage % pageNumberPerPageGroup != 0)
 			nowPageGroup = nowPageGroup + 1;
-		
+
 		return nowPageGroup;
 	}
 
@@ -68,28 +68,28 @@ public class PagingBean {
 
 	public int getEndPageOfPageGroup() {
 		int endPageOfPageGroup = this.getNowPageGroup() * this.pageNumberPerPageGroup;
-		
-		if(endPageOfPageGroup > this.getTotalPage())
+
+		if (endPageOfPageGroup > this.getTotalPage())
 			endPageOfPageGroup = this.getTotalPage();
-		
+
 		return endPageOfPageGroup;
 	}
 
 	public boolean isPreviousPageGroup() {
 		boolean flag = false;
-		
-		if(this.getStartPageOfPageGroup()>this.pageNumberPerPageGroup)
+
+		if (this.getStartPageOfPageGroup() > this.pageNumberPerPageGroup)
 			flag = true;
-		
+
 		return flag;
 	}
 
 	public boolean isNextPageGroup() {
 		boolean flag = false;
-		
-		if(this.getTotalPage()>this.getEndPageOfPageGroup())
+
+		if (this.getTotalPage() > this.getEndPageOfPageGroup())
 			flag = true;
-			
+
 		return flag;
 	}
 
@@ -104,7 +104,7 @@ public class PagingBean {
 		// 전체 페이지 그룹 수 : 3
 		System.out.println("getTotalPageGroup:" + p.getTotalPageGroup());
 		System.out.println("////////////////////////////");
-//		p = new PagingBean(40, 6);// 게시물수 31 현재 페이지 6
+		// p = new PagingBean(40, 6);// 게시물수 31 현재 페이지 6
 		// 현페이지의 시작 row number 를 조회 26
 		System.out.println("getStartRowNumber:" + p.getStartRowNumber());
 		// 현페이지의 마지막 row number 를 조회 30

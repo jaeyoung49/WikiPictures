@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- 파일업로드 라이브러리 css -->
 <link href="${pageContext.request.contextPath}/resources/css/dropify.min.css" rel="stylesheet">
+
 <script>
 	$(document).ready(function() {
 	  // 해시태그 입력 Controll
@@ -37,9 +38,8 @@
     </div>
     <div class="form-group">
       <label for="date">사진의 촬영일로 지정해주세요.</label>
-    <input class="form-control" type="text" data-format="Y-m-d" data-lang="ko" 
-    id="date" name="pictureDate" data-large-default="true" data-large-mode="true" required>
-   </div>
+      <input class="form-control" type="text" data-format="Y-m-d" data-lang="ko" id="date" name="pictureDate" data-large-default="true" data-large-mode="true" required>
+    </div>
     <div class="form-group">
       <label for="authorComment">사진 설명</label>
       <textarea name="authorComment" class="form-control" rows="5" id="textArea" required></textarea>
@@ -55,14 +55,15 @@
     <input class="btn btn-success btn-lg btn-block" id="formButton" type="button" value="등록하기">
   </form>
 </div>
-	<!-- 파일업로드 라이브러리 js -->
-	<script src="${pageContext.request.contextPath}/resources/js/dropify.min.js"></script>
-	
-	<script>
+
+<!-- 파일업로드 라이브러리 js -->
+<script src="${pageContext.request.contextPath}/resources/js/dropify.min.js"></script>
+<script>
 	$(document).ready(function() {
-	// 파일첨부 Controll
+	  // 파일첨부 Controll
 	  $('.dropify').dropify();
-	// 날짜 선택 Controll
+	  // 날짜 선택 Controll
 	  $('#date').dateDropper();
 	});
 </script>
+

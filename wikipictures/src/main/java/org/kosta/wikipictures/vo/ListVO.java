@@ -5,10 +5,9 @@ import java.util.List;
 public class ListVO<E> {
 	private List<E> list;
 	private PagingBean pagingBean;
-	
+
 	public ListVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ListVO(List<E> list, PagingBean pagingBean) {
@@ -37,5 +36,5 @@ public class ListVO<E> {
 	public String toString() {
 		return "ListVO [list=" + list + ", pagingBean=" + pagingBean + "]";
 	}
-	
+
 }
