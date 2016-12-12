@@ -23,11 +23,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="registerHashtag" parameterType="hashtagVO">
 		MERGE INTO hashtag
 		USING DUAL
-		ON(pic_date=#{pictureVO.pictureDate} and keyword=#{pictureVO.keyword} and hashtag_name=#{hashtagName})
+		ON(pic_date=#{pictureVO.pictureDate} AND keyword=#{pictureVO.keyword} AND hashtag_name=#{hashtagName})
 		WHEN MATCHED THEN  
-		   update set hashtag_count=hashtag_count+1
+		   update set hashtag_count = hashtag_count+1
 		WHEN NOT MATCHED THEN
-		  insert(pic_date,keyword,hashtag_name) values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
+		  insert(pic_date, keyword, hashtag_name) values(#{pictureVO.pictureDate}, #{pictureVO.keyword}, #{hashtagName})
 	</insert>
 	
 	<insert id="addHashtag" parameterType="hashtagVO">
@@ -41,16 +41,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert id="registerPicture" parameterType="pictureVO">
-		insert into PICTURE
-		(pic_date, keyword, path, author_comment, pic_space, category, id)
-		values
-		(#{pictureDate}, #{keyword}, #{path}, #{authorComment},
-		#{pictureSpace}, #{category}, #{memberVO.id})
+		INSERT INTO PICTURE
+		(pic_date
+		, keyword
+		, path
+		, author_comment
+		, pic_space
+		, category
+		, id)
+		VALUES
+		(#{pictureDate}
+		, #{keyword}
+		, #{path}
+		, #{authorComment}
+		, #{pictureSpace}
+		, #{category}
+		, #{memberVO.id})
 	</insert>
 	
 	<select id="getPictures" resultType="pictureVO">
-		select path
-		from picture
+		SELECT path FROM picture
 	</select>
 
 <!-- 	select p.pic_date , p.keyword, p.path, p.author_comment, p.hits,
@@ -215,16 +225,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  values(#{memberVO.id}, #{pictureVO.pictureDate}, #{pictureVO.keyword} ,sysdate ,#{replyContent})
 	</insert>
 </mapper>
-	
-		
-		
 
-
-
-
-
-
-
+<!-- 주석의 이유!! -->
 	<!-- 	select m.id,p.rnum,p.keyword,p.path,p.author_comment,p.hits,p.pic_space,p.category from (select row_number() over(order by keyword desc) as rnum,
 		keyword,path,author_comment,hits,pic_space,category
 	from picture p),member m where m.id=p.id and rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc -->

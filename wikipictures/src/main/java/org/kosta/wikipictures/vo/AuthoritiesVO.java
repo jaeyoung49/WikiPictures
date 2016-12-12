@@ -3,10 +3,9 @@ package org.kosta.wikipictures.vo;
 public class AuthoritiesVO {
 	private MemberVO memberVO;
 	private String authority;
-	
+
 	public AuthoritiesVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public AuthoritiesVO(MemberVO memberVO, String authority) {
@@ -35,7 +34,5 @@ public class AuthoritiesVO {
 	public String toString() {
 		return "AuthoritiesVO [memberVO=" + memberVO + ", authority=" + authority + "]";
 	}
-	
-	
-	
+
 }

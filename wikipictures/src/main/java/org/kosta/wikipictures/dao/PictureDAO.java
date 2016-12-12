@@ -15,21 +15,20 @@ public interface PictureDAO {
 
 	void registerPicture(PictureVO pictureVO);
 
-
 	List<PictureVO> getPictures();
 
 	List<PictureVO> searchPicture(String keyword);
-	
+
 	List<PictureVO> searchHashtag(String keyword);
-	
+
 	PictureVO picture(PictureVO pictureVO);
-	
+
 	List<HashtagVO> searchDetailPicture(HashtagVO hashtagVO);
-	
+
 	PictureVO reportForm(PictureVO pictureVO);
-	
+
 	int report(ReportVO rvo);
-	
+
 	void addHashtag(HashtagVO hashtagVO);
 
 	List<TimeMachineVO> getTimeMachineList();
@@ -39,7 +38,7 @@ public interface PictureDAO {
 	List<PictureVO> getPersonAndLocationPictureList(String timeMachineYear);
 
 	List<PictureVO> showMypictureList(HashMap<String, String> paramMap);
-	
+
 	int totalContentCount(String string);
 
 	List<MypageVO> showSecretreplyList(HashMap<String, String> paramMap);
@@ -55,7 +54,5 @@ public interface PictureDAO {
 	MypageVO getMypageVO(MypageVO mypageVO);
 
 	void registerSecretReply(MypageVO mypageVO);
-	
-
 
 }

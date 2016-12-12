@@ -10,7 +10,6 @@ public class MypageVO {
 	
 	public MypageVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public MypageVO(MemberVO memberVO, PictureVO pictureVO, int rowNumber, String replyDate, String replyContent,

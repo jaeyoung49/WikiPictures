@@ -29,6 +29,7 @@ public class AdminServiceImpl implements AdminService {
 		HashMap<String, Integer> paramMap = new HashMap<String, Integer>();
 		paramMap.put("startRowNumber", pagingBean.getStartRowNumber());
 		paramMap.put("endRowNumber", pagingBean.getEndRowNumber());
+		
 		return new ListVO<MemberVO>(adminDAO.memberList(paramMap), pagingBean);
 	}
 
@@ -110,6 +111,7 @@ public class AdminServiceImpl implements AdminService {
 		HashMap<String, Integer> paramMap = new HashMap<String, Integer>();
 		paramMap.put("startRowNumber", pagingBean.getStartRowNumber());
 		paramMap.put("endRowNumber", pagingBean.getEndRowNumber());
+		
 		return new ListVO<MypageVO>(adminDAO.sellList(paramMap), pagingBean);
 	}
 }

@@ -5,7 +5,7 @@ public class TimeMachineVO {
 	private String timeMachineTitle;
 	private String timeMachineContent;
 	private String timeMachineKeyword;
-	
+
 	public TimeMachineVO() {
 		super();
 	}
@@ -56,6 +56,5 @@ public class TimeMachineVO {
 		return "TimeMachineVO [timeMachineYear=" + timeMachineYear + ", timeMachineTitle=" + timeMachineTitle
 				+ ", timeMachineContent=" + timeMachineContent + ", timeMachineKeyword=" + timeMachineKeyword + "]";
 	}
-	
-	
+
 }
