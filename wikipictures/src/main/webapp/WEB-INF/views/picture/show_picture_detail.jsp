@@ -16,25 +16,22 @@
 	  }); // click
 	
 	  <%-- 원작자코멘트 수정 --%>
+<<<<<<< HEAD
 	  if(${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}) {
 	    $("#authorComment").next().hide();
 	
 	    $("#authorComment").click(function() {
 	      $(this).next().toggle();
 	    });
+=======
+	  if (${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}) {
+>>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures.git
 	    $("#updateAuthorCommentBtn").click(function() {
 	      $("#updateAuthorCommentForm").submit();
 	    }); // click
 	  }
 	
 	  <%-- 시크릿댓글 등록/수정 --%>
-	  if (${requestScope.mypageVO != null}) {
-	    $("#secretReply").next().hide();
-	
-	    $("#secretReply").click(function() {
-	      $(this).next().toggle();
-	    });
-	  }
 	  $("#registerSecretReplyBtn").click(function() {
 	    $("#registerSecretReplyForm").submit();
 	  }); // click
@@ -76,10 +73,22 @@
         <blockquote>
           <p>${requestScope.picturevo.authorComment}</p>
           <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
-            <a href="#" id="authorComment" data-toggle="tooltip" data-placement="top" title="코멘트 수정하기">
+            <a data-toggle="collapse" href="#updateAuthorCommentForm" aria-expanded="false" aria-controls="updateAuthorCommentForm">
               <span class="glyphicon glyphicon-edit text-right" aria-hidden="true"></span></a>
           </c:if>
         </blockquote>
+         <div class="form-group">
+          <form id="updateAuthorCommentForm" class="collapse" action="updateAuthorComment.do">
+            <p>
+              <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
+                <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
+                <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
+                <textarea name="authorComment" class="form-control" placeholder="수정할 코멘트를 입력해주세요" rows="3"></textarea>
+                <a class="btn btn-primary btn-lg btn-block" id="updateAuthorCommentBtn" role="button">코멘트수정</a>
+              </c:if>
+            </p>
+          </form>
+        </div>
         <hr>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <div class="panel panel-default">
@@ -89,11 +98,11 @@
           시크릿 댓글</a>
           <c:if test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
           &nbsp;&nbsp;&nbsp;
-        <a href="#" id="secretReply" data-toggle="tooltip" data-placement="top" title="댓글 편집하기">
-        <span class="glyphicon glyphicon-edit text-right" aria-hidden="true"></span>
-        </a>
-        </c:if>
-      </h4>
+	        <a href="#newSecretReply" data-toggle="collapse" aria-expanded="false" aria-controls="newSecretReply">
+	        <span class="glyphicon glyphicon-edit text-right" aria-hidden="true"></span>
+	        </a>
+          </c:if>
+      		</h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
@@ -102,7 +111,8 @@
                     ${requestScope.mypageVO.replyContent}
                   </c:when>
                   <c:otherwise>
-                    <a href="#" class="btn btn-default btn-lg btn-block">
+                    <a data-toggle="collapse" href="#newSecretReply" aria-expanded="false"
+                    	aria-controls="newSecretReply" class="btn btn-default btn-lg btn-block">
         				댓글이 없군요! 당신만의 추억을 기록해보세요 :)</a>
                   </c:otherwise>
                 </c:choose>
@@ -110,48 +120,27 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <form id="updateAuthorCommentForm" action="updateAuthorComment.do">
-            <p>
-              <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
-                <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
-                <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
-                <input type="text" name="authorComment" value="${requestScope.picturevo.authorComment}" placeholder="원작자 코멘트">
-                <a class="btn btn-primary" id="updateAuthorCommentBtn" role="button">변경</a>
-              </c:if>
-            </p>
-          </form>
-        </div>
-        <%-- <c:if test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
-            <p id="secretReply">
-              시크릿댓글 : ${requestScope.mypageVO.replyContent}
-              <!-- 시크릿 댓글 있는 수정 -->
-              <c:if test="${sessionScope.mvo.id == requestScope.mypageVO.memberVO.id}">
-                  (변경하려면 클릭!)
-              </c:if>
-            </p>
-          </c:if> --%>
-          <!-- 시크릿 댓글 작성 -->
-          <c:if test="${sessionScope.mvo.id != null}">
+        <div class="collapse" id="newSecretReply">
+    	<c:if test="${sessionScope.mvo.id != null}">
             <div class="form-group">
               <form id="registerSecretReplyForm" action="registerSecretReply.do">
-                <p>
                   <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
                   <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
                   <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
                   <c:choose>
                     <c:when test="${requestScope.mypageVO==null}">
-                      <input type="text" name="replyContent" placeholder="시크릿댓글">
+                       <textarea name="replyContent" class="form-control" rows="3" placeholder="나만의 추억을 기록해보세요!"></textarea>
+                       <a class="btn btn-primary btn-lg btn-block" id="registerSecretReplyBtn" role="button">시크릿 댓글 등록</a>
                     </c:when>
                     <c:otherwise>
-                      <input type="text" name="replyContent" value="${requestScope.mypageVO.replyContent }">
+                       <textarea name="replyContent" class="form-control" rows="3" placeholder="변경할 내용을 입력해주세요"></textarea>
+                       <a class="btn btn-primary btn-lg btn-block" id="registerSecretReplyBtn" role="button">시크릿 댓글 변경</a>
                     </c:otherwise>
                   </c:choose>
-                  <a class="btn btn-primary" id="registerSecretReplyBtn" role="button">등록/변경</a>
-                </p>
               </form>
             </div>
-          </c:if>
+        </c:if>
+		</div>
           <div class="form-group">
             <div id="tagcloud">
               <!-- rel은 글씨 크기를 좌우한다 -->
@@ -227,11 +216,6 @@
 	    end: '#46CFB0'
 	  }
 	});
-	
-	// 말풍선
-	$(function() {
-	  $('[data-toggle="tooltip"]').tooltip()
-	})
 </script>
 
    
