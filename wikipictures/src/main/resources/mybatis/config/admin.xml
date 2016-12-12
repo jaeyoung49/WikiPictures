@@ -32,80 +32,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="rowNumber" column="rnum" />
 	</resultMap>
 	<select id="memberlist" resultType="java.util.HashMap">
-		SELECT rnum
-		, id
-		, nickname
-		, password
-		, birth
-		, fav_space
-		FROM
+		SELECT rnum, id, nickname, password, birth, fav_space FROM
 		(SELECT row_number() OVER(order by id desc)
-		AS rnum
-		, id
-		, nickname
-		, password
-		, TO_CHAR(birth, 'yyyy.mm.dd')
-		AS birth
-		, fav_space
-		FROM member)
-		WHERE
-		rnum 
-		BETWEEN 
+		AS rnum, id, nickname, password, TO_CHAR(birth, 'yyyy.mm.dd')
+		AS birth, fav_space	FROM member)WHERE rnum BETWEEN 
 		#{startRowNumber} AND #{endRowNumber}
 	</select>
 	<select id="reportlist" resultMap="reportRM" resultType="reportVO">
-		SELECT rnum
-		, report_no
-		, pic_date
-		, report_type
-		, report_content
-		, keyword
-		, report_date 
-		FROM
-		(SELECT report_no,row_number() OVER(order by report_no desc)
-		AS rnum
-		, pic_date
-		, report_type
-		, report_content
-		, keyword
-		, report_date
-		FROM report)
-		 WHERE rnum
-		 BETWEEN #{startRowNumber} AND #{endRowNumber}
+		SELECT rnum, report_no, pic_date, report_type, report_content
+		, keyword, report_date FROM (SELECT report_no,row_number() OVER(order by report_no desc)
+		AS rnum, pic_date, report_type, report_content, keyword, report_date
+		FROM report) WHERE rnum	 BETWEEN #{startRowNumber} AND #{endRowNumber}
 		ORDER BY rnum DESC
 	</select>
 	<select id="picturelist" resultMap="pictureRM" resultType="pictureVO">
-		SELECT
-		id
-		,pic_date
-		,rnum
-		,keyword
-		,path
-		,author_comment
-		,hits
-		,pic_space
-		,category
-		FROM
-		(SELECT id, pic_date, row_number() OVER(order by keyword desc) AS
-		rnum,keyword,path,author_comment,hits,pic_space,category
-		FROM picture)
+		SELECT id,pic_date,rnum,keyword,path,author_comment,hits,pic_space
+		,category FROM (SELECT id, pic_date, row_number() OVER(order by keyword desc) AS
+		rnum,keyword,path,author_comment,hits,pic_space,category FROM picture)
 		WHERE rnum BETWEEN #{startRowNumber} AND #{endRowNumber}
-		ORDER BY
-		keyword DESC
+		ORDER BY	keyword DESC
 	</select>
 	<select id="selllist" resultMap="mypageRM">
-		SELECT rnum
-		, id
-		, pic_date
-		, keyword
-		, reply_date
-		, reply_content
-		, buy_date
+		SELECT rnum, id, pic_date, keyword, reply_date, reply_content, buy_date
 		FROM (SELECT row_number() OVER(order by id desc)
-		AS rnum, id, pic_date, keyword, reply_date, reply_content, buy_date
-		FROM mypage)
-		WHERE rnum
-		BETWEEN #{startRowNumber} AND #{endRowNumber}
+		AS rnum, id, pic_date, keyword, reply_date, reply_content, buy_date	FROM mypage)
+		WHERE rnum	BETWEEN #{startRowNumber} AND #{endRowNumber}
 		ORDER BY rnum DESC
 	</select>
 	<select id="memberTotalCount" resultType="int">
