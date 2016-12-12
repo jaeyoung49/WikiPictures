@@ -6,6 +6,7 @@
 	$(document).ready(function() {
 	  <%-- 해쉬태그 추가 --%>
 	  $("#addhashtag").click(function() {
+		  
 	    $("#hashtagForm").submit();
 	  }); // click
 	

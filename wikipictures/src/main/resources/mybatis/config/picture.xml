@@ -226,26 +226,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 </mapper>
 
-<!-- 주석의 이유!! -->
-	<!-- 	select m.id,p.rnum,p.keyword,p.path,p.author_comment,p.hits,p.pic_space,p.category from (select row_number() over(order by keyword desc) as rnum,
-		keyword,path,author_comment,hits,pic_space,category
-	from picture p),member m where m.id=p.id and rnum between #{startRowNumber} and #{endRowNumber} order by keyword desc -->
 
-
-		<!-- select pictureDate,keyword,path,authorComment,hits,pictureSpace,category,uploadFile
-		from (select row_number() over(order by keyword desc) as rnum, pictureDate,path,authorComment,hits,pictureSpace,category,uploadFile
-		from picture)
-		where rnum between #{startRowNumber} and #{endRowNumber} order by no desc -->
-
-
-
-
-		<!-- SELECT b.no,b.title,b.time_posted,b.hits,b.id,m.name FROM(
-		SELECT row_number() over(order by no desc) as rnum,no,title,hits,
-		to_char(time_posted,'YYYY.MM.DD') as time_posted,id
-		FROM spring_board_inst
-		) b,spring_member m where b.id=m.id and rnum between #{startRowNumber} and #{endRowNumber}
-		order by no desc -->
 
 
 
