@@ -12,6 +12,9 @@ import org.kosta.wikipictures.service.MemberService;
 import org.kosta.wikipictures.service.PictureService;
 import org.kosta.wikipictures.vo.MemberVO;
 import org.kosta.wikipictures.vo.MypageVO;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,17 +25,22 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MemberController {
 
-	@RequestMapping("{viewName}.do")
-	public String showView(@PathVariable String viewName) {
-		System.out.println("1.@PathVariable:" + viewName);
-		return viewName;
-	}
 
+	//회원정보수정시 비밀번호 암호화처리를 위한 객체를 주입받는다
+	@Resource
+	private BCryptPasswordEncoder passwordEncoder;
+	
 	@Resource
 	private MemberService memberService;
 
 	@Resource
 	private PictureService pictureService;
+
+	@RequestMapping("{viewName}.do")
+	public String showView(@PathVariable String viewName) {
+		System.out.println("1.@PathVariable:" + viewName);
+		return viewName;
+	}
 
 	@RequestMapping("{dirName}/{viewName}.do")
 	public String showView(@PathVariable String dirName, @PathVariable String viewName) {
@@ -40,7 +48,16 @@ public class MemberController {
 		return dirName + "/" + viewName;
 	}
 
-	@RequestMapping(value = "login.do", method = RequestMethod.POST)
+	/**
+	 * 
+	  * <PRE>
+	  * 시큐리티 적용시 제거
+	  * </PRE>
+	  * @date : 2016. 12. 12.
+	  * @author : Jaeyoung
+	  * @return
+	 */
+	/*@RequestMapping(value = "login.do", method = RequestMethod.POST)
 	public String login(MemberVO memberVO, HttpServletRequest request) {
 		MemberVO vo = memberService.login(memberVO);
 		if (vo == null) {
@@ -62,7 +79,7 @@ public class MemberController {
 		if (session != null)
 			session.invalidate();
 		return "redirect:home.do";
-	}
+	}*/
 
 	@RequestMapping("company_introduce.do")
 	public String introduce() {
@@ -93,35 +110,47 @@ public class MemberController {
 	}
 
 	// 마이페이지 회원정보수정
+	@Secured("ROLE_MEMBER")
 	@RequestMapping("updateMember.do")
-	public String updateMember(HttpServletRequest request, MemberVO memberVO) {
-		HttpSession session = request.getSession(false);
-		session.setAttribute("mvo", memberVO);
+	public String updateMember(MemberVO memberVO) {
+		// Spring Security 세션 회원정보를 반환받는다
+		MemberVO mvo = (MemberVO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		System.out.println("Spring security 세션 수정 전 회원정보 : " + mvo);
+		
+		// 변경할 비밀번호를 암호화한다
+		String encodePassword = passwordEncoder.encode(memberVO.getPassword());
+		memberVO.setPassword(encodePassword);
 		memberService.updateMember(memberVO);
+		
+		// 수정한 회원정보로 Spring Security 세션 회원정보를 업데이트한다
+		mvo.setPassword(encodePassword);
+		mvo.setNickname(memberVO.getNickname());
+		mvo.setFavoriteSpace(memberVO.getFavoriteSpace());
+		System.out.println("Spring Security 세션 수정 후 회원정보 : " + mvo);
 		return "member/update_result";
 	}
 
 	// 마이페이지 내가올린사진들보기 게시판
+	@Secured("ROLE_MEMBER")
 	@RequestMapping("showMypictureList.do")
-	public ModelAndView showMypictureList(HttpServletRequest request, String pageNo) {
-		HttpSession session = request.getSession(false);
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+	public ModelAndView showMypictureList(String pageNo) {
+		MemberVO mvo = (MemberVO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return new ModelAndView("member/show_mypicture_list", "pvo", pictureService.showMypictureList(pageNo, mvo));
 	}
 
 	// 마이페이지 시크릿댓글목록보기 게시판
+	@Secured("ROLE_MEMBER")
 	@RequestMapping("showSecretreplyList.do")
-	public ModelAndView showSecretreplyList(HttpServletRequest request, String pageNo) {
-		HttpSession session = request.getSession(false);
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+	public ModelAndView showSecretreplyList(String pageNo) {
+		MemberVO mvo = (MemberVO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return new ModelAndView("member/show_secretreply_list", "svo", pictureService.showSecretreplyList(pageNo, mvo));
 	}
 
 	// 마이페이지 구매내역보기 게시판
+	@Secured("ROLE_MEMBER")
 	@RequestMapping("showBuyList.do")
-	public ModelAndView showBuyList(HttpServletRequest request, String pageNo) {
-		HttpSession session = request.getSession(false);
-		MemberVO mvo = (MemberVO) session.getAttribute("mvo");
+	public ModelAndView showBuyList(String pageNo) {
+		MemberVO mvo = (MemberVO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return new ModelAndView("member/show_buy_list", "bvo", pictureService.showBuyList(pageNo, mvo));
 	}
 
@@ -137,6 +166,7 @@ public class MemberController {
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
+	@Secured("ROLE_MEMBER")
 	@RequestMapping("registerBuy.do")
 	public String registerBuy(MypageVO mypageVO) throws UnsupportedEncodingException {
 		memberService.registerBuy(mypageVO);
