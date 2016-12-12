@@ -55,8 +55,7 @@
 	  });
 	});
 </script>
-<div id="map" style="width:300px;height:300px;margin:0 auto;display:none"></div>
-
+<div id="map" style="width:100%;height:350px;margin:0 auto;display:none"></div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="//apis.daum.net/maps/maps3.js?apikey=2f84ffd7f776b0da2b1683fe0b016555&libraries=services"></script>
 <script>
@@ -145,8 +144,13 @@
     </div>
     <div class="form-group">
       <label class="sr-only">선호장소</label>
-      <input type="text" id="sample5_address" placeholder="장소 검색 버튼을 누르세요" name="favoriteSpace" class="form-control" required>
-		<input type="button" onclick="sample5_execDaumPostcode()" value="장소 검색"><br>
+    	<div class="input-group">
+      		<input type="text" id="sample5_address" placeholder="장소 검색 버튼을 누르세요"
+      			name="favoriteSpace" class="form-control" readonly required>
+      		<span class="input-group-btn">
+			<button class="btn btn-default" type="button" onclick="sample5_execDaumPostcode()">장소검색</button>
+			</span>
+		</div>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary btn-block">회원가입</button>

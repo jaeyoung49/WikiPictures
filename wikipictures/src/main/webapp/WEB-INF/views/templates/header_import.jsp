@@ -18,7 +18,7 @@
   <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
   <!-- Photo Gallery css -->
   <link href="${pageContext.request.contextPath}/resources/css/PhotoGallery.css" rel="stylesheet">
-  <!-- 아이콘 -->
+  <!-- Font-awesome 아이콘 css -->
   <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet">
   <!-- jQuery v1.12.4 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>

@@ -23,12 +23,14 @@
   <link href="${pageContext.request.contextPath}/resources/css/custom.css" rel="stylesheet">
   <!-- Window8 & IE10 버그 해결 css -->
   <link href="${pageContext.request.contextPath}/resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-  <!-- 부트스트랩 Carousel -->
+  <!-- 부트스트랩 Carousel css -->
   <link href="${pageContext.request.contextPath}/resources/css/jquery.carousel.fullscreen.css" rel="stylesheet">
   <!-- PagePiling css -->
   <link href="${pageContext.request.contextPath}/resources/css/jquery.pagepiling.css" rel="stylesheet">
   <!-- 달력 css -->
   <link href="${pageContext.request.contextPath}/resources/css/datedropper.min.css" rel="stylesheet">
+  <!-- Font-awesome 아이콘 css -->
+  <link href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css" rel="stylesheet">
   <!-- jQuery v1.12.4 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
   <!-- google api jQuery -->
