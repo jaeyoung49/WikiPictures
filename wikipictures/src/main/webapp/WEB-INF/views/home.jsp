@@ -40,12 +40,8 @@
 	// pagepiling Controll
 	var deleteLog = false;
 	$(document).ready(function() {
-	  var flag1 = $ {
-	    accidentPictureList.isEmpty()
-	  };
-	  var flag2 = $ {
-	    personAndLocationPictureList.isEmpty()
-	  };
+	  var flag1 = ${accidentPictureList.isEmpty()};
+	  var flag2 = ${personAndLocationPictureList.isEmpty()};
 	
 	  if (flag1) {
 	    $('#pagepiling').pagepiling({
