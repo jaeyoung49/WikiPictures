@@ -22,7 +22,6 @@
           <div class="text"> 
           <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a>
 			</div>
-           <div>${pictureVO.pictureDate}</div>
           <div>${pictureVO.keyword }</div>
            </div>
            </li>
@@ -39,7 +38,6 @@
             <div class="text"> 
            <a href="${pageContext.request.contextPath}/searchDetailPicture.do?pictureDate=${pictureVO.pictureDate}&keyword=${pictureVO.keyword}">상세보기</a>
        </div>
-          <div>${pictureVO.pictureDate}</div>
           <div>${pictureVO.keyword }</div>
            </div>
            </li>
