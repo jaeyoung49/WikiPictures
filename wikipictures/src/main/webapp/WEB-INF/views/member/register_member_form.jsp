@@ -63,7 +63,7 @@
         }
     }).open();
 </script>
-<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
+<div id="map" style="width:300px;height:300px;margin:0 auto;display:none"></div>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="//apis.daum.net/maps/maps3.js?apikey=2f84ffd7f776b0da2b1683fe0b016555&libraries=services"></script>
