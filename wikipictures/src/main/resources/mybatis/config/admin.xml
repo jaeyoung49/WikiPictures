@@ -55,7 +55,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selllist" resultMap="mypageRM">
 		SELECT rnum, id, pic_date, keyword, reply_date, reply_content, buy_date
 		FROM (SELECT row_number() OVER(order by id desc)
-			AS rnum, id, pic_date, keyword, reply_date, reply_content, buy_date	FROM mypage)
+		AS rnum, id, pic_date, keyword, reply_date, reply_content, buy_date	FROM mypage)
 		WHERE rnum	BETWEEN #{startRowNumber} AND #{endRowNumber}
 		ORDER BY rnum DESC
 	</select>
