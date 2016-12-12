@@ -6,12 +6,17 @@
 	$(document).ready(function() {
 	  <%-- 해쉬태그 추가 --%>
 	  $("#addhashtag").click(function() {
-		  
+		  if($("#hashtagForm :input[name=hashtagName]").val()==""){
+			  alert("해시태그명 입력후 Enter 해주세요!");
+			  return false;
+		  }else{
+			  
 	    $("#hashtagForm").submit();
+		  }
 	  }); // click
 	
 	  <%-- 원작자코멘트 수정 --%>
-	  if (${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}) {
+	  if(${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}) {
 	    $("#authorComment").next().hide();
 	
 	    $("#authorComment").click(function() {
