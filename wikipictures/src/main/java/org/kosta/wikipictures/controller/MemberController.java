@@ -51,7 +51,8 @@ public class MemberController {
 			return "admin/show_admin_mypage";
 		} else {
 			request.getSession().setAttribute("mvo", vo);
-			return "redirect:home.do";
+			String referer = request.getHeader("referer");
+			return "redirect:"+referer;
 		}
 	}
 
