@@ -7,6 +7,7 @@
 	      alert("아이디를 입력하세요!");
 	      return false;
 	    }
+	    
 	    if ($("#regForm :input[name=nickname]").val().trim() == "") {
 	      alert("닉네임을 입력하세요!");
 	      return false;
