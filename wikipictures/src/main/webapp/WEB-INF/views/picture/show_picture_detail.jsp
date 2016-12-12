@@ -6,26 +6,12 @@
 	$(document).ready(function() {
 	  <%-- 해쉬태그 추가 --%>
 	  $("#addhashtag").click(function() {
-		  if($("#hashtagForm :input[name=hashtagName]").val()==""){
-			  alert("해시태그명 입력후 Enter 해주세요!");
-			  return false;
-		  }else{
-			  
+		  
 	    $("#hashtagForm").submit();
-		  }
 	  }); // click
 	
 	  <%-- 원작자코멘트 수정 --%>
-<<<<<<< HEAD
-	  if(${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}) {
-	    $("#authorComment").next().hide();
-	
-	    $("#authorComment").click(function() {
-	      $(this).next().toggle();
-	    });
-=======
 	  if (${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}) {
->>>>>>> branch 'master' of https://github.com/jaeyoung49/WikiPictures.git
 	    $("#updateAuthorCommentBtn").click(function() {
 	      $("#updateAuthorCommentForm").submit();
 	    }); // click
@@ -90,24 +76,23 @@
           </form>
         </div>
         <hr>
+        <c:if test="${sessionScope.mvo!=null}">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
               <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
           시크릿 댓글</a>
-          <c:if test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
           &nbsp;&nbsp;&nbsp;
 	        <a href="#newSecretReply" data-toggle="collapse" aria-expanded="false" aria-controls="newSecretReply">
 	        <span class="glyphicon glyphicon-edit text-right" aria-hidden="true"></span>
 	        </a>
-          </c:if>
       		</h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <c:choose>
-                  <c:when test="${sessionScope.mvo!=null&&requestScope.mypageVO!=null}">
+                  <c:when test="${requestScope.mypageVO!=null}">
                     ${requestScope.mypageVO.replyContent}
                   </c:when>
                   <c:otherwise>
@@ -120,6 +105,7 @@
             </div>
           </div>
         </div>
+       </c:if>
         <div class="collapse" id="newSecretReply">
     	<c:if test="${sessionScope.mvo.id != null}">
             <div class="form-group">
@@ -137,6 +123,7 @@
                        <a class="btn btn-primary btn-lg btn-block" id="registerSecretReplyBtn" role="button">시크릿 댓글 변경</a>
                     </c:otherwise>
                   </c:choose>
+                </p>
               </form>
             </div>
         </c:if>
