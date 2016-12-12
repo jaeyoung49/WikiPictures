@@ -48,10 +48,11 @@ public class MemberController {
 		}
 		if (vo.getId().equals("admin")) {
 			request.getSession().setAttribute("mvo", vo);
-			return "admin/show_admin_mypage";
+			return "redirect:show_member_list.do";
 		} else {
 			request.getSession().setAttribute("mvo", vo);
-			return "redirect:home.do";
+			String referer=request.getHeader("referer");
+			return "redirect:"+referer;
 		}
 	}
 

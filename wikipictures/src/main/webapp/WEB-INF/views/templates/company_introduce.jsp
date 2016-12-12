@@ -32,10 +32,9 @@ $(document).ready(function() {
   <br>
   <br>
   <div class="container">
-    <a href='javascript:void(0)' onclick="this.innerHTML=(this.nextSibling.style.display=='none')?
-    '닫기':'<h3>인재채용기준</h3>';this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none'" ;>
-      <h3>인재채용 기준</h3></a>
-    <DIV style='display:none'>
+ 
+   <a href='javascript:void(0)' onclick="this.innerHTML=(this.nextSibling.style.display=='none')?'<h3>닫기':'<h3>인재채용 기준</h3>';this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none'";>
+   <h3>인재채용 기준</h3></a><DIV style='display:none'>
       <h3>인재채용 기준</h3>
       <table>
         <tr>
@@ -69,6 +68,8 @@ $(document).ready(function() {
 			할 수 있습니다.<br></h4>
             </td>
       </table>
+</DIV>
+
     </div>
     <br>
     <h3>팀원소개</h3>
