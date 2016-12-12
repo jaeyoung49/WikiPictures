@@ -3,59 +3,55 @@
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>   
 
 <script type="text/javascript">
-$(document).ready(function() {
-  <%-- 해쉬태그 추가 --%>
-  $("#addhashtag").click(function() {
-    $("#hashtagForm").submit();
-  }); // click
-
-  <%-- 원작자코멘트 수정 --%>
-  if ($ {
-      sessionScope.mvo.id == requestScope.picturevo.memberVO.id
-    }) {
-    $("#authorComment").next().hide();
-
-    $("#authorComment").click(function() {
-      $(this).next().toggle();
-    });
-    $("#updateAuthorCommentBtn").click(function() {
-      $("#updateAuthorCommentForm").submit();
-    }); // click
-  }
-
-  <%-- 시크릿댓글 등록/수정 --%>
-  if ($ {
-      requestScope.mypageVO != null
-    }) {
-    $("#secretReply").next().hide();
-
-    $("#secretReply").click(function() {
-      $(this).next().toggle();
-    });
-  }
-  $("#registerSecretReplyBtn").click(function() {
-    $("#registerSecretReplyForm").submit();
-  }); // click
-
-  $("#register_report_formBtn").click(function() {
-    $("#register_report_form").submit();
-  });
-
-  $("#tags").inputTags();
-
-  <%-- 사진구매 --%>
-  $("#buyBtn").click(function() {
-    if (confirm("사진을 구매하시겠습니까?")) {
-      $("#registerBuyForm").submit();
-    }
-  });
-
-  <%-- 사진다운로드 --%>
-  $("#pictureDownloadBtn").click(function() {
-    $("#pictureDownloadForm").submit();
-  });
-
-}); //ready
+	$(document).ready(function() {
+	  <%-- 해쉬태그 추가 --%>
+	  $("#addhashtag").click(function() {
+	    $("#hashtagForm").submit();
+	  }); // click
+	
+	  <%-- 원작자코멘트 수정 --%>
+	  if (${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}) {
+	    $("#authorComment").next().hide();
+	
+	    $("#authorComment").click(function() {
+	      $(this).next().toggle();
+	    });
+	    $("#updateAuthorCommentBtn").click(function() {
+	      $("#updateAuthorCommentForm").submit();
+	    }); // click
+	  }
+	
+	  <%-- 시크릿댓글 등록/수정 --%>
+	  if (${requestScope.mypageVO != null}) {
+	    $("#secretReply").next().hide();
+	
+	    $("#secretReply").click(function() {
+	      $(this).next().toggle();
+	    });
+	  }
+	  $("#registerSecretReplyBtn").click(function() {
+	    $("#registerSecretReplyForm").submit();
+	  }); // click
+	
+	  $("#register_report_formBtn").click(function() {
+	    $("#register_report_form").submit();
+	  });
+	
+	  $("#tags").inputTags();
+	
+	  <%-- 사진구매 --%>
+	  $("#buyBtn").click(function() {
+	    if (confirm("사진을 구매하시겠습니까?")) {
+	      $("#registerBuyForm").submit();
+	    }
+	  });
+	
+	  <%-- 사진다운로드 --%>
+	  $("#pictureDownloadBtn").click(function() {
+	    $("#pictureDownloadForm").submit();
+	  });
+	
+	}); //ready
 </script>
 </head>
 
@@ -101,7 +97,7 @@ $(document).ready(function() {
                   </c:when>
                   <c:otherwise>
                     <a href="#" class="btn btn-default btn-lg btn-block">
-        댓글이 없군요! 당신만의 추억을 기록해보세요 :)</a>
+        				댓글이 없군요! 당신만의 추억을 기록해보세요 :)</a>
                   </c:otherwise>
                 </c:choose>
               </div>
