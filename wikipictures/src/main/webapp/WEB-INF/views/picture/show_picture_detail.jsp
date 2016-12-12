@@ -110,7 +110,6 @@
     	<c:if test="${sessionScope.mvo.id != null}">
             <div class="form-group">
               <form id="registerSecretReplyForm" action="registerSecretReply.do">
-                <p>
                   <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
                   <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
                   <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
@@ -124,7 +123,6 @@
                        <a class="btn btn-primary btn-lg btn-block" id="registerSecretReplyBtn" role="button">시크릿 댓글 변경</a>
                     </c:otherwise>
                   </c:choose>
-                </p>
               </form>
             </div>
         </c:if>
