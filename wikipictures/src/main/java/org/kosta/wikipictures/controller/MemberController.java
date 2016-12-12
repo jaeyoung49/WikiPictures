@@ -69,7 +69,8 @@ public class MemberController {
 		} else {
 			request.getSession().setAttribute("mvo", vo);
 			String referer=request.getHeader("referer");
-			return "redirect:"+referer;
+			//return "redirect:"+referer;
+			return "redirect:showMypictureList.do";
 		}
 	}
 
