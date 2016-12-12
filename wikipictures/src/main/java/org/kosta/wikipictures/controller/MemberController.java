@@ -36,51 +36,6 @@ public class MemberController {
 	@Resource
 	private PictureService pictureService;
 
-	@RequestMapping("{viewName}.do")
-	public String showView(@PathVariable String viewName) {
-		System.out.println("1.@PathVariable:" + viewName);
-		return viewName;
-	}
-
-	@RequestMapping("{dirName}/{viewName}.do")
-	public String showView(@PathVariable String dirName, @PathVariable String viewName) {
-		System.out.println("2.@PathVariable:" + dirName + "/" + viewName);
-		return dirName + "/" + viewName;
-	}
-
-	/**
-	 * 
-	  * <PRE>
-	  * 시큐리티 적용시 제거
-	  * </PRE>
-	  * @date : 2016. 12. 12.
-	  * @author : Jaeyoung
-	  * @return
-	 */
-	/*@RequestMapping(value = "login.do", method = RequestMethod.POST)
-	public String login(MemberVO memberVO, HttpServletRequest request) {
-		MemberVO vo = memberService.login(memberVO);
-		if (vo == null) {
-			return "member/login_all_fail";
-		}
-		if (vo.getId().equals("admin")) {
-			request.getSession().setAttribute("mvo", vo);
-			return "redirect:show_member_list.do";
-		} else {
-			request.getSession().setAttribute("mvo", vo);
-			String referer=request.getHeader("referer");
-			//return "redirect:"+referer;
-			return "redirect:showMypictureList.do";
-		}
-	}
-
-	@RequestMapping("logout.do")
-	public String logout(HttpServletRequest request) {
-		HttpSession session = request.getSession(false);
-		if (session != null)
-			session.invalidate();
-		return "redirect:home.do";
-	}*/
 
 	@RequestMapping("company_introduce.do")
 	public String introduce() {

@@ -16,6 +16,9 @@
 	<!-- security 적용대상 제외:모든 디렉토리의 js 확장자 파일은 제외하고자 할 때 -->	
 	<sec:http pattern="/**/*.js" security="none"></sec:http>		
 	
+	
+	<!-- 이전페이지 기억하기 위한 Bean -->
+	<bean id="customLoginSuccessHandler" class="org.kosta.wikipictures.security.CustomLoginSuccessHandler" />
 	<!-- 
 		  XML 기반일 경우 아래와 같이 설정할 수 있다 
 	       
@@ -39,8 +42,8 @@
 		 -->
 		<sec:form-login  login-page="/auth_error.do"
 			login-processing-url="/login.do" authentication-failure-url="/member/login_all_fail.do"
-			username-parameter="id" default-target-url="/home.do"
-			password-parameter="password" />
+			username-parameter="id" password-parameter="password" 
+			authentication-success-handler-ref="customLoginSuccessHandler"/>
 		<sec:logout logout-url="/logout.do" logout-success-url="/home.do" />
 	</sec:http>
 	
