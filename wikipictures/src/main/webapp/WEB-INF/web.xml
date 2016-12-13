@@ -10,6 +10,7 @@
 	</welcome-file-list>
 
 	<!-- Servlet Config -->
+	
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -23,7 +24,21 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-
+<!-- Spring Security -->
+   <filter>
+    	<description>Spring Security Security Filter</description>
+    	<filter-name>springSecurityFilterChain</filter-name>
+    	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>    
+    <filter-mapping>
+    	<filter-name>springSecurityFilterChain</filter-name>
+    	<url-pattern>*.do</url-pattern>   	
+    </filter-mapping>
+    <!-- 인증 관련 error 일 경우 다음 페이지를 보여준다 -->
+    <error-page>
+    	<error-code>403</error-code>
+    	<location>/WEB-INF/views/auth_error.jsp</location>
+    </error-page>
 	<!-- filter : UTF-8 -->
 	<filter>
 		<filter-name>encodeFilter</filter-name>
