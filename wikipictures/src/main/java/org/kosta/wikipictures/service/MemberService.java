@@ -1,5 +1,8 @@
 package org.kosta.wikipictures.service;
 
+import java.util.List;
+
+import org.kosta.wikipictures.vo.AuthoritiesVO;
 import org.kosta.wikipictures.vo.MemberVO;
 import org.kosta.wikipictures.vo.MypageVO;
 
@@ -16,5 +19,7 @@ public interface MemberService {
 	void updateMember(MemberVO memberVO);
 
 	void registerBuy(MypageVO mypageVO);
+	
+	List<AuthoritiesVO> selectAuthorityByUsername(String username);
 
 }

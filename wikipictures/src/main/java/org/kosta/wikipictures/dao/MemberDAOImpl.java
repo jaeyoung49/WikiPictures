@@ -1,7 +1,10 @@
 package org.kosta.wikipictures.dao;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.kosta.wikipictures.vo.AuthoritiesVO;
 import org.kosta.wikipictures.vo.MemberVO;
 import org.kosta.wikipictures.vo.MypageVO;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -40,5 +43,19 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void registerBuy(MypageVO mypageVO) {
 		template.insert("member.registerBuy", mypageVO);
+	}
+	/**
+	 * Security에서 인증시 사용
+	 */
+	@Override
+	public List<AuthoritiesVO> selectAuthorityByUsername(String username) {
+		return template.selectList("member.selectAuthorityByUsername", username);
+	}
+	/**
+	 * Security를 위해 권한부여를 위해 사용
+	 */
+	@Override
+	public void registerRole(AuthoritiesVO authoritiesVO) {
+		template.insert("member.registerRole", authoritiesVO);
 	}
 }

@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>   
+<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<!-- Attribute START ================================================== -->
+<c:if test="${requestScope.memberVO != null }">
+	<sec:authentication var="mvo" property="principal"/>
+</c:if>
+<!-- Attribute END ==================================================== -->   
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -14,7 +20,7 @@
 	  }); // click
 	
 	  <%-- 원작자코멘트 수정 --%>
-	  if (${sessionScope.mvo.id == requestScope.picturevo.memberVO.id} ) {
+	  if (${mvo.id == requestScope.picturevo.memberVO.id} ) {
 	    $("#updateAuthorCommentBtn").click(function() {
 	      $("#updateAuthorCommentForm").submit();
 	    }); // click
@@ -60,7 +66,7 @@
         <br>
         <blockquote>
           <p>${requestScope.picturevo.authorComment}</p>
-          <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
+          <c:if test="${mvo.id == requestScope.picturevo.memberVO.id}">
             <a data-toggle="collapse" href="#updateAuthorCommentForm" aria-expanded="false" aria-controls="updateAuthorCommentForm">
               <span class="glyphicon glyphicon-edit text-right" aria-hidden="true"></span></a>
           </c:if>
@@ -68,7 +74,7 @@
          <div class="form-group">
           <form id="updateAuthorCommentForm" class="collapse" action="updateAuthorComment.do">
             <p>
-              <c:if test="${sessionScope.mvo.id == requestScope.picturevo.memberVO.id}">
+              <c:if test="${mvo.id == requestScope.picturevo.memberVO.id}">
                 <input type="hidden" name="pictureDate" value="${requestScope.picturevo.pictureDate}">
                 <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
                 <textarea name="authorComment" class="form-control" placeholder="수정할 코멘트를 입력해주세요" rows="3"></textarea>
@@ -78,7 +84,7 @@
           </form>
         </div>
         <hr>
-        <c:if test="${sessionScope.mvo!=null}">
+        <sec:authorize ifAnyGranted="ROLE_MEMBER, ROLE_ADMIN">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
@@ -107,12 +113,12 @@
             </div>
           </div>
         </div>
-       </c:if>
+       </sec:authorize>
         <div class="collapse" id="newSecretReply">
-    	<c:if test="${sessionScope.mvo.id != null}">
+    	<sec:authorize ifAnyGranted="ROLE_MEMBER, ROLE_ADMIN">
             <div class="form-group">
               <form id="registerSecretReplyForm" action="registerSecretReply.do">
-                  <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
+                  <input type="hidden" name="memberVO.id" value="${mvo.id}">
                   <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
                   <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
                   <c:choose>
@@ -128,7 +134,7 @@
                 </p>
               </form>
             </div>
-        </c:if>
+        </sec:authorize>
 		</div>
           <div class="form-group">
             <div id="tagcloud">
@@ -150,36 +156,36 @@
           <input type="hidden" name="keyword" value="${requestScope.picturevo.keyword}">
           <div class="btn-group btn-group-justified">
             <a href="#" class="btn btn-info" id="addhashtag">해시태그추가</a>
-            <c:if test="${sessionScope.mvo.id != null}">
+            <sec:authorize ifAnyGranted="ROLE_MEMBER, ROLE_ADMIN">
               <c:choose>
-                <c:when test="${requestScope.mypageVO.buyDate==null && sessionScope.mvo.id != requestScope.picturevo.memberVO.id}">
+                <c:when test="${requestScope.mypageVO.buyDate==null && mvo.id != requestScope.picturevo.memberVO.id}">
                   <a href="#" id="buyBtn" class="btn btn-info">사진구매</a>
                 </c:when>
                 <c:otherwise>
-                  <a href="${pageContext.request.contextPath}/fileDownload.do?fileName=${requestScope.picturevo.path}" id="buyBtn" class="btn btn-info">사진다운로드</a>
+                  <a href="${pageContext.request.contextPath}/fileDownload.do?fileName=${requestScope.picturevo.path}" id="pictureDownloadBtn" class="btn btn-info">사진다운로드</a>
                 </c:otherwise>
               </c:choose>
-            </c:if>
+            </sec:authorize>            
             <a href="#" class="btn btn-info" id="register_report_formBtn" role="button" data-toggle="modal" data-target="#reportModal">신고/정정 요청</a>
           </div>
-          <c:if test="${sessionScope.mvo.id != null}">
+          <sec:authorize ifAnyGranted="ROLE_MEMBER, ROLE_ADMIN">
             <c:choose>
-              <c:when test="${requestScope.mypageVO.buyDate==null && sessionScope.mvo.id != requestScope.picturevo.memberVO.id}">
+              <c:when test="${requestScope.mypageVO.buyDate==null && mvo.id != requestScope.picturevo.memberVO.id}">
                 <form id="registerBuyForm" action="registerBuy.do">
-                  <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
+                  <input type="hidden" name="memberVO.id" value="${mvo.id}">
                   <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
                   <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
                 </form>
               </c:when>
               <c:otherwise>
                 <form id="pictureDownloadForm" action="#">
-                  <input type="hidden" name="memberVO.id" value="${sessionScope.mvo.id}">
+                  <input type="hidden" name="memberVO.id" value="${mvo.id}">
                   <input type="hidden" name="pictureVO.pictureDate" value="${requestScope.picturevo.pictureDate}">
                   <input type="hidden" name="pictureVO.keyword" value="${requestScope.picturevo.keyword}">
                 </form>
               </c:otherwise>
             </c:choose>
-          </c:if>
+          </sec:authorize>
       </div>
     </div>
   </div>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Spring Security 인증처리로직를 정의한 클래스 -->
+	<bean name="customizedAuthenticationProvider"
+		class="org.kosta.wikipictures.security.MemberAuthenticationProvider" />
+	
+	<!-- Annotation 기반 spring security를 사용하기 위한 설정 -->
+	<sec:global-method-security secured-annotations="enabled" />
+	
+	<!-- security 적용대상 제외:모든 디렉토리의 js 확장자 파일은 제외하고자 할 때 -->	
+	<sec:http pattern="/**/*.js" security="none"></sec:http>		
+	
+	
+	<!-- 이전페이지 기억하기 위한 Bean -->
+	<bean id="customLoginSuccessHandler" class="org.kosta.wikipictures.security.CustomLoginSuccessHandler" />
+	<!-- 
+		  XML 기반일 경우 아래와 같이 설정할 수 있다 
+	       
+	       만약 회원 전용시스템일 경우
+		  모든 요청에 대해 access = "hasRole('ROLE_MEMBER') 
+		  또는 access = "hasAnyRole('ROLE_MEMBER','ROLE_ADMIN')" 을 주고 
+		  특정 서비스에 대해서 모든 사용자에게 접근할 수 있도록 하면 된다 
+		  <sec:intercept-url pattern="/register.do" access="permitAll" />
+	  -->
+	<sec:http use-expressions="true">		
+		<!-- <sec:intercept-url pattern="/admin_*" access="hasRole('ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/m_*" access="hasAnyRole('ROLE_MEMBER','ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/**" access="permitAll" /> -->
+		<!-- 
+				login-page : 로그인 페이지 주소를 지정
+ 				username-parameter :  로그인 페이지 form에 있는 username(아이디)의 name
+ 				password-parameter :  로그인 페이지 form에 있는 password의 password
+ 				login-processing-url :  로그인 페이지 form action에 입력할 주소 지정
+ 				default-target-url :  로그인 성공시 이동 주소 
+ 				authentication-failure-url :  로그인 실패인 경우 이동 주소 
+		 -->
+		<sec:form-login  login-page="/auth_error.do"
+			login-processing-url="/login.do" authentication-failure-url="/member/login_all_fail.do"
+			username-parameter="id" password-parameter="password" 
+			authentication-success-handler-ref="customLoginSuccessHandler"/>
+		<sec:logout logout-url="/logout.do" logout-success-url="/home.do" />
+	</sec:http>
+	
+	<!-- 비밀번호 암호화를 위한 설정 -->
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<!-- <constructor-arg name="strength" value="20"></constructor-arg> -->
+	</bean>
+	<sec:authentication-manager>
+		<sec:authentication-provider ref="customizedAuthenticationProvider" >		
+		</sec:authentication-provider>		
+	</sec:authentication-manager>	
+</beans>

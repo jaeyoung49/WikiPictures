@@ -8,20 +8,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<resultMap type="memberVO" id="memberRM">
 		<result property="favoriteSpace" column="fav_space" />
 	</resultMap>
+	
 	<select id="findMemberById" resultType="memberVO">
 		SELECT * FROM member
 		WHERE id = #{value}
 	</select>
+	
 	<select id="login" resultMap="memberRM">
 		SELECT * FROM member
 		WHERE id = #{id}
 		AND
 		password = #{password}
 	</select>
+	
 	<select id="idcheck" resultType="int">
 		SELECT count(*) FROM member
 		WHERE id = #{value}
 	</select>
+	
 	<insert id="registerMember" parameterType="memberVO">
 		INSERT INTO
 		member(id
@@ -119,7 +123,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		, #{pictureVO.keyword}
 		, sysdate)
 	</insert>
-
+	
+	<!-- Spring Security에서 권한 체크를 위해 사용 -->
+	<select id="selectAuthorityByUsername"  resultType="authoritiesVO">
+		SELECT	id
+		, authority
+		FROM	authorities
+		WHERE	id = #{username}
+	</select>
+	
+	<!-- Spring Security 사용을 위한 권한 등록 -->
+	<insert id="registerRole" parameterType="authoritiesVO">
+		insert into authorities(id,authority) values(#{memberVO.id},#{authority})
+	</insert>
+	
 </mapper>
 
 

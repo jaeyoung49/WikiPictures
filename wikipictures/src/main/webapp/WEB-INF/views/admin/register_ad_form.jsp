@@ -11,9 +11,9 @@
 <div class="container">
   <form id="미정Form" action="${pageContext.request.contextPath}/미정.do" method="post" enctype="multipart/form-data" class="form-horizontal">
     <div class="form-group">
-      <label for="category">신고유형</label>
+      <label for="category">광고유형</label>
       <select name="category" multiple class="form-control">
-        <option value="미정">미정</option>
+        <option value="미정">기부금</option>
         <option value="미정">미정</option>
         <option value="미정">미정</option>
         <option value="미정">미정</option>
@@ -39,3 +39,4 @@
     <input class="btn btn-default btn-lg btn-block" id="formButton" type="button" value="미정">
   </form>
 </div>
+

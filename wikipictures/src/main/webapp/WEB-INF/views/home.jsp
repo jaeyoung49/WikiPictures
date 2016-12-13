@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!-- Attribute START ================================================== -->
 <c:set var="timeMachineYearList" value="${requestScope.timeMachineYearList}"/>
 <c:set var="timeMachineVO" value="${requestScope.timeMachineVO}"/>
 <c:set var="accidentPictureList" value="${requestScope.accidentPictureList}"/>
 <c:set var="personAndLocationPictureList" value="${requestScope.personAndLocationPictureList}"/>
+<sec:authentication var="mvo" property="principal"/>
 <!-- Attribute END ================================================== -->
 <!DOCTYPE html>
 <html>
@@ -120,8 +122,7 @@
         Wiki Pictures <small>#${timeMachineVO.timeMachineYear}</small></a>
       </div>
       <!-- NAVBAR Button -->
-      <c:choose>
-        <c:when test="${sessionScope.mvo==null}">
+      <sec:authorize ifNotGranted="ROLE_MEMBER, ROLE_ADMIN ">
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
               <li class="dropdown-toggle">
@@ -185,8 +186,8 @@
               </li>
             </ul>
           </div>
-        </c:when>
-        <c:when test="${sessionScope.mvo.id=='admin'}">
+      </sec:authorize>
+      <sec:authorize ifAllGranted="ROLE_MEMBER, ROLE_ADMIN">
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
               <li><a href="${pageContext.request.contextPath}/admin/show_admin_mypage.do">관리자 홈으로</a>
@@ -215,11 +216,11 @@
                 </li>
             </ul>
           </div>
-        </c:when>
-        <c:otherwise>
+        </sec:authorize>
+        <sec:authorize ifNotGranted="ROLE_ADMIN" ifAnyGranted="ROLE_MEMBER">
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav pull-right">
-              <li><a href="#">${sessionScope.mvo.nickname}님 </a></li>
+              <li><a href="#">${mvo.nickname}님 </a></li>
               <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
                 <div class="form-group">
                   <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
@@ -243,8 +244,7 @@
                 </li>
             </ul>
           </div>
-        </c:otherwise>
-      </c:choose>
+      </sec:authorize>
       <!-- /.navbar-collapse -->
     </div>
   </nav>
@@ -386,13 +386,13 @@
   </div>
   <!-- MAIN END ================================================== -->
   
-  <c:if test="${sessionScope.mvo==null}">
+  <sec:authorize ifNotGranted="ROLE_MEMBER, ROLE_ADMIN ">
     <!-- Register Form Modal START ================================================== -->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color: rgba(255, 255, 255, 0.3);">
       <c:import url="member/register_member_form.jsp" />
     </div>
     <!-- Register Form Modal END ================================================== -->
-  </c:if>
+  </sec:authorize>
 
   <!-- 부트스트랩 핵심 js -->
   <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>

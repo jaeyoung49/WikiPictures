@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<!-- Attribute START ================================================== -->
+<sec:authentication var="mvo" property="principal"/>
+<!-- Attribute END ==================================================== -->
 
 <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0px;">
   <div class="container">
@@ -15,8 +19,7 @@
       <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do" style="font-size: 2em;">Wiki Pictures</a>
     </div>
     <!-- NAVBAR Button -->
-    <c:choose>
-      <c:when test="${sessionScope.mvo==null}">
+      <sec:authorize ifNotGranted="ROLE_MEMBER, ROLE_ADMIN ">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav pull-right">
             <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
@@ -51,6 +54,7 @@
                         <div class="form-group">
                           <input type="submit" class="btn btn-primary btn-block" value="로그인">
                         </div>
+     
                       </form>
                     </div>
                     <div class="bottom text-center">
@@ -63,8 +67,8 @@
           </ul>
           <!-- /.navbar-collapse -->
         </div>
-      </c:when>
-      <c:when test="${sessionScope.mvo.id=='admin'}">
+      </sec:authorize>
+      <sec:authorize ifAllGranted="ROLE_MEMBER, ROLE_ADMIN">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav pull-right">
             <li><a href="${pageContext.request.contextPath}/admin/show_admin_mypage.do">관리자 홈으로</a>
@@ -81,29 +85,28 @@
             <li><a href="#" id="logout">로그아웃 </a>
           </ul>
         </div>
-      </c:when>
-      <c:otherwise>
+      </sec:authorize>
+      <sec:authorize ifNotGranted="ROLE_ADMIN" ifAnyGranted="ROLE_MEMBER">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav pull-right">
-            <c:if test="${sessionScope.mvo.id!='admin'}">
-              <li><a href="#">${sessionScope.mvo.nickname}님 </a></li>
-            </c:if>
+            <sec:authorize ifNotGranted="ROLE_ADMIN">
+              <li><a href="#">${mvo.nickname}님 </a></li>
+            </sec:authorize>
             <form class="navbar-form navbar-right" role="search" action="${pageContext.request.contextPath}/searchPicture.do">
               <div class="form-group">
                 <input type="text" class="form-control" name="keyword" placeholder="검색어를 입력해주세요">
               </div>
               <button type="submit" class="btn btn-default">검색</button>
             </form>
-            <c:if test="${sessionScope.mvo.id=='admin'}">
+            <sec:authorize ifAllGranted="ROLE_MEMBER, ROLE_ADMIN">
               <li><a href="${pageContext.request.contextPath}/admin/show_admin_mypage.do">관리자페이지</a></li>
-            </c:if>
+            </sec:authorize>
             <li><a href="${pageContext.request.contextPath}/picture/register_picture_form.do">업로드</a></li>
             <li><a href="${pageContext.request.contextPath}/member/show_member_mypage.do">마이페이지</a></li>
             <li><a href="#" id="logout">로그아웃 </a>
           </ul>
         </div>
-      </c:otherwise>
-    </c:choose>
+      </sec:authorize>
   </div>
 </nav>
 <script type="text/javascript">

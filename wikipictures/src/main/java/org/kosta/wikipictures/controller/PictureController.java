@@ -23,6 +23,8 @@ import org.kosta.wikipictures.vo.MypageVO;
 import org.kosta.wikipictures.vo.PictureVO;
 import org.kosta.wikipictures.vo.ReportVO;
 import org.kosta.wikipictures.vo.TimeMachineVO;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -95,37 +97,38 @@ public class PictureController {
 	}
 
 	// 사진 등록
+	@Secured("ROLE_MEMBER")
 	@RequestMapping(method = RequestMethod.POST, value = "registerPicture.do")
 	public String registerPicture(PictureVO pictureVO, String tempHashtags, HttpServletRequest request)
 			throws UnsupportedEncodingException {
-		// ModelAndView mv = new ModelAndView();
 
 		// 사진 정보 세팅 - 날짜
-		System.out.println(pictureVO.getPictureDate());
 		pictureVO.setPictureDate(pictureVO.getPictureDate().trim().substring(0, 7));
 
 		// 해시태그 세팅 - 태그 정렬
-		String[] tags = tempHashtags.split(",");
-		for (int i = 0; i < tags.length; i++) {
-			tags[i] = tags[i].trim();
-		}
-		ArrayList<String> hashtagName = new ArrayList<String>();
-		for (String str : tags) {
-			boolean duplicated = false;
-			for (int i = 0; i < hashtagName.size(); i++) {
-				if (str.equals(hashtagName.get(i)))
-					duplicated = true;
-				break;
-			}
-			if (duplicated == false)
-				hashtagName.add(str);
-		}
 		List<HashtagVO> hashtagList = new ArrayList<HashtagVO>();
-		for (String str : hashtagName) {
-			HashtagVO hvo = new HashtagVO();
-			hvo.setHashtagName(str);
-			hvo.setPictureVO(pictureVO);
-			hashtagList.add(hvo);
+		if(tempHashtags.equals("")==false && tempHashtags!=null){
+			String[] tags = tempHashtags.split(",");
+			for (int i = 0; i < tags.length; i++) {
+				tags[i] = tags[i].trim();
+			}
+			ArrayList<String> hashtagName = new ArrayList<String>();
+			for (String str : tags) {
+				boolean duplicated = false;
+				for (int i = 0; i < hashtagName.size(); i++) {
+					if (str.equals(hashtagName.get(i)))
+						duplicated = true;
+					break;
+				}
+				if (duplicated == false)
+					hashtagName.add(str);
+			}
+			for (String str : hashtagName) {
+				HashtagVO hvo = new HashtagVO();
+				hvo.setHashtagName(str);
+				hvo.setPictureVO(pictureVO);
+				hashtagList.add(hvo);
+			}
 		}
 
 		// 사진파일을 서버에 저장
@@ -158,14 +161,18 @@ public class PictureController {
 				e.printStackTrace();
 			}
 		}
-
-		// 차후 아이디 받아오는 것이 구현되면 삭제할것!!
-		MemberVO memberVO = (MemberVO) request.getSession(false).getAttribute("mvo");
+		
+		// Spring Security 에서 Session값 가져오기
+		MemberVO memberVO = (MemberVO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		pictureVO.getMemberVO().setId(memberVO.getId());
+		
 		// 사진정보를 DB에 저장
 		pictureService.registerPicture(pictureVO);
+		
 		// 해시태그를 DB에 저장
-		pictureService.registerHashtag(hashtagList);
+		if(tempHashtags.equals("")==false && tempHashtags!=null)
+			pictureService.registerHashtag(hashtagList);
+			
 		// 이동 경로
 		String keyword = URLEncoder.encode(pictureVO.getKeyword(), "UTF-8");
 		return "redirect:searchDetailPicture.do?pictureDate=" + pictureVO.getPictureDate() + "&keyword=" + keyword;
@@ -201,28 +208,29 @@ public class PictureController {
 
 	/**
 	 * 
-	 * <PRE>
-	 * 메소드 설명
-	 * </PRE>
-	 * 
-	 * @date : 2016. 12. 7.
-	 * @author : Jaeyoung
-	 * @param session
-	 * @param hashtagVO
-	 * @param pictureVO
-	 * @return
+	  * <PRE>
+	  * 메소드 설명
+	  * </PRE>
+	  * @date : 2016. 12. 12.
+	  * @author : Jaeyoung
+	  * @param hashtagVO
+	  * @param pictureVO
+	  * @return
 	 */
 	@RequestMapping("searchDetailPicture.do")
-	public ModelAndView searchDetailPicture(HttpSession session, HashtagVO hashtagVO, PictureVO pictureVO) {
+	public ModelAndView searchDetailPicture(HashtagVO hashtagVO, PictureVO pictureVO) {
 		ModelAndView mv = new ModelAndView();
+		MemberVO memberVO = null;
+		// Spring Security 세션 회원정보를 반환받는다
+		if(SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof MemberVO)
+			memberVO = (MemberVO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		// 사진 내용
 		PictureVO picturevo = pictureService.picture(pictureVO);
 		// 해쉬태그 내용
 		hashtagVO.setPictureVO(picturevo);
 		List<HashtagVO> pvo = pictureService.searchDetailPicture(hashtagVO);
 		// 시크릿댓글
-		if (session.getAttribute("mvo") != null) {
-			MemberVO memberVO = (MemberVO) session.getAttribute("mvo");
+		if (memberVO != null) {
 			MypageVO mypageVO = new MypageVO();
 			mypageVO.setMemberVO(memberVO);
 			mypageVO.setPictureVO(picturevo);
@@ -233,6 +241,7 @@ public class PictureController {
 		// ModelAndView에 값
 		mv.addObject("picturevo", picturevo);
 		mv.addObject("pvo", pvo);
+		mv.addObject("memberVO", memberVO);
 		// 경로
 		mv.setViewName("picture/show_picture_detail");
 		return mv;
@@ -263,7 +272,7 @@ public class PictureController {
 		hash = hash.replaceAll("\\p{Space}", "");
 		/* System.out.println("1"+hash); */
 		String[] tags = hash.split(",");
-		for (int i = 0; i < tags.length; i++) {
+		for (int i = 0; i < tags.length; i++) { 
 			tags[i] = tags[i].trim();
 		}
 		ArrayList<String> hashtagNames = new ArrayList<String>();
@@ -304,6 +313,7 @@ public class PictureController {
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
+	@Secured("ROLE_MEMBER")
 	@RequestMapping("updateAuthorComment.do")
 	public String updateAuthorComment(PictureVO pictureVO) throws UnsupportedEncodingException {
 		pictureService.updateAuthorComment(pictureVO);
@@ -323,6 +333,7 @@ public class PictureController {
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
+	@Secured("ROLE_MEMBER")
 	@RequestMapping("registerSecretReply.do")
 	public String registerSecretReply(MypageVO mypageVO) throws UnsupportedEncodingException {
 		pictureService.registerSecretReply(mypageVO);
@@ -331,6 +342,7 @@ public class PictureController {
 				+ mypageVO.getPictureVO().getPictureDate();
 	}
 
+	@Secured("ROLE_MEMBER")
 	@RequestMapping("fileDownload.do")
 	public ModelAndView fileDownload(HttpServletRequest request, String fileName) {
 		HashMap<String, String> map = new HashMap<String, String>();
