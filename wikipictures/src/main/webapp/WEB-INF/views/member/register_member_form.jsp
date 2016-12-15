@@ -3,8 +3,8 @@
 	$(document).ready(function() {
 	  var checkResultId = "";
 	  $("#regForm").submit(function() {
-	    if ($("#regForm :input[name=id]").val().trim() == "") {
-	      alert("아이디를 입력하세요!");
+	    if ($("#regForm :input[name=email]").val().trim() == "") {
+	      alert("이메일을 입력하세요!");
 	      return false;
 	    }
 	    
@@ -128,7 +128,7 @@
     </div>
     <div class="form-group">
       <label class="sr-only">id</label>
-      <input type="text" name="id" class="form-control" placeholder="아이디" required>
+      <input type="email" name="email" class="form-control" placeholder="이메일" required>
       <span id="idCheckView"></span>
     </div>
     <div class="form-group">
