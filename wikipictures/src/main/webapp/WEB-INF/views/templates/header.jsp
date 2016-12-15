@@ -94,3 +94,18 @@
 	  });
 	});
 </script>
+
+	<sec:authorize ifNotGranted="ROLE_MEMBER, ROLE_ADMIN ">
+	<!-- FindPassword Form Modal START ================================================== -->
+	<div class="modal fade" id="memberSearchModal" tabindex="-1" role="dialog" aria-labelledby="memberSearchModalLabel" aria-hidden="true">
+	  <c:import url="../member/memberSearch.jsp" />
+	</div>
+	<!-- FindPassword Form Modal END ================================================== -->
+
+    <!-- Register Form Modal START ================================================== -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color: rgba(255, 255, 255, 0.3);">
+      <c:import url="../member/register_member_form.jsp" />
+    </div>
+    <!-- Register Form Modal END ================================================== -->
+  </sec:authorize>
+  

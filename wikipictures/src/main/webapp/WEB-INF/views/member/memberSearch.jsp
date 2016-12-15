@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		  $("#searchForm").submit(function() {
 		    if ($("#searchForm :input[name=id]").val().trim() == "") {
-		      alert("아이디를 입력하세요!");
+		      alert("이메일을 입력하세요!");
 		      return false;
 		    }
 		    
@@ -17,8 +16,28 @@
 	});
 </script>
 
-<form action ="${pageContext.request.contextPath}/memberSearch.do" id="searchForm">
-	아이디 : <input type="text" name="id" id="id" ><br>
-	별명 : <input type ="text" name="nickname" id="nickname"><br>
-	 <input type ="submit" value="찾기">
-</form>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">비밀번호찾기</h4>
+      </div>
+      	<form action ="${pageContext.request.contextPath}/memberSearch.do" id="searchForm">
+      	<div class="modal-body">
+      		<div class="form-group">
+      			<label for="id" class="control-label">이메일</label>
+        		<input type="text" class="form-control" name="id" id="id">
+        	</div>
+        	<div class="form-group">
+        		<label for="nickname" class="control-label">별명</label>
+				<input type ="text" class="form-control" name="nickname" id="nickname">
+			</div>
+      	</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">창닫기</button>
+        <input type ="submit" class="btn btn-primary" value="찾기">
+      </div>
+		</form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->

@@ -358,6 +358,12 @@
       <c:import url="member/register_member_form.jsp" />
     </div>
     <!-- Register Form Modal END ================================================== -->
+    
+    <!-- FindPassword Form Modal START ================================================== -->
+	<div class="modal fade" id="memberSearchModal" tabindex="-1" role="dialog" aria-labelledby="memberSearchModalLabel" aria-hidden="true">
+	  <c:import url="member/memberSearch.jsp" />
+	</div>
+	<!-- FindPassword Form Modal END ================================================== -->
   </sec:authorize>
 
   <!-- 부트스트랩 핵심 js -->

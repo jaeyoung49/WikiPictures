@@ -20,7 +20,7 @@
                 <div class="form-group">
                   <label class="sr-only" for="exampleInputPassword2">password</label>
                   <input type="password" class="form-control" id="exampleInputPassword2" name="password" placeholder="비밀번호" required>
-                  <div class="help-block text-right"><a href="${pageContext.request.contextPath}/member.do">
+                  <div class="help-block text-right"><a href="#" style="text-decoration:none;" data-toggle="modal" data-target="#memberSearchModal">
                   <strong style="color: Navy">비밀번호 찾기</strong></a></div>
                 </div>
                 <div class="form-group">
