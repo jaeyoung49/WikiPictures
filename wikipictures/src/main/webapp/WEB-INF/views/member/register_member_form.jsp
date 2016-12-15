@@ -3,36 +3,12 @@
 	$(document).ready(function() {
 	  var checkResultId = "";
 	  $("#regForm").submit(function() {
-	    if ($("#regForm :input[name=email]").val().trim() == "") {
-	      alert("이메일을 입력하세요!");
-	      return false;
-	    }
-	    
-	    if ($("#regForm :input[name=nickname]").val().trim() == "") {
-	      alert("닉네임을 입력하세요!");
-	      return false;
-	    }
-	    if ($("#regForm :input[name=password]").val().trim() == "") {
-	      alert("비밀번호를 입력하세요!");
-	      return false;
-	    }
-	    if ($("#regForm :input[name=birth]").val().trim() == "") {
-	      alert("생년월일을 입력하세요!");
-	      return false;
-	    }
-	    if ($("#regForm :input[name=favoriteSpaceㄴ]").val().trim() == "") {
-	      alert("선호장소를 입력하세요!");
-	      return false;
-	    }
-	    if (checkResultId == "") {
-	      alert("아이디 중복확인을 하세요");
-	      return false;
-	    }
+	   
 	  });
 	  $("#regForm :input[name=id]").keyup(function() {
 	    var id = $(this).val().trim();
 	    if (id.length < 4 || id.length > 100) {
-	      $("#idCheckView").html("아이디는 4자 이상 100자 이하여야 함!").css(
+	      $("#idCheckView").html("사용중인 이메일 입력해주세요!").css(
 	        "background", "pink");
 	      checkResultId = "";
 	      return;
@@ -128,7 +104,7 @@
     </div>
     <div class="form-group">
       <label class="sr-only">id</label>
-      <input type="email" name="email" class="form-control" placeholder="이메일" required>
+      <input type="email" name="id" class="form-control" placeholder="이메일" required>
       <span id="idCheckView"></span>
     </div>
     <div class="form-group">
