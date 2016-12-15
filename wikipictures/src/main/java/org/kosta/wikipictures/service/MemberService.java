@@ -21,5 +21,9 @@ public interface MemberService {
 	void registerBuy(MypageVO mypageVO);
 	
 	List<AuthoritiesVO> selectAuthorityByUsername(String username);
+	
+	MemberVO memberSearch(MemberVO memberVO);
+	
+	void updatePassword(MemberVO memberVO);
 
 }

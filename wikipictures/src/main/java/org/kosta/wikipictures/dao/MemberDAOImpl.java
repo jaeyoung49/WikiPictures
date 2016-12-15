@@ -58,4 +58,13 @@ public class MemberDAOImpl implements MemberDAO {
 	public void registerRole(AuthoritiesVO authoritiesVO) {
 		template.insert("member.registerRole", authoritiesVO);
 	}
+	
+	
+	public MemberVO memberSearch(MemberVO memberVO){
+		return template.selectOne("member.memberSearch",memberVO);
+	}
+	
+	public void updatePassword(MemberVO memberVO){
+		template.update("member.updatePassword",memberVO);
+	}
 }

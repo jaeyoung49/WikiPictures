@@ -10,8 +10,11 @@ import javax.servlet.http.HttpSession;
 
 import org.kosta.wikipictures.service.MemberService;
 import org.kosta.wikipictures.service.PictureService;
+import org.kosta.wikipictures.spring.board.email.Email;
+import org.kosta.wikipictures.spring.board.email.EmailSender;
 import org.kosta.wikipictures.vo.MemberVO;
 import org.kosta.wikipictures.vo.MypageVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,6 +28,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MemberController {
 
+	@Autowired
+	   private EmailSender emailSender;
 
 	//회원정보수정시 비밀번호 암호화처리를 위한 객체를 주입받는다
 	@Resource
@@ -35,6 +40,7 @@ public class MemberController {
 
 	@Resource
 	private PictureService pictureService;
+	
 
 
 	@RequestMapping("company_introduce.do")
@@ -129,6 +135,54 @@ public class MemberController {
 		String keyword = URLEncoder.encode(mypageVO.getPictureVO().getKeyword(), "UTF-8");
 		return "redirect:searchDetailPicture.do?keyword=" + keyword + "&pictureDate="
 				+ mypageVO.getPictureVO().getPictureDate();
+	}
+	
+	// 비밀번호 찾기위한 아이디 및 닉네임 확인
+	@RequestMapping("memberSearch.do")
+	public String memberSearch(HttpServletRequest request, MemberVO memberVO){
+		String id = request.getParameter("id");
+		String nickname= request.getParameter("nickname");
+		memberVO.setId(id);
+		memberVO.setNickname(nickname);
+		MemberVO mvo = memberService.memberSearch(memberVO);
+		if(mvo!=null){
+			return "redirect:memberGetSearch.do?id="+mvo.getId()+"&password="+mvo.getPassword();
+		}else{
+			return "member/memberSearch_fail";		
+		}
+	}
+	
+	// 비밀번호 초기화 및 초기화된 비밀번호 메일로 전송
+	@RequestMapping("memberGetSearch.do")
+    public ModelAndView sendEmailAction (HttpServletRequest request, MemberVO memberVO) throws Exception {
+        ModelAndView mav;  
+        Email email = new Email();
+        String id = request.getParameter("id");
+        
+        // 패스워드 1234로 초기화 인코딩
+		String password= "1234";	
+		String encodePassword = passwordEncoder.encode(password);
+		
+		memberVO.setId(id);
+		memberVO.setPassword(encodePassword);
+		
+		// 메일 주소, 제목, 내용 
+        email.setContent("초기화된 비밀번호는 1234 입니다. 비밀번호를 꼭 변경해 주세요!");
+        email.setReciver(id);
+        email.setSubject(id+"님 비밀번호 찾기 메일입니다.");
+        
+        // 패스워드 1234 초기화
+        memberService.updatePassword(memberVO);
+        
+        // 메일 전송
+        emailSender.SendEmail(email);
+        mav= new ModelAndView("member/memberSearch_result");
+        return mav;
+    }
+	
+	@RequestMapping("member.do")
+	public String member(MemberVO mvo){
+		return "member/memberSearch";
 	}
 
 }
