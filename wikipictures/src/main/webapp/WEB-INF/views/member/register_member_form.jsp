@@ -31,8 +31,8 @@
 	  });
 	  $("#regForm :input[name=id]").keyup(function() {
 	    var id = $(this).val().trim();
-	    if (id.length < 4 || id.length > 10) {
-	      $("#idCheckView").html("아이디는 4자 이상 10자 이하여야 함!").css(
+	    if (id.length < 4 || id.length > 100) {
+	      $("#idCheckView").html("아이디는 4자 이상 100자 이하여야 함!").css(
 	        "background", "pink");
 	      checkResultId = "";
 	      return;

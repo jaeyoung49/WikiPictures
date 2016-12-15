@@ -24,9 +24,10 @@ create table member(
 	enabled number not null
 )
 
-alter table member modify(id varchar2(100) not null);
+alter table member modify(id varchar2(100));
 alter table member modify(password varchar2(100));
 alter table member modify(fav_space varchar2(200));
+alter table authorities modify(id varchar2(100));
         
 insert into member values('java','아이유','1234','19900818','광화문',0);
 insert into member values('ajax','설현','1234','19880818','올림픽',0);

@@ -170,7 +170,7 @@
                           <div class="form-group">
                             <label class="sr-only" for="exampleInputPassword2">password</label>
                             <input type="password" class="form-control" id="exampleInputPassword2" name="password" placeholder="비밀번호" required>
-                            <div class="help-block text-right"><a href="">비밀번호 찾기</a></div>
+                            <div class="help-block text-right"><a href="${pageContext.request.contextPath}/member.do">비밀번호 찾기</a></div>
                           </div>
                           <div class="form-group">
                             <input type="submit" class="btn btn-primary btn-block" value="로그인">

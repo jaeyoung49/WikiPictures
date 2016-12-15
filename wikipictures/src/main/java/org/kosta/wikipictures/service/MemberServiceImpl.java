@@ -64,5 +64,14 @@ public class MemberServiceImpl implements MemberService {
 	public List<AuthoritiesVO> selectAuthorityByUsername(String username) {
 		return memberDAO.selectAuthorityByUsername(username);
 	}
+	
+
+	public MemberVO memberSearch(MemberVO memberVO){
+		return memberDAO.memberSearch(memberVO);
+	}
+
+	public void updatePassword(MemberVO memberVO){
+		memberDAO.updatePassword(memberVO);
+	}
 
 }

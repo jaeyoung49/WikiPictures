@@ -137,6 +137,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into authorities(id,authority) values(#{memberVO.id},#{authority})
 	</insert>
 	
+	<!-- 패스워드 변경할 아이디, 닉네임 체크 -->
+	<select id="memberSearch" resultType="memberVO">
+		select * from member
+		where id=#{id}
+		and nickname=#{nickname}
+	</select>
+	
+	<!-- 패스워드 찾기 후 패스워드 초기화 -->
+	<update id ="updatePassword" parameterType="memberVO">
+		update member set password =#{password}
+		where id=#{id}
+	</update>
+
 </mapper>
 
 
@@ -148,6 +161,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	WHERE id=#{value} AND enabled=1 </select> Spring Security에서 권한 체크를 위해 사용 
 	<select id="selectAuthorityByUsername" resultType="authority"> SELECT username,authority 
 	FROM authorities WHERE username=#{username} </select> -->
+
+
 
 
 

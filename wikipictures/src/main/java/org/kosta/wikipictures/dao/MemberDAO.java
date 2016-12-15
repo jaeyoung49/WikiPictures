@@ -24,4 +24,7 @@ public interface MemberDAO {
 
 	void registerRole(AuthoritiesVO authoritiesVO);
 
+	MemberVO memberSearch(MemberVO memberVO);
+	
+	void updatePassword(MemberVO memberVO);
 }
