@@ -30,42 +30,9 @@
             </form>
           </ul>
           <!-- 검색 ================================================== -->
-          <!-- 로그인 ================================================== -->
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>로그인</b> <span class="caret"></span></a>
-              <ul id="login-dp" class="dropdown-menu">
-                <li>
-                  <div class="row">
-                    <div class="col-md-12">
-                      소셜 로그인
-                      <div class="social-buttons">
-                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                        <a href="#" class="btn btn-go"><i class="fa fa-google"></i> Google</a>
-                      </div>
-                      <form class="form" role="form" method="post" action="${pageContext.request.contextPath}/login.do" accept-charset="UTF-8" id="loginForm">
-                        <div class="form-group">
-                          <input type="text" name="id" class="form-control" placeholder="아이디" required>
-                        </div>
-                        <div class="form-group">
-                          <input type="password" class="form-control" name="password" placeholder="비밀번호" required>
-                          <div class="help-block text-right"><a href="#">비밀번호 찾기</a></div>
-                        </div>
-                        <div class="form-group">
-                          <input type="submit" class="btn btn-primary btn-block" value="로그인">
-                        </div>
-     
-                      </form>
-                    </div>
-                    <div class="bottom text-center">
-                      회원이 아니세요? <a href="${pageContext.request.contextPath}/member/register_member_form.do"><strong style="color: blue">회원가입</strong></a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <!-- /.navbar-collapse -->
+          <!-- 로그인 START ================================================== -->
+		  <c:import url="../member/login_all_form.jsp"/>
+          <!-- 로그인 END ================================================== -->
         </div>
       </sec:authorize>
       <sec:authorize ifAllGranted="ROLE_MEMBER, ROLE_ADMIN">

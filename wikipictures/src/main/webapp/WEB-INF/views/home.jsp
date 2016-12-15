@@ -95,7 +95,7 @@
 	  });
 	  $("#loginForm").submit(function() {
 	    if ($("#loginForm :input[name=id]").val() == "") {
-	      alert("아이디를 입력하세요!");
+	      alert("이메일을 입력하세요!");
 	      return false;
 	    } else if ($("#loginForm :input[name=password]").val() == "") {
 	      alert("비밀번호를 입력하세요!");
@@ -148,43 +148,9 @@
             </ul>
             <!-- 검색 ================================================== -->
             
-            <!-- 로그인 ================================================== -->
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>로그인</b>
-            <span class="caret"></span></a>
-                <ul id="login-dp" class="dropdown-menu">
-                  <li>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <b style="color: #fff">소셜 로그인</b>
-                        <div class="social-buttons">
-                          <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                          <a href="#" class="btn btn-go"><i class="fa fa-google"></i> Google</a>
-                        </div>
-                        <form class="form" role="form" method="post" action="${pageContext.request.contextPath}/login.do" accept-charset="UTF-8" id="login-nav">
-                          <div class="form-group">
-                            <label class="sr-only" for="exampleInputId2">id</label>
-                            <input type="text" class="form-control" id="exampleInputEmailId2" name="id" placeholder="아이디" required>
-                          </div>
-                          <div class="form-group">
-                            <label class="sr-only" for="exampleInputPassword2">password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword2" name="password" placeholder="비밀번호" required>
-                            <div class="help-block text-right"><a href="${pageContext.request.contextPath}/member.do">비밀번호 찾기</a></div>
-                          </div>
-                          <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-block" value="로그인">
-                          </div>
-                        </form>
-                      </div>
-                      <div class="bottom text-center">
-                        회원이 아니세요?&nbsp;<a href="#" style="text-decoration:none;" data-toggle="modal" data-target="#registerModal"><strong style="color: Navy">&nbsp;회원가입</strong></a>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <!-- 로그인 START ================================================== -->
+			<c:import url="member/login_all_form.jsp"/>
+            <!-- 로그인 END ================================================== -->
           </div>
       </sec:authorize>
       <sec:authorize ifAllGranted="ROLE_MEMBER, ROLE_ADMIN">
@@ -262,8 +228,8 @@
       <div class="layer text-center">
         <a href="${pageContext.request.contextPath}/searchPicture.do?keyword=${timeMachineVO.timeMachineKeyword}">
           <!-- 서치 페이지 보여줌 -->
-          <h1 class="text-center">${timeMachineVO.timeMachineTitle }</h1>
-          <h3 class="text-center">${timeMachineVO.timeMachineContent }</h3>
+          <h1 class="text-center">${timeMachineVO.timeMachineTitle}</h1>
+          <h3 class="text-center">${timeMachineVO.timeMachineContent}</h3>
         </a>
       </div>
     </div>
