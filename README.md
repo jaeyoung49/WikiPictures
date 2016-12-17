@@ -11,11 +11,12 @@ Development Environment
 - WAS : Apache-tomcat-8.0.36
 - DB : Oracle 10g
 - Configuration Management Tool : GitHub
+- Architecture : Model2 Spring security
 
 - Tool
    - STS (Spring Tool Suite) 3.8.2.RELEASE (Platform: Eclipse Neon.1 (4.6.1))
    - Jandi : Communication
    - BeeCanvas : Online Whiteboard
    - StarUML : Usecase Diagram, Class Diagram
-   - trello : Kanban Board
+   - Trello : Kanban Board
 
